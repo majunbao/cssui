@@ -1,7 +1,5 @@
 # FUI
 
-![](简介资源/ui kit 1.png)
-
 # Build
 
 ```sh
