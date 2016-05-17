@@ -1,0 +1,60 @@
+/* ======  Columns  ====== */
+.column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
+.column {width:100%;}
+.column .col-2-1,.column .col-3-1,.column .col-4-1,.column .col-4-2,.column .col-5-1,.column .col-3-2,.column .col-4-3,.column .col-5-2,.column .col-5-3,.column .col-5-4{float:left;}
+/* default marg-per3 margin right 3% */
+.column .col-2-1 {width: 48.5%; margin-right:3%;}
+.column .col-3-1 {width: 31.3333%; margin-right:3%;}
+.column .col-4-1 {width: 22.75%; margin-right:3%;}
+.column .col-5-1 {width: 17.6%; margin-right:3%;}
+.column .col-3-2 {width: 65.6666%; margin-right:3%;}
+.column .col-4-2 {width: 48.5%; margin-right:3%;}
+.column .col-4-3 {width: 74.25%; margin-right:3%;}
+.column .col-5-2 {width: 38.2%; margin-right:3%;}
+.column .col-5-3 {width: 58.8%; margin-right:3%;}
+.column .col-5-4 {width: 79.4%; margin-right:3%;}
+/* margin right 0% */
+.marg-per0 > .col-2-1 {width: 50%; margin-right:0;}
+.marg-per0 > .col-3-1 {width: 33.3333%; margin-right:0;}
+.marg-per0 > .col-4-1 {width: 25%; margin-right:0;}
+.marg-per0 > .col-5-1 {width: 20%; margin-right:0;}
+.marg-per0 > .col-3-2 {width: 66.6666%; margin-right:0;}
+.marg-per0 > .col-4-2 {width: 50%; margin-right:0;}
+.marg-per0 > .col-4-3 {width: 75%; margin-right:0;}
+.marg-per0 > .col-5-2 {width: 40%; margin-right:0;}
+.marg-per0 > .col-5-3 {width: 60%; margin-right:0;}
+.marg-per0 > .col-5-4 {width: 80%; margin-right:0;}
+/* margin right 2% */
+.marg-per2 > .col-2-1 {width: 49%; margin-right:2%;}
+.marg-per2 > .col-3-1 {width: 32%; margin-right:2%;}
+.marg-per2 > .col-4-1 {width: 23.5%; margin-right:2%;}
+.marg-per2 > .col-5-1 {width: 18.4%; margin-right:2%;}
+.marg-per2 > .col-3-2 {width: 66%; margin-right:2%;}
+.marg-per2 > .col-4-2 {width: 49%; margin-right:2%;}
+.marg-per2 > .col-4-3 {width: 74.5%; margin-right:2%;}
+.marg-per2 > .col-5-2 {width: 38.8%; margin-right:2%;}
+.marg-per2 > .col-5-3 {width: 59.2%; margin-right:2%;}
+.marg-per2 > .col-5-4 {width: 79.6%; margin-right:2%;}
+/* margin right 4% */
+.marg-per4 > .col-2-1 {width: 48%; margin-right:4%;}
+.marg-per4 > .col-3-1 {width: 30.6667%; margin-right:4%;}
+.marg-per4 > .col-4-1 {width: 22%; margin-right:4%;}
+.marg-per4 > .col-5-1 {width: 16.8%; margin-right:4%;}
+.marg-per4 > .col-3-2 {width: 65.3333%; margin-right:4%;}
+.marg-per4 > .col-4-2 {width: 48%; margin-right:4%;}
+.marg-per4 > .col-4-3 {width: 74%; margin-right:4%;}
+.marg-per4 > .col-5-2 {width: 37.6%; margin-right:4%;}
+.marg-per4 > .col-5-3 {width: 58.4%; margin-right:4%;}
+.marg-per4 > .col-5-4 {width: 79.2%; margin-right:4%;}
+/* margin right 5% */
+.marg-per5 > .col-2-1 {width: 47.5%; margin-right:5%;}
+.marg-per5 > .col-3-1 {width: 30%; margin-right:5%;}
+.marg-per5 > .col-4-1 {width: 21.25%; margin-right:5%;}
+.marg-per5 > .col-5-1 {width: 16%; margin-right:5%;}
+.marg-per5 > .col-3-2 {width: 65%; margin-right:5%;}
+.marg-per5 > .col-4-2 {width: 47.5%; margin-right:5%;}
+.marg-per5 > .col-4-3 {width: 73.75%; margin-right:5%;}
+.marg-per5 > .col-5-2 {width: 37%; margin-right:5%;}
+.marg-per5 > .col-5-3 {width: 58%; margin-right:5%;}
+.marg-per5 > .col-5-4 {width: 79%; margin-right:5%;}
+.column .last {margin-right:0; *float:right; *clear:right;}

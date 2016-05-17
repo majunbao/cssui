@@ -1,0 +1,13 @@
+textarea {
+  border: 1px solid var(--grey-dark);
+  padding: 10px;
+  width: 468px;
+  min-height: 88px;
+}
+
+textarea:hover {
+  border-color: var(--theme-hover);
+}
+textarea:focus,textarea:active{
+  border-color: var(--theme-active);
+}

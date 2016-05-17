@@ -1,0 +1,22 @@
+[tip]{display: inline-block;width: 14px;height: 14px;color: #c92c2c;border:1px solid #c92c2c;border-radius: 50%;line-height:14px;vertical-align: middle;font-size: 12px;margin-left: 2px;text-align: center;}
+[tip]:hover{cursor: pointer;}
+[tip] .tip-content{
+  position: absolute;
+  background-color: #fffbcc;
+  border: 1px solid #facf84;
+  text-align: center;
+  padding:3px 6px;
+  max-width: 200px;
+  display: none;
+  color: #666;
+  font-size: 14px;
+  z-index: 99;
+  line-height:24px;
+  height: auto;
+}
+
+[tip]:hover .tip-content{
+  display: inline-block;
+}
+
+.tip.tip-a{color: #aaa;border:1px solid #aaa;}

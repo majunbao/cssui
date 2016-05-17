@@ -1,0 +1,28 @@
+.flow{
+  position:relative;
+  color:#fff;
+  padding:0;
+  display:inline-block;
+  height:35px;
+  width:95%;
+  margin-left:20px;
+  }
+.flow .first{ width:25%; height:30px;  float:left;}
+.icon{width:30px; height:30px; border:1px solid #49bce3;-webkit-border-radius:15px;
+-moz-border-radius:15px;
+-ms-border-radius:15px; border-radius:15px; float:left; line-height:30px; margin-top:10px; color:#a8acb9; font-size:14px; text-align:center;}
+.first.curr-border{border-bottom:2px solid #49bce3;}
+.icon.curr-icon{border:2px solid #49bce3;}
+.first.next-border{border-bottom:2px solid #dfe0f3;}
+.icon.next-icon{border:2px solid #dfe0f3;}
+.flow .second{ width:18%; height:30px; float:left;}
+.icon1{width:30px; height:30px; border:1px solid #49bce3;-webkit-border-radius:15px;
+-moz-border-radius:15px;
+-ms-border-radius:15px; border-radius:15px; float:left; line-height:30px; margin-top:10px; color:#a8acb9; font-size:14px; text-align:center;}
+.second.curr-border{border-bottom:2px solid #33ca7e;}
+.icon1.curr-icon{border:2px solid #33ca7e;}
+.second.next-border{border-bottom:2px solid #e4e7f0;}
+.icon1.next-icon{border:2px solid #e4e7f0;}
+.flow-txt{width:19.5%; float:left; height:25px; text-align:left;  margin-top:10px; font-size:14px; font-weight:bold;}
+.flow-txt.curr-txt{color:#62d38f;}
+.flow-txt.next-txt{color:#6d6c75;}

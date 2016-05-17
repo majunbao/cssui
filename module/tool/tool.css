@@ -1,0 +1,29 @@
+.clear:after {
+  content: "\20";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+.clear {
+  *zoom: 1; }
+
+.on-left {
+  float: left; }
+
+.on-right {
+  float: right; }
+
+.block {
+  display: block; }
+
+.inline {
+  display: inline-block;
+  zoom: 1;
+  *display: inline; }
+
+.none {
+  display: none; }
+
+.hidden {
+  overflow: hidden; }

@@ -1,0 +1,25 @@
+select{display: none; outline:none;}
+ #select.small{ width:120px;}
+.select_box{color:#fff; width:182px; line-height:25px; background:#4bbfe4;
+font-size:14px; font-weight:bold; margin:20px auto; -webkit-border-radius:5px;
+-moz-border-radius:5px;
+-ms-border-radius:5px;
+border-radius:5px; }
+.select_box.small{ width:120px;}
+.select_showbox{border: 1px solid #4bbfe4; height:25px; padding-left:5px; background:url(image/arrow.jpg) no-repeat 156px center; text-align:left;-webkit-border-radius:5px;
+-moz-border-radius:5px;
+-ms-border-radius:5px;
+border-radius:5px; width:175px; }
+.select_showbox1{border: 1px solid #4bbfe4; height:25px; padding-left:5px; background:url(image/arrow1.jpg) no-repeat 156px center; text-align:left;-webkit-border-radius:5px;
+-moz-border-radius:5px;
+-ms-border-radius:5px;
+border-radius:5px; width:175px; }
+.select_option{border-top:1px solid #71cff3; display: none; text-align:left;
+-webkit-border-radius:5px;
+-moz-border-radius:5px;
+-ms-border-radius:5px;
+border-radius:5px; width:140px; margin-top:-2px;}
+.select_option li{padding-left:5px; 
+text-align:left; margin-left:-38px;} 
+.select_option li.selected{color:#fff; background:#50bae2;}
+.select_option li.hover{background:#71cff3; color: #fff;}
