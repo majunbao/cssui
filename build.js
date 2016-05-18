@@ -28,6 +28,7 @@ function buildCss(){
     .use(require('postcss-for')())
     .use(require('postcss-simple-vars')())
     .use(require('postcss-css-variables')())
+    .use(require('postcss-calc')())
     .use(require('postcss-color-function')())
     .use(require('postcss-rgba-hex'))
     .process(css,{from: source.css, to: dist.css})

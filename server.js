@@ -1,12 +1,12 @@
 const http = require('http');
 const fs = require('fs');
+const os = require('os');
 
 const serverdir = 'dist';
 
 const server = http.createServer((req, res) => {
   let someHead = req.headers.accept;
   res.writeHead(200, {'Content-Type': someHead})
-  console.log(someHead)
   if(req.url === '/'){
     res.write(fs.readFileSync(serverdir + '/' + 'ui.html'));
     res.end();
@@ -22,4 +22,6 @@ const server = http.createServer((req, res) => {
   }
 })
 
-server.listen(8888);
+server.listen(8888, function(){
+  console.log("http://" + os.networkInterfaces().en0[1].address + ':8888')
+});

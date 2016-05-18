@@ -30,20 +30,12 @@ section article {
   width: 80%;
   text-align: center;
 }
-
-.column {
-  margin-bottom: 10px;
-}
-
-.column p {
-  margin: 6px 0;
-}
-
 .column p.col-num {
   text-align: center;
   background-color: var(--grey);
   height: 45px;
   line-height: 45px;
+  margin: 10px 0;
   color: var(--text)
 }
 
@@ -63,7 +55,7 @@ section article {
   display: block;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 20%;
   padding:0;
   background-color: var(--theme);
 }
@@ -75,7 +67,7 @@ section article {
 }
 
 
-@each $theme in (success, warn, error, dark, grey){
+@each $theme in (success, warning, error, dark, grey){
   .color.$theme{
     background-color: var(--$(theme));
   }
