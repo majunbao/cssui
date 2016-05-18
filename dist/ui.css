@@ -1006,6 +1006,15 @@ label.checkbox input:checked+i, label.radio input:checked+i{
 h1.logo {
   width: 1024px;
   margin: 60px auto;
+  font-size: 140px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  color: #43cb83
+}
+
+h1.logo small{
+  font-size: 20px;
+  color: #c0c7da
 }
 
 section {
