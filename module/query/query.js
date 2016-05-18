@@ -1,13 +1,30 @@
-var Query = function(selector){
-  this.getDOMObject(selector)
-};
+var $$ = function(selector, children) {
+  return _instance();
+  // if(!selector){
+  //   return _instance();
+  // }else if(selector){
+  //   // fun
+  // }else{
+  //   // dom
+  //   var dom = '<h1>This is h1.</h1>'
+  //   return _instance(dom, selector);
+  // }
+}
 
-Query.prototype.getDOMObject = function(selector) {
-  if (selector) {
-    return document.querySelector(selector);
+var _instance = function(dom, selector){
+  var dom = dom || [];
+  console.log(1)
+  dom.selector = selector;
+  if (!(this instanceof _instance)) {
+    console.log(2)
+    return new _instance;
+    
   }
-};
+  
+}
 
-var query = new Query('body');
+_instance.prototype = $$.fn = {};
 
-export default query;
+$$.fn.a = 2;
+
+export default $$;

@@ -6,6 +6,7 @@ const serverdir = 'dist';
 const server = http.createServer((req, res) => {
   let someHead = req.headers.accept;
   res.writeHead(200, {'Content-Type': someHead})
+  console.log(someHead)
   if(req.url === '/'){
     res.write(fs.readFileSync(serverdir + '/' + 'ui.html'));
     res.end();
