@@ -1,0 +1,13 @@
+/*主题色*/
+$theme: #89C4F4;
+/*推荐*/
+$success: #3FC380;
+/*警告*/
+$warning: #E08283;
+/*强烈阻止*/
+$error: #FEC956;
+/*禁用*/
+$disabled: #aaaaaa;
+
+/*链接*/
+$link: #666;

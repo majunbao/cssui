@@ -1,0 +1,10 @@
+label.checkbox, label.radio{}
+label.checkbox input, label.radio input{display: none}
+label.checkbox input+i, label.radio input+i{
+	display: inline-block;*display: inline;
+	width: 16px;height: 16px;background-color: red;
+}
+label.checkbox input:checked+i, label.radio input:checked+i{
+	background-color: blue;
+}
+

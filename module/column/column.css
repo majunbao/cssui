@@ -1,0 +1,47 @@
+/* ======  column  ====== */
+.column{
+  --width: 100%;;
+  --blank: 2%;
+}
+
+.column{
+  width: var(--width);
+}
+
+.column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
+
+.column > div{
+  margin-right: var(--blank);
+  float: left;
+}
+
+.column > [class*=col-]:last-child, .column > .last{
+  margin-right: 0;
+}
+
+@each $x,$y in (2),(1){
+  .column .col-$(x)-$(y){
+    width: calc( ((var(--width) - var(--blank)*($(x)-1) ) / $(x)) * $(y) + var(--blank)*($(y)-1) );
+  }
+}
+
+@each $x,$y in (3,3),(2,1){
+  .column .col-$(x)-$(y){
+    width: calc( ((var(--width) - var(--blank)*($(x)-1) ) / $(x)) * $(y) + var(--blank)*($(y)-1) );
+  }
+}
+
+@each $x,$y in (4,4,4),(3,2,1){
+  .column .col-$(x)-$(y){
+    width: calc( ((var(--width) - var(--blank)*($(x)-1) ) / $(x)) * $(y) + var(--blank)*($(y)-1) );
+  }
+}
+
+
+@each $x,$y in (5,5,5,5),(4,3,2,1){
+  .column .col-$(x)-$(y){
+    width: calc( ((var(--width) - var(--blank)*($(x)-1) ) / $(x)) * $(y) + var(--blank)*($(y)-1) );
+  }
+}
+
+

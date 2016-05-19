@@ -1,0 +1,14 @@
+.progress{
+	height: 35px;
+	line-height: 35px;
+	background-color: #F2F3F8;
+}
+.progress-bar{
+	background-color: var(--theme);
+	height: 100%;
+	color: #fff;
+	text-align: center;
+}
+.progress.success .progress-bar{
+	background-color: var(--success);
+}

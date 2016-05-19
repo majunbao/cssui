@@ -1,0 +1,89 @@
+h1.logo {
+  width: 1024px;
+  margin: 60px auto;
+  font-size: 140px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  color: var(--theme)
+}
+h1.logo small{
+  font-size: 20px;
+  color: var(--grey-dark);
+  font-family: sans-serif;
+}
+
+section {
+  font-family: verdana, "microsoft yahei";
+  width: 1024px;
+  margin: 0 auto 50px auto;
+  overflow: hidden;
+}
+
+section h2 {
+  font-size: 30px;
+  color: #666;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  font-weight: normal;
+  text-transform: capitalize;
+  font-variant: small-caps;
+}
+
+section article {
+  margin-bottom: 15px;
+}
+/*demo*/
+
+.module {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
+.column p.col-num {
+  text-align: center;
+  background-color: var(--grey);
+  height: 45px;
+  line-height: 45px;
+  margin: 10px 0;
+  color: var(--text)
+}
+
+.column:hover p.col-num {
+  background-color: var(--grey-dark)
+}
+/*Theme Color*/
+.demo-color {overflow: hidden;}
+.demo-color li{
+  float:left;
+  width: 16%;
+}
+.demo-color li .color{
+  margin-bottom:15px;
+}
+.color{
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  padding:0;
+  background-color: var(--theme);
+}
+.color.hover{
+  background-color: var(--theme-hover);
+}
+.color.active{
+  background-color: var(--theme-active);
+}
+
+
+@each $theme in (success, warning, error, dark, grey){
+  .color.$theme{
+    background-color: var(--$(theme));
+  }
+  .color.$theme.hover{
+    background-color: var(--$(theme)-hover);
+  }
+  .color.$theme.active{
+    background-color: var(--$(theme)-active);
+  }
+}

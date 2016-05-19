@@ -1,0 +1,24 @@
+.list{position:relative; padding:0px; margin:3px; }
+.num{ width:100%; float:left;}
+.icon{ width:100%; float:left;}
+.inputs{ width:100%; float:left;}
+.list li{float:left; height:25px; line-height:25px; list-style:none; clear:both; font-size:14px;}
+.icon font{ font-size:36px; color:#b2b0fb; line-height:30px;}
+.chekcbox input{display: none;}
+.chekcbox input+span{display:inline-block;width:13px;height: 13px; background:#3fcd85; 
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;}
+.chekcbox input:checked+span{ background:url(image/icon.jpg) center center;}
+
+.radio input{display: none;}
+.radio input+span{display:inline-block; width:20px; height:20px; background:url(image/radio.jpg) top left;}
+.radio input:checked+span{ background:url(image/radio_on.jpg) top left;}
+
+
+
+
+
+
+

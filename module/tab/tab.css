@@ -1,0 +1,30 @@
+.tab {
+  position: relative;
+}
+.tab > a {
+  display: inline-block;
+  background-color: var(--theme);
+  text-align: center;
+  padding: 0 10px;
+  min-width: 80px;
+  text-decoration: none;
+  color: #fff;
+  /*border-right: 1px solid color(var(--theme) b(20%));*/
+  line-height: 38px;
+  height: 38px;
+  float: left;
+}
+.tab > a.now{
+  color: #000;
+  font-weight: bold;
+  background-color: #f4f5f9;
+}
+.tab > div{
+  clear: left;
+  padding: 15px 10px 15px 10px;
+  background-color: #f4f5f9;
+  display: none;
+}
+.tab > div.now{
+  display: block;
+}
