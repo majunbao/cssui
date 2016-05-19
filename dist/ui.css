@@ -1014,7 +1014,8 @@ h1.logo {
 
 h1.logo small{
   font-size: 20px;
-  color: #c0c7da
+  color: #c0c7da;
+  font-family: sans-serif;
 }
 
 section {
