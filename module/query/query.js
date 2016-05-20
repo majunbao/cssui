@@ -10,6 +10,6 @@ $$.fn = $$.prototype = {
 }
 var a = new $$('aaa');
 
-console.log(a.selectorName())
+// console.log(a.selectorName())
 
 export default $$;

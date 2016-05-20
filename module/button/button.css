@@ -1,4 +1,3 @@
-
 .button{
   display: inline-block;
   *display: inline;
@@ -31,7 +30,7 @@
 }
 
 
-@each $theme in (success, warning, error, dark){
+@each $theme in (success, warning, error,grey, dark){
   .button.$theme{
     background-color: var(--$(theme));
     /*border-color: var(--$(theme)-active);*/

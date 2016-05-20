@@ -561,6 +561,17 @@ a:focus {
 .button.error:active{
   background-color: #db6334; }
 
+.button.grey{
+  background-color: #dde2ef;
+
+  /*border-color: var(--$(theme)-active);*/ }
+
+.button.grey:hover{
+  background-color: #ebf0fd; }
+
+.button.grey:active{
+  background-color: #c0c7da; }
+
 .button.dark{
   background-color: #3f3f4d;
 
@@ -643,7 +654,7 @@ input[type=text]{
   width: 278px;
   line-height: 43px;
   height: 43px;
-  border: 1px solid #c0c7da;
+  border: 2px solid #dde2ef;
   color: #576077; }
 
 input[type=password]{
@@ -651,7 +662,7 @@ input[type=password]{
   width: 278px;
   line-height: 43px;
   height: 43px;
-  border: 1px solid #c0c7da;
+  border: 2px solid #dde2ef;
   color: #576077; }
 
 input[type=text]:hover{
@@ -718,7 +729,7 @@ input.grey{
   border-color: #dde2ef; }
 
 input.grey:hover{
-  border-color: #f4f5f9; }
+  border-color: #ebf0fd; }
 
 input.grey:active{
   border-color: #c0c7da; }
@@ -727,8 +738,9 @@ input.grey:focus{
   border-color: #c0c7da; }
 
 input[disabled] {
-  background-color: #dde2ef;
-  border-color: #dde2ef;
+  background-color: #f4f5f9;
+  border: 2px solid #dde2ef;
+  color: #c0c7da;
 }
 
 input[disabled]:hover{
@@ -868,8 +880,8 @@ table.noborder th,table.noborder td{
 }
 
 .page a {
-  border: 1px solid #c0c7da;
-  color: #515163;
+  border: 2px solid #dde2ef;
+  color: #576077;
   border-left-width:0px;
   min-width: 24px;
   padding:0 10px;
@@ -880,7 +892,7 @@ table.noborder th,table.noborder td{
 
 .page a:first-child {
   margin-left: 0;
-  border-left-width: 1px;
+  border-left-width: 2px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
@@ -890,38 +902,20 @@ table.noborder th,table.noborder td{
   border-bottom-right-radius: 4px;
 }
 
-.page a.now {
-  background-color: #dde2ef;
-}
+.page a.now{
+  background-color: #dde2ef; }
+
+.page a:hover{
+  background-color: #dde2ef; }
 
 .page a.disabled {
   color: #999999;
 }
 
-.page a.button {
-  min-width: 30px;
-  border-radius: 0;
-  background-color: #fff;
-}
-
-.page input[type=text] {
-  width: 20px;
-  border: 1px solid #d7d7d7;
-  text-align: center;
-  height: 24px;
-  line-height: 24px;
-  padding: 0 5px;
-  border-radius: 0px;
-}
-
-.page cite {
-  top: -4px;
-}
-
 .popup {
-	padding: 30px;
+	padding: 35px;
 	background-color: #F2F3F8;
-	width: 380px;
+	width: 400px;
 	margin:0 auto;
 }
 
@@ -968,7 +962,7 @@ form fieldset > label.long {
 }
 
 textarea {
-  border: 1px solid #c0c7da;
+  border: 2px solid #dde2ef;
   padding: 10px;
   width: 468px;
   min-height: 88px;
@@ -983,6 +977,76 @@ textarea:focus{
 
 textarea:active{
   border-color: #2da867; }
+
+textarea.success{
+  border-color: #50bae2; }
+
+textarea.success:hover{
+  border-color: #71cff3; }
+
+textarea.success:active{
+  border-color: #3a9ec3; }
+
+textarea.success:focus{
+  border-color: #3a9ec3; }
+
+textarea.warning{
+  border-color: #f9b954; }
+
+textarea.warning:hover{
+  border-color: #fdcc7e; }
+
+textarea.warning:active{
+  border-color: #e7a133; }
+
+textarea.warning:focus{
+  border-color: #e7a133; }
+
+textarea.error{
+  border-color: #f57846; }
+
+textarea.error:hover{
+  border-color: #fb9267; }
+
+textarea.error:active{
+  border-color: #db6334; }
+
+textarea.error:focus{
+  border-color: #db6334; }
+
+textarea.dark{
+  border-color: #3f3f4d; }
+
+textarea.dark:hover{
+  border-color: #515163; }
+
+textarea.dark:active{
+  border-color: #30303c; }
+
+textarea.dark:focus{
+  border-color: #30303c; }
+
+textarea.grey{
+  border-color: #dde2ef; }
+
+textarea.grey:hover{
+  border-color: #ebf0fd; }
+
+textarea.grey:active{
+  border-color: #c0c7da; }
+
+textarea.grey:focus{
+  border-color: #c0c7da; }
+
+textarea[disabled] {
+  background-color: #f4f5f9;
+  border: 2px solid #dde2ef;
+  color: #c0c7da;
+}
+
+textarea[disabled]:hover,textarea[disabled]:focus {
+  cursor: not-allowed;
+}
 
 label.checkbox, label.radio{}
 
@@ -1004,7 +1068,7 @@ label.checkbox input:checked+i, label.radio input:checked+i{
 /*demo 上线后要删除*/
 
 h1.logo {
-  width: 1024px;
+  width: 1000px;
   margin: 60px auto;
   font-size: 140px;
   text-transform: capitalize;
@@ -1020,7 +1084,7 @@ h1.logo small{
 
 section {
   font-family: verdana, "microsoft yahei";
-  width: 1024px;
+  width: 1000px;
   margin: 0 auto 50px auto;
   overflow: hidden;
 }
@@ -1130,7 +1194,7 @@ section article {
   background-color: #dde2ef; }
 
 .color.grey.hover{
-  background-color: #f4f5f9; }
+  background-color: #ebf0fd; }
 
 .color.grey.active{
   background-color: #c0c7da; }

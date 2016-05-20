@@ -29,8 +29,6 @@ var ui = (function () {
   }
   var a = new $$('aaa');
 
-  console.log(a.selectorName())
-
   var init = {
   	tab: Tab,
     $$: $$

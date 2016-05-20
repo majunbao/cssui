@@ -1,5 +1,5 @@
 h1.logo {
-  width: 1024px;
+  width: 1000px;
   margin: 60px auto;
   font-size: 140px;
   text-transform: capitalize;
@@ -14,7 +14,7 @@ h1.logo small{
 
 section {
   font-family: verdana, "microsoft yahei";
-  width: 1024px;
+  width: 1000px;
   margin: 0 auto 50px auto;
   overflow: hidden;
 }

@@ -23,7 +23,7 @@ input[type=text], input[type=password] {
   width: 278px;
   line-height: 43px;
   height: 43px;
-  border:1px solid var(--grey-dark);
+  border:2px solid var(--grey);
   color: var(--text); 
 }
 input[type=text]:hover, input[type=password]:hover {
@@ -47,12 +47,13 @@ input[type=text]:focus, input[type=password]:active {
 }
 
 input[disabled] {
-  background-color: var(--disabled);
-  border-color: var(--disabled);
+  background-color: var(--grey-light);
+  border: 2px solid var(--grey);
+  color: var(--grey-dark);
 }
 
 input[disabled]:hover,input[disabled]:focus {
-  border-color: var(--disabled);
+  border-color: var(--grey);
   cursor: not-allowed;
 }
 

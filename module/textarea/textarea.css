@@ -1,5 +1,5 @@
 textarea {
-  border: 1px solid var(--grey-dark);
+  border: 2px solid var(--grey);
   padding: 10px;
   width: 468px;
   min-height: 88px;
@@ -10,4 +10,25 @@ textarea:hover {
 }
 textarea:focus,textarea:active{
   border-color: var(--theme-active);
+}
+@each $theme in (success, warning, error, dark, grey){
+  textarea.$theme{
+    border-color: var(--$(theme));
+  }
+  textarea.$theme:hover{
+    border-color: var(--$(theme)-hover);
+  }
+  textarea.$theme:active,textarea.$theme:focus{
+    border-color: var(--$(theme)-active);
+  }
+}
+
+textarea[disabled] {
+  background-color: var(--grey-light);
+  border: 2px solid var(--grey);
+  color: var(--grey-dark);
+}
+
+textarea[disabled]:hover,textarea[disabled]:focus {
+  cursor: not-allowed;
 }

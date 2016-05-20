@@ -19,7 +19,7 @@ const dist = {
 
 
 
-function buildCss(){
+function buildCss(filename){
   const css = fs.readFileSync(source.css, {encoding:'utf8'});
   // 处理css程序
   postcss()
@@ -33,11 +33,12 @@ function buildCss(){
     .use(require('postcss-rgba-hex'))
     .process(css,{from: source.css, to: dist.css})
     .then(function(result){
-      fs.writeFileSync(dist.css,result.css,'utf8')
+      fs.writeFileSync(dist.css,result.css,'utf8');
+      console.log(new Date().toLocaleTimeString() + ' '+ filename + ' 保存成功。ui.css 编译成功。')
     });
 }
 
-function buildJs(){
+function buildJs(filename){
   // 处理js程序
   rollup.rollup({
     entry: source.js,
@@ -52,7 +53,7 @@ function buildJs(){
       moduleName: 'ui',
       dest: dist.js
     })
-    console.log('write js deno. ' + new Date)
+    console.log(new Date().toLocaleTimeString() + ' '+ filename + ' 保存成功。ui.js 编译成功。')
   })
 }
 
@@ -66,9 +67,9 @@ function watch(){
       fs.watch('module/'+file, function(err, filename){
         if(filename){
           if(filename.indexOf('.css')>-1){
-            buildCss();
+            buildCss(filename);
           }else if(filename.indexOf('.js')>-1){
-            buildJs();
+            buildJs(filename);
           }
         }
       })

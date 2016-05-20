@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const os = require('os');
+const exec = require('child_process').exec;
 
 const serverdir = 'dist';
 
@@ -23,5 +24,6 @@ const server = http.createServer((req, res) => {
 })
 
 server.listen(8888, function(){
-  console.log("http://" + os.networkInterfaces().en0[1].address + ':8888')
+  console.log("http://" + os.networkInterfaces().en0[1].address + ':8888');
+  exec('open '+ "http://" + os.networkInterfaces().en0[1].address + ':8888')
 });
