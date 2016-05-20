@@ -26,4 +26,5 @@ const server = http.createServer((req, res) => {
 server.listen(8888, function(){
   console.log("http://" + os.networkInterfaces().en0[1].address + ':8888');
   exec('open '+ "http://" + os.networkInterfaces().en0[1].address + ':8888')
+  exec('node build');
 });
