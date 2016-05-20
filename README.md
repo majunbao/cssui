@@ -6,9 +6,18 @@
 node build
 node server
 ```
+# 兼容性
+
+* ie: >=6.0.0
+* chrome: >=1.0.0
 
 # 使用技术
 
+* nodejs: >=6.1.0
+* css: ^2.0.0 || ^3.0.0
+* html: ^4.0.0 || ^5.0.0
+* ecmascript: ^3.0.0
+* dom: ^3.0.0
 * postcss: ^5.0.20
 * postcss-calc: ^5.2.1
 * postcss-color-function: ^2.0.1
@@ -22,6 +31,10 @@ node server
 * rollup-plugin-includepaths: ^0.1.2
 
 # 更新日志
+
+  版本的格式
+  major.minor.patch
+  主版本号.次版本号.修补版本号
 
 ## 0.2.1 版本 2016-05-20
 
