@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>ui kit</title>
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="ui.css">
   <script src="ui.js"></script>
 </head>
@@ -336,7 +337,7 @@
   <section>
     <h2>notice</h2>
     <article>
-      <div class="notice margin-bottom-20">
+      <div class="notice">
         <!-- <i class="icon close"></i> -->
         <h1>恭喜你</h1>
         <p>你获得了一个小面包,请好好享用。</p>
@@ -345,59 +346,21 @@
           <a class="button warning">真酷</a>
         </div>
       </div>
-      <div class="notice success margin-bottom-20">
+      <br>
+      <div class="notice success">
         <!-- <i class="icon close"></i> -->
         <p>你获得了一个小面包,请好好享用。</p>
       </div>
-      <div class="notice warning margin-bottom-20">
+      <br>
+      <div class="notice warning">
         <!-- <i class="icon close"></i> -->
         <p>你获得了一个小面包,请好好享用。</p>
       </div>
-      <div class="notice error margin-bottom-20">
+      <br>
+      <div class="notice error">
         <!-- <i class="icon close"></i> -->
         <h1>欧码噶</h1>
         <p>这是最后一块小面包了，吃完就没了。</p>
-      </div>
-    </article>
-  </section>
-  <section>
-    <h2>page</h2>
-    <article>
-      <div class="page">
-        <a class="disabled"><i>< </i>上一页</a>
-        <a class="now">1</a>
-        <a>2</a>
-        <a>3</a>
-        <a>4</a>
-        <a>5</a>
-        <a>6</a>
-        <a>7</a>
-        <a>8</a>
-        <a>9</a>
-        <a>10</a>
-        <a>下一页<i> ></i></a>
-      </div>
-    </article>
-    <article>
-      <div class="page">
-        <a class="disabled">上一页</a>
-        <a class="now">1</a>
-        <a>2</a>
-        <a>3</a>
-        <a>4</a>
-        <a>5</a>
-        <a>6</a>
-        <a>7</a>
-        <a>8</a>
-        <a>9</a>
-        <a>10</a>
-        <a>下一页</a>
-      </div>
-    </article>
-    <article>
-      <div class="page">
-        <a><i>< </i>上一页</a>
-        <a>下一页<i> ></i></a>
       </div>
     </article>
   </section>
@@ -423,6 +386,31 @@
           <a class="button disabled">不要</a>
           <a class="button ">真酷</a>
         </div>
+      </div>
+    </article>
+  </section>
+  <section>
+    <h2>page</h2>
+    <article>
+      <div class="page">
+        <a class="disabled">上一页</a>
+        <a class="now">1</a>
+        <a>2</a>
+        <a>3</a>
+        <a>4</a>
+        <a>5</a>
+        <a>6</a>
+        <a>7</a>
+        <a>8</a>
+        <a>9</a>
+        <a>10</a>
+        <a>下一页</a>
+      </div>
+    </article>
+    <article>
+      <div class="page">
+        <a>上一页</a>
+        <a>下一页</a>
       </div>
     </article>
   </section>
@@ -466,7 +454,7 @@
         <fieldset>
           <label class="long"></label>
           <input type="submit" value="提交" class="button success large">
-          <input type="reset" value="重置" class="button disabled large">
+          <input type="reset" value="重置" class="button grey large">
         </fieldset>
       </form>
     </article>
@@ -475,6 +463,12 @@
     <h2>Textarea</h2>
     <article>
       <textarea></textarea>
+    </article>
+    <article>
+      <textarea class="success"></textarea>
+      <!-- <textarea class="warning"></textarea> -->
+      <!-- <textarea class="error"></textarea> -->
+      <textarea disabled>禁用</textarea>
     </article>
   </section>
   <section>
