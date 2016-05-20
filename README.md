@@ -3,7 +3,7 @@
 # Build
 
 ```sh
-node build;
+node build
 node server
 ```
 
