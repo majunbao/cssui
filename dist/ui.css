@@ -639,11 +639,11 @@ a:focus {
 }
 
 .button.success:hover{
-  background-color: undefined;
+  background-color: #69e0a1;
 }
 
 .button.success:active{
-  background-color: undefined;
+  background-color: #2da867;
 }
 
 .button.warning{
@@ -810,15 +810,15 @@ input.success{
 }
 
 input.success:hover{
-  border-color: undefined;
+  border-color: #69e0a1;
 }
 
 input.success:active{
-  border-color: undefined;
+  border-color: #2da867;
 }
 
 input.success:focus{
-  border-color: undefined;
+  border-color: #2da867;
 }
 
 input.warning{
@@ -1138,15 +1138,15 @@ textarea.success{
 }
 
 textarea.success:hover{
-  border-color: undefined;
+  border-color: #69e0a1;
 }
 
 textarea.success:active{
-  border-color: undefined;
+  border-color: #2da867;
 }
 
 textarea.success:focus{
-  border-color: undefined;
+  border-color: #2da867;
 }
 
 textarea.warning{
@@ -1334,11 +1334,11 @@ section article {
 }
 
 .color.success.hover{
-  background-color: undefined;
+  background-color: #69e0a1;
 }
 
 .color.success.active{
-  background-color: undefined;
+  background-color: #2da867;
 }
 
 .color.warning{

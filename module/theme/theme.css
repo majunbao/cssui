@@ -1,19 +1,19 @@
 :root{ 
-  --green: #43cb83;
-  --light-green: #69e0a1;
-  --dark-green: #2da867;
-
   --blue: #50bae2;
   --blue-light: #71cff3;
   --blue-dark: #3a9ec3;
 
+  --green: #43cb83;
+  --green-light: #69e0a1;
+  --green-dark: #2da867;
+
   --orange: #f9b954;
-  --light-orange: #fdcc7e;
-  --dark-orange: #e7a133;
+  --orange-light: #fdcc7e;
+  --orange-dark: #e7a133;
   
   --red: #f57846;
-  --light-red: #fb9267;
-  --dark-red: #db6334;
+  --red-light: #fb9267;
+  --red-dark: #db6334;
 
   --dark: #3f3f4d;
   --dark-light: #515163;
@@ -33,7 +33,7 @@
   --theme-active: var(--blue-dark);
 
   --success: var(--green);
-  --success-hover: var(--green-linght);
+  --success-hover: var(--green-light);
   --success-active: var(--green-dark);
 
   --warning: #f9b954;

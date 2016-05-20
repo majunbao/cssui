@@ -44,7 +44,7 @@ input[type=text]:focus, input[type=password]:active {
   input.$theme:hover{
     border-color: var(--$(theme)-hover);
   }
-  input.$theme:active,input.$theme:focus{
+  input.$theme:active, input.$theme:focus{
     border-color: var(--$(theme)-active);
   }
 }
