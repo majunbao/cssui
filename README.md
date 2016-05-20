@@ -32,9 +32,9 @@ node server
 
 # 更新日志
 
-  版本的格式
-  major.minor.patch
-  主版本号.次版本号.修补版本号
+> 版本的格式
+> major.minor.patch
+> 主版本号.次版本号.修补版本号
 
 ## 0.2.1 版本 2016-05-20
 
