@@ -10,8 +10,9 @@ form fieldset > label {
   min-width: 100px;
   text-align: right;
   margin-right: 10px;
+  vertical-align: top;
   position: relative;
-  top: -2px
+  top: 13px;
 }
 
 form fieldset > label.long {

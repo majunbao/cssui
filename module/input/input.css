@@ -4,8 +4,8 @@ input[type=text], input[type=password], input[type=search], textarea {
   margin: 0;
   border: 0;
   outline: none;
+  /*去除ios webkit默认样式*/
   -webkit-appearance: none;
-  /*去除input默认样式*/
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
