@@ -4,8 +4,8 @@
   --dark-green: #2da867;
 
   --blue: #50bae2;
-  --light-blue: #71cff3;
-  --dark-blue: #3a9ec3;
+  --blue-light: #71cff3;
+  --blue-dark: #3a9ec3;
 
   --orange: #f9b954;
   --light-orange: #fdcc7e;
@@ -28,13 +28,13 @@
 }
 
 :root{ 
-  --theme: #43cb83;
-  --theme-hover: #69e0a1;
-  --theme-active: #2da867;
+  --theme: var(--blue);
+  --theme-hover: var(--blue-light);
+  --theme-active: var(--blue-dark);
 
-  --success: #50bae2;
-  --success-hover: #71cff3;
-  --success-active: #3a9ec3;
+  --success: var(--green);
+  --success-hover: var(--green-linght);
+  --success-active: var(--green-dark);
 
   --warning: #f9b954;
   --warning-hover: #fdcc7e;

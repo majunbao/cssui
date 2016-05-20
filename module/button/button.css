@@ -36,7 +36,6 @@
   border-radius: 20px;
 }
 
-
 @each $theme in (success, warning, error,grey, dark){
   .button.$theme{
     background-color: var(--$(theme));
