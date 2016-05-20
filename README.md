@@ -13,7 +13,7 @@ node server
 
 # 使用技术
 
-* nodejs: >=6.1.0
+* nodejs: latest
 * css: ^2.0.0 || ^3.0.0
 * html: ^4.0.0 || ^5.0.0
 * ecmascript: ^3.0.0
