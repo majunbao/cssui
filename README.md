@@ -47,3 +47,7 @@ node server
 * 更新 table 模块
 * 更新 page 模块
 * 更新 textarea 模块
+
+## 版本
+
+* theme模块：添加注释，theme模块用于存放设计师的配色，定义整个UI的整体风格。

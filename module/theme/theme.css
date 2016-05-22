@@ -1,7 +1,15 @@
-:root{ 
-  --blue: #50bae2;
-  --blue-light: #71cff3;
-  --blue-dark: #3a9ec3;
+/***********************************************************
+* 这里是设计师的配色方案，设计师应该了解前端工程师需要的哪些配色需求
+* 每一套UI都会有个主题色，例如这里的主题色是blue
+* green、orange、red分别对应UI的不同状态：成功、警告、禁止
+* dark、grey 分别对应黑色和灰色的色系
+* 每种颜色都在色系内取一深一浅两种颜色，往往深色对应鼠标点击的颜色，
+* 浅色对应鼠标移入的颜色。
+***********************************************************/
+:root{
+  --blue: #50bae2;          
+  --blue-light: #71cff3;    
+  --blue-dark: #3a9ec3;     
 
   --green: #43cb83;
   --green-light: #69e0a1;
@@ -27,19 +35,30 @@
   --link: #4da9f5;
 }
 
-:root{ 
+/***********************************************************
+* 这里是前端工程师的配色方案，根据设计师的配色填写下面的值
+* 每一套UI都会有个主题色，例如这里的主题色是blue
+* green、orange、red分别对应UI的不同状态：成功、警告、禁止
+* dark、grey 分别对应黑色和灰色的色系
+***********************************************************/
+
+:root{
+  /*thme 是主题色*/
   --theme: var(--blue);
   --theme-hover: var(--blue-light);
   --theme-active: var(--blue-dark);
 
+  /*不同的UI不同的状态，这里是成功的状态*/
   --success: var(--green);
   --success-hover: var(--green-light);
   --success-active: var(--green-dark);
 
+  /*不同的UI不同的状态，这里是警告的状态*/
   --warning: #f9b954;
   --warning-hover: #fdcc7e;
   --warning-active: #e7a133;
   
+  /*不同的UI不同的状态，这里是禁止的状态*/
   --error: #f57846;
   --error-hover: #fb9267;
   --error-active: #db6334;
