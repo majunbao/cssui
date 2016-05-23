@@ -20,3 +20,65 @@
 }
 
 .tip.tip-a{color: #aaa;border:1px solid #aaa;}
+
+
+.tip{
+  position: absolute;
+  padding:5px;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  max-width: 220px;
+}
+.tip .tip-inner{
+  background-color: var(--dark-dark);
+  color: var(--grey-light);
+  padding:8px 22px;
+  border-radius: var(--radius);
+}
+.tip .tip-arrow{
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border:5px dashed var(--dark-dark);
+}
+.tip.tip-top .tip-arrow, .tip.tip-bottom .tip-arrow{
+  left: 50%;
+  margin-left: -5px;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+.tip.tip-top .tip-arrow{
+  bottom:0;
+  border-bottom: none;
+}
+.tip.tip-bottom .tip-arrow{
+  top: 0;
+  border-top: none;
+}
+
+.tip.tip-left .tip-arrow, .tip.tip-right .tip-arrow{
+  top: 50%;
+  margin-top: -5px;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.tip.tip-left .tip-arrow{
+  right:0;
+  border-right: none;
+}
+.tip.tip-right .tip-arrow{
+  left: 0;
+  border-left: none;
+}
+
+.tip.large .tip-inner{
+  max-width: 130px;
+}
+.tip.small{
+  font-size: 12px;
+}
+.tip.small .tip-inner{
+  padding: 6px 15px;
+}

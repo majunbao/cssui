@@ -87,3 +87,9 @@ section article {
     background-color: var(--$(theme)-active);
   }
 }
+
+.demo-tip {position: relative;width: 1000px;height: 50px;}
+.demo-tip .tip.tip-top{margin-left: 0%;}
+.demo-tip .tip.tip-right{margin-left: 20%;}
+.demo-tip .tip.tip-bottom{margin-left: 40%;}
+.demo-tip .tip.tip-left{margin-left: 60%;}

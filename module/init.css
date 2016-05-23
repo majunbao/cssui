@@ -14,6 +14,8 @@
 @import 'input/input.css';
 @import 'table/table.css';
 @import 'tab/tab.css';
+@import 'label/label.css';
+@import 'tip/tip.css';
 @import 'notice/notice.css';
 @import 'page/page.css';
 @import 'popup/popup.css';

@@ -700,20 +700,6 @@ a:focus {
   background-color: #db6334;
 }
 
-.button.grey{
-  background-color: #dde2ef;
-
-  /*border-color: var(--$(theme)-active);*/
-}
-
-.button.grey:hover{
-  background-color: #ebf0fd;
-}
-
-.button.grey:active{
-  background-color: #c0c7da;
-}
-
 .button.dark{
   background-color: #3f3f4d;
 
@@ -726,6 +712,20 @@ a:focus {
 
 .button.dark:active{
   background-color: #30303c;
+}
+
+.button.grey{
+  background-color: #dde2ef;
+
+  /*border-color: var(--$(theme)-active);*/
+}
+
+.button.grey:hover{
+  background-color: #ebf0fd;
+}
+
+.button.grey:active{
+  background-color: #c0c7da;
 }
 
 .button.disabled{
@@ -1026,6 +1026,137 @@ table.noborder th,table.noborder td{
   display: block;
 }
 
+.label{
+  display: inline-block;
+  color: #fff;
+  background-color: #50bae2;
+  padding:5px 10px;
+  border-radius: 4px;
+}
+
+.label.radius{
+  border-radius: 20px;
+}
+
+.label.success{
+  background-color: #43cb83;
+}
+
+.label.warning{
+  background-color: #f9b954;
+}
+
+.label.error{
+  background-color: #f57846;
+}
+
+.label.dark{
+  background-color: #3f3f4d;
+}
+
+.label.grey{
+  background-color: #dde2ef;
+}
+
+.label-group .label{margin-right: 5px;}
+
+.label-group .label:last-child{margin-right: 0;}
+
+[tip]{display: inline-block;width: 14px;height: 14px;color: #c92c2c;border:1px solid #c92c2c;border-radius: 50%;line-height:14px;vertical-align: middle;font-size: 12px;margin-left: 2px;text-align: center;}
+
+[tip]:hover{cursor: pointer;}
+
+[tip] .tip-content{
+  position: absolute;
+  background-color: #fffbcc;
+  border: 1px solid #facf84;
+  text-align: center;
+  padding:3px 6px;
+  max-width: 200px;
+  display: none;
+  color: #666;
+  font-size: 14px;
+  z-index: 99;
+  line-height:24px;
+  height: auto;
+}
+
+[tip]:hover .tip-content{
+  display: inline-block;
+}
+
+.tip.tip-a{color: #aaa;border:1px solid #aaa;}
+
+.tip{
+  position: absolute;
+  padding:5px;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  max-width: 220px;
+}
+
+.tip .tip-inner{
+  background-color: #30303c;
+  color: #f4f5f9;
+  padding:8px 22px;
+  border-radius: 4px;
+}
+
+.tip .tip-arrow{
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border:5px dashed #30303c;
+}
+
+.tip.tip-top .tip-arrow, .tip.tip-bottom .tip-arrow{
+  left: 50%;
+  margin-left: -5px;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+
+.tip.tip-top .tip-arrow{
+  bottom:0;
+  border-bottom: none;
+}
+
+.tip.tip-bottom .tip-arrow{
+  top: 0;
+  border-top: none;
+}
+
+.tip.tip-left .tip-arrow, .tip.tip-right .tip-arrow{
+  top: 50%;
+  margin-top: -5px;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.tip.tip-left .tip-arrow{
+  right:0;
+  border-right: none;
+}
+
+.tip.tip-right .tip-arrow{
+  left: 0;
+  border-left: none;
+}
+
+.tip.large .tip-inner{
+  max-width: 130px;
+}
+
+.tip.small{
+  font-size: 12px;
+}
+
+.tip.small .tip-inner{
+  padding: 6px 15px;
+}
+
 .notice{
 	padding: 20px;
 	color: #fff;
@@ -1102,20 +1233,41 @@ table.noborder th,table.noborder td{
 }
 
 .progress{
-	height: 35px;
-	line-height: 35px;
-	background-color: #F2F3F8;
+	height: 31px;
+	line-height: 31px;
+  border:4px solid #f4f5f9;
+	background-color: #f4f5f9;
 }
 
 .progress-bar{
 	background-color: #50bae2;
-	height: 100%;
-	color: #fff;
+  background-image: repeating-linear-gradient(-45deg, #50bae2, #50bae2 10px, #71cff3 10px, #71cff3 20px);
+	color: #f4f5f9;
 	text-align: center;
+  animation: barAnimation 12s linear infinite;
 }
 
 .progress.success .progress-bar{
 	background-color: #43cb83;
+  background-image: repeating-linear-gradient(-45deg, #43cb83, #43cb83 10px, #69e0a1 10px, #69e0a1 20px);
+}
+
+@keyframes barAnimation{
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 600px 0%;
+  }
+}
+
+.progress.small{
+  height: 14px;line-height: 14px;
+}
+
+.progress.radius{
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 form > fieldset {
@@ -1414,3 +1566,13 @@ section article {
 .color.grey.active{
   background-color: #c0c7da;
 }
+
+.demo-tip {position: relative;width: 1000px;height: 50px;}
+
+.demo-tip .tip.tip-top{margin-left: 0%;}
+
+.demo-tip .tip.tip-right{margin-left: 20%;}
+
+.demo-tip .tip.tip-bottom{margin-left: 40%;}
+
+.demo-tip .tip.tip-left{margin-left: 60%;}

@@ -1,14 +1,35 @@
 .progress{
-	height: 35px;
-	line-height: 35px;
-	background-color: #F2F3F8;
+	height: 31px;
+	line-height: 31px;
+  border:4px solid var(--grey-light);
+	background-color: var(--grey-light);
 }
 .progress-bar{
 	background-color: var(--theme);
-	height: 100%;
-	color: #fff;
+  background-image: repeating-linear-gradient(-45deg, var(--theme), var(--theme) 10px, var(--theme-hover) 10px, var(--theme-hover) 20px);
+	color: var(--grey-light);
 	text-align: center;
+  animation: barAnimation 12s linear infinite;
 }
 .progress.success .progress-bar{
 	background-color: var(--success);
+  background-image: repeating-linear-gradient(-45deg, var(--success), var(--success) 10px, var(--success-hover) 10px, var(--success-hover) 20px);
+}
+
+@keyframes barAnimation{
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 600px 0%;
+  }
+}
+
+.progress.small{
+  height: 14px;line-height: 14px;
+}
+
+.progress.radius{
+  border-radius: 20px;
+  overflow: hidden;
 }
