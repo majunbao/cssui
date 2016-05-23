@@ -18,6 +18,7 @@ node server
 * html: ^4.0.0 || ^5.0.0
 * ecmascript: ^3.0.0
 * dom: ^3.0.0
+* sizzle: 2.3.1
 * postcss: ^5.0.20
 * postcss-calc: ^5.2.1
 * postcss-color-function: ^2.0.1
@@ -48,6 +49,11 @@ node server
 * 更新 page 模块
 * 更新 textarea 模块
 
-## 版本
+## 0.33.2 版本 2016-05-23
 
-* theme模块：添加注释，theme模块用于存放设计师的配色，定义整个UI的整体风格。
+* 更新 theme 模块：添加注释。theme 模块用于存放设计师的配色，定义整个UI的风格。
+* 添加 progress 模块
+* 添加 tip 模块
+* 添加 sizzle 模块
+* 添加 label 模块
+

@@ -1,6 +1,22 @@
 var ui = (function () {
   'use strict';
 
+  function Tab(options){
+  	options = options || {};
+  }
+
+  Tab.prototype.render = function(options){
+  	var selector = options.selector;
+
+  	if(selector){
+  		
+  	}
+  }
+
+  var tab = new Tab({
+
+  })
+
   /*!
    * Sizzle CSS Selector Engine v2.3.1-pre
    * https://sizzlejs.com/
@@ -24,7 +40,7 @@ var ui = (function () {
   var sortInput;
   var hasDuplicate;
   var setDocument;
-  var document;
+  var document$1;
   var docElem;
   var documentIsHTML;
   var rbuggyQSA;
@@ -192,10 +208,10 @@ var ui = (function () {
   	// Try to shortcut find operations (as opposed to filters) in HTML documents
   	if ( !seed ) {
 
-  		if ( ( context ? context.ownerDocument || context : preferredDoc ) !== document ) {
+  		if ( ( context ? context.ownerDocument || context : preferredDoc ) !== document$1 ) {
   			setDocument( context );
   		}
-  		context = context || document;
+  		context = context || document$1;
 
   		if ( documentIsHTML ) {
 
@@ -340,7 +356,7 @@ var ui = (function () {
    * @param {Function} fn Passed the created element and returns a boolean result
    */
   function assert( fn ) {
-  	var el = document.createElement("fieldset");
+  	var el = document$1.createElement("fieldset");
 
   	try {
   		return !!fn( el );
@@ -504,19 +520,19 @@ var ui = (function () {
   		doc = node ? node.ownerDocument || node : preferredDoc;
 
   	// Return early if doc is invalid or already selected
-  	if ( doc === document || doc.nodeType !== 9 || !doc.documentElement ) {
-  		return document;
+  	if ( doc === document$1 || doc.nodeType !== 9 || !doc.documentElement ) {
+  		return document$1;
   	}
 
   	// Update global variables
-  	document = doc;
-  	docElem = document.documentElement;
-  	documentIsHTML = !isXML( document );
+  	document$1 = doc;
+  	docElem = document$1.documentElement;
+  	documentIsHTML = !isXML( document$1 );
 
   	// Support: IE 9-11, Edge
   	// Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
-  	if ( preferredDoc !== document &&
-  		(subWindow = document.defaultView) && subWindow.top !== subWindow ) {
+  	if ( preferredDoc !== document$1 &&
+  		(subWindow = document$1.defaultView) && subWindow.top !== subWindow ) {
 
   		// Support: IE 11, Edge
   		if ( subWindow.addEventListener ) {
@@ -544,12 +560,12 @@ var ui = (function () {
 
   	// Check if getElementsByTagName("*") returns only elements
   	support.getElementsByTagName = assert(function( el ) {
-  		el.appendChild( document.createComment("") );
+  		el.appendChild( document$1.createComment("") );
   		return !el.getElementsByTagName("*").length;
   	});
 
   	// Support: IE<9
-  	support.getElementsByClassName = rnative.test( document.getElementsByClassName );
+  	support.getElementsByClassName = rnative.test( document$1.getElementsByClassName );
 
   	// Support: IE<10
   	// Check if getElementById returns elements by name
@@ -557,7 +573,7 @@ var ui = (function () {
   	// so use a roundabout getElementsByName test
   	support.getById = assert(function( el ) {
   		docElem.appendChild( el ).id = expando;
-  		return !document.getElementsByName || !document.getElementsByName( expando ).length;
+  		return !document$1.getElementsByName || !document$1.getElementsByName( expando ).length;
   	});
 
   	// ID filter and find
@@ -669,7 +685,7 @@ var ui = (function () {
   	// See https://bugs.jquery.com/ticket/13378
   	rbuggyQSA = [];
 
-  	if ( (support.qsa = rnative.test( document.querySelectorAll )) ) {
+  	if ( (support.qsa = rnative.test( document$1.querySelectorAll )) ) {
   		// Build QSA regex
   		// Regex strategy adopted from Diego Perini
   		assert(function( el ) {
@@ -722,7 +738,7 @@ var ui = (function () {
 
   			// Support: Windows 8 Native Apps
   			// The type and name attributes are restricted during .innerHTML assignment
-  			var input = document.createElement("input");
+  			var input = document$1.createElement("input");
   			input.setAttribute( "type", "hidden" );
   			el.appendChild( input ).setAttribute( "name", "D" );
 
@@ -831,10 +847,10 @@ var ui = (function () {
   			(!support.sortDetached && b.compareDocumentPosition( a ) === compare) ) {
 
   			// Choose the first element that is related to our preferred document
-  			if ( a === document || a.ownerDocument === preferredDoc && contains(preferredDoc, a) ) {
+  			if ( a === document$1 || a.ownerDocument === preferredDoc && contains(preferredDoc, a) ) {
   				return -1;
   			}
-  			if ( b === document || b.ownerDocument === preferredDoc && contains(preferredDoc, b) ) {
+  			if ( b === document$1 || b.ownerDocument === preferredDoc && contains(preferredDoc, b) ) {
   				return 1;
   			}
 
@@ -862,8 +878,8 @@ var ui = (function () {
 
   		// Parentless nodes are either documents or disconnected
   		if ( !aup || !bup ) {
-  			return a === document ? -1 :
-  				b === document ? 1 :
+  			return a === document$1 ? -1 :
+  				b === document$1 ? 1 :
   				aup ? -1 :
   				bup ? 1 :
   				sortInput ?
@@ -900,7 +916,7 @@ var ui = (function () {
   			0;
   	};
 
-  	return document;
+  	return document$1;
   };
 
   Sizzle.matches = function( expr, elements ) {
@@ -909,7 +925,7 @@ var ui = (function () {
 
   Sizzle.matchesSelector = function( elem, expr ) {
   	// Set document vars if needed
-  	if ( ( elem.ownerDocument || elem ) !== document ) {
+  	if ( ( elem.ownerDocument || elem ) !== document$1 ) {
   		setDocument( elem );
   	}
 
@@ -934,12 +950,12 @@ var ui = (function () {
   		} catch (e) {}
   	}
 
-  	return Sizzle( expr, document, null, [ elem ] ).length > 0;
+  	return Sizzle( expr, document$1, null, [ elem ] ).length > 0;
   };
 
   Sizzle.contains = function( context, elem ) {
   	// Set document vars if needed
-  	if ( ( context.ownerDocument || context ) !== document ) {
+  	if ( ( context.ownerDocument || context ) !== document$1 ) {
   		setDocument( context );
   	}
   	return contains( context, elem );
@@ -947,7 +963,7 @@ var ui = (function () {
 
   Sizzle.attr = function( elem, name ) {
   	// Set document vars if needed
-  	if ( ( elem.ownerDocument || elem ) !== document ) {
+  	if ( ( elem.ownerDocument || elem ) !== document$1 ) {
   		setDocument( elem );
   	}
 
@@ -1433,7 +1449,7 @@ var ui = (function () {
   		},
 
   		"focus": function( elem ) {
-  			return elem === document.activeElement && (!document.hasFocus || document.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
+  			return elem === document$1.activeElement && (!document$1.hasFocus || document$1.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
   		},
 
   		// Boolean properties
@@ -1912,7 +1928,7 @@ var ui = (function () {
   				len = elems.length;
 
   			if ( outermost ) {
-  				outermostContext = context === document || context || outermost;
+  				outermostContext = context === document$1 || context || outermost;
   			}
 
   			// Add elements passing elementMatchers directly to results
@@ -1921,12 +1937,12 @@ var ui = (function () {
   			for ( ; i !== len && (elem = elems[i]) != null; i++ ) {
   				if ( byElement && elem ) {
   					j = 0;
-  					if ( !context && elem.ownerDocument !== document ) {
+  					if ( !context && elem.ownerDocument !== document$1 ) {
   						setDocument( elem );
   						xml = !documentIsHTML;
   					}
   					while ( (matcher = elementMatchers[j++]) ) {
-  						if ( matcher( elem, context || document, xml) ) {
+  						if ( matcher( elem, context || document$1, xml) ) {
   							results.push( elem );
   							break;
   						}
@@ -2131,7 +2147,7 @@ var ui = (function () {
   // Detached nodes confoundingly follow *each other*
   support.sortDetached = assert(function( el ) {
   	// Should return 1, but returns 4 (following)
-  	return el.compareDocumentPosition( document.createElement("fieldset") ) & 1;
+  	return el.compareDocumentPosition( document$1.createElement("fieldset") ) & 1;
   });
 
   // Support: IE<8
@@ -2178,71 +2194,46 @@ var ui = (function () {
   	});
   }
 
-  var query  = function(selector, content){
-    return new query.fn.init(selector)
+  var Calendar = function(){
+
   }
-  var init$1;
-
-  query.find = Sizzle;
-
-  query.fn = query.prototype = {
-    name: 'query'
-  }
-
-  init$1 = query.fn.init = function(selector){
-    if(!selector){
-      return this;
+  Calendar.prototype = {
+    init : function(y, m, d){
+      var week = new Date(y, m-1, d).getDay();
+      var weekstr="";
+      switch(week){
+        case 1: weekstr="星期一"; break;
+        case 2: weekstr="星期二"; break;
+        case 3: weekstr="星期三"; break;
+        case 4: weekstr="星期四"; break;
+        case 5: weekstr="星期五"; break;
+        case 6: weekstr="星期六"; break;
+        case 7: weekstr="星期日"; break;
+      }
+      return {
+        weekstr: weekstr,
+        week: week
+      };
     }
-    if(selector){
-      this.length = 1;
-      console.log(this)
-      merge(this, Sizzle(selector));
-      console.log(this)
-      return this;
-    }
-  },
-
-  init$1.prototype = query.fn;
-
-  query.fn.a = function(){
-    console.log(2)
-  };
-
-  // Support: Android <=4.0 only, PhantomJS 1 only
-  // push.apply(_, arraylike) throws on ancient WebKit
-  var merge = function( first, second ) {
-    var len = +second.length,
-      j = 0,
-      i = first.length;
-
-    for ( ; j < len; j++ ) {
-      first[ i++ ] = second[ j ];
-    }
-
-    first.length = i;
-
-    return first;
   }
 
-  function Tab(options){
-  	options = options || {};
+  Calendar.prototype.render = function(){
+    var week = Calendar.prototype.init(2016,5,25).week;
+    var dom = document.getElementsByClassName('calendar')[0];
+    var td = dom.getElementsByTagName('td');
+    var i = 1;
+    Array.prototype.forEach.call(td, function(html){
+      // html[week] = i++;
+    })
   }
 
-  Tab.prototype.render = function(options){
-  	var selector = options.selector;
-
-  	if(selector){
-  		
-  	}
-  }
-
-  var tab = new Tab({
-
+  document.addEventListener('DOMContentLoaded', function(){
+    Calendar.prototype.render();
   })
 
   var init = {
   	tab: Tab,
-    $$: query
+    calendar: Calendar
   }
 
   return init;

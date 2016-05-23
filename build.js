@@ -52,8 +52,8 @@ function buildJs(filename){
       format: 'iife',
       moduleName: 'ui',
       dest: dist.js
-    })
-    console.log(new Date().toLocaleTimeString() + ' '+ filename + ' 保存成功。ui.js 编译成功。')
+    });
+    console.log(new Date().toLocaleTimeString() + ' '+ filename + ' 保存成功。ui.js 编译成功。');
   })
 }
 
@@ -70,6 +70,7 @@ function watch(){
             buildCss(filename);
           }else if(filename.indexOf('.js')>-1){
             buildJs(filename);
+
           }
         }
       })

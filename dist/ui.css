@@ -1270,6 +1270,10 @@ table.noborder th,table.noborder td{
   overflow: hidden;
 }
 
+.calendar{
+  
+}
+
 form > fieldset {
   border: none;
   padding: 0 0 12px 0;
