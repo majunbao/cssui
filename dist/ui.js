@@ -2194,6 +2194,38 @@ var ui = (function () {
   	});
   }
 
+  var dateUtil = {};
+
+  dateUtil.isDateObject = function(object){
+
+  }
+
+  dateUtil.parse = function(){
+
+  }
+  dateUtil.format = function(){
+    
+  }
+
+  // @description 是否为闰年
+  // @param year {num} 可能是年份或者为一个date实例对象
+  // @return {boolean} 返回值
+  dateUtil.isLeapYear = function(year){
+    if((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  dateUtil.getDaysOfMonth = function(year, month){
+    return [31, dateUtil.isLeapYear(year)? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month-1]
+  }
+
+  dateUtil.getBeginDayOfMouth = function(year, month){
+    return new Date(year, month-1).getDay();
+  }
+
   var Calendar = function(){
 
   }
@@ -2217,18 +2249,42 @@ var ui = (function () {
     }
   }
 
-  Calendar.prototype.render = function(){
-    var week = Calendar.prototype.init(2016,5,25).week;
-    var dom = document.getElementsByClassName('calendar')[0];
-    var td = dom.getElementsByTagName('td');
-    var i = 1;
-    Array.prototype.forEach.call(td, function(html){
-      // html[week] = i++;
-    })
+  Calendar.prototype.render = function(y,d){
+    var week = dateUtil.getBeginDayOfMouth(y, d);
+    var dom = document.getElementsByClassName('calendar')[0].getElementsByTagName('table')[0];
+    dom.innerHTML = Calendar.prototype.td(week, dateUtil.getDaysOfMonth(y,d));
+  }
+
+  Calendar.prototype.td = function(start, date){
+    var data = [];
+    var d = date-start
+    // 上个月日期
+    for(var i = 0; i<start;i++){
+      data.push('<td class="disabled"><a>' + (++d) +'</a></td>');
+    }
+    // 当月日期
+    for(var i = 1;i<=date;i++){
+      data.push('<td><a>' + i + '</a></td>');
+    }
+    // 下个月日期
+    for(var i = 1;i<= (35-start-date);i++){
+      data.push('<td class="disabled"><a>' + i +'</a></td>');
+    }
+    var result = '';
+    for(var i=0,len=data.length;i<len;i+=7){
+       result += ('<tr>' + data.slice(i,i+7).toString().replace(/,/g,'') + '</tr>');
+    }
+    return result;
+  }
+  Calendar.prototype.next = function(){
+    Calendar.prototype.render(2016,3)
+  }
+  Calendar.prototype.prev = function(){
+
   }
 
   document.addEventListener('DOMContentLoaded', function(){
-    Calendar.prototype.render();
+    Calendar.prototype.render(2016,2)
   })
 
   var init = {

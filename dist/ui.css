@@ -1270,8 +1270,65 @@ table.noborder th,table.noborder td{
   overflow: hidden;
 }
 
-.calendar{
+.calendar {
+  width: 300px;
+  height: auto;
+  background-color: #f4f5f9;
+  position: absolute;
+}
+
+.calendar h2{
+  font-size: 14px;
+  border-bottom: 2px solid #dde2ef;
+  text-align: center;
+  padding:10px;
+}
+
+.calendar h2 a{
   
+}
+
+.calendar h2 span{
+
+}
+
+.calendar table{
+  width:94%;
+  margin:10px 3% 2%;
+}
+
+.calendar table td {
+  padding:0;
+  border:none;
+}
+
+.calendar table td a{
+  display: block;
+  border:2px solid #f4f5f9;
+  border-radius: 4px;
+  color: #576077;
+  height:40px;
+  line-height: 40px;
+}
+
+.calendar table td a.now{
+  border-color: #50bae2;
+  background-color: #50bae2;
+  color: #f4f5f9;
+}
+
+.calendar table td a:hover{
+  border: 2px solid #c0c7da;
+  cursor: pointer;
+}
+
+.calendar .disabled a{
+  color: #dde2ef
+}
+
+.calendar .disabled a:hover{
+  cursor: default;
+  border-color: #f4f5f9;
 }
 
 form > fieldset {
@@ -1446,7 +1503,7 @@ section {
   overflow: hidden;
 }
 
-section h2 {
+section h2.demo-h2 {
   font-size: 30px;
   color: #666;
   margin-bottom: 30px;

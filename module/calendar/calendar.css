@@ -1,3 +1,56 @@
 .calendar{
+  --width: 300px;
+  --height: auto;
+}
+
+.calendar {
+  width: var(--width);
+  height: var(--height);
+  background-color: var(--grey-light);
+  position: absolute;
+}
+.calendar h2{
+  font-size: 14px;
+  border-bottom: 2px solid var(--grey);
+  text-align: center;
+  padding:10px;
+}
+.calendar h2 a{
   
+}
+.calendar h2 span{
+
+}
+.calendar table{
+  width:94%;
+  margin:10px 3% 2%;
+}
+.calendar table td {
+  padding:0;
+  border:none;
+}
+.calendar table td a{
+  display: block;
+  border:2px solid var(--grey-light);
+  border-radius: var(--radius);
+  color: var(--text);
+  height:40px;
+  line-height: 40px;
+}
+.calendar table td a.now{
+  border-color: var(--theme);
+  background-color: var(--theme);
+  color: var(--grey-light);
+}
+.calendar table td a:hover{
+  border: 2px solid var(--grey-dark);
+  cursor: pointer;
+}
+
+.calendar .disabled a{
+  color: var(--grey)
+}
+.calendar .disabled a:hover{
+  cursor: default;
+  border-color: var(--grey-light);
 }

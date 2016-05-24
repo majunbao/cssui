@@ -49,11 +49,13 @@ node server
 * 更新 page 模块
 * 更新 textarea 模块
 
-## 0.33.2 版本 2016-05-23
+## 0.36.2 版本 2016-05-23
 
 * 更新 theme 模块：添加注释。theme 模块用于存放设计师的配色，定义整个UI的风格。
 * 添加 progress 模块
 * 添加 tip 模块
 * 添加 sizzle 模块
-* 添加 label 模块
+* 添加 calendar 模块
+* 添加 util 模块
+* 添加 DateUtil 模块
 

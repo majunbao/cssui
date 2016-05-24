@@ -19,7 +19,7 @@ section {
   overflow: hidden;
 }
 
-section h2 {
+section h2.demo-h2 {
   font-size: 30px;
   color: #666;
   margin-bottom: 30px;
