@@ -57,5 +57,5 @@ node server
 * 添加 sizzle 模块
 * 添加 calendar 模块
 * 添加 util 模块
-* 添加 DateUtil 模块
+* 添加 dateUtil 模块
 

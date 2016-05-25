@@ -1,5 +1,5 @@
 import $$ from '../query/query.js';
-import dateUtil from '../dateUtil/dateUtil.js';
+import dateUtil from '../date/date.js';
 
 var Calendar = function(){
 
