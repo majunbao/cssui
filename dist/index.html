@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ui kit</title>
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="ui.css">
+  <script src="ui.js"></script>
+</head>
+
+<body>
+  <h1 class="logo">ui kit <small>0.33.2</small></h1>
+  <section class="demo-color">
+    <h2 class="demo-h2">Theme Color</h2>
+    <ul>
+      <li>
+        <span class="color hover"></span>
+        <span class="color"></span>
+        <span class="color active"></span>
+      </li>
+      <li>
+        <span class="color success hover"></span>
+        <span class="color success"></span>
+        <span class="color success active"></span>
+      </li>
+      <li>
+        <span class="color warning hover"></span>
+        <span class="color warning"></span>
+        <span class="color warning active"></span>
+      </li>
+      <li>
+        <span class="color error hover"></span>
+        <span class="color error"></span>
+        <span class="color error active"></span>
+      </li>
+      <li>
+        <span class="color dark hover"></span>
+        <span class="color dark"></span>
+        <span class="color dark active"></span>
+      </li>
+      <li>
+        <span class="color grey hover"></span>
+        <span class="color grey"></span>
+        <span class="color grey active"></span>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2 class="demo-h2">Button</h2>
+    <article>
+      <a class="button">主题色</a>
+      <a class="button success">推荐</a>
+      <a class="button warning">警告</a>
+      <a class="button error">阻止</a>
+      <a class="button dark">黑夜</a>
+      <a class="button disabled">禁用</a>
+    </article>
+    <h2 class="demo-h2">Button Style</h2>
+    <article>
+      <a class="button radius">主题色</a>
+      <a class="button radius">推荐</a>
+      <a class="button radius">警告</a>
+      <a class="button radius">阻止</a>
+      <a class="button radius">黑夜</a>
+      <a class="button disabled radius">禁用</a>
+    </article>
+    <h2 class="demo-h2">Button Size</h2>
+    <article>
+      <a class="button larger">很大的按钮</a>
+      <a class="button large">大按钮</a>
+      <a class="button">正常大小</a>
+      <a class="button small">小按钮</a>
+      <a class="button smaller">超小</a>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">Input</h2>
+    <article>
+      <input type="text" placeholder="主题色">
+    </article>
+    <article>
+      <input type="text" class="success" value="成功"  placeholder="成功">
+      <input type="text" class="warning" value="警告"  placeholder="警告">
+      <br><br>
+      <input type="text" class="error" value="错误"  placeholder="错误">
+      <input type="text" disabled value="禁用"  placeholder="禁用">
+    </article>
+    <h2 class="demo-h2">Input Size</h2>
+    <article>
+      <input type="text" placeholder="请输入用户名">
+      <input type="text" class="small" placeholder="请输入用户名">
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">column</h2>
+    <article>
+        <div class="column">
+          <div class="col-2-1">
+            <p class="col-num">1/2</p>
+          </div>
+          <div class="col-2-1 last">
+            <p class="col-num">1/2</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="col-3-1">
+            <p class="col-num">1/3</p>
+          </div>
+          <div class="col-3-1">
+            <p class="col-num">1/3</p>
+          </div>
+          <div class="col-3-1">
+            <p class="col-num">1/3</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="col-3-1">
+            <p class="col-num">1/3</p>
+          </div>
+          <div class="col-3-2 last">
+            <p class="col-num">2/3</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="col-4-1">
+            <p class="col-num">1/4</p>
+          </div>
+          <div class="col-4-1">
+            <p class="col-num">1/4</p>
+          </div>
+          <div class="col-4-1">
+            <p class="col-num">1/4</p>
+          </div>
+          <div class="col-4-1 last">
+            <p class="col-num">1/4</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="col-4-1">
+            <p class="col-num">1/4</p>
+          </div>
+          <div class="col-4-3 last">
+            <p class="col-num">3/4</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="col-5-1">
+            <p class="col-num">1/5</p>
+          </div>
+          <div class="col-5-1">
+            <p class="col-num">1/5</p>
+          </div>
+          <div class="col-5-1">
+            <p class="col-num">1/5</p>
+          </div>
+          <div class="col-5-1">
+            <p class="col-num">1/5</p>
+          </div>
+          <div class="col-5-1 last">
+            <p class="col-num">1/5</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="col-5-1">
+            <p class="col-num">1/5</p>
+          </div>
+          <div class="col-5-4 last">
+            <p class="col-num">4/5</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="col-5-2">
+            <p class="col-num">2/5</p>
+          </div>
+          <div class="col-5-3 last">
+            <p class="col-num">3/5</p>
+          </div>
+        </div>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">Table</h2>
+    <article>
+      <table>
+        <thead>
+          <tr>
+            <th>课程名称</th>
+            <th width="100">老师</th>
+            <th width="100">结算价(元)</th>
+            <th width="100">佣金(元)</th>
+            <th width="110">状态</th>
+            <th width="160">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a>国际转基因有限公司开设的课程</a></td>
+            <td>陈佳佳</td>
+            <td>2,000</td>
+            <td>2,100</td>
+            <td>已审核</td>
+            <td>
+              <a>编辑</a>
+              <a>复制</a>
+              <a>删除</a>
+            </td>
+          </tr>
+          <tr>
+            <td><a>国际转基因有限公司开设的课程</a></td>
+            <td>陈佳佳</td>
+            <td>2,000</td>
+            <td>2,100</td>
+            <td>已审核</td>
+            <td>
+              <a>编辑</a>
+              <a>复制</a>
+              <a>删除</a>
+            </td>
+          </tr>
+          <tr>
+            <td><a>国际转基因有限公司开设的课程</a></td>
+            <td>陈佳佳</td>
+            <td>2,000</td>
+            <td>2,100</td>
+            <td>已审核</td>
+            <td>
+              <a class="button smaller">编辑</a>
+              <a class="button smaller success">复制</a>
+              <a class="button smaller error">删除</a>
+            </td>
+          </tr>
+          <tr>
+            <td><a>国际转基因有限公司开设的课程</a></td>
+            <td>陈佳佳</td>
+            <td>2,000</td>
+            <td>2,100</td>
+            <td>已审核</td>
+            <td>
+              <a class="button smaller">编辑</a>
+              <a class="button smaller success">复制</a>
+              <a class="button smaller error">删除</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+    <h2 class="demo-h2">Table Style</h2>
+    <article>
+      <table class="dark">
+        <thead>
+          <tr>
+            <th>课程名称</th>
+            <th width="100">老师</th>
+            <th width="100">结算价(元)</th>
+            <th width="100">佣金(元)</th>
+            <th width="110">状态</th>
+            <th width="160">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a>国际转基因有限公司开设的课程</a></td>
+            <td>陈佳佳</td>
+            <td>2,000</td>
+            <td>2,100</td>
+            <td>已审核</td>
+            <td>
+              <a>编辑</a>
+              <a>复制</a>
+              <a>删除</a>
+            </td>
+          </tr>
+          <tr>
+            <td><a>国际转基因有限公司开设的课程</a></td>
+            <td>陈佳佳</td>
+            <td>2,000</td>
+            <td>2,100</td>
+            <td>已审核</td>
+            <td>
+              <a>编辑</a>
+              <a>复制</a>
+              <a>删除</a>
+            </td>
+          </tr>
+          <tr>
+            <td><a>国际转基因有限公司开设的课程</a></td>
+            <td>陈佳佳</td>
+            <td>2,000</td>
+            <td>2,100</td>
+            <td>已审核</td>
+            <td>
+              <a class="button smaller">编辑</a>
+              <a class="button smaller success">复制</a>
+              <a class="button smaller error">删除</a>
+            </td>
+          </tr>
+          <tr>
+            <td><a>国际转基因有限公司开设的课程</a></td>
+            <td>陈佳佳</td>
+            <td>2,000</td>
+            <td>2,100</td>
+            <td>已审核</td>
+            <td>
+              <a class="button smaller">编辑</a>
+              <a class="button smaller success">复制</a>
+              <a class="button smaller error">删除</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">Tab</h2>
+    <article>
+      <div class="tab">
+        <a class=now>公司</a>
+        <a>公司</a>
+        <a>公司</a>
+        <div class="now">
+          你好1<br><br><br><br><br><br><br>
+        </div>
+        <div>你好2<br><br><br><br><br><br><br></div>
+        <div>你好3<br><br><br><br><br><br><br></div>
+      </div>
+    </article>
+    <article>
+      <div class="tab">
+        <a>公司</a>
+        <div class="now">
+          你好1<br><br><br><br><br><br><br>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">Label</h2>
+    <article class="label-group">
+      <span class="label">theme</span>
+      <span class="label success">success</span>
+      <span class="label warning">warning</span>
+      <span class="label error">error</span>
+      <span class="label dark">dark</span>
+      <span class="label grey">grey</span>
+    </article>
+    <h2 class="demo-h2">Label Style</h2>
+    <article class="label-group">
+      <span class="label radius">theme</span>
+      <span class="label success radius">success</span>
+      <span class="label warning radius">warning</span>
+      <span class="label error radius">error</span>
+      <span class="label dark radius">dark</span>
+      <span class="label grey radius">grey</span>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">tip</h2>
+    <article class="demo-tip">
+      <div class="tip tip-top">
+        <div class="tip-arrow"></div>
+        <div class="tip-inner">
+          提示在上边
+        </div>
+      </div>
+      <div class="tip tip-right">
+        <div class="tip-arrow"></div>
+        <div class="tip-inner">
+          提示在右边
+        </div>
+      </div>
+      <div class="tip tip-bottom">
+        <div class="tip-arrow"></div>
+        <div class="tip-inner">
+          提示在下边
+        </div>
+      </div>
+      <div class="tip tip-left">
+        <div class="tip-arrow"></div>
+        <div class="tip-inner">
+          提示在左边
+        </div>
+      </div>
+    </article>
+    <h2 class="demo-h2">Tip Size</h2>
+    <article class="demo-tip">
+      <div class="tip tip-top small">
+        <div class="tip-arrow"></div>
+        <div class="tip-inner">
+          提示在上边
+        </div>
+      </div>
+      <div class="tip tip-right">
+        <div class="tip-arrow"></div>
+        <div class="tip-inner">
+          提示在右边
+        </div>
+      </div>
+      <div class="tip tip-bottom large">
+        <div class="tip-arrow"></div>
+        <div class="tip-inner">
+          在内容非常多的时候很有用,很有用。
+        </div>
+      </div>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">progress</h2>
+    <article>
+      <div class="progress">
+        <div class="progress-bar" style="width:39%">39%</div>
+      </div>
+      <br>
+      <div class="progress success">
+        <div class="progress-bar" style="width:89%">89%</div>
+      </div>
+    </article>
+    <h2 class="demo-h2">progress Style</h2>
+    <article>
+      <div class="progress radius">
+        <div class="progress-bar" style="width:39%">39%</div>
+      </div>
+    </article>
+    <h2 class="demo-h2">progress Size</h2>
+    <article>
+      <div class="progress small">
+        <div class="progress-bar" style="width:39%">39%</div>
+      </div>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">notice</h2>
+    <article>
+      <div class="notice">
+        <!-- <i class="icon close"></i> -->
+        <h1>恭喜你</h1>
+        <p>你获得了一个小面包,请好好享用。</p>
+        <div class="margin-top-20">
+          <a class="button disabled">不要</a>
+          <a class="button warning">真酷</a>
+        </div>
+      </div>
+      <br>
+      <div class="notice success">
+        <!-- <i class="icon close"></i> -->
+        <p>你获得了一个小面包,请好好享用。</p>
+      </div>
+      <br>
+      <div class="notice warning">
+        <!-- <i class="icon close"></i> -->
+        <p>你获得了一个小面包,请好好享用。</p>
+      </div>
+      <br>
+      <div class="notice error">
+        <!-- <i class="icon close"></i> -->
+        <h1>欧码噶</h1>
+        <p>这是最后一块小面包了，吃完就没了。</p>
+      </div>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">popup</h2>
+    <article class="on-left">
+      <div class="notice popup">
+        <!-- <i class="icon close"></i> -->
+        <h1>恭喜你</h1>
+        <p>你获得了一个小面包,请好好享用。</p>
+        <div class="margin-top-20 align-right">
+          <a class="button disabled">不要</a>
+          <a class="button warning">真酷</a>
+        </div>
+      </div>
+    </article>
+    <article class="on-left margin-left-20">
+      <div class="notice popup success">
+        <!-- <i class="icon close"></i> -->
+        <h1>恭喜你</h1>
+        <p>你获得了一个小面包,请好好享用。</p>
+        <div class="margin-top-20 align-right">
+          <a class="button disabled">不要</a>
+          <a class="button ">真酷</a>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">page</h2>
+    <article>
+      <div class="page">
+        <a class="disabled">上一页</a>
+        <a class="now">1</a>
+        <a>2</a>
+        <a>3</a>
+        <a>4</a>
+        <a>5</a>
+        <a>6</a>
+        <a>7</a>
+        <a>8</a>
+        <a>9</a>
+        <a>10</a>
+        <a>下一页</a>
+      </div>
+    </article>
+    <article>
+      <div class="page">
+        <a>上一页</a>
+        <a>下一页</a>
+      </div>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">Form</h2>
+    <article>
+      <form action="javascript:;">
+        <fieldset>
+          <label class="long">公司名称：</label>
+          <input type="text" placeholder="请填写内容">
+        </fieldset>
+        <fieldset>
+          <label class="long">职位头衔：</label>
+          <input type="text" placeholder="请填写内容">
+        </fieldset>
+        <fieldset>
+          <label class="long">在职时间：</label>
+          <input type="text" placeholder="开始时间">
+          <input type="text" placeholder="结束时间">
+        </fieldset>
+        <fieldset>
+          <label class="long">老师简介：</label>
+          <input type="text" placeholder="请填写内容">
+        </fieldset>
+        <fieldset>
+          <label class="long">备注：</label>
+          <textarea name="name" rows=""></textarea>
+        </fieldset>
+        <fieldset>
+          <label class="long"></label>
+          <input type="submit" value="提交" class="button success large">
+          <input type="reset" value="重置" class="button grey large">
+        </fieldset>
+      </form>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">Textarea</h2>
+    <article>
+      <textarea></textarea>
+    </article>
+    <article>
+      <textarea class="success"></textarea>
+      <!-- <textarea class="warning"></textarea> -->
+      <!-- <textarea class="error"></textarea> -->
+      <textarea disabled>禁用</textarea>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">Link</h2>
+    <article>
+      <a href="havascript:;">我是链接</a>
+      <a>我是链接</a>
+    </article>
+  </section>
+  <section class=none>
+    <h2 class="demo-h2">Checkbox & Radio</h2>
+    <article>
+      <label class="checkbox">
+        <input type="checkbox" name=""><i></i>未选中</label>
+      <label class="checkbox">
+        <input type="checkbox" checked name=""><i></i>选中</label>
+      <label class="checkbox">
+        <input type="checkbox" disabled name=""><i></i>禁用项</label>
+      <label class="checkbox">
+        <input type="checkbox" checked disabled name=""><i></i>禁用项</label>
+    </article>
+    <article>
+      <label class="radio">
+        <input type="radio" name="r"><i></i>未选中</label>
+      <label class="radio">
+        <input type="radio" checked name="r"><i></i>选中</label>
+      <label class="radio">
+        <input type="radio" disabled name="r"><i></i>禁用项</label>
+      <label class="radio">
+        <input type="radio" checked disabled name="r"><i></i>禁用项</label>
+    </article>
+  </section>
+  <section>
+    <h2 class="demo-h2">Text</h2>
+    <span class="text-bold">text-bold</span>
+    <span class="text-italic">text-italic</span>
+    <span class="text-underline">text-underline</span>
+    <span class="text-line-through">text-line-through</span>
+    <span class="text-tiny">text-tiny</span>
+    <span class="text-small">text-small</span>
+    <span class="text-big">text-big</span>
+    <span class="text-large">text-large</span>
+  </section>
+  <section style=padding-bottom:300px;></section>
+</body>
+
+</html>
