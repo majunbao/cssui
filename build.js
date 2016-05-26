@@ -5,6 +5,8 @@ const postcss = require('postcss');
 const rollup = require('rollup');
 const includePaths = require('rollup-plugin-includePaths')
 const http = require('http');
+const jshint = require('jshint');
+const eslint = require('rollup-plugin-eslint');
 
 // css文件
 
@@ -45,6 +47,11 @@ function buildJs(filename){
     plugins: [
       includePaths({
 
+      }),
+      eslint({
+        "parserOptions": {
+          "sourceType": "module"
+        }
       })
     ]
   }).then(function(bundle){

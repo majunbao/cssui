@@ -1,5 +1,5 @@
 import $$ from '../query/query.js';
-import dateUtil from '../date/date.js';
+import date from '../date/date.js';
 
 var Calendar = function(){
 
@@ -24,35 +24,13 @@ Calendar.prototype = {
   }
 }
 
-Calendar.prototype.render = function(y,d){
-  var week = dateUtil.getBeginDayOfMouth(y, d);
+Calendar.prototype.render = function(y,m,d){
   var dom = document.getElementsByClassName('calendar')[0].getElementsByTagName('table')[0];
-  dom.innerHTML = Calendar.prototype.td(week, dateUtil.getDaysOfMonth(y,d));
+  dom.innerHTML = date(y,m).html()[0];
 }
 
-Calendar.prototype.td = function(start, date){
-  var data = [];
-  var d = date-start
-  // 上个月日期
-  for(var i = 0; i<start;i++){
-    data.push('<td class="disabled"><a>' + (++d) +'</a></td>');
-  }
-  // 当月日期
-  for(var i = 1;i<=date;i++){
-    data.push('<td><a>' + i + '</a></td>');
-  }
-  // 下个月日期
-  for(var i = 1;i<= (35-start-date);i++){
-    data.push('<td class="disabled"><a>' + i +'</a></td>');
-  }
-  var result = '';
-  for(var i=0,len=data.length;i<len;i+=7){
-     result += ('<tr>' + data.slice(i,i+7).toString().replace(/,/g,'') + '</tr>');
-  }
-  return result;
-}
+
 Calendar.prototype.next = function(){
-  Calendar.prototype.render(2016,3)
 }
 Calendar.prototype.prev = function(){
 

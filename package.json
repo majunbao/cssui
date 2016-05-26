@@ -1,6 +1,6 @@
 {
   "name": "fui",
-  "version": "0.27.2",
+  "version": "0.36.9",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
     "postcss-rgba-hex": "^0.3.5",
     "postcss-simple-vars": "^1.2.0",
     "rollup": "^0.26.2",
+    "rollup-plugin-eslint": "^2.0.0",
     "rollup-plugin-includepaths": "^0.1.2"
   }
 }

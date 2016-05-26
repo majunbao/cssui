@@ -1,18 +1,4 @@
-// 日期中的某周
-var _isDate = function(object){
-  if(util.getType(object) === 'date'){
-    return true;
-  }else{
-    return false;
-  }
-}
-var _parse = function(){
-
-}
-
-var _format = function(){
-
-}
+import util from '../util/util.js';
 
 var dateUtil = {};
 
@@ -22,7 +8,7 @@ dateUtil.isDate = function(object){
   }else{
     return false;
   }
-}
+};
 
 // @description 是否为闰年
 // @param year {num} 可能是年份或者为一个date实例对象
@@ -36,15 +22,15 @@ dateUtil.isLeapYear = function(year){
   }else{
     return false;
   }
-}
+};
 
 dateUtil.getDaysOfMonth = function(year, month){
   if(dateUtil.isDate(year)){
-    month = year.getMonth();
+    month = year.getMonth()+1;
     year = year.getFullYear();
   }
-  return [31, dateUtil.isLeapYear(year)? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month-1]
-}
+  return [31, dateUtil.isLeapYear(year)? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month-1];
+};
 
 dateUtil.getBeginDayOfMouth = function(year, month){
   if(dateUtil.isDate(year)){
@@ -52,6 +38,8 @@ dateUtil.getBeginDayOfMouth = function(year, month){
     year = year.getFullYear();
   }
   return new Date(year, month-1).getDay();
-}
+};
 
+
+export default dateUtil;
 
