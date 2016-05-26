@@ -26,6 +26,10 @@ date.prototype = {
     return this.pushStack( j >= 0 && j < len ? [ this[ j ] ] : [] );
   },
 
+  slice: function(){
+    return this.pushStack([].slice.apply(this, arguments))
+  },
+
   first: function(){
     return this.eq(0);
   },
@@ -130,7 +134,7 @@ var init = date.prototype.init = function(year, month, date){
   }
 
   if(dateUtil.isDate(year) || util.getType(year) === 'number'){
-    util.merge(this, [1,2,3,4,5,6,7,8,9,10,11,12])
+    util.merge(this, [1,2,3,4,5,6,7,8,9,10,11,12]);
     this.year = year;
 
     return this;
