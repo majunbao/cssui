@@ -64,6 +64,10 @@ date.prototype = {
     that.prevObject = this;
 
     return that;
+  },
+
+  table: function(){
+    
   }
 };
 

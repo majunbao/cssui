@@ -2324,6 +2324,10 @@ var ui = (function () {
 	    that.prevObject = this;
 
 	    return that;
+	  },
+
+	  table: function(){
+	    
 	  }
 	};
 
