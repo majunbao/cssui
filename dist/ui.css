@@ -1322,7 +1322,7 @@ table.noborder th,table.noborder td{
   cursor: pointer;
 }
 
-.calendar .disabled a{
+.calendar table td a.disabled{
   color: #dde2ef
 }
 

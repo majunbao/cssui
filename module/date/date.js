@@ -1,12 +1,33 @@
 import util from '../util/util.js';
 import dateUtil from 'dateUtil.js';
 
-var date = function(year, month, day){
-  return new date.prototype.init(year, month, day);
+// 传入 date 对象，返回 date 字符串
+// dateFormat(new Date(), 'yyyy-MM-dd')
+function format(dateObject, format){
+  format = format.replace('yyyy', dateObject.getFullYear());
+  format = format.replace('MM', dateObject.getMonth() + 1);
+  format = format.replace('dd', dateObject.getDate());
+  return format;
+}
+
+// 传入 date 字符串，返回 Date 日期对象
+function parse(dateString){
+
+  if(dateUtil.isDate(dateString)){return dateString};
+
+  if(util.getType(dateString)==='string'){
+    return new Date(dateString.toString().replace(/[^0-9]/g," "));
+  }
+
+  return null;
+}
+
+var calendar = function(date){
+  return new calendar.prototype.init(date);
 };
 
-date.prototype = {
-  constructor: date,
+calendar.prototype = {
+  constructor: calendar,
   length: 0,
 
   pushStack: function( elems ) {
@@ -18,6 +39,12 @@ date.prototype = {
 
     // Return the newly-formed element set
     return ret;
+  },
+
+  toArray: function(){
+    if(util.getType(this.rootArguments)==='string'){
+      return this.rootArguments.replace(/[^0-9]/g,' ').split(' ');
+    }
   },
 
   eq: function(i){
@@ -39,7 +66,16 @@ date.prototype = {
   },
 
   sibling: function( dir ) {
-    return this.constructor(this.year && this.year+dir, this.month && this.month+dir, this.date && this.date+dir);
+    // return this.constructor(this.year && this.year+dir, this.month && this.month+dir, this.date && this.date+dir);
+    if(this.rootArguments.length === 1){
+      var nowDate = new Date(this.rootArguments[0]);
+      nowDate.setFullYear(nowDate.getFullYear() + dir);
+      return this.constructor(nowDate.getFullYear())
+    }else{
+      var nowDate = new Date(this.rootArguments[0], this.rootArguments[1]);
+      nowDate.setMonth(nowDate.getMonth() + dir);
+      return this.constructor(nowDate.getFullYear() + ' ' + nowDate.getMonth())
+    }
   },
 
   next: function(index){
@@ -50,28 +86,38 @@ date.prototype = {
     return this.sibling(-index || -1);
   },
 
-  html: function(tml){
-    var inner = [];
-    var tml = tml || 'td';
-    for(var i=1; i<=this.length;i++){
-      inner.push('<'+tml+'><a>' + i + '<\/a><\/'+tml+'>');
-    };
-    var result = []
-    for(var i=0,len=inner.length;i<len;i+=7){
-       result += ('<tr>' + inner.slice(i,i+7).toString().replace(/,/g,'') + '</tr>');
-    }
-    var that = util.merge(this.constructor(), new Array(result));
-
-    that.year = this.year || null;
-    that.month = this.month || null;
-    that.date = this.date || null;
-    that.prevObject = this;
-
-    return that;
-  },
-
   table: function(){
-    
+    var inner = [];
+    var result = [];
+
+    if(this.rootArguments.length===1){
+
+      for(var i=0; i<this.length;i++){
+        inner.push('<td><a>'+(+this[i].getMonth()+1)+'</a></td>');
+      };
+
+      for(var i=0; i<=this.length;i+=4){
+        result += '<tr>' + inner.slice(i, i+4) + '</tr>';
+      }
+
+    }else{
+      var thisDay = this[0].getDay();
+
+      for(var j=0;j<thisDay;j++){
+        inner.push('<td><a class=disabled>'+j+'</a></td>')
+      }
+      for(var i=0; i<this.length;i++){
+        inner.push('<td><a>'+this[i].getDate()+'</a></td>');
+      };
+
+      for(var i=0; i<=this.length;i+=7){
+        result += '<tr>' + inner.slice(i, i+7) + '</tr>';
+      }
+    }
+   
+    this.value = result.toString().replace(/,/g,'');
+
+    return this;
   }
 };
 
@@ -100,42 +146,39 @@ date.prototype = {
 // date(new Date()).format(y-n-d)
 // date(new Date()).html()
 
-var init = date.prototype.init = function(year, month, date){
+var init = calendar.prototype.init = function(date){
   // 支持 null undefined ""
   this.length = 0;
-  this.splice = [].splice;
+  // this.splice = [].splice;
 
-  if(!year){
+
+  if(!date){
     return this;
   }
 
-  if(date){
-    this.length = 1;
-    this[0] = date;
+  this.rootArguments = date.toString().replace(/[^0-9]/g,' ').split(' ');
 
-    this.year = year;
-    this.month = month;
-    this.date = date;
+  var dateArray = this.rootArguments;
 
-    return this;
-  }
+  // 参数为 date(2017)
+  if(dateArray.length === 1){
 
-  if(month){
-    this.length = dateUtil.getDaysOfMonth(year, month);
+    this.length = 12;
 
-    for(var i=0; i<=this.length;i++){
-      this[i] = i+1;
+    for(var i=0;i<this.length;i++){
+      this[i] = parse(dateArray[0] + '-' + (i+1));
+      // this[i] = format(parse(date + ' ' + (i+1)), 'yyyy-MM-dd');
     }
 
-    this.year = year;
-    this.month = month;
-
     return this;
-  }
+  }else if(dateArray.length === 2){
 
-  if(dateUtil.isDate(year) || util.getType(year) === 'number'){
-    util.merge(this, [1,2,3,4,5,6,7,8,9,10,11,12]);
-    this.year = year;
+    this.length = dateUtil.getDaysOfMonth(dateArray[0], dateArray[1]);
+
+    for(var i=0; i<=this.length;i++){
+      this[i] = parse(dateArray[0] + ' ' + dateArray[1] + ' ' + (i+1));
+      // this[i] = format(parse(dateArray[0] + ' ' + dateArray[1] + ' ' + (i+1)), 'yyyy-MM-dd');
+    }
 
     return this;
   }
@@ -143,8 +186,8 @@ var init = date.prototype.init = function(year, month, date){
   return this;
 };
 
-init.prototype = date.prototype;
+init.prototype = calendar.prototype;
 
-export default date;
+export default calendar;
 
 

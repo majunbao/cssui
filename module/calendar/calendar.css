@@ -47,7 +47,7 @@
   cursor: pointer;
 }
 
-.calendar .disabled a{
+.calendar table td a.disabled{
   color: var(--grey)
 }
 .calendar .disabled a:hover{
