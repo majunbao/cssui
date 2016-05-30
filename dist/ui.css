@@ -517,7 +517,7 @@ body, input, textarea, select, button {
 
 .column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
 
-.column > div{
+.column > [class*=col-]{
   margin-right: 2%;
   float: left;
 }
@@ -565,6 +565,10 @@ body, input, textarea, select, button {
 .column .col-5-1{
   width: 18.4%;
 }
+
+/*兼容*/
+
+.ie6 {}
 
 .text-bold {
   font-weight: bold; }
@@ -751,10 +755,10 @@ a:focus {
 }
 
 .button.small{
-  min-width: 55px;
   padding:0 5px;
   height: 22px;
   line-height: 22px;
+  min-width: 55px;
 }
 
 .button.large{
@@ -770,6 +774,32 @@ a:focus {
   height: 38px;
   line-height: 38px;
   letter-spacing:0.5em;
+}
+
+/*兼容*/
+
+.ie6 .button{
+  width: 70px;
+  display: inline;
+  zoom: 1;
+}
+
+.ie6 .button.large{
+  width:88px;
+}
+
+.ie6 .button.larger{
+  width:268px;
+}
+
+.ie6 .button.small{
+  width: 55px;
+  
+  padding: 0 5px;
+}
+
+.ie6 .button.smaller{
+
 }
 
 /*基础*/
@@ -1638,4 +1668,4 @@ section article {
 
 .demo-tip .tip.tip-left{margin-left: 60%;}
 
-.demo-calendar{position: relative;height: 360px}
+.demo-calendar{position: relative;height: 300px}

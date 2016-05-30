@@ -68,10 +68,10 @@
   line-height: 20px;
 }
 .button.small{
-  min-width: 55px;
   padding:0 5px;
   height: 22px;
   line-height: 22px;
+  min-width: 55px;
 }
 .button.large{
   min-width: 88px;
@@ -85,4 +85,25 @@
   height: 38px;
   line-height: 38px;
   letter-spacing:0.5em;
+}
+
+/*兼容*/
+.ie6 .button{
+  width: 70px;
+  display: inline;
+  zoom: 1;
+}
+.ie6 .button.large{
+  width:88px;
+}
+.ie6 .button.larger{
+  width:268px;
+}
+.ie6 .button.small{
+  width: 55px;
+  
+  padding: 0 5px;
+}
+.ie6 .button.smaller{
+
 }

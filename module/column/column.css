@@ -10,7 +10,7 @@
 
 .column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
 
-.column > div{
+.column > [class*=col-]{
   margin-right: var(--blank);
   float: left;
 }
@@ -45,3 +45,5 @@
 }
 
 
+/*兼容*/
+.ie6 {}
