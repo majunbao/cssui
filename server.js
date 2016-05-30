@@ -2,16 +2,28 @@ const http = require('http');
 const fs = require('fs');
 const os = require('os');
 const exec = require('child_process').exec;
+const url = require('url');
+
+const mineType = {
+  'css' : 'text/css',
+  'html' : 'text/html',
+  'js' : 'application/x-javascript',
+  'ico' : 'image/x-icon'
+}
 
 const serverdir = 'dist';
 
 const server = http.createServer((req, res) => {
   let someHead = req.headers.accept;
-  res.writeHead(200, {'Content-Type': someHead})
+  let fileType = url.parse(req.url).pathname.split('.').reverse().shift();
+
+  
   if(req.url === '/'){
+    res.writeHead(200, {'Content-Type': mineType['html']})
     res.write(fs.readFileSync(serverdir + '/' + 'index.html'));
     res.end();
   }else{
+    res.writeHead(200, {'Content-Type': mineType[fileType]});
     fs.access(serverdir + '/' + req.url, fs.F_OK, (err) => {
       if(!err){
         res.write(fs.readFileSync(serverdir + '/' + req.url));

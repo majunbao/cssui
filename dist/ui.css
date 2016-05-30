@@ -1637,3 +1637,5 @@ section article {
 .demo-tip .tip.tip-bottom{margin-left: 40%;}
 
 .demo-tip .tip.tip-left{margin-left: 60%;}
+
+.demo-calendar{position: relative;height: 360px}
