@@ -24,7 +24,7 @@ input[disabled]:hover {
 input[type=text], input[type=password] {
   padding: 0 10px;
   width: 278px;
-  line-height: 100%;
+  line-height: 1;
   height: 43px;
   border:2px solid var(--grey);
   color: var(--text); 
@@ -65,6 +65,13 @@ input.larger {
 input.large {
 } 
 input.small {
-  line-height: 32px;
   height: 32px;
+}
+
+/*兼容*/
+.ie input[type=text],.ie input[type=password] {
+  line-height: 43px;
+}
+.ie input.small {
+  line-height: 32px;
 }

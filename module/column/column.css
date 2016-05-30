@@ -1,7 +1,7 @@
 /* ======  column  ====== */
 .column{
-  --width: 100%;;
-  --blank: 2%;
+  --width: 1000px;
+  --blank: 10px;
 }
 
 .column{
@@ -15,9 +15,11 @@
   float: left;
 }
 
-.column > [class*=col-]:last-child, .column > .last{
+.column > [class*=col-]:last-child
+{
   margin-right: 0;
 }
+
 
 @each $x,$y in (2),(1){
   .column .col-$(x)-$(y){
@@ -46,4 +48,6 @@
 
 
 /*兼容*/
-.ie6 {}
+.ie .column > div.last{
+  margin-right: 0;
+}

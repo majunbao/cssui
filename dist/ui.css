@@ -512,63 +512,66 @@ body, input, textarea, select, button {
 /* ======  column  ====== */
 
 .column{
-  width: 100%;
+  width: 1000px;
 }
 
 .column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
 
 .column > [class*=col-]{
-  margin-right: 2%;
+  margin-right: 10px;
   float: left;
 }
 
-.column > [class*=col-]:last-child, .column > .last{
+.column > [class*=col-]:last-child
+{
   margin-right: 0;
 }
 
 .column .col-2-1{
-  width: 49%;
+  width: 495px;
 }
 
 .column .col-3-2{
-  width: 66%;
+  width: 663.33333px;
 }
 
 .column .col-3-1{
-  width: 32%;
+  width: 326.66667px;
 }
 
 .column .col-4-3{
-  width: 74.5%;
+  width: 747.5px;
 }
 
 .column .col-4-2{
-  width: 49%;
+  width: 495px;
 }
 
 .column .col-4-1{
-  width: 23.5%;
+  width: 242.5px;
 }
 
 .column .col-5-4{
-  width: 79.6%;
+  width: 798px;
 }
 
 .column .col-5-3{
-  width: 59.2%;
+  width: 596px;
 }
 
 .column .col-5-2{
-  width: 38.8%;
+  width: 394px;
 }
 
 .column .col-5-1{
-  width: 18.4%;
+  width: 192px;
 }
 
 /*兼容*/
 
-.ie6 {}
+.ie .column > div.last{
+  margin-right: 0;
+}
 
 .text-bold {
   font-weight: bold; }
@@ -830,7 +833,7 @@ input[disabled]:hover {
 input[type=text]{
   padding: 0 10px;
   width: 278px;
-  line-height: 100%;
+  line-height: 1;
   height: 43px;
   border: 2px solid #dde2ef;
   color: #576077;
@@ -839,7 +842,7 @@ input[type=text]{
 input[type=password]{
   padding: 0 10px;
   width: 278px;
-  line-height: 100%;
+  line-height: 1;
   height: 43px;
   border: 2px solid #dde2ef;
   color: #576077;
@@ -964,8 +967,17 @@ input.large {
 }
 
 input.small {
-  line-height: 32px;
   height: 32px;
+}
+
+/*兼容*/
+
+.ie input[type=text],.ie input[type=password] {
+  line-height: 43px;
+}
+
+.ie input.small {
+  line-height: 32px;
 }
 
 table {
