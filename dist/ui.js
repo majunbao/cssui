@@ -6,6 +6,11 @@ var ui = (function () {
     'article'
   ];
 
+  var inputNode = document.getElementsByTagName('input');
+  for(var i = 0;i<inputNode.length;i++){
+    console.log(inputNode[i].className);
+  }
+
   function demo(){
     for(var i = 0;i<html5Element.length;i++){
       document.createElement(html5Element[i])

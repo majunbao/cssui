@@ -1400,6 +1400,7 @@ textarea {
   padding: 10px;
   width: 468px;
   min-height: 88px;
+  overflow: auto;
 }
 
 textarea:hover {
@@ -1502,6 +1503,12 @@ textarea[disabled] {
 
 textarea[disabled]:hover,textarea[disabled]:focus {
   cursor: not-allowed;
+}
+
+/*兼容*/
+
+.ie textarea{
+  height: 88px;
 }
 
 label.checkbox, label.radio{}
