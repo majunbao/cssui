@@ -1,7 +1,7 @@
 /* ======  column  ====== */
 .column{
-  --width: 1000px;
-  --blank: 10px;
+  --width: 100%;
+  --blank: 2%;
 }
 
 .column{
@@ -48,6 +48,34 @@
 
 
 /*兼容*/
-.ie .column > div.last{
+.ie .column  div.last{
   margin-right: 0;
+}
+@each $x,$y in (2),(1){
+  .ie .column .col-$(x)-$(y){
+    float:left;
+    margin-right: var(--blank);
+  }
+}
+
+@each $x,$y in (3,3),(2,1){
+  .ie .column .col-$(x)-$(y){
+    float:left;
+    margin-right: var(--blank);
+  }
+}
+
+@each $x,$y in (4,4,4),(3,2,1){
+  .ie .column .col-$(x)-$(y){
+    float:left;
+    margin-right: var(--blank);
+  }
+}
+
+
+@each $x,$y in (5,5,5,5),(4,3,2,1){
+  .ie .column .col-$(x)-$(y){
+    float:left;
+    margin-right: var(--blank);
+  }
 }

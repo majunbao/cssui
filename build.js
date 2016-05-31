@@ -32,6 +32,13 @@ function buildCss(filename){
     .use(require('postcss-calc')())
     .use(require('postcss-color-function')())
     .use(require('postcss-rgba-hex'))
+    .use(require('postcss-functions')({
+      functions: {
+        floor: function(value){
+          return parseInt(value) + value.replace(parseFloat(value), '');
+        }
+      }
+    }))
     .process(css,{from: source.css, to: dist.css})
     .then(function(result){
       fs.writeFileSync(dist.css,result.css,'utf8');

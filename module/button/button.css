@@ -105,5 +105,6 @@
   padding: 0 5px;
 }
 .ie6 .button.smaller{
-
+  width:auto;
+  padding:0 4px;
 }

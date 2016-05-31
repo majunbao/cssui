@@ -512,13 +512,13 @@ body, input, textarea, select, button {
 /* ======  column  ====== */
 
 .column{
-  width: 1000px;
+  width: 100%;
 }
 
 .column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
 
 .column > [class*=col-]{
-  margin-right: 10px;
+  margin-right: 2%;
   float: left;
 }
 
@@ -528,49 +528,99 @@ body, input, textarea, select, button {
 }
 
 .column .col-2-1{
-  width: 495px;
+  width: 49%;
 }
 
 .column .col-3-2{
-  width: 663.33333px;
+  width: 66%;
 }
 
 .column .col-3-1{
-  width: 326.66667px;
+  width: 32%;
 }
 
 .column .col-4-3{
-  width: 747.5px;
+  width: 74.5%;
 }
 
 .column .col-4-2{
-  width: 495px;
+  width: 49%;
 }
 
 .column .col-4-1{
-  width: 242.5px;
+  width: 23.5%;
 }
 
 .column .col-5-4{
-  width: 798px;
+  width: 79.6%;
 }
 
 .column .col-5-3{
-  width: 596px;
+  width: 59.2%;
 }
 
 .column .col-5-2{
-  width: 394px;
+  width: 38.8%;
 }
 
 .column .col-5-1{
-  width: 192px;
+  width: 18.4%;
 }
 
 /*兼容*/
 
-.ie .column > div.last{
+.ie .column  div.last{
   margin-right: 0;
+}
+
+.ie .column .col-2-1{
+  float: left;
+  margin-right: 2%;
+}
+
+.ie .column .col-3-2{
+  float: left;
+  margin-right: 2%;
+}
+
+.ie .column .col-3-1{
+  float: left;
+  margin-right: 2%;
+}
+
+.ie .column .col-4-3{
+  float: left;
+  margin-right: 2%;
+}
+
+.ie .column .col-4-2{
+  float: left;
+  margin-right: 2%;
+}
+
+.ie .column .col-4-1{
+  float: left;
+  margin-right: 2%;
+}
+
+.ie .column .col-5-4{
+  float: left;
+  margin-right: 2%;
+}
+
+.ie .column .col-5-3{
+  float: left;
+  margin-right: 2%;
+}
+
+.ie .column .col-5-2{
+  float: left;
+  margin-right: 2%;
+}
+
+.ie .column .col-5-1{
+  float: left;
+  margin-right: 2%;
 }
 
 .text-bold {
@@ -802,7 +852,8 @@ a:focus {
 }
 
 .ie6 .button.smaller{
-
+  width:auto;
+  padding:0 4px;
 }
 
 /*基础*/
@@ -1261,6 +1312,12 @@ table.noborder th,table.noborder td{
 
 .page a.disabled {
   color: #999999;
+}
+
+/*兼容*/
+
+.ie6 .page a{
+  width: 24px;
 }
 
 .popup {
