@@ -518,13 +518,13 @@ body, input, textarea, select, button {
 .column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
 
 .column > [class*=col-]{
-  margin-right: 2%;
+  margin-left: 2%;
   float: left;
 }
 
-.column > [class*=col-]:last-child
+.column > [class*=col-]:first-child
 {
-  margin-right: 0;
+  margin-left: 0;
 }
 
 .column .col-2-1{
@@ -565,62 +565,6 @@ body, input, textarea, select, button {
 
 .column .col-5-1{
   width: 18.4%;
-}
-
-/*兼容*/
-
-.ie .column  div.last{
-  margin-right: 0;
-}
-
-.ie .column .col-2-1{
-  float: left;
-  margin-right: 2%;
-}
-
-.ie .column .col-3-2{
-  float: left;
-  margin-right: 2%;
-}
-
-.ie .column .col-3-1{
-  float: left;
-  margin-right: 2%;
-}
-
-.ie .column .col-4-3{
-  float: left;
-  margin-right: 2%;
-}
-
-.ie .column .col-4-2{
-  float: left;
-  margin-right: 2%;
-}
-
-.ie .column .col-4-1{
-  float: left;
-  margin-right: 2%;
-}
-
-.ie .column .col-5-4{
-  float: left;
-  margin-right: 2%;
-}
-
-.ie .column .col-5-3{
-  float: left;
-  margin-right: 2%;
-}
-
-.ie .column .col-5-2{
-  float: left;
-  margin-right: 2%;
-}
-
-.ie .column .col-5-1{
-  float: left;
-  margin-right: 2%;
 }
 
 .text-bold {
@@ -1064,7 +1008,7 @@ table td {
 }
 
 table.dark{
-  border:none;
+  border-width:0;
 }
 
 table.dark th{
@@ -1073,7 +1017,7 @@ table.dark th{
 }
 
 table.dark td {
-  border:none;
+  border-width:0;
 }
 
 table.dark tbody tr:nth-child(even){
@@ -1081,14 +1025,24 @@ table.dark tbody tr:nth-child(even){
 }
 
 table.noborder th,table.noborder td{
-	border: 0
+  border: 0
+}
+
+/*兼容*/
+
+.ie table.dark td{
+  border: 2px solid #f4f5f9;
 }
 
 .tab {
   position: relative;
 }
 
-.tab > a {
+.tab > ul{height: 38px;}
+
+.tab > ul:first-child li{float: left;height: 100%;}
+
+.tab > ul:first-child li a {
   display: inline-block;
   background-color: #50bae2;
   text-align: center;
@@ -1096,27 +1050,31 @@ table.noborder th,table.noborder td{
   min-width: 80px;
   text-decoration: none;
   color: #fff;
-  /*border-right: 1px solid color(var(--theme) b(20%));*/
+  height: 100%;
   line-height: 38px;
-  height: 38px;
-  float: left;
+  border-left: 1px solid #4fabcc;
 }
 
-.tab > a.now{
+.tab > ul:first-child li.now a{
   color: #000;
   font-weight: bold;
   background-color: #f4f5f9;
 }
 
 .tab > div{
-  clear: left;
-  padding: 15px 10px 15px 10px;
-  background-color: #f4f5f9;
   display: none;
 }
 
 .tab > div.now{
   display: block;
+  padding: 15px 10px;
+  background-color: #f4f5f9;
+}
+
+.ie6 .tab > div.now,
+.ie7 .tab > div.now{
+  /*这个不用display:block;是为了兼容IE67浏览器*/
+  display: inline-block;
 }
 
 .label{
@@ -1155,37 +1113,9 @@ table.noborder th,table.noborder td{
 
 .label-group .label:last-child{margin-right: 0;}
 
-[tip]{display: inline-block;width: 14px;height: 14px;color: #c92c2c;border:1px solid #c92c2c;border-radius: 50%;line-height:14px;vertical-align: middle;font-size: 12px;margin-left: 2px;text-align: center;}
-
-[tip]:hover{cursor: pointer;}
-
-[tip] .tip-content{
-  position: absolute;
-  background-color: #fffbcc;
-  border: 1px solid #facf84;
-  text-align: center;
-  padding:3px 6px;
-  max-width: 200px;
-  display: none;
-  color: #666;
-  font-size: 14px;
-  z-index: 99;
-  line-height:24px;
-  height: auto;
-}
-
-[tip]:hover .tip-content{
-  display: inline-block;
-}
-
-.tip.tip-a{color: #aaa;border:1px solid #aaa;}
-
 .tip{
   position: absolute;
-  padding:5px;
   z-index: 1000;
-  top: 0;
-  left: 0;
   max-width: 220px;
 }
 
@@ -1194,6 +1124,7 @@ table.noborder th,table.noborder td{
   color: #f4f5f9;
   padding:8px 22px;
   border-radius: 4px;
+  line-height: 1.5;
 }
 
 .tip .tip-arrow{
@@ -1211,16 +1142,6 @@ table.noborder th,table.noborder td{
   border-left-color: transparent;
 }
 
-.tip.tip-top .tip-arrow{
-  bottom:0;
-  border-bottom: none;
-}
-
-.tip.tip-bottom .tip-arrow{
-  top: 0;
-  border-top: none;
-}
-
 .tip.tip-left .tip-arrow, .tip.tip-right .tip-arrow{
   top: 50%;
   margin-top: -5px;
@@ -1231,24 +1152,48 @@ table.noborder th,table.noborder td{
 .tip.tip-left .tip-arrow{
   right:0;
   border-right: none;
+  border-left-style: solid; /*IE678*/
 }
 
 .tip.tip-right .tip-arrow{
   left: 0;
   border-left: none;
+  border-right-style: solid; /*IE678*/
 }
 
-.tip.large .tip-inner{
-  max-width: 130px;
+.tip.tip-top .tip-arrow{
+  bottom:0;
+  border-bottom: none;
+  border-top-style: solid; /*IE678*/
 }
 
-.tip.small{
-  font-size: 12px;
+.tip.tip-bottom .tip-arrow{
+  top: 0;
+  border-top: none;
+  border-bottom-style: solid; /*IE678*/
 }
 
-.tip.small .tip-inner{
-  padding: 6px 15px;
-}
+.tip-top{padding-bottom: 5px;}
+
+.tip-right{padding-left: 5px;}
+
+.tip-bottom{padding-top: 5px;}
+
+.tip-left{padding-right: 5px;}
+
+.tip.small .tip-inner{font-size: 12px;padding:5px 15px;}
+
+/*兼容*/
+
+.ie6 .tip-top{padding-bottom: 5px;}
+
+.ie6 .tip-right{padding-left: 5px;}
+
+.ie6 .tip-bottom{padding-top: 5px;}
+
+.ie6 .tip-left{padding-right: 5px;}
+
+.ie6 .tip{width: expression(this.scrollWidth > 230 ? "230px" : "auto")}
 
 .notice{
 	padding: 20px;
@@ -1316,8 +1261,7 @@ table.noborder th,table.noborder td{
 
 /*兼容*/
 
-.ie6 .page a{
-  width: 24px;
+.ie6 .page a {
 }
 
 .popup {

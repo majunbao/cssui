@@ -26,19 +26,24 @@ table td {
 }
 
 table.dark{
-  border:none;
+  border-width:0;
 }
 table.dark th{
   background-color: var(--dark);
   color: var(--grey-dark);
 }
 table.dark td {
-  border:none;
+  border-width:0;
 }
 table.dark tbody tr:nth-child(even){
   background-color: var(--grey-light);
 }
 
 table.noborder th,table.noborder td{
-	border: 0
+  border: 0
+}
+
+/*兼容*/
+.ie table.dark td{
+  border: 2px solid var(--grey-light);
 }

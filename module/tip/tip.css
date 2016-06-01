@@ -1,33 +1,6 @@
-[tip]{display: inline-block;width: 14px;height: 14px;color: #c92c2c;border:1px solid #c92c2c;border-radius: 50%;line-height:14px;vertical-align: middle;font-size: 12px;margin-left: 2px;text-align: center;}
-[tip]:hover{cursor: pointer;}
-[tip] .tip-content{
-  position: absolute;
-  background-color: #fffbcc;
-  border: 1px solid #facf84;
-  text-align: center;
-  padding:3px 6px;
-  max-width: 200px;
-  display: none;
-  color: #666;
-  font-size: 14px;
-  z-index: 99;
-  line-height:24px;
-  height: auto;
-}
-
-[tip]:hover .tip-content{
-  display: inline-block;
-}
-
-.tip.tip-a{color: #aaa;border:1px solid #aaa;}
-
-
 .tip{
   position: absolute;
-  padding:5px;
   z-index: 1000;
-  top: 0;
-  left: 0;
   max-width: 220px;
 }
 .tip .tip-inner{
@@ -35,6 +8,7 @@
   color: var(--grey-light);
   padding:8px 22px;
   border-radius: var(--radius);
+  line-height: 1.5;
 }
 .tip .tip-arrow{
   position: absolute;
@@ -49,14 +23,7 @@
   border-right-color: transparent;
   border-left-color: transparent;
 }
-.tip.tip-top .tip-arrow{
-  bottom:0;
-  border-bottom: none;
-}
-.tip.tip-bottom .tip-arrow{
-  top: 0;
-  border-top: none;
-}
+
 
 .tip.tip-left .tip-arrow, .tip.tip-right .tip-arrow{
   top: 50%;
@@ -67,18 +34,35 @@
 .tip.tip-left .tip-arrow{
   right:0;
   border-right: none;
+  border-left-style: solid; /*IE678*/
 }
 .tip.tip-right .tip-arrow{
   left: 0;
   border-left: none;
+  border-right-style: solid; /*IE678*/
+}
+.tip.tip-top .tip-arrow{
+  bottom:0;
+  border-bottom: none;
+  border-top-style: solid; /*IE678*/
+}
+.tip.tip-bottom .tip-arrow{
+  top: 0;
+  border-top: none;
+  border-bottom-style: solid; /*IE678*/
 }
 
-.tip.large .tip-inner{
-  max-width: 130px;
-}
-.tip.small{
-  font-size: 12px;
-}
-.tip.small .tip-inner{
-  padding: 6px 15px;
-}
+.tip-top{padding-bottom: 5px;}
+.tip-right{padding-left: 5px;}
+.tip-bottom{padding-top: 5px;}
+.tip-left{padding-right: 5px;}
+
+.tip.small .tip-inner{font-size: 12px;padding:5px 15px;}
+
+
+/*兼容*/
+.ie6 .tip-top{padding-bottom: 5px;}
+.ie6 .tip-right{padding-left: 5px;}
+.ie6 .tip-bottom{padding-top: 5px;}
+.ie6 .tip-left{padding-right: 5px;}
+.ie6 .tip{width: expression(this.scrollWidth > 230 ? "230px" : "auto")}

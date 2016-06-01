@@ -67,4 +67,5 @@ node server
 * 添加 calendar 模块：日历模块，提供获取当前年、月、日列表。当前日期前几天，后几天
 * 添加 util 模块
 * 添加 dateUtil 模块
+* 添加 placeholder 模块。使得IE6789可以兼容placeholder属性
 

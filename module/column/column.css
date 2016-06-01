@@ -11,13 +11,13 @@
 .column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
 
 .column > [class*=col-]{
-  margin-right: var(--blank);
+  margin-left: var(--blank);
   float: left;
 }
 
-.column > [class*=col-]:last-child
+.column > [class*=col-]:first-child
 {
-  margin-right: 0;
+  margin-left: 0;
 }
 
 
@@ -47,35 +47,3 @@
 }
 
 
-/*兼容*/
-.ie .column  div.last{
-  margin-right: 0;
-}
-@each $x,$y in (2),(1){
-  .ie .column .col-$(x)-$(y){
-    float:left;
-    margin-right: var(--blank);
-  }
-}
-
-@each $x,$y in (3,3),(2,1){
-  .ie .column .col-$(x)-$(y){
-    float:left;
-    margin-right: var(--blank);
-  }
-}
-
-@each $x,$y in (4,4,4),(3,2,1){
-  .ie .column .col-$(x)-$(y){
-    float:left;
-    margin-right: var(--blank);
-  }
-}
-
-
-@each $x,$y in (5,5,5,5),(4,3,2,1){
-  .ie .column .col-$(x)-$(y){
-    float:left;
-    margin-right: var(--blank);
-  }
-}
