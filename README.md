@@ -71,5 +71,25 @@ node server
 
 ## 0.70.0 版本 2016-06-02
 
-以下模块添加 IE6 的支持：
-`button` `column` `demo` `form` `input` `label` `link` `list` `margin` `notice` `page` `popup` `progress` `reset` `tab` `table` `text` `textarea` `tip` `tool` `util`
+
+* `button` 添加对 IE6 的支持
+* `column` 添加对 IE6 的支持
+* `demo` 添加对 IE6 的支持
+* `form` 添加对 IE6 的支持
+* `input` 添加对 IE6 的支持
+* `label` 添加对 IE6 的支持
+* `link` 添加对 IE6 的支持
+* `list` 添加对 IE6 的支持
+* `margin` 添加对 IE6 的支持
+* `notice` 添加对 IE6 的支持
+* `page` 添加对 IE6 的支持
+* `popup` 添加对 IE6 的支持
+* `progress` 添加对 IE6 的支持
+* `reset` 添加对 IE6 的支持
+* `tab` 添加对 IE6 的支持
+* `table` 添加对 IE6 的支持
+* `text` 添加对 IE6 的支持
+* `textarea` 添加对 IE6 的支持
+* `tip` 添加对 IE6 的支持
+* `tool` 添加对 IE6 的支持
+* `util` 添加对 IE6 的支持
