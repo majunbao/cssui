@@ -71,5 +71,5 @@ node server
 
 ## 0.70.0 版本 2016-06-02
 
-** 所有模块现在支持 IE6
-
+> 以下模块添加 IE6 的支持
+* `button` `column` `demo` `form` `input` `label` `link` `list` `margin` `notice` `page` `popup` `progress` `reset` `tab` `table` `text` `textarea` `tip` `tool` `util`
