@@ -71,7 +71,6 @@ node server
 
 ## 0.70.0 版本 2016-06-02
 
-
 * `button` 添加对 IE6 的支持
 * `column` 添加对 IE6 的支持
 * `demo` 添加对 IE6 的支持
