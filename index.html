@@ -1,10 +1,21 @@
 <!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6 ie" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en">
+<!--<![endif]-->
 
 <head>
   <meta charset="UTF-8">
   <title>ui kit</title>
   <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no" />
+  <!-- Webkit HTML5内核>双核浏览器webkit内核>双核浏览器IE内核>IE标准内核>IE兼容内核 -->
+  <meta name="renderer" content="webkit|ie-stand|ie-comp">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link rel="stylesheet" type="text/css" href="ui.css">
   <script src="ui.js"></script>
 </head>
@@ -15,34 +26,34 @@
     <h2 class="demo-h2">Theme Color</h2>
     <ul>
       <li>
-        <span class="color hover"></span>
+        <span class="color color-hover"></span>
         <span class="color"></span>
-        <span class="color active"></span>
+        <span class="color color-active"></span>
       </li>
       <li>
-        <span class="color success hover"></span>
+        <span class="color success-hover"></span>
         <span class="color success"></span>
-        <span class="color success active"></span>
+        <span class="color success-active"></span>
       </li>
       <li>
-        <span class="color warning hover"></span>
+        <span class="color warning-hover"></span>
         <span class="color warning"></span>
-        <span class="color warning active"></span>
+        <span class="color warning-active"></span>
       </li>
       <li>
-        <span class="color error hover"></span>
+        <span class="color error-hover"></span>
         <span class="color error"></span>
-        <span class="color error active"></span>
+        <span class="color error-active"></span>
       </li>
       <li>
-        <span class="color dark hover"></span>
+        <span class="color dark-hover"></span>
         <span class="color dark"></span>
-        <span class="color dark active"></span>
+        <span class="color dark-active"></span>
       </li>
       <li>
-        <span class="color grey hover"></span>
+        <span class="color grey-hover"></span>
         <span class="color grey"></span>
-        <span class="color grey active"></span>
+        <span class="color grey-active"></span>
       </li>
     </ul>
   </section>
@@ -58,12 +69,12 @@
     </article>
     <h2 class="demo-h2">Button Style</h2>
     <article>
-      <a class="button radius">主题色</a>
-      <a class="button radius">推荐</a>
-      <a class="button radius">警告</a>
-      <a class="button radius">阻止</a>
-      <a class="button radius">黑夜</a>
-      <a class="button disabled radius">禁用</a>
+      <a class="button radius ">主题色</a>
+      <a class="button radius success">推荐</a>
+      <a class="button radius warning">警告</a>
+      <a class="button radius error">阻止</a>
+      <a class="button radius dark">黑夜</a>
+      <a class="button  radius error disabled">禁用</a>
     </article>
     <h2 class="demo-h2">Button Size</h2>
     <article>
@@ -80,11 +91,12 @@
       <input type="text" placeholder="主题色">
     </article>
     <article>
-      <input type="text" class="success" value="成功"  placeholder="成功">
-      <input type="text" class="warning" value="警告"  placeholder="警告">
-      <br><br>
-      <input type="text" class="error" value="错误"  placeholder="错误">
-      <input type="text" disabled value="禁用"  placeholder="禁用">
+      <input type="text" class="success" value="成功" placeholder="成功">
+      <input type="text" class="warning" value="警告" placeholder="警告">
+      <br>
+      <br>
+      <input type="text" class="error" value="错误" placeholder="错误">
+      <input type="text" disabled value="禁用" placeholder="禁用">
     </article>
     <h2 class="demo-h2">Input Size</h2>
     <article>
@@ -95,88 +107,88 @@
   <section>
     <h2 class="demo-h2">column</h2>
     <article>
-        <div class="column">
-          <div class="col-2-1">
-            <p class="col-num">1/2</p>
-          </div>
-          <div class="col-2-1 last">
-            <p class="col-num">1/2</p>
-          </div>
+      <div class="column">
+        <div class="col-2-1">
+          <p class="col-num">1/2</p>
         </div>
-        <div class="column">
-          <div class="col-3-1">
-            <p class="col-num">1/3</p>
-          </div>
-          <div class="col-3-1">
-            <p class="col-num">1/3</p>
-          </div>
-          <div class="col-3-1">
-            <p class="col-num">1/3</p>
-          </div>
+        <div class="col-2-1 last">
+          <p class="col-num">1/2</p>
         </div>
-        <div class="column">
-          <div class="col-3-1">
-            <p class="col-num">1/3</p>
-          </div>
-          <div class="col-3-2 last">
-            <p class="col-num">2/3</p>
-          </div>
+      </div>
+      <div class="column">
+        <div class="col-3-1">
+          <p class="col-num">1/3</p>
         </div>
-        <div class="column">
-          <div class="col-4-1">
-            <p class="col-num">1/4</p>
-          </div>
-          <div class="col-4-1">
-            <p class="col-num">1/4</p>
-          </div>
-          <div class="col-4-1">
-            <p class="col-num">1/4</p>
-          </div>
-          <div class="col-4-1 last">
-            <p class="col-num">1/4</p>
-          </div>
+        <div class="col-3-1">
+          <p class="col-num">1/3</p>
         </div>
-        <div class="column">
-          <div class="col-4-1">
-            <p class="col-num">1/4</p>
-          </div>
-          <div class="col-4-3 last">
-            <p class="col-num">3/4</p>
-          </div>
+        <div class="col-3-1 last">
+          <p class="col-num">1/3</p>
         </div>
-        <div class="column">
-          <div class="col-5-1">
-            <p class="col-num">1/5</p>
-          </div>
-          <div class="col-5-1">
-            <p class="col-num">1/5</p>
-          </div>
-          <div class="col-5-1">
-            <p class="col-num">1/5</p>
-          </div>
-          <div class="col-5-1">
-            <p class="col-num">1/5</p>
-          </div>
-          <div class="col-5-1 last">
-            <p class="col-num">1/5</p>
-          </div>
+      </div>
+      <div class="column">
+        <div class="col-3-1">
+          <p class="col-num">1/3</p>
         </div>
-        <div class="column">
-          <div class="col-5-1">
-            <p class="col-num">1/5</p>
-          </div>
-          <div class="col-5-4 last">
-            <p class="col-num">4/5</p>
-          </div>
+        <div class="col-3-2 last">
+          <p class="col-num">2/3</p>
         </div>
-        <div class="column">
-          <div class="col-5-2">
-            <p class="col-num">2/5</p>
-          </div>
-          <div class="col-5-3 last">
-            <p class="col-num">3/5</p>
-          </div>
+      </div>
+      <div class="column">
+        <div class="col-4-1">
+          <p class="col-num">1/4</p>
         </div>
+        <div class="col-4-1">
+          <p class="col-num">1/4</p>
+        </div>
+        <div class="col-4-1">
+          <p class="col-num">1/4</p>
+        </div>
+        <div class="col-4-1 last">
+          <p class="col-num">1/4</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="col-4-1">
+          <p class="col-num">1/4</p>
+        </div>
+        <div class="col-4-3 last">
+          <p class="col-num">3/4</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="col-5-1">
+          <p class="col-num">1/5</p>
+        </div>
+        <div class="col-5-1">
+          <p class="col-num">1/5</p>
+        </div>
+        <div class="col-5-1">
+          <p class="col-num">1/5</p>
+        </div>
+        <div class="col-5-1">
+          <p class="col-num">1/5</p>
+        </div>
+        <div class="col-5-1 last">
+          <p class="col-num">1/5</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="col-5-1">
+          <p class="col-num">1/5</p>
+        </div>
+        <div class="col-5-4 last">
+          <p class="col-num">4/5</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="col-5-2">
+          <p class="col-num">2/5</p>
+        </div>
+        <div class="col-5-3 last">
+          <p class="col-num">3/5</p>
+        </div>
+      </div>
     </article>
   </section>
   <section>
@@ -315,21 +327,55 @@
     <h2 class="demo-h2">Tab</h2>
     <article>
       <div class="tab">
-        <a class=now>公司</a>
-        <a>公司</a>
-        <a>公司</a>
-        <div class="now">
-          你好1<br><br><br><br><br><br><br>
+        <ul class="tab-header">
+          <li><a>公司1</a></li>
+          <li class="now"><a>公司2</a></li>
+          <li><a>非常长的标签名称</a></li>
+        </ul>
+        <div class="tab-content now">
+          你好1
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
         </div>
-        <div>你好2<br><br><br><br><br><br><br></div>
-        <div>你好3<br><br><br><br><br><br><br></div>
+        <div class="tab-content">你好2
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+        <div class="tab-content">你好3
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
       </div>
     </article>
     <article>
       <div class="tab">
-        <a>公司</a>
-        <div class="now">
-          你好1<br><br><br><br><br><br><br>
+        <ul class="tab-header">
+          <li><a>公司1</a></li>
+        </ul>
+        <div class="now tab-content">
+          你好1
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
         </div>
       </div>
     </article>
@@ -357,51 +403,51 @@
   <section>
     <h2 class="demo-h2">tip</h2>
     <article class="demo-tip">
-      <div class="tip tip-top">
+      <tip class="tip-top">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在上边
         </div>
-      </div>
-      <div class="tip tip-right">
+      </tip>
+      <tip class="tip-right">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在右边
         </div>
-      </div>
-      <div class="tip tip-bottom">
+      </tip>
+      <tip class="tip-bottom">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在下边
         </div>
-      </div>
-      <div class="tip tip-left">
+      </tip>
+      <tip class="tip-left">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在左边
         </div>
-      </div>
+      </tip>
     </article>
     <h2 class="demo-h2">Tip Size</h2>
     <article class="demo-tip">
-      <div class="tip tip-top small">
+      <tip class="tip-top small">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在上边
         </div>
-      </div>
-      <div class="tip tip-right">
+      </tip>
+      <tip class="tip-right small">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在右边
         </div>
-      </div>
-      <div class="tip tip-bottom large">
+      </tip>
+      <tip class="tip-bottom">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           在内容非常多的时候很有用,很有用。
         </div>
-      </div>
+      </tip>
     </article>
   </section>
   <section>
@@ -423,7 +469,7 @@
     </article>
     <h2 class="demo-h2">progress Size</h2>
     <article>
-      <div class="progress small">
+      <div class="progress progress-small">
         <div class="progress-bar" style="width:39%">39%</div>
       </div>
     </article>
@@ -460,28 +506,30 @@
   </section>
   <section>
     <h2 class="demo-h2">popup</h2>
-    <article class="on-left">
-      <div class="notice popup">
-        <!-- <i class="icon close"></i> -->
-        <h1>恭喜你</h1>
-        <p>你获得了一个小面包,请好好享用。</p>
-        <div class="margin-top-20 align-right">
-          <a class="button disabled">不要</a>
-          <a class="button warning">真酷</a>
+    <div class="column">
+      <article class="col-2-1">
+        <div class="notice popup">
+          <!-- <i class="icon close"></i> -->
+          <h1>恭喜你</h1>
+          <p>你获得了一个小面包,请好好享用。</p>
+          <div class="margin-top-20 align-right">
+            <a class="button disabled">不要</a>
+            <a class="button warning">真酷</a>
+          </div>
         </div>
-      </div>
-    </article>
-    <article class="on-left margin-left-20">
-      <div class="notice popup success">
-        <!-- <i class="icon close"></i> -->
-        <h1>恭喜你</h1>
-        <p>你获得了一个小面包,请好好享用。</p>
-        <div class="margin-top-20 align-right">
-          <a class="button disabled">不要</a>
-          <a class="button ">真酷</a>
+      </article>
+      <article class="col-2-1">
+        <div class="notice popup success">
+          <!-- <i class="icon close"></i> -->
+          <h1>恭喜你</h1>
+          <p>你获得了一个小面包,请好好享用。</p>
+          <div class="margin-top-20 align-right">
+            <a class="button disabled">不要</a>
+            <a class="button ">真酷</a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </section>
   <section>
     <h2 class="demo-h2">page</h2>
@@ -489,7 +537,7 @@
       <div class="page">
         <a class="disabled">上一页</a>
         <a class="now">1</a>
-        <a>2</a>
+        <a href="#">2</a>
         <a>3</a>
         <a>4</a>
         <a>5</a>
@@ -505,6 +553,38 @@
       <div class="page">
         <a>上一页</a>
         <a>下一页</a>
+      </div>
+    </article>
+    <article>
+      <div class="page page-right">
+        <a class="disabled">上一页</a>
+        <a class="now">1</a>
+        <a href="#">2</a>
+        <a>3</a>
+        <a>4</a>
+        <a>5</a>
+        <a>6</a>
+        <a>7</a>
+        <a>8</a>
+        <a>9</a>
+        <a>10</a>
+        <a>下一页</a>
+      </div>
+    </article>
+    <article>
+      <div class="page page-right">
+        <a>上一页</a>
+        <a>下一页</a>
+      </div>
+    </article>
+  </section>
+  <section class="demo-calendar">
+    <h2 class="demo-h2">Calendar</h2>
+    <article>
+      <div class="calendar">
+        <h2><a class="on-left margin-left-10">上一月</a><span>June 2016</span><a class="on-right margin-right-10">下一月</a></h2>
+        <table>
+        </table>
       </div>
     </article>
   </section>
@@ -531,7 +611,7 @@
         </fieldset>
         <fieldset>
           <label class="long">备注：</label>
-          <textarea name="name" rows=""></textarea>
+          <textarea name="name" rows="" placeholder="请输入文字"></textarea>
         </fieldset>
         <fieldset>
           <label class="long"></label>
@@ -595,6 +675,47 @@
     <span class="text-large">text-large</span>
   </section>
   <section style=padding-bottom:300px;></section>
+  <script>
+  var doc = document,
+    inputs = doc.getElementsByTagName('input'),
+    textareas = doc.getElementsByTagName('textarea'),
+    supportPlaceholder = 'placeholder' in doc.createElement('input'),
+
+    placeholder = function(input,dom) {
+      var text = input.getAttribute('placeholder'),
+        defaultValue = input.defaultValue;
+      if (defaultValue == '') {
+        input.value = dom.offsetParent.tagName
+      }
+      input.onfocus = function() {
+        if (input.value === text) {
+          this.value = ''
+        }
+      };
+      input.onblur = function() {
+        if (input.value === '') {
+          this.value = text
+        }
+      }
+    };
+
+  if (!supportPlaceholder) {
+    for (var i = 0, len = inputs.length; i < len; i++) {
+      var input = inputs[i],
+        text = input.getAttribute('placeholder');
+      if (input.type === 'text' && text) {
+        placeholder(input, inputs[i])
+      }
+    }
+    for (var i = 0, len = textareas.length; i < len; i++) {
+      var textareas = textareas[i],
+        text = textareas.getAttribute('placeholder');
+      if (text) {
+        placeholder(textareas)
+      }
+    }
+  }
+  </script>
 </body>
 
 </html>

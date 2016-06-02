@@ -199,6 +199,15 @@ body, input, textarea, select, button {
   outline: none; 
 }
 
+input, textarea{
+  /*去除ios webkit默认样式*/
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+}
+
 .clear:after {
   content: "\20";
   display: block;
@@ -517,13 +526,14 @@ body, input, textarea, select, button {
 
 .column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
 
-.column > div{
-  margin-right: 2%;
+.column > [class*=col-]{
+  margin-left: 2%;
   float: left;
 }
 
-.column > [class*=col-]:last-child, .column > .last{
-  margin-right: 0;
+.column > [class*=col-]:first-child
+{
+  margin-left: 0;
 }
 
 .column .col-2-1{
@@ -564,6 +574,58 @@ body, input, textarea, select, button {
 
 .column .col-5-1{
   width: 18.4%;
+}
+
+/*兼容*/
+
+.ie6 .column .col-2-1{
+  margin-left: expression(this.previousSibling==null?'0':'2%');
+  float: left;
+}
+
+.ie6 .column .col-3-2{
+  margin-left: expression(this.previousSibling==null?'0':'2%');
+  float: left;
+}
+
+.ie6 .column .col-3-1{
+  margin-left: expression(this.previousSibling==null?'0':'2%');
+  float: left;
+}
+
+.ie6 .column .col-4-3{
+  margin-left: expression(this.previousSibling==null?'0':'2%');
+  float: left;
+}
+
+.ie6 .column .col-4-2{
+  margin-left: expression(this.previousSibling==null?'0':'2%');
+  float: left;
+}
+
+.ie6 .column .col-4-1{
+  margin-left: expression(this.previousSibling==null?'0':'2%');
+  float: left;
+}
+
+.ie6 .column .col-5-4{
+  margin-left: expression(this.className.indexOf('col-')>=0&&this.previousSibling==null?'0':'2%');
+  float: left;
+}
+
+.ie6 .column .col-5-3{
+  margin-left: expression(this.className.indexOf('col-')>=0&&this.previousSibling==null?'0':'2%');
+  float: left;
+}
+
+.ie6 .column .col-5-2{
+  margin-left: expression(this.className.indexOf('col-')>=0&&this.previousSibling==null?'0':'2%');
+  float: left;
+}
+
+.ie6 .column .col-5-1{
+  margin-left: expression(this.className.indexOf('col-')>=0&&this.previousSibling==null?'0':'2%');
+  float: left;
 }
 
 .text-bold {
@@ -627,12 +689,11 @@ a:focus {
   border-radius: 0;
   
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
   cursor: pointer;
   border: 0;
   text-align: center;
   text-decoration: none;
+  vertical-align: middle;
 
   min-width: 70px;
   padding:0 10px;
@@ -729,12 +790,15 @@ a:focus {
 }
 
 .button.disabled{
-  background-color:#dde2ef;
-  border-color: #dde2ef;
+  background-color: #dde2ef !important;
+  border-color: #dde2ef  !important;
+  cursor: not-allowed;
 }
 
 .button.disabled:hover{
-  cursor:not-allowed;
+  background-color: #dde2ef !important;
+  border-color: #dde2ef  !important;
+  cursor: not-allowed;
 }
 
 /*尺寸*/
@@ -751,10 +815,10 @@ a:focus {
 }
 
 .button.small{
-  min-width: 55px;
   padding:0 5px;
   height: 22px;
   line-height: 22px;
+  min-width: 55px;
 }
 
 .button.large{
@@ -772,20 +836,47 @@ a:focus {
   letter-spacing:0.5em;
 }
 
+/*兼容*/
+
+.ie6 .button{
+  padding:0 25px;
+  display: inline;
+  zoom: 1;
+}
+
+.ie6 .button.large{
+  width:88px;
+}
+
+.ie6 .button.larger{
+  width:268px;
+}
+
+.ie6 .button.small{
+  width: 55px;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 5px;
+}
+
+.ie6 .button.smaller{
+
+  height: 22px;
+  line-height: 22px;
+  padding:0 6px;
+}
+
 /*基础*/
 
-input[type=text], input[type=password], input[type=search], textarea {
+input {
   padding: 0;
   margin: 0;
   border: 0;
   outline: none;
-  /*去除ios webkit默认样式*/
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
+  vertical-align: middle;
 }
+
+input.button{width: auto;}
 
 input[type=text]:focus, input[type=password]:focus {
   outline: none;
@@ -797,22 +888,13 @@ input[disabled]:hover {
 
 /*UI input*/
 
-input[type=text]{
+input {
   padding: 0 10px;
   width: 278px;
-  line-height: 100%;
+  line-height: 1;
   height: 43px;
-  border: 2px solid #dde2ef;
-  color: #576077;
-}
-
-input[type=password]{
-  padding: 0 10px;
-  width: 278px;
-  line-height: 100%;
-  height: 43px;
-  border: 2px solid #dde2ef;
-  color: #576077;
+  border:2px solid #dde2ef;
+  color: #576077; 
 }
 
 input[type=text]:hover{
@@ -934,6 +1016,27 @@ input.large {
 }
 
 input.small {
+  height: 32px;
+}
+
+/*兼容*/
+
+/*行高 只给IE678设置，标准浏览器设置行高，光标高度会充满输入框*/
+
+.ie input {
+  line-height: 43px;
+}
+
+.ie input.small {
+  line-height: 32px;
+}
+
+.ie6 input{
+  background-color: transparent;
+}
+
+.ie6 input.small{
+  width: 278px;
   line-height: 32px;
   height: 32px;
 }
@@ -971,7 +1074,7 @@ table td {
 }
 
 table.dark{
-  border:none;
+  border-width:0;
 }
 
 table.dark th{
@@ -980,7 +1083,7 @@ table.dark th{
 }
 
 table.dark td {
-  border:none;
+  border-width:0;
 }
 
 table.dark tbody tr:nth-child(even){
@@ -988,14 +1091,33 @@ table.dark tbody tr:nth-child(even){
 }
 
 table.noborder th,table.noborder td{
-	border: 0
+  border: 0
+}
+
+/*兼容*/
+
+.ie table.dark{
+  background-color: transparent;
+}
+
+.ie table.dark td{
+  border: 2px solid #f4f5f9;
 }
 
 .tab {
   position: relative;
 }
 
-.tab > a {
+.tab ul.tab-header{
+  height: 38px;
+}
+
+.tab ul.tab-header li{
+  float: left;
+  height: 100%;
+}
+
+.tab ul.tab-header li a {
   display: inline-block;
   background-color: #50bae2;
   text-align: center;
@@ -1003,27 +1125,37 @@ table.noborder th,table.noborder td{
   min-width: 80px;
   text-decoration: none;
   color: #fff;
-  /*border-right: 1px solid color(var(--theme) b(20%));*/
+  height: 100%;
   line-height: 38px;
-  height: 38px;
-  float: left;
+  border-left: 1px solid #4fabcc;
 }
 
-.tab > a.now{
+.tab  ul.tab-header li.now a{
   color: #000;
   font-weight: bold;
   background-color: #f4f5f9;
 }
 
-.tab > div{
-  clear: left;
-  padding: 15px 10px 15px 10px;
-  background-color: #f4f5f9;
+.tab div.tab-content{
   display: none;
 }
 
-.tab > div.now{
+.tab div.tab-content.now{
   display: block;
+  padding: 15px 10px;
+  background-color: #f4f5f9;
+}
+
+/*兼容*/
+
+.ie6 .tab div.now,
+.ie7 .tab div.now{
+  /*这个不用display:block;是为了兼容IE67浏览器*/
+  display: inline-block;
+}
+
+.ie6 .tab ul.tab-header li a{
+  width: expression(this.scrollWidth>100?'auto':'79px');
 }
 
 .label{
@@ -1062,48 +1194,22 @@ table.noborder th,table.noborder td{
 
 .label-group .label:last-child{margin-right: 0;}
 
-[tip]{display: inline-block;width: 14px;height: 14px;color: #c92c2c;border:1px solid #c92c2c;border-radius: 50%;line-height:14px;vertical-align: middle;font-size: 12px;margin-left: 2px;text-align: center;}
-
-[tip]:hover{cursor: pointer;}
-
-[tip] .tip-content{
+tip{
+  display: block;
   position: absolute;
-  background-color: #fffbcc;
-  border: 1px solid #facf84;
-  text-align: center;
-  padding:3px 6px;
-  max-width: 200px;
-  display: none;
-  color: #666;
-  font-size: 14px;
-  z-index: 99;
-  line-height:24px;
-  height: auto;
-}
-
-[tip]:hover .tip-content{
-  display: inline-block;
-}
-
-.tip.tip-a{color: #aaa;border:1px solid #aaa;}
-
-.tip{
-  position: absolute;
-  padding:5px;
   z-index: 1000;
-  top: 0;
-  left: 0;
   max-width: 220px;
 }
 
-.tip .tip-inner{
+tip .tip-inner{
   background-color: #30303c;
   color: #f4f5f9;
   padding:8px 22px;
   border-radius: 4px;
+  line-height: 1.5;
 }
 
-.tip .tip-arrow{
+tip .tip-arrow{
   position: absolute;
   width: 0;
   height: 0;
@@ -1111,51 +1217,67 @@ table.noborder th,table.noborder td{
   border:5px dashed #30303c;
 }
 
-.tip.tip-top .tip-arrow, .tip.tip-bottom .tip-arrow{
+tip.tip-top .tip-arrow, tip.tip-bottom .tip-arrow{
   left: 50%;
   margin-left: -5px;
   border-right-color: transparent;
   border-left-color: transparent;
 }
 
-.tip.tip-top .tip-arrow{
-  bottom:0;
-  border-bottom: none;
-}
-
-.tip.tip-bottom .tip-arrow{
-  top: 0;
-  border-top: none;
-}
-
-.tip.tip-left .tip-arrow, .tip.tip-right .tip-arrow{
+tip.tip-left .tip-arrow, tip.tip-right .tip-arrow{
   top: 50%;
   margin-top: -5px;
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
 
-.tip.tip-left .tip-arrow{
+tip.tip-left .tip-arrow{
   right:0;
   border-right: none;
+  border-left-style: solid; /*IE678*/
 }
 
-.tip.tip-right .tip-arrow{
+tip.tip-right .tip-arrow{
   left: 0;
   border-left: none;
+  border-right-style: solid; /*IE678*/
 }
 
-.tip.large .tip-inner{
-  max-width: 130px;
+tip.tip-top .tip-arrow{
+  bottom:0;
+  border-bottom: none;
+  border-top-style: solid; /*IE678*/
 }
 
-.tip.small{
-  font-size: 12px;
+tip.tip-bottom .tip-arrow{
+  top: 0;
+  border-top: none;
+  border-bottom-style: solid; /*IE678*/
 }
 
-.tip.small .tip-inner{
-  padding: 6px 15px;
-}
+.tip-top{padding-bottom: 5px;}
+
+.tip-right{padding-left: 5px;}
+
+.tip-bottom{padding-top: 5px;}
+
+.tip-left{padding-right: 5px;}
+
+tip.small .tip-inner{font-size: 12px;padding:5px 15px;}
+
+/*兼容*/
+
+.ie6 .tip-top{padding-bottom: 5px;}
+
+.ie6 .tip-right{padding-left: 5px;}
+
+.ie6 .tip-bottom{padding-top: 5px;}
+
+.ie6 .tip-left{padding-right: 5px;}
+
+.ie6 tip{width: expression(this.scrollWidth > 220 ? "222px" : "auto");}
+
+tip.small{width: auto !important}
 
 .notice{
 	padding: 20px;
@@ -1182,24 +1304,23 @@ table.noborder th,table.noborder td{
 }
 
 .page {
-  height: 45px;
-  line-height: 43px;
+  font-size: 0;
 }
 
 .page a {
   border: 2px solid #dde2ef;
   color: #576077;
-  border-left-width:0px;
-  min-width: 24px;
-  padding:0 10px;
+  padding:10px 16px;
   text-align: center;
   text-decoration: none;
-  float: left;
+  margin-right: -2px;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 1.5;
+  vertical-align: middle; /*ie678 解决汉子和数字上下不对齐*/
 }
 
 .page a:first-child {
-  margin-left: 0;
-  border-left-width: 2px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
@@ -1219,6 +1340,22 @@ table.noborder th,table.noborder td{
 
 .page a.disabled {
   color: #999999;
+}
+
+.page.page-right{
+  text-align: right;
+}
+
+.page.page-right a {
+  margin-right: 0;
+  margin-left: -2px;
+}
+
+/*兼容*/
+
+.ie6 .page a.disabled{
+  background-color: transparent !important;
+  color: #999;
 }
 
 .popup {
@@ -1261,7 +1398,7 @@ table.noborder th,table.noborder td{
   }
 }
 
-.progress.small{
+.progress-small{
   height: 14px;line-height: 14px;
 }
 
@@ -1331,13 +1468,13 @@ table.noborder th,table.noborder td{
   border-color: #f4f5f9;
 }
 
-form > fieldset {
+form  fieldset {
   border: none;
   padding: 0 0 12px 0;
   margin: 0;
 }
 
-form fieldset > label {
+form fieldset label {
   display: inline-block;
   *zoom: 1;
   *display: inline;
@@ -1349,15 +1486,21 @@ form fieldset > label {
   top: 13px;
 }
 
-form fieldset > label.long {
+form fieldset label.long {
 	width: 300px;
 }
 
 textarea {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  
   border: 2px solid #dde2ef;
   padding: 10px;
   width: 468px;
   min-height: 88px;
+  overflow: auto;
 }
 
 textarea:hover {
@@ -1462,6 +1605,13 @@ textarea[disabled]:hover,textarea[disabled]:focus {
   cursor: not-allowed;
 }
 
+/*兼容*/
+
+.ie6 textarea{
+  height: 88px;
+  background-color: transparent;
+}
+
 label.checkbox, label.radio{}
 
 label.checkbox input, label.radio input{display: none}
@@ -1560,11 +1710,11 @@ section article {
   background-color: #50bae2;
 }
 
-.color.hover{
+.color-hover{
   background-color: #71cff3;
 }
 
-.color.active{
+.color-active{
   background-color: #3a9ec3;
 }
 
@@ -1572,11 +1722,11 @@ section article {
   background-color: #43cb83;
 }
 
-.color.success.hover{
+.color.success-hover{
   background-color: #69e0a1;
 }
 
-.color.success.active{
+.color.success-active{
   background-color: #2da867;
 }
 
@@ -1584,11 +1734,11 @@ section article {
   background-color: #f9b954;
 }
 
-.color.warning.hover{
+.color.warning-hover{
   background-color: #fdcc7e;
 }
 
-.color.warning.active{
+.color.warning-active{
   background-color: #e7a133;
 }
 
@@ -1596,11 +1746,11 @@ section article {
   background-color: #f57846;
 }
 
-.color.error.hover{
+.color.error-hover{
   background-color: #fb9267;
 }
 
-.color.error.active{
+.color.error-active{
   background-color: #db6334;
 }
 
@@ -1608,11 +1758,11 @@ section article {
   background-color: #3f3f4d;
 }
 
-.color.dark.hover{
+.color.dark-hover{
   background-color: #515163;
 }
 
-.color.dark.active{
+.color.dark-active{
   background-color: #30303c;
 }
 
@@ -1620,20 +1770,22 @@ section article {
   background-color: #dde2ef;
 }
 
-.color.grey.hover{
+.color.grey-hover{
   background-color: #ebf0fd;
 }
 
-.color.grey.active{
+.color.grey-active{
   background-color: #c0c7da;
 }
 
 .demo-tip {position: relative;width: 1000px;height: 50px;}
 
-.demo-tip .tip.tip-top{margin-left: 0%;}
+.demo-tip .tip-top{margin-left: 0%;}
 
-.demo-tip .tip.tip-right{margin-left: 20%;}
+.demo-tip .tip-right{margin-left: 20%;}
 
-.demo-tip .tip.tip-bottom{margin-left: 40%;}
+.demo-tip .tip-bottom{margin-left: 40%;}
 
-.demo-tip .tip.tip-left{margin-left: 60%;}
+.demo-tip .tip-left{margin-left: 60%;}
+
+.demo-calendar{position: relative;height: 300px}
