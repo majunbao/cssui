@@ -1,6 +1,7 @@
 var html5Element = [
   'section',
-  'article'
+  'article',
+  'tip'
 ];
 
 var inputNode = document.getElementsByTagName('input');

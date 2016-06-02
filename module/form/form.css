@@ -1,9 +1,9 @@
-form > fieldset {
+form  fieldset {
   border: none;
   padding: 0 0 12px 0;
   margin: 0;
 }
-form fieldset > label {
+form fieldset label {
   display: inline-block;
   *zoom: 1;
   *display: inline;
@@ -15,6 +15,7 @@ form fieldset > label {
   top: 13px;
 }
 
-form fieldset > label.long {
+form fieldset label.long {
 	width: 300px;
 }
+

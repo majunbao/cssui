@@ -44,6 +44,9 @@ table.noborder th,table.noborder td{
 }
 
 /*兼容*/
+.ie table.dark{
+  background-color: transparent;
+}
 .ie table.dark td{
   border: 2px solid var(--grey-light);
 }

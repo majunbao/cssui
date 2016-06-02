@@ -39,7 +39,6 @@
   }
 }
 
-
 @each $x,$y in (5,5,5,5),(4,3,2,1){
   .column .col-$(x)-$(y){
     width: calc( ((var(--width) - var(--blank)*($(x)-1) ) / $(x)) * $(y) + var(--blank)*($(y)-1) );
@@ -47,3 +46,32 @@
 }
 
 
+
+/*兼容*/
+@each $x,$y in (2),(1){
+  .ie6 .column .col-$(x)-$(y){
+     margin-left: expression(this.previousSibling==null?'0':'var(--blank)');
+    float: left;
+  }
+}
+
+@each $x,$y in (3,3),(2,1){
+  .ie6 .column .col-$(x)-$(y){
+     margin-left: expression(this.previousSibling==null?'0':'var(--blank)');
+    float: left;
+  }
+}
+
+@each $x,$y in (4,4,4),(3,2,1){
+  .ie6 .column .col-$(x)-$(y){
+     margin-left: expression(this.previousSibling==null?'0':'var(--blank)');
+    float: left;
+  }
+}
+
+@each $x,$y in (5,5,5,5),(4,3,2,1){
+  .ie6 .column .col-$(x)-$(y){
+    margin-left: expression(this.className.indexOf('col-')>=0&&this.previousSibling==null?'0':'var(--blank)');
+    float: left;
+  }
+}

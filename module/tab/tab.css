@@ -5,9 +5,14 @@
 .tab {
   position: relative;
 }
-.tab > ul{height: var(--height);}
-.tab > ul:first-child li{float: left;height: 100%;}
-.tab > ul:first-child li a {
+.tab ul.tab-header{
+  height: var(--height);
+}
+.tab ul.tab-header li{
+  float: left;
+  height: 100%;
+}
+.tab ul.tab-header li a {
   display: inline-block;
   background-color: var(--theme);
   text-align: center;
@@ -19,21 +24,27 @@
   line-height: var(--height);
   border-left: 1px solid color(var(--theme) b(20%));
 }
-.tab > ul:first-child li.now a{
+.tab  ul.tab-header li.now a{
   color: #000;
   font-weight: bold;
   background-color: #f4f5f9;
 }
-.tab > div{
+.tab div.tab-content{
   display: none;
 }
-.tab > div.now{
+.tab div.tab-content.now{
   display: block;
   padding: 15px 10px;
   background-color: #f4f5f9;
 }
-.ie6 .tab > div.now,
-.ie7 .tab > div.now{
+
+/*兼容*/
+.ie6 .tab div.now,
+.ie7 .tab div.now{
   /*这个不用display:block;是为了兼容IE67浏览器*/
   display: inline-block;
 }
+.ie6 .tab ul.tab-header li a{
+  width: expression(this.scrollWidth>100?'auto':'79px');
+}
+

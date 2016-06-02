@@ -12,60 +12,48 @@
   <title>ui kit</title>
   <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
-  <meta name="renderer" content="webkit">
+  <!-- Webkit HTML5内核>双核浏览器webkit内核>双核浏览器IE内核>IE标准内核>IE兼容内核 -->
+  <meta name="renderer" content="webkit|ie-stand|ie-comp">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link rel="stylesheet" type="text/css" href="ui.css">
   <script src="ui.js"></script>
-  <script src="avalon.js"></script>
-  <script>
-  var vm = avalon.define({
-    $id: "test",
-    aa: ['小米', '小心', '小狗']
-  })
-  </script>
 </head>
 
 <body>
-  <div ms-controller="test">
-    <div ms-for='el in @aa'>
-      <input type="text" ms-duplex="el">
-    </div>
-    <input type="text">
-  </div>
   <h1 class="logo">ui kit <small>0.33.9</small></h1>
   <section class="demo-color">
     <h2 class="demo-h2">Theme Color</h2>
     <ul>
       <li>
-        <span class="color hover"></span>
+        <span class="color color-hover"></span>
         <span class="color"></span>
-        <span class="color active"></span>
+        <span class="color color-active"></span>
       </li>
       <li>
-        <span class="color success hover"></span>
+        <span class="color success-hover"></span>
         <span class="color success"></span>
-        <span class="color success active"></span>
+        <span class="color success-active"></span>
       </li>
       <li>
-        <span class="color warning hover"></span>
+        <span class="color warning-hover"></span>
         <span class="color warning"></span>
-        <span class="color warning active"></span>
+        <span class="color warning-active"></span>
       </li>
       <li>
-        <span class="color error hover"></span>
+        <span class="color error-hover"></span>
         <span class="color error"></span>
-        <span class="color error active"></span>
+        <span class="color error-active"></span>
       </li>
       <li>
-        <span class="color dark hover"></span>
+        <span class="color dark-hover"></span>
         <span class="color dark"></span>
-        <span class="color dark active"></span>
+        <span class="color dark-active"></span>
       </li>
       <li>
-        <span class="color grey hover"></span>
+        <span class="color grey-hover"></span>
         <span class="color grey"></span>
-        <span class="color grey active"></span>
+        <span class="color grey-active"></span>
       </li>
     </ul>
   </section>
@@ -81,12 +69,12 @@
     </article>
     <h2 class="demo-h2">Button Style</h2>
     <article>
-      <a class="button radius">主题色</a>
-      <a class="button radius">推荐</a>
-      <a class="button radius">警告</a>
-      <a class="button radius">阻止</a>
-      <a class="button radius">黑夜</a>
-      <a class="button disabled radius">禁用</a>
+      <a class="button radius ">主题色</a>
+      <a class="button radius success">推荐</a>
+      <a class="button radius warning">警告</a>
+      <a class="button radius error">阻止</a>
+      <a class="button radius dark">黑夜</a>
+      <a class="button  radius error disabled">禁用</a>
     </article>
     <h2 class="demo-h2">Button Size</h2>
     <article>
@@ -339,12 +327,12 @@
     <h2 class="demo-h2">Tab</h2>
     <article>
       <div class="tab">
-        <ul>
+        <ul class="tab-header">
           <li><a>公司1</a></li>
           <li class="now"><a>公司2</a></li>
           <li><a>非常长的标签名称</a></li>
         </ul>
-        <div class="now">
+        <div class="tab-content now">
           你好1
           <br>
           <br>
@@ -354,7 +342,7 @@
           <br>
           <br>
         </div>
-        <div>你好2
+        <div class="tab-content">你好2
           <br>
           <br>
           <br>
@@ -363,7 +351,7 @@
           <br>
           <br>
         </div>
-        <div>你好3
+        <div class="tab-content">你好3
           <br>
           <br>
           <br>
@@ -376,10 +364,10 @@
     </article>
     <article>
       <div class="tab">
-        <ul>
+        <ul class="tab-header">
           <li><a>公司1</a></li>
         </ul>
-        <div class="now">
+        <div class="now tab-content">
           你好1
           <br>
           <br>
@@ -415,51 +403,51 @@
   <section>
     <h2 class="demo-h2">tip</h2>
     <article class="demo-tip">
-      <div class="tip tip-top">
+      <tip class="tip-top">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在上边
         </div>
-      </div>
-      <div class="tip tip-right">
+      </tip>
+      <tip class="tip-right">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在右边
         </div>
-      </div>
-      <div class="tip tip-bottom">
+      </tip>
+      <tip class="tip-bottom">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在下边
         </div>
-      </div>
-      <div class="tip tip-left">
+      </tip>
+      <tip class="tip-left">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在左边
         </div>
-      </div>
+      </tip>
     </article>
     <h2 class="demo-h2">Tip Size</h2>
     <article class="demo-tip">
-      <div class="tip tip-top small">
+      <tip class="tip-top small">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在上边
         </div>
-      </div>
-      <div class="tip tip-right small">
+      </tip>
+      <tip class="tip-right small">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           提示在右边
         </div>
-      </div>
-      <div class="tip tip-bottom large">
+      </tip>
+      <tip class="tip-bottom">
         <div class="tip-arrow"></div>
         <div class="tip-inner">
           在内容非常多的时候很有用,很有用。
         </div>
-      </div>
+      </tip>
     </article>
   </section>
   <section>
@@ -481,7 +469,7 @@
     </article>
     <h2 class="demo-h2">progress Size</h2>
     <article>
-      <div class="progress small">
+      <div class="progress progress-small">
         <div class="progress-bar" style="width:39%">39%</div>
       </div>
     </article>
@@ -563,6 +551,28 @@
     </article>
     <article>
       <div class="page">
+        <a>上一页</a>
+        <a>下一页</a>
+      </div>
+    </article>
+    <article>
+      <div class="page page-right">
+        <a class="disabled">上一页</a>
+        <a class="now">1</a>
+        <a href="#">2</a>
+        <a>3</a>
+        <a>4</a>
+        <a>5</a>
+        <a>6</a>
+        <a>7</a>
+        <a>8</a>
+        <a>9</a>
+        <a>10</a>
+        <a>下一页</a>
+      </div>
+    </article>
+    <article>
+      <div class="page page-right">
         <a>上一页</a>
         <a>下一页</a>
       </div>

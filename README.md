@@ -69,3 +69,7 @@ node server
 * 添加 dateUtil 模块
 * 添加 placeholder 模块。使得IE6789可以兼容placeholder属性
 
+## 0.70.0 版本 2016-06-02
+
+** 所有模块现在支持 IE6
+
