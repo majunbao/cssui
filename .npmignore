@@ -6,5 +6,4 @@ module
 .gitignore
 .npmignore
 build.js
-package.json
 server.js

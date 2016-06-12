@@ -1,5 +1,5 @@
 {
-  "name": "ppmuikit",
+  "name": "uicss",
   "version": "0.70.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/majunbao/ppmuikit.git"
+    "url": "git+https://github.com/majunbao/uicss.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/majunbao/ppmuikit/issues"
+    "url": "https://github.com/majunbao/uicss/issues"
   },
-  "homepage": "https://github.com/majunbao/ppmuikit#readme",
+  "homepage": "https://majunbao.github.io/uicss/",
   "devDependencies": {
     "postcss": "^5.0.20",
     "postcss-calc": "^5.2.1",
