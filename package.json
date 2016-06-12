@@ -1,5 +1,5 @@
 {
-  "name": "uicss",
+  "name": "cssui",
   "version": "0.70.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/majunbao/uicss.git"
+    "url": "git+https://github.com/majunbao/cssui.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/majunbao/uicss/issues"
+    "url": "https://github.com/majunbao/cssui/issues"
   },
-  "homepage": "https://majunbao.github.io/uicss/",
+  "homepage": "https://majunbao.github.io/cssui/",
   "devDependencies": {
     "postcss": "^5.0.20",
     "postcss-calc": "^5.2.1",
