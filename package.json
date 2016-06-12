@@ -1,5 +1,5 @@
 {
-  "name": "fui",
+  "name": "ppmuikit",
   "version": "0.70.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/majunbao/fui.git"
+    "url": "git+https://github.com/majunbao/ppmuikit.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/majunbao/fui/issues"
+    "url": "https://github.com/majunbao/ppmuikit/issues"
   },
-  "homepage": "https://github.com/majunbao/fui#readme",
+  "homepage": "https://github.com/majunbao/ppmuikit#readme",
   "devDependencies": {
     "postcss": "^5.0.20",
     "postcss-calc": "^5.2.1",
