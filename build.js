@@ -2,10 +2,10 @@
 
 const fs = require('fs');
 const postcss = require('postcss');
-const rollup = require('rollup');
+// const rollup = require('rollup');
 const includePaths = require('rollup-plugin-includePaths')
 const http = require('http');
-const eslint = require('rollup-plugin-eslint');
+// const eslint = require('rollup-plugin-eslint');
 
 // css文件
 
@@ -20,36 +20,50 @@ const dist = {
 
 
 
-function buildCss(filename){
-  const css = fs.readFileSync(source.css, {encoding:'utf8'});
+function buildCss(filename) {
+  const css = fs.readFileSync(source.css, { encoding: 'utf8' });
   // 处理css程序
   postcss()
-    .use(require('postcss-import')())
-    .use(require('postcss-each')())
-    .use(require('postcss-for')())
-    .use(require('postcss-simple-vars')())
-    .use(require('postcss-css-variables')())
-    .use(require('postcss-calc')())
-    .use(require('postcss-color-function')())
-    .use(require('postcss-rgba-hex'))
-    .use(require('postcss-functions')({
-      functions: {
-        floor: function(value){
-          return parseInt(value) + value.replace(parseFloat(value), '');
-        },
-        btnWitdh: function(){
-          return 'width:20px;'
-        }
-      }
+    .use(require('postcss-at-rules-variables'))
+    .use(require('postcss-each')({
+      plugins: {
+            afterEach: [
+              require('postcss-at-rules-variables')
+            ],
+            beforeEach: [
+              require('postcss-at-rules-variables')
+            ]
+          }
     }))
-    .process(css,{from: source.css, to: dist.css})
-    .then(function(result){
-      fs.writeFileSync(dist.css,result.css,'utf8');
-      console.log(new Date().toLocaleTimeString() + ' '+ filename + ' 保存成功。ui.css 编译成功。')
+    .use(require('postcss-import')({
+      plugins: [
+        require("postcss-at-rules-variables")({ /* options */ }),
+        require('postcss-each')({
+          plugins: {
+            afterEach: [
+              require('postcss-at-rules-variables')
+            ],
+            beforeEach: [
+              require('postcss-at-rules-variables')
+            ]
+          }
+        })
+      ]
+    }))
+    // .use(require('postcss-for'))
+    .use(require('postcss-css-variables'))
+    // .use(require('postcss-calc'))
+    // .use(require('postcss-nth-list'))
+    // .use(require('postcss-conditionals'))
+    // .use(require('postcss-nested'))
+    .process(css, { from: source.css, to: dist.css })
+    .then(function(result) {
+      fs.writeFileSync(dist.css, result.css, 'utf8');
+      console.log(new Date().toLocaleTimeString() + ' ' + filename + ' 保存成功。ui.css 编译成功。')
     });
 }
 
-function buildJs(filename){
+function buildJs(filename) {
   // 处理js程序
   rollup.rollup({
     entry: source.js,
@@ -63,28 +77,28 @@ function buildJs(filename){
         }
       })
     ]
-  }).then(function(bundle){
+  }).then(function(bundle) {
     bundle.write({
       format: 'iife',
       moduleName: 'ui',
       dest: dist.js
     });
-    console.log(new Date().toLocaleTimeString() + ' '+ filename + ' 保存成功。ui.js 编译成功。');
+    console.log(new Date().toLocaleTimeString() + ' ' + filename + ' 保存成功。ui.js 编译成功。');
   })
 }
 
-function buildHtml(){
-  
+function buildHtml() {
+
 }
 
-function watch(){
+function watch() {
   fs.readdir('module', (err, files) => {
-    files.forEach(function(file){
-      fs.watch('module/'+file, function(err, filename){
-        if(filename){
-          if(filename.indexOf('.css')>-1){
+    files.forEach(function(file) {
+      fs.watch('module/' + file, function(err, filename) {
+        if (filename) {
+          if (filename.indexOf('.css') > -1) {
             buildCss(filename);
-          }else if(filename.indexOf('.js')>-1){
+          } else if (filename.indexOf('.js') > -1) {
             buildJs(filename);
 
           }

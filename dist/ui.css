@@ -1,1008 +1,53 @@
 @charset "UTF-8";
 
-/**
- * reset
- *
- * @author Ma Junbao <mlive@live.cn> || @github.com/majunbao
-*/
-
-a,
-abbr,
-address,
-article,
-aside,
-audio,
-b,
-blockquote,
-body,
-caption,
-cite,
-code,
-dd,
-del,
-dfn,
-dialog,
-div,
-dl,
-dt,
-em,
-fieldset,
-figure,
-footer,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header,
-hgroup,
-hr,
-html,
-i,
-iframe,
-img,
-ins,
-kbd,
-label,
-legend,
-li,
-mark,
-menu,
-nav,
-object,
-ol,
-p,
-pre,
-q,
-samp,
-section,
-small,
-span,
-strong,
-sub,
-sup,
-table,
-tbody,
-td,
-tfoot,
-th,
-thead,
-time,
-tr,
-ul,
-var,
-video {
-  border: 0;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  font-size: 100%;
-  font-weight: normal;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
-  display: block;
-}
-
-audio, canvas, video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-
-audio:not([controls]) {
-  display: none;
-}
-
-[hidden] {
-  display: none;
-}
-
-html {
-  width: 100%;
-  height: 100%;
-  font-size: 100%;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-y: visible !important;
-}
-
-a {
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-  vertical-align: middle;
-  font-size: 0;
-}
-
-ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-th, td, caption {
-  vertical-align: top;
-  text-align: left;
-}
-
-.icon {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  background: none;
-  border: 0;
-}
-
-::-ms-clear, ::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-body, input, textarea, keygen, select, button {
-  color: #333;
-  font-size: 14px;
-  font-family: "PingHei","Lucida Grande", "Lucida Sans Unicode", "Helvetica","Arial","Verdana","sans-serif";
-}
-
-body, input, textarea, select, button {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga", "kern";
-}
-
-*:active,*:focus {
-  outline: none; 
-}
-
-input, textarea, .button{
-  /*去除ios webkit默认样式*/
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
-}
-
-.clear:after {
-  content: "\20";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden; }
-
-.clear {
-  *zoom: 1; }
-
-.on-left {
-  float: left; }
-
-.on-right {
-  float: right; }
-
-.block {
-  display: block; }
-
-.inline {
-  display: inline-block;
-  zoom: 1;
-  *display: inline; }
-
-.none {
-  display: none; }
-
-.hidden {
-  overflow: hidden; }
-
-.margin-0{
-  margin: 0px;
-}
-
-.margin-5{
-  margin: 5px;
-}
-
-.margin-10{
-  margin: 10px;
-}
-
-.margin-15{
-  margin: 15px;
-}
-
-.margin-20{
-  margin: 20px;
-}
-
-.margin-25{
-  margin: 25px;
-}
-
-.margin-30{
-  margin: 30px;
-}
-
-.margin-top-0{
-  margin-top: 0px;
-}
-
-.margin-top-5{
-  margin-top: 5px;
-}
-
-.margin-top-10{
-  margin-top: 10px;
-}
-
-.margin-top-15{
-  margin-top: 15px;
-}
-
-.margin-top-20{
-  margin-top: 20px;
-}
-
-.margin-top-25{
-  margin-top: 25px;
-}
-
-.margin-top-30{
-  margin-top: 30px;
-}
-
-.margin-right-0{
-  margin-right: 0px;
-}
-
-.margin-right-5{
-  margin-right: 5px;
-}
-
-.margin-right-10{
-  margin-right: 10px;
-}
-
-.margin-right-15{
-  margin-right: 15px;
-}
-
-.margin-right-20{
-  margin-right: 20px;
-}
-
-.margin-right-25{
-  margin-right: 25px;
-}
-
-.margin-right-30{
-  margin-right: 30px;
-}
-
-.margin-bottom-0{
-  margin-bottom: 0px;
-}
-
-.margin-bottom-5{
-  margin-bottom: 5px;
-}
-
-.margin-bottom-10{
-  margin-bottom: 10px;
-}
-
-.margin-bottom-15{
-  margin-bottom: 15px;
-}
-
-.margin-bottom-20{
-  margin-bottom: 20px;
-}
-
-.margin-bottom-25{
-  margin-bottom: 25px;
-}
-
-.margin-bottom-30{
-  margin-bottom: 30px;
-}
-
-.margin-left-0{
-  margin-left: 0px;
-}
-
-.margin-left-5{
-  margin-left: 5px;
-}
-
-.margin-left-10{
-  margin-left: 10px;
-}
-
-.margin-left-15{
-  margin-left: 15px;
-}
-
-.margin-left-20{
-  margin-left: 20px;
-}
-
-.margin-left-25{
-  margin-left: 25px;
-}
-
-.margin-left-30{
-  margin-left: 30px;
-}
-
-.padding-0{
-  padding: 0px;
-}
-
-.padding-5{
-  padding: 5px;
-}
-
-.padding-10{
-  padding: 10px;
-}
-
-.padding-15{
-  padding: 15px;
-}
-
-.padding-20{
-  padding: 20px;
-}
-
-.padding-25{
-  padding: 25px;
-}
-
-.padding-30{
-  padding: 30px;
-}
-
-.padding-top-0{
-  padding-top: 0px;
-}
-
-.padding-top-5{
-  padding-top: 5px;
-}
-
-.padding-top-10{
-  padding-top: 10px;
-}
-
-.padding-top-15{
-  padding-top: 15px;
-}
-
-.padding-top-20{
-  padding-top: 20px;
-}
-
-.padding-top-25{
-  padding-top: 25px;
-}
-
-.padding-top-30{
-  padding-top: 30px;
-}
-
-.padding-right-0{
-  padding-right: 0px;
-}
-
-.padding-right-5{
-  padding-right: 5px;
-}
-
-.padding-right-10{
-  padding-right: 10px;
-}
-
-.padding-right-15{
-  padding-right: 15px;
-}
-
-.padding-right-20{
-  padding-right: 20px;
-}
-
-.padding-right-25{
-  padding-right: 25px;
-}
-
-.padding-right-30{
-  padding-right: 30px;
-}
-
-.padding-bottom-0{
-  padding-bottom: 0px;
-}
-
-.padding-bottom-5{
-  padding-bottom: 5px;
-}
-
-.padding-bottom-10{
-  padding-bottom: 10px;
-}
-
-.padding-bottom-15{
-  padding-bottom: 15px;
-}
-
-.padding-bottom-20{
-  padding-bottom: 20px;
-}
-
-.padding-bottom-25{
-  padding-bottom: 25px;
-}
-
-.padding-bottom-30{
-  padding-bottom: 30px;
-}
-
-.padding-left-0{
-  padding-left: 0px;
-}
-
-.padding-left-5{
-  padding-left: 5px;
-}
-
-.padding-left-10{
-  padding-left: 10px;
-}
-
-.padding-left-15{
-  padding-left: 15px;
-}
-
-.padding-left-20{
-  padding-left: 20px;
-}
-
-.padding-left-25{
-  padding-left: 25px;
-}
-
-.padding-left-30{
-  padding-left: 30px;
-}
-
-/* ======  column  ====== */
-
-.column{
-  width: 100%;
-}
-
-.column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
-
-.column > [class*=col-]{
-  margin-left: 2%;
-  float: left;
-}
-
-.column > [class*=col-]:first-child
-{
-  margin-left: 0;
-}
-
-.column .col-2-1{
-  width: 49%;
-}
-
-.column .col-3-2{
-  width: 66%;
-}
-
-.column .col-3-1{
-  width: 32%;
-}
-
-.column .col-4-3{
-  width: 74.5%;
-}
-
-.column .col-4-2{
-  width: 49%;
-}
-
-.column .col-4-1{
-  width: 23.5%;
-}
-
-.column .col-5-4{
-  width: 79.6%;
-}
-
-.column .col-5-3{
-  width: 59.2%;
-}
-
-.column .col-5-2{
-  width: 38.8%;
-}
-
-.column .col-5-1{
-  width: 18.4%;
-}
-
-/*兼容*/
-
-.ie6 .column .col-2-1{
-  margin-left: expression(this.previousSibling==null?'0':'2%');
-  float: left;
-}
-
-.ie6 .column .col-3-2{
-  margin-left: expression(this.previousSibling==null?'0':'2%');
-  float: left;
-}
-
-.ie6 .column .col-3-1{
-  margin-left: expression(this.previousSibling==null?'0':'2%');
-  float: left;
-}
-
-.ie6 .column .col-4-3{
-  margin-left: expression(this.previousSibling==null?'0':'2%');
-  float: left;
-}
-
-.ie6 .column .col-4-2{
-  margin-left: expression(this.previousSibling==null?'0':'2%');
-  float: left;
-}
-
-.ie6 .column .col-4-1{
-  margin-left: expression(this.previousSibling==null?'0':'2%');
-  float: left;
-}
-
-.ie6 .column .col-5-4{
-  margin-left: expression(this.className.indexOf('col-')>=0&&this.previousSibling==null?'0':'2%');
-  float: left;
-}
-
-.ie6 .column .col-5-3{
-  margin-left: expression(this.className.indexOf('col-')>=0&&this.previousSibling==null?'0':'2%');
-  float: left;
-}
-
-.ie6 .column .col-5-2{
-  margin-left: expression(this.className.indexOf('col-')>=0&&this.previousSibling==null?'0':'2%');
-  float: left;
-}
-
-.ie6 .column .col-5-1{
-  margin-left: expression(this.className.indexOf('col-')>=0&&this.previousSibling==null?'0':'2%');
-  float: left;
-}
-
-.text-bold {
-  font-weight: bold; }
-
-.text-italic {
-  font-style: italic; }
-
-.text-underline {
-  text-decoration: underline; }
-
-.text-line-through {
-  text-decoration: line-through; }
-
-.align-left {
-  text-align: left; }
-
-.align-right {
-  text-align: right; }
-
-.align-center {
-  text-align: center; }
-
-.text-align-justify {
-  text-align: justify; }
-
-.text-tiny {
-  font-size: 10px; }
-
-.text-small {
-  font-size: 12px; }
-
-.text-big {
-  font-size: 14px; }
-
-.text-large {
-  font-size: 18px; }
-
-.text-opacity {
-  opacity: 0.5; }
-
 a{
-  color: #4da9f5;
+  a{
+    color: foo, bar, baz.css  
+  }  
 }
 
-a:hover{
-  text-decoration: none;
-  cursor: pointer;
+/*:root {
+  --blue: #55cffb;
+  --blue-light: #88dfff;
+  --blue-dark: #28b3e5;
+
+  --green: #34c276;
+  --green-light: #6be5a4;
+  --green-dark: #2b9e60;
+
+  --orange: #f9b954;
+  --orange-light: #ffbf34;
+  --orange-dark: #e5a416;
+
+  --grey: #bababa;
+  --grey-light: #d5d5d5;
+  --grey-dark: #a4a4a4;
+
+  --link: #4da9f5;
+  --disabled: #dde2ef;
+
+  --text: #767676;
+  --text-light: #969696;
+  --text-dark: #464646;
 }
 
-a:focus {
-  outline: none;
-}
-
-/*
-* Option Button
-*/
-
-.button{
-  /*
-  * Button Defaults
-  * 根据其他项目改变这些设置。
-  * 按钮的宽度没有直接用 width 属性设置，而是采用 min-width + padding 的方式，
-  * 这样按钮有了最小宽度，文字过多时宽度也会自动扩展。
-  *
-  * 按钮的高度 采用 height 和 line-height 的方式控制。
-  * 
-  */
-  
-
-  /*
-  * Button Colors
-  */
-
-  /*
-  * Button Shapes
-  *
-  */
-
-  /*
-  * Button Sizes
-  *
-  */
-  
-}
-
-/*
-* Base Botton Style
-*
-* The default values for the .botton class
-*/
-
-.button{
-  display: inline-block;
-  cursor: pointer;
-  border: 0;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  font-size: 14px;
-
-  /*button colors*/
-  color: #fff;
-  background-color: #55cffb;
-
-  /*button shapes*/
-  min-width: 70px;
-  padding: 0 10px;
-  height: 35px;
-  line-height: 35px;
-  border-radius: 20px;
-  
-}
-
-.button:hover{
-  background-color: #88dfff;
-}
-
-.button:active{
-  background-color: #28b3e5;
-}
-
-/**
-* Disabled State
-*
-* The disabled state used the class .disabled,
-* or the form attaribute distabled="distabled".
-*/
-
-.button.disabled{
-  background-color: #dde2ef !important;
-  border-color: #dde2ef  !important;
-  cursor: not-allowed;
-}
-
-.button.disabled:hover{
-  background-color: #dde2ef !important;
-  border-color: #dde2ef  !important;
-  cursor: not-allowed;
-}
-
-/*尺寸*/
-
-/*smallest smaller small default large larger largest*/
-
-/* 大小*/
-
-.button.smaller{
-  min-width: 28px;
-  padding:0 4px;
-  height: 20px;
-  line-height: 20px;
-}
-
-.button.small{
-  padding:0 5px;
-  height: 22px;
-  line-height: 22px;
-  min-width: 55px;
-}
-
-.button.large{
-  min-width: 88px;
-  padding:0 10px;
-  height: 38px;
-  line-height: 38px;
-}
-
-.button.larger{
-  min-width: 268px;
-  padding:0 10px;
-  height: 38px;
-  line-height: 38px;
-  letter-spacing:0.5em;
-}
-
-.button.blue{
-  background-color: #55cffb;
-}
-
-.button.blue:hover{
-  background-color: #88dfff;
-}
-
-.button.blue:active{
-  background-color: #28b3e5;
-}
-
-.button.green{
-  background-color: #34c276;
-}
-
-.button.green:hover{
-  background-color: #6be5a4;
-}
-
-.button.green:active{
-  background-color: #2b9e60;
-}
-
-.button.orange{
-  background-color: #f9b954;
-}
-
-.button.orange:hover{
-  background-color: #ffbf34;
-}
-
-.button.orange:active{
-  background-color: #e5a416;
-}
-
-.button.grey{
-  background-color: #bababa;
-}
-
-.button.grey:hover{
-  background-color: #d5d5d5;
-}
-
-.button.grey:active{
-  background-color: #a4a4a4;
-}
-
-/*兼容*/
-
-.ie6 .button{
-  padding:0 25px;
-  display: inline;
-  zoom: 1;
-}
-
-.ie6 .button.large{
-  width:88px;
-}
-
-.ie6 .button.larger{
-  width:268px;
-}
-
-.ie6 .button.small{
-  width: 55px;
-  height: 22px;
-  line-height: 22px;
-  padding: 0 5px;
-}
-
-.ie6 .button.smaller{
-
-  height: 22px;
-  line-height: 22px;
-  padding:0 6px;
-}
-
-input {
-  margin: 0;
-  outline: none;
-  vertical-align: middle;
-  padding: 0 10px;
-  width: 278px;
-  line-height: 1;
-  height: 43px;
-  border:2px solid #bababa;
-  color: #767676; 
-}
-
-input.button{width: auto;}
-
-input[type=text]:focus, input[type=password]:focus {
-  outline: none;
-}
-
-input[disabled]:hover {
-  cursor: not-allowed;
-}
-
-input[type=text]:hover{
-  border-color: #88dfff;
-}
-
-input[type=password]:hover{
-  border-color: #88dfff;
-}
-
-input[type=text]:focus{
-  border-color: #28b3e5;
-}
-
-input[type=password]:active{
-  border-color: #28b3e5;
-}
-
-input[disabled] {
-  background-color: #d5d5d5;
-  border: 2px solid #bababa;
-  color: #a4a4a4;
-}
-
-input[disabled]:hover{
-  border-color: #bababa;
-  cursor: not-allowed;
-}
-
-input[disabled]:focus{
-  border-color: #bababa;
-  cursor: not-allowed;
-}
-
-input.larger {
-}
-
-input.large {
-}
-
-input.small {
-  height: 32px;
-}
-
-input.blue{
-  border-color: #55cffb;
-}
-
-input.blue:hover{
-  border-color: #88dfff;
-}
-
-input.blue:active{
-  border-color: #28b3e5;
-}
-
-input.blue:focus{
-  border-color: #28b3e5;
-}
-
-input.green{
-  border-color: #34c276;
-}
-
-input.green:hover{
-  border-color: #6be5a4;
-}
-
-input.green:active{
-  border-color: #2b9e60;
-}
-
-input.green:focus{
-  border-color: #2b9e60;
-}
-
-input.orange{
-  border-color: #f9b954;
-}
-
-input.orange:hover{
-  border-color: #ffbf34;
-}
-
-input.orange:active{
-  border-color: #e5a416;
-}
-
-input.orange:focus{
-  border-color: #e5a416;
-}
-
-input.grey{
-  border-color: #bababa;
-}
-
-input.grey:hover{
-  border-color: #d5d5d5;
-}
-
-input.grey:active{
-  border-color: #a4a4a4;
-}
-
-input.grey:focus{
-  border-color: #a4a4a4;
-}
-
-/*兼容*/
-
-/*行高 只给IE678设置，标准浏览器设置行高，光标高度会充满输入框*/
-
-.ie input {
-  line-height: 43px;
-}
-
-.ie input.small {
-  line-height: 32px;
-}
-
-.ie6 input{
-  background-color: transparent;
-}
-
-.ie6 input.small{
-  width: 278px;
-  line-height: 32px;
-  height: 32px;
-}
+:root{
+  --theme: var(--blue);
+  --theme-light: var(--blue-light);
+  --theme-dark: var(--blue-dark);
+}*/
+
+/*@import 'reset/reset.css';
+@import 'tool/tool.css';
+@import 'margin/margin.css';
+
+@import 'column/column.css';
+
+@import 'text/text.css';
+
+@import 'link/link.css';
+@import 'button/button.css';
+@import 'input/input.css';*/
 
 /*@import 'table/table.css';*/
 
@@ -1042,12 +87,12 @@ h1.logo {
   font-size: 140px;
   text-transform: capitalize;
   font-variant: small-caps;
-  color: #55cffb
+  color: undefined
 }
 
 h1.logo small{
   font-size: 20px;
-  color: #a4a4a4;
+  color: undefined;
   font-family: sans-serif;
 }
 
@@ -1082,15 +127,15 @@ section article {
 
 .column p.col-num {
   text-align: center;
-  background-color: #bababa;
+  background-color: undefined;
   height: 45px;
   line-height: 45px;
   margin: 10px 0;
-  color: #767676
+  color: undefined
 }
 
 .column:hover p.col-num {
-  background-color: #a4a4a4
+  background-color: undefined
 }
 
 /*Theme Color*/
@@ -1112,75 +157,75 @@ section article {
   height: 50px;
   border-radius: 20%;
   padding:0;
-  background-color: #55cffb;
+  background-color: undefined;
 }
 
 .color-light{
-  background-color: #88dfff;
+  background-color: undefined;
 }
 
 .color-dark{
-  background-color: #28b3e5;
+  background-color: undefined;
 }
 
 .color.blue{
-  background-color: #55cffb;
+  background-color: undefined  
 }
 
 .color.blue-light{
-  background-color: #88dfff;
+  background-color: undefined  
 }
 
 .color.blue-dark{
-  background-color: #28b3e5;
+  background-color: undefined  
 }
 
 .color.green{
-  background-color: #34c276;
+  background-color: undefined  
 }
 
 .color.green-light{
-  background-color: #6be5a4;
+  background-color: undefined  
 }
 
 .color.green-dark{
-  background-color: #2b9e60;
+  background-color: undefined  
 }
 
 .color.orange{
-  background-color: #f9b954;
+  background-color: undefined  
 }
 
 .color.orange-light{
-  background-color: #ffbf34;
+  background-color: undefined  
 }
 
 .color.orange-dark{
-  background-color: #e5a416;
+  background-color: undefined  
 }
 
 .color.grey{
-  background-color: #bababa;
+  background-color: undefined  
 }
 
 .color.grey-light{
-  background-color: #d5d5d5;
+  background-color: undefined  
 }
 
 .color.grey-dark{
-  background-color: #a4a4a4;
+  background-color: undefined  
 }
 
 .color.text{
-  background-color: #767676;
+  background-color: undefined  
 }
 
 .color.text-light{
-  background-color: #969696;
+  background-color: undefined  
 }
 
 .color.text-dark{
-  background-color: #464646;
+  background-color: undefined  
 }
 
 .demo-tip {position: relative;width: 1000px;height: 50px;}

@@ -16,13 +16,13 @@
   --height: 35px;
   --font-size: 14px;
   --border-radius: 20px;
-  
+  --color: #fff;
+  --background-color: var(--theme);
 
   /*
   * Button Colors
   */
-  --color: #fff;
-  --background-color: var(--theme);
+  --btn-color: blue, green;
 
 
   /*
@@ -34,5 +34,5 @@
   * Button Sizes
   *
   */
-  
-}
+ 
+};

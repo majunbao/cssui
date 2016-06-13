@@ -1,5 +1,11 @@
-@each $mp in (margin, margin-top, margin-right, margin-bottom, margin-left,padding, padding-top, padding-right, padding-bottom, padding-left){
-  @for $i from 0 to 30 by 5 {
-    .$(mp)-$i{$(mp):$(i)px;}
-  }
+:root {
+  --mp: margin, margin-top, margin-right, margin-bottom, margin-left, padding, padding-top, padding-right, padding-bottom, padding-left;
+}
+
+@each $mp in var(--mp) {
+    @for $i from 0 to 30 by 5 {
+        .$(mp)-$i {
+            $(mp): $(i)px;
+        }
+    }
 }
