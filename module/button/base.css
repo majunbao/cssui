@@ -1,0 +1,44 @@
+/*
+* Base Botton Style
+*
+* The default values for the .botton class
+*/
+.button{
+  display: inline-block;
+  cursor: pointer;
+  border: 0;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: var(--font-size);
+
+  /*button colors*/
+  color: var(--color);
+  background-color: var(--theme);
+
+  /*button shapes*/
+  min-width: var(--min-width);
+  padding: var(--padding);
+  height: var(--height);
+  line-height: var(--height);
+  border-radius: var(--border-radius);
+  
+}
+.button:hover{
+  background-color: var(--theme-light);
+}
+.button:active{
+  background-color: var(--theme-dark);
+}
+
+/**
+* Disabled State
+*
+* The disabled state used the class .disabled,
+* or the form attaribute distabled="distabled".
+*/
+.button.disabled, .button.disabled:hover{
+  background-color:var(--disabled) !important;
+  border-color: var(--disabled)  !important;
+  cursor: not-allowed;
+}

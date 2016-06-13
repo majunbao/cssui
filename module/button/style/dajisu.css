@@ -1,0 +1,12 @@
+@each $theme in (blue, green, orange, grey){
+  .button.$theme{
+    background-color: var(--$(theme));
+  }
+  .button.$theme:hover{
+    background-color: var(--$(theme)-light);
+  }
+  .button.$theme:active{
+    background-color: var(--$(theme)-dark);
+  }
+}
+

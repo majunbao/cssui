@@ -1,0 +1,37 @@
+/*
+* Option Button
+*/
+.button{
+  /*
+  * Button Defaults
+  * 根据其他项目改变这些设置。
+  * 按钮的宽度没有直接用 width 属性设置，而是采用 min-width + padding 的方式，
+  * 这样按钮有了最小宽度，文字过多时宽度也会自动扩展。
+  *
+  * 按钮的高度 采用 height 和 line-height 的方式控制。
+  * 
+  */
+  --min-width: 70px;
+  --padding:0 10px;
+  --height: 35px;
+  --font-size: 14px;
+  --color: #fff;
+  --border-radius: 20px;
+  --background-color: var(--theme);
+
+  /*
+  * Button Colors
+  */
+
+
+  /*
+  * Button Shapes
+  *
+  */
+
+  /*
+  * Button Sizes
+  *
+  */
+  
+}

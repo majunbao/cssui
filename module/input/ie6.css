@@ -1,0 +1,16 @@
+/*兼容*/
+/*行高 只给IE678设置，标准浏览器设置行高，光标高度会充满输入框*/
+.ie input {
+  line-height: 43px;
+}
+.ie input.small {
+  line-height: 32px;
+}
+.ie6 input{
+  background-color: transparent;
+}
+.ie6 input.small{
+  width: 278px;
+  line-height: 32px;
+  height: 32px;
+}

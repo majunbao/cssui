@@ -172,7 +172,7 @@ body, input, textarea, select, button {
   outline: none; 
 }
 
-input, textarea{
+input, textarea, .button{
   /*去除ios webkit默认样式*/
   -webkit-appearance: none;
   -webkit-border-radius: 0;
@@ -180,3 +180,4 @@ input, textarea{
   -ms-border-radius: 0;
   border-radius: 0;
 }
+

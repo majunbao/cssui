@@ -1,10 +1,30 @@
-/*主题色*/
-$theme: #46B2DE;
-/*推荐*/
-$success: #3BC478;
-/*警告*/
-$warning: #F8B04B;
-/*强烈阻止*/
-$error: #F56C3E;
-/*禁用*/
-$disabled: #D9DEEB;
+:root{
+  --blue: #55cffb;
+  --blue-light: #88dfff;    
+  --blue-dark: #28b3e5;     
+
+  --green: #34c276;
+  --green-light: #6be5a4;
+  --green-dark: #2b9e60;
+
+  --orange: #f9b954;
+  --orange-light: #ffbf34;
+  --orange-dark: #e5a416;
+
+  --grey: #bababa;
+  --grey-light: #d5d5d5;
+  --grey-dark: #a4a4a4;
+
+  --link: #4da9f5;
+  --disabled: #dde2ef;
+
+  --text: #767676;
+  --text-light: #969696;
+  --text-dark: #464646;
+}
+
+:root{
+  --theme: var(--blue);
+  --theme-light: var(--blue-light);
+  --theme-dark: var(--blue-dark);
+}

@@ -55,7 +55,7 @@ section article {
 .demo-color {overflow: hidden;}
 .demo-color li{
   float:left;
-  width: 16%;
+  width: 22%;
 }
 .demo-color li .color{
   margin-bottom:15px;
@@ -68,23 +68,23 @@ section article {
   padding:0;
   background-color: var(--theme);
 }
-.color-hover{
-  background-color: var(--theme-hover);
+.color-light{
+  background-color: var(--theme-light);
 }
-.color-active{
-  background-color: var(--theme-active);
+.color-dark{
+  background-color: var(--theme-dark);
 }
 
 
-@each $theme in (success, warning, error, dark, grey){
+@each $theme in (blue, green, orange, grey, text){
   .color.$theme{
     background-color: var(--$(theme));
   }
-  .color.$(theme)-hover{
-    background-color: var(--$(theme)-hover);
+  .color.$(theme)-light{
+    background-color: var(--$(theme)-light);
   }
-  .color.$(theme)-active{
-    background-color: var(--$(theme)-active);
+  .color.$(theme)-dark{
+    background-color: var(--$(theme)-dark);
   }
 }
 

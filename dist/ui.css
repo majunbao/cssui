@@ -1,31 +1,5 @@
 @charset "UTF-8";
 
-/***********************************************************
-* 这里是设计师的配色方案，设计师应该了解前端工程师需要的哪些配色需求
-* 每一套UI都会有个主题色，例如这里的主题色是blue
-* green、orange、red分别对应UI的不同状态：成功、警告、禁止
-* dark、grey 分别对应黑色和灰色的色系
-* 每种颜色都在色系内取一深一浅两种颜色，往往深色对应鼠标点击的颜色，
-* 浅色对应鼠标移入的颜色。
-***********************************************************/
-
-/***********************************************************
-* 这里是前端工程师的配色方案，根据设计师的配色填写下面的值
-* 每一套UI都会有个主题色，例如这里的主题色是blue
-* green、orange、red分别对应UI的不同状态：成功、警告、禁止
-* dark、grey 分别对应黑色和灰色的色系
-***********************************************************/
-
-:root{
-  /*thme 是主题色*/
-
-  /*不同的UI不同的状态，这里是成功的状态*/
-
-  /*不同的UI不同的状态，这里是警告的状态*/
-  
-  /*不同的UI不同的状态，这里是禁止的状态*/
-}
-
 /**
  * reset
  *
@@ -199,7 +173,7 @@ body, input, textarea, select, button {
   outline: none; 
 }
 
-input, textarea{
+input, textarea, .button{
   /*去除ios webkit默认样式*/
   -webkit-appearance: none;
   -webkit-border-radius: 0;
@@ -680,114 +654,80 @@ a:focus {
   outline: none;
 }
 
+/*
+* Option Button
+*/
+
 .button{
-  /*去除ios webkit默认样式*/
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
+  /*
+  * Button Defaults
+  * 根据其他项目改变这些设置。
+  * 按钮的宽度没有直接用 width 属性设置，而是采用 min-width + padding 的方式，
+  * 这样按钮有了最小宽度，文字过多时宽度也会自动扩展。
+  *
+  * 按钮的高度 采用 height 和 line-height 的方式控制。
+  * 
+  */
+
+  /*
+  * Button Colors
+  */
+
+
+  /*
+  * Button Shapes
+  *
+  */
+
+  /*
+  * Button Sizes
+  *
+  */
   
+}
+
+/*
+* Base Botton Style
+*
+* The default values for the .botton class
+*/
+
+.button{
   display: inline-block;
   cursor: pointer;
   border: 0;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
+  font-size: 14px;
 
+  /*button colors*/
+  color: #fff;
+  background-color: #55cffb;
+
+  /*button shapes*/
   min-width: 70px;
-  padding:0 10px;
+  padding: 0 10px;
   height: 35px;
   line-height: 35px;
-  font-size: 14px;
-  color: #fff;
-  border-radius: 4px;
-
-  background-color: #50bae2;
-  /*border:1px solid var(--theme-active);*/
+  border-radius: 20px;
+  
 }
 
 .button:hover{
-  background-color: #71cff3;
+  background-color: #88dfff;
 }
 
 .button:active{
-  background-color: #3a9ec3;
+  background-color: #28b3e5;
 }
 
-.button.radius{
-  border-radius: 20px;
-}
-
-.button.success{
-  background-color: #43cb83;
-
-  /*border-color: var(--$(theme)-active);*/
-}
-
-.button.success:hover{
-  background-color: #69e0a1;
-}
-
-.button.success:active{
-  background-color: #2da867;
-}
-
-.button.warning{
-  background-color: #f9b954;
-
-  /*border-color: var(--$(theme)-active);*/
-}
-
-.button.warning:hover{
-  background-color: #fdcc7e;
-}
-
-.button.warning:active{
-  background-color: #e7a133;
-}
-
-.button.error{
-  background-color: #f57846;
-
-  /*border-color: var(--$(theme)-active);*/
-}
-
-.button.error:hover{
-  background-color: #fb9267;
-}
-
-.button.error:active{
-  background-color: #db6334;
-}
-
-.button.dark{
-  background-color: #3f3f4d;
-
-  /*border-color: var(--$(theme)-active);*/
-}
-
-.button.dark:hover{
-  background-color: #515163;
-}
-
-.button.dark:active{
-  background-color: #30303c;
-}
-
-.button.grey{
-  background-color: #dde2ef;
-
-  /*border-color: var(--$(theme)-active);*/
-}
-
-.button.grey:hover{
-  background-color: #ebf0fd;
-}
-
-.button.grey:active{
-  background-color: #c0c7da;
-}
+/**
+* Disabled State
+*
+* The disabled state used the class .disabled,
+* or the form attaribute distabled="distabled".
+*/
 
 .button.disabled{
   background-color: #dde2ef !important;
@@ -836,6 +776,54 @@ a:focus {
   letter-spacing:0.5em;
 }
 
+.button.blue{
+  background-color: #55cffb;
+}
+
+.button.blue:hover{
+  background-color: #88dfff;
+}
+
+.button.blue:active{
+  background-color: #28b3e5;
+}
+
+.button.green{
+  background-color: #34c276;
+}
+
+.button.green:hover{
+  background-color: #6be5a4;
+}
+
+.button.green:active{
+  background-color: #2b9e60;
+}
+
+.button.orange{
+  background-color: #f9b954;
+}
+
+.button.orange:hover{
+  background-color: #ffbf34;
+}
+
+.button.orange:active{
+  background-color: #e5a416;
+}
+
+.button.grey{
+  background-color: #bababa;
+}
+
+.button.grey:hover{
+  background-color: #d5d5d5;
+}
+
+.button.grey:active{
+  background-color: #a4a4a4;
+}
+
 /*兼容*/
 
 .ie6 .button{
@@ -866,14 +854,16 @@ a:focus {
   padding:0 6px;
 }
 
-/*基础*/
-
 input {
-  padding: 0;
   margin: 0;
-  border: 0;
   outline: none;
   vertical-align: middle;
+  padding: 0 10px;
+  width: 278px;
+  line-height: 1;
+  height: 43px;
+  border:2px solid #bababa;
+  color: #767676; 
 }
 
 input.button{width: auto;}
@@ -886,126 +876,35 @@ input[disabled]:hover {
   cursor: not-allowed;
 }
 
-/*UI input*/
-
-input {
-  padding: 0 10px;
-  width: 278px;
-  line-height: 1;
-  height: 43px;
-  border:2px solid #dde2ef;
-  color: #576077; 
-}
-
 input[type=text]:hover{
-  border-color: #71cff3;
+  border-color: #88dfff;
 }
 
 input[type=password]:hover{
-  border-color: #71cff3;
+  border-color: #88dfff;
 }
 
 input[type=text]:focus{
-  border-color: #3a9ec3;
+  border-color: #28b3e5;
 }
 
 input[type=password]:active{
-  border-color: #3a9ec3;
-}
-
-input.success{
-  border-color: #43cb83;
-}
-
-input.success:hover{
-  border-color: #69e0a1;
-}
-
-input.success:active{
-  border-color: #2da867;
-}
-
-input.success:focus{
-  border-color: #2da867;
-}
-
-input.warning{
-  border-color: #f9b954;
-}
-
-input.warning:hover{
-  border-color: #fdcc7e;
-}
-
-input.warning:active{
-  border-color: #e7a133;
-}
-
-input.warning:focus{
-  border-color: #e7a133;
-}
-
-input.error{
-  border-color: #f57846;
-}
-
-input.error:hover{
-  border-color: #fb9267;
-}
-
-input.error:active{
-  border-color: #db6334;
-}
-
-input.error:focus{
-  border-color: #db6334;
-}
-
-input.dark{
-  border-color: #3f3f4d;
-}
-
-input.dark:hover{
-  border-color: #515163;
-}
-
-input.dark:active{
-  border-color: #30303c;
-}
-
-input.dark:focus{
-  border-color: #30303c;
-}
-
-input.grey{
-  border-color: #dde2ef;
-}
-
-input.grey:hover{
-  border-color: #ebf0fd;
-}
-
-input.grey:active{
-  border-color: #c0c7da;
-}
-
-input.grey:focus{
-  border-color: #c0c7da;
+  border-color: #28b3e5;
 }
 
 input[disabled] {
-  background-color: #f4f5f9;
-  border: 2px solid #dde2ef;
-  color: #c0c7da;
+  background-color: #d5d5d5;
+  border: 2px solid #bababa;
+  color: #a4a4a4;
 }
 
 input[disabled]:hover{
-  border-color: #dde2ef;
+  border-color: #bababa;
   cursor: not-allowed;
 }
 
 input[disabled]:focus{
-  border-color: #dde2ef;
+  border-color: #bababa;
   cursor: not-allowed;
 }
 
@@ -1017,6 +916,70 @@ input.large {
 
 input.small {
   height: 32px;
+}
+
+input.blue{
+  border-color: #55cffb;
+}
+
+input.blue:hover{
+  border-color: #88dfff;
+}
+
+input.blue:active{
+  border-color: #28b3e5;
+}
+
+input.blue:focus{
+  border-color: #28b3e5;
+}
+
+input.green{
+  border-color: #34c276;
+}
+
+input.green:hover{
+  border-color: #6be5a4;
+}
+
+input.green:active{
+  border-color: #2b9e60;
+}
+
+input.green:focus{
+  border-color: #2b9e60;
+}
+
+input.orange{
+  border-color: #f9b954;
+}
+
+input.orange:hover{
+  border-color: #ffbf34;
+}
+
+input.orange:active{
+  border-color: #e5a416;
+}
+
+input.orange:focus{
+  border-color: #e5a416;
+}
+
+input.grey{
+  border-color: #bababa;
+}
+
+input.grey:hover{
+  border-color: #d5d5d5;
+}
+
+input.grey:active{
+  border-color: #a4a4a4;
+}
+
+input.grey:focus{
+  border-color: #a4a4a4;
 }
 
 /*兼容*/
@@ -1041,589 +1004,31 @@ input.small {
   height: 32px;
 }
 
-table {
-  width: 100%;
-  color: #576077;
-  font-size: 14px;
-}
+/*@import 'table/table.css';*/
 
-table {
-  border:2px solid #f4f5f9;
-}
+/*@import 'tab/tab.css';*/
 
-table tr th:first-child{
-  border-top-left-radius: 4px;
-}
+/*@import 'label/label.css';*/
 
-table th, table td {
-  text-align: center;
-  padding: 15px;
-}
+/*@import 'tip/tip.css';*/
 
-table tr th:last-child{
-  border-top-right-radius: 4px;
-}
+/*@import 'notice/notice.css';*/
 
-table th {
-  color: #515163;
-  background-color: #f4f5f9;
-}
+/*@import 'page/page.css';*/
 
-table td {
-  border:2px solid #f4f5f9;
-}
+/*@import 'popup/popup.css';*/
 
-table.dark{
-  border-width:0;
-}
+/*@import 'progress/progress.css';*/
 
-table.dark th{
-  background-color: #3f3f4d;
-  color: #c0c7da;
-}
+/*@import 'calendar/calendar.css';*/
 
-table.dark td {
-  border-width:0;
-}
+/*@import 'form/form.css';*/
 
-table.dark tbody tr:nth-child(even){
-  background-color: #f4f5f9;
-}
+/*@import 'textarea/textarea.css';*/
 
-table.noborder th,table.noborder td{
-  border: 0
-}
+/*@import 'step/step.css';*/
 
-/*兼容*/
-
-.ie table.dark{
-  background-color: transparent;
-}
-
-.ie table.dark td{
-  border: 2px solid #f4f5f9;
-}
-
-.tab {
-  position: relative;
-}
-
-.tab ul.tab-header{
-  height: 38px;
-}
-
-.tab ul.tab-header li{
-  float: left;
-  height: 100%;
-}
-
-.tab ul.tab-header li a {
-  display: inline-block;
-  background-color: #50bae2;
-  text-align: center;
-  padding: 0 10px;
-  min-width: 80px;
-  text-decoration: none;
-  color: #fff;
-  height: 100%;
-  line-height: 38px;
-  border-left: 1px solid #4fabcc;
-}
-
-.tab  ul.tab-header li.now a{
-  color: #000;
-  font-weight: bold;
-  background-color: #f4f5f9;
-}
-
-.tab div.tab-content{
-  display: none;
-}
-
-.tab div.tab-content.now{
-  display: block;
-  padding: 15px 10px;
-  background-color: #f4f5f9;
-}
-
-/*兼容*/
-
-.ie6 .tab div.now,
-.ie7 .tab div.now{
-  /*这个不用display:block;是为了兼容IE67浏览器*/
-  display: inline-block;
-}
-
-.ie6 .tab ul.tab-header li a{
-  width: expression(this.scrollWidth>100?'auto':'79px');
-}
-
-.label{
-  display: inline-block;
-  color: #fff;
-  background-color: #50bae2;
-  padding:5px 10px;
-  border-radius: 4px;
-}
-
-.label.radius{
-  border-radius: 20px;
-}
-
-.label.success{
-  background-color: #43cb83;
-}
-
-.label.warning{
-  background-color: #f9b954;
-}
-
-.label.error{
-  background-color: #f57846;
-}
-
-.label.dark{
-  background-color: #3f3f4d;
-}
-
-.label.grey{
-  background-color: #dde2ef;
-}
-
-.label-group .label{margin-right: 5px;}
-
-.label-group .label:last-child{margin-right: 0;}
-
-tip{
-  display: block;
-  position: absolute;
-  z-index: 1000;
-  max-width: 220px;
-}
-
-tip .tip-inner{
-  background-color: #30303c;
-  color: #f4f5f9;
-  padding:8px 22px;
-  border-radius: 4px;
-  line-height: 1.5;
-}
-
-tip .tip-arrow{
-  position: absolute;
-  width: 0;
-  height: 0;
-  line-height: 0;
-  border:5px dashed #30303c;
-}
-
-tip.tip-top .tip-arrow, tip.tip-bottom .tip-arrow{
-  left: 50%;
-  margin-left: -5px;
-  border-right-color: transparent;
-  border-left-color: transparent;
-}
-
-tip.tip-left .tip-arrow, tip.tip-right .tip-arrow{
-  top: 50%;
-  margin-top: -5px;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-}
-
-tip.tip-left .tip-arrow{
-  right:0;
-  border-right: none;
-  border-left-style: solid; /*IE678*/
-}
-
-tip.tip-right .tip-arrow{
-  left: 0;
-  border-left: none;
-  border-right-style: solid; /*IE678*/
-}
-
-tip.tip-top .tip-arrow{
-  bottom:0;
-  border-bottom: none;
-  border-top-style: solid; /*IE678*/
-}
-
-tip.tip-bottom .tip-arrow{
-  top: 0;
-  border-top: none;
-  border-bottom-style: solid; /*IE678*/
-}
-
-.tip-top{padding-bottom: 5px;}
-
-.tip-right{padding-left: 5px;}
-
-.tip-bottom{padding-top: 5px;}
-
-.tip-left{padding-right: 5px;}
-
-tip.small .tip-inner{font-size: 12px;padding:5px 15px;}
-
-/*兼容*/
-
-.ie6 .tip-top{padding-bottom: 5px;}
-
-.ie6 .tip-right{padding-left: 5px;}
-
-.ie6 .tip-bottom{padding-top: 5px;}
-
-.ie6 .tip-left{padding-right: 5px;}
-
-.ie6 tip{width: expression(this.scrollWidth > 220 ? "222px" : "auto");}
-
-tip.small{width: auto !important}
-
-.notice{
-	padding: 20px;
-	color: #fff;
-	background-color: #50bae2;
-}
-
-.notice h1{
-	font-size: 16px;
-	font-weight: bolder;
-	margin:0 0 10px 0;
-}
-
-.notice.success{
-	background-color: #43cb83;
-}
-
-.notice.warning{
-	background-color: #f9b954;
-}
-
-.notice.error{
-	background-color: #f57846;
-}
-
-.page {
-  font-size: 0;
-}
-
-.page a {
-  border: 2px solid #dde2ef;
-  color: #576077;
-  padding:10px 16px;
-  text-align: center;
-  text-decoration: none;
-  margin-right: -2px;
-  font-size: 14px;
-  display: inline-block;
-  line-height: 1.5;
-  vertical-align: middle; /*ie678 解决汉子和数字上下不对齐*/
-}
-
-.page a:first-child {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.page a:last-child {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.page a.now{
-  background-color: #dde2ef;
-}
-
-.page a:hover{
-  background-color: #dde2ef;
-}
-
-.page a.disabled {
-  color: #999999;
-}
-
-.page.page-right{
-  text-align: right;
-}
-
-.page.page-right a {
-  margin-right: 0;
-  margin-left: -2px;
-}
-
-/*兼容*/
-
-.ie6 .page a.disabled{
-  background-color: transparent !important;
-  color: #999;
-}
-
-.popup {
-	padding: 35px;
-	background-color: #F2F3F8;
-	width: 400px;
-	margin:0 auto;
-}
-
-.popup {
-	color: #000
-}
-
-.progress{
-	height: 31px;
-	line-height: 31px;
-  border:4px solid #f4f5f9;
-	background-color: #f4f5f9;
-}
-
-.progress-bar{
-	background-color: #50bae2;
-  background-image: repeating-linear-gradient(-45deg, #50bae2, #50bae2 10px, #71cff3 10px, #71cff3 20px);
-	color: #f4f5f9;
-	text-align: center;
-  animation: barAnimation 12s linear infinite;
-}
-
-.progress.success .progress-bar{
-	background-color: #43cb83;
-  background-image: repeating-linear-gradient(-45deg, #43cb83, #43cb83 10px, #69e0a1 10px, #69e0a1 20px);
-}
-
-@keyframes barAnimation{
-  from {
-    background-position: 0% 0%;
-  }
-  to {
-    background-position: 600px 0%;
-  }
-}
-
-.progress-small{
-  height: 14px;line-height: 14px;
-}
-
-.progress.radius{
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.calendar {
-  width: 300px;
-  height: auto;
-  background-color: #f4f5f9;
-  position: absolute;
-}
-
-.calendar h2{
-  font-size: 14px;
-  border-bottom: 2px solid #dde2ef;
-  text-align: center;
-  padding:10px;
-}
-
-.calendar h2 a{
-  
-}
-
-.calendar h2 span{
-
-}
-
-.calendar table{
-  width:94%;
-  margin:10px 3% 2%;
-}
-
-.calendar table td {
-  padding:0;
-  border:none;
-}
-
-.calendar table td a{
-  display: block;
-  border:2px solid #f4f5f9;
-  border-radius: 4px;
-  color: #576077;
-  height:40px;
-  line-height: 40px;
-}
-
-.calendar table td a.now{
-  border-color: #50bae2;
-  background-color: #50bae2;
-  color: #f4f5f9;
-}
-
-.calendar table td a:hover{
-  border: 2px solid #c0c7da;
-  cursor: pointer;
-}
-
-.calendar table td a.disabled{
-  color: #dde2ef
-}
-
-.calendar .disabled a:hover{
-  cursor: default;
-  border-color: #f4f5f9;
-}
-
-form  fieldset {
-  border: none;
-  padding: 0 0 12px 0;
-  margin: 0;
-}
-
-form fieldset label {
-  display: inline-block;
-  *zoom: 1;
-  *display: inline;
-  min-width: 100px;
-  text-align: right;
-  margin-right: 10px;
-  vertical-align: top;
-  position: relative;
-  top: 13px;
-}
-
-form fieldset label.long {
-	width: 300px;
-}
-
-textarea {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  outline: none;
-  
-  border: 2px solid #dde2ef;
-  padding: 10px;
-  width: 468px;
-  min-height: 88px;
-  overflow: auto;
-}
-
-textarea:hover {
-  border-color: #71cff3;
-}
-
-textarea:focus{
-  border-color: #3a9ec3;
-}
-
-textarea:active{
-  border-color: #3a9ec3;
-}
-
-textarea.success{
-  border-color: #43cb83;
-}
-
-textarea.success:hover{
-  border-color: #69e0a1;
-}
-
-textarea.success:active{
-  border-color: #2da867;
-}
-
-textarea.success:focus{
-  border-color: #2da867;
-}
-
-textarea.warning{
-  border-color: #f9b954;
-}
-
-textarea.warning:hover{
-  border-color: #fdcc7e;
-}
-
-textarea.warning:active{
-  border-color: #e7a133;
-}
-
-textarea.warning:focus{
-  border-color: #e7a133;
-}
-
-textarea.error{
-  border-color: #f57846;
-}
-
-textarea.error:hover{
-  border-color: #fb9267;
-}
-
-textarea.error:active{
-  border-color: #db6334;
-}
-
-textarea.error:focus{
-  border-color: #db6334;
-}
-
-textarea.dark{
-  border-color: #3f3f4d;
-}
-
-textarea.dark:hover{
-  border-color: #515163;
-}
-
-textarea.dark:active{
-  border-color: #30303c;
-}
-
-textarea.dark:focus{
-  border-color: #30303c;
-}
-
-textarea.grey{
-  border-color: #dde2ef;
-}
-
-textarea.grey:hover{
-  border-color: #ebf0fd;
-}
-
-textarea.grey:active{
-  border-color: #c0c7da;
-}
-
-textarea.grey:focus{
-  border-color: #c0c7da;
-}
-
-textarea[disabled] {
-  background-color: #f4f5f9;
-  border: 2px solid #dde2ef;
-  color: #c0c7da;
-}
-
-textarea[disabled]:hover,textarea[disabled]:focus {
-  cursor: not-allowed;
-}
-
-/*兼容*/
-
-.ie6 textarea{
-  height: 88px;
-  background-color: transparent;
-}
-
-label.checkbox, label.radio{}
-
-label.checkbox input, label.radio input{display: none}
-
-label.checkbox input+i, label.radio input+i{
-	display: inline-block;*display: inline;
-	width: 16px;height: 16px;background-color: red;
-}
-
-label.checkbox input:checked+i, label.radio input:checked+i{
-	background-color: blue;
-}
+/*@import 'checkboxradio/checkboxradio.css';*/
 
 /*插件*/
 
@@ -1637,12 +1042,12 @@ h1.logo {
   font-size: 140px;
   text-transform: capitalize;
   font-variant: small-caps;
-  color: #50bae2
+  color: #55cffb
 }
 
 h1.logo small{
   font-size: 20px;
-  color: #c0c7da;
+  color: #a4a4a4;
   font-family: sans-serif;
 }
 
@@ -1677,15 +1082,15 @@ section article {
 
 .column p.col-num {
   text-align: center;
-  background-color: #dde2ef;
+  background-color: #bababa;
   height: 45px;
   line-height: 45px;
   margin: 10px 0;
-  color: #576077
+  color: #767676
 }
 
 .column:hover p.col-num {
-  background-color: #c0c7da
+  background-color: #a4a4a4
 }
 
 /*Theme Color*/
@@ -1694,7 +1099,7 @@ section article {
 
 .demo-color li{
   float:left;
-  width: 16%;
+  width: 22%;
 }
 
 .demo-color li .color{
@@ -1707,75 +1112,75 @@ section article {
   height: 50px;
   border-radius: 20%;
   padding:0;
-  background-color: #50bae2;
+  background-color: #55cffb;
 }
 
-.color-hover{
-  background-color: #71cff3;
+.color-light{
+  background-color: #88dfff;
 }
 
-.color-active{
-  background-color: #3a9ec3;
+.color-dark{
+  background-color: #28b3e5;
 }
 
-.color.success{
-  background-color: #43cb83;
+.color.blue{
+  background-color: #55cffb;
 }
 
-.color.success-hover{
-  background-color: #69e0a1;
+.color.blue-light{
+  background-color: #88dfff;
 }
 
-.color.success-active{
-  background-color: #2da867;
+.color.blue-dark{
+  background-color: #28b3e5;
 }
 
-.color.warning{
+.color.green{
+  background-color: #34c276;
+}
+
+.color.green-light{
+  background-color: #6be5a4;
+}
+
+.color.green-dark{
+  background-color: #2b9e60;
+}
+
+.color.orange{
   background-color: #f9b954;
 }
 
-.color.warning-hover{
-  background-color: #fdcc7e;
+.color.orange-light{
+  background-color: #ffbf34;
 }
 
-.color.warning-active{
-  background-color: #e7a133;
-}
-
-.color.error{
-  background-color: #f57846;
-}
-
-.color.error-hover{
-  background-color: #fb9267;
-}
-
-.color.error-active{
-  background-color: #db6334;
-}
-
-.color.dark{
-  background-color: #3f3f4d;
-}
-
-.color.dark-hover{
-  background-color: #515163;
-}
-
-.color.dark-active{
-  background-color: #30303c;
+.color.orange-dark{
+  background-color: #e5a416;
 }
 
 .color.grey{
-  background-color: #dde2ef;
+  background-color: #bababa;
 }
 
-.color.grey-hover{
-  background-color: #ebf0fd;
+.color.grey-light{
+  background-color: #d5d5d5;
 }
 
-.color.grey-active{
-  background-color: #c0c7da;
+.color.grey-dark{
+  background-color: #a4a4a4;
+}
+
+.color.text{
+  background-color: #767676;
+}
+
+.color.text-light{
+  background-color: #969696;
+}
+
+.color.text-dark{
+  background-color: #464646;
 }
 
 .demo-tip {position: relative;width: 1000px;height: 50px;}

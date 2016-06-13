@@ -1,0 +1,28 @@
+/*尺寸*/
+/*smallest smaller small default large larger largest*/
+/* 大小*/
+.button.smaller{
+  min-width: 28px;
+  padding:0 4px;
+  height: 20px;
+  line-height: 20px;
+}
+.button.small{
+  padding:0 5px;
+  height: 22px;
+  line-height: 22px;
+  min-width: 55px;
+}
+.button.large{
+  min-width: 88px;
+  padding:0 10px;
+  height: 38px;
+  line-height: 38px;
+}
+.button.larger{
+  min-width: 268px;
+  padding:0 10px;
+  height: 38px;
+  line-height: 38px;
+  letter-spacing:0.5em;
+}

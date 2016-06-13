@@ -36,6 +36,9 @@ function buildCss(filename){
       functions: {
         floor: function(value){
           return parseInt(value) + value.replace(parseFloat(value), '');
+        },
+        btnWitdh: function(){
+          return 'width:20px;'
         }
       }
     }))
