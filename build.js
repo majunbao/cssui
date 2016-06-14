@@ -25,37 +25,19 @@ function buildCss(filename) {
   // 处理css程序
   postcss()
     .use(require('postcss-at-rules-variables'))
-    .use(require('postcss-each')({
-      plugins: {
-            afterEach: [
-              require('postcss-at-rules-variables')
-            ],
-            beforeEach: [
-              require('postcss-at-rules-variables')
-            ]
-          }
-    }))
+    .use(require('postcss-each'))
     .use(require('postcss-import')({
       plugins: [
         require("postcss-at-rules-variables")({ /* options */ }),
-        require('postcss-each')({
-          plugins: {
-            afterEach: [
-              require('postcss-at-rules-variables')
-            ],
-            beforeEach: [
-              require('postcss-at-rules-variables')
-            ]
-          }
-        })
+        require('postcss-each')
       ]
     }))
-    // .use(require('postcss-for'))
+    .use(require('postcss-for'))
     .use(require('postcss-css-variables'))
-    // .use(require('postcss-calc'))
-    // .use(require('postcss-nth-list'))
-    // .use(require('postcss-conditionals'))
-    // .use(require('postcss-nested'))
+    .use(require('postcss-calc'))
+    .use(require('postcss-nth-list'))
+    .use(require('postcss-conditionals'))
+    .use(require('postcss-nested'))
     .process(css, { from: source.css, to: dist.css })
     .then(function(result) {
       fs.writeFileSync(dist.css, result.css, 'utf8');

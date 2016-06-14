@@ -1,0 +1,25 @@
+/*@each $theme in var(--demo-color){
+  .color.$theme{
+    background-color: var(--$(theme));
+  }
+  .color.$(theme)-light{
+    background-color: var(--$(theme)-light);
+  }
+  .color.$(theme)-dark{
+    background-color: var(--$(theme)-dark);
+  }
+}*/
+
+/*@each $theme in var(--demo-color){
+  .color.$theme{
+  
+  }
+}*/
+
+@each $aa in var(--demo-color){
+  p{
+    c: $aa;
+  }
+}
+
+
