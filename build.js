@@ -6,6 +6,7 @@ const postcss = require('postcss');
 const includePaths = require('rollup-plugin-includePaths')
 const http = require('http');
 // const eslint = require('rollup-plugin-eslint');
+const sass = require('node-sass');
 
 // css文件
 
@@ -14,53 +15,36 @@ const source = {
   js: 'module/init.js'
 }
 const dist = {
-  css: 'dist/ui.css',
+  css: ['dist/ui.css','dasuju/css/ui.css'],
   js: 'dist/ui.js'
 }
 
 
 
 function buildCss(filename) {
-  const css = fs.readFileSync(source.css, { encoding: 'utf8' });
   // 处理css程序
-  postcss()
-    .use(require('postcss-at-rules-variables'))
-    .use(require('postcss-each')({
-      plugins: {
-            afterEach: [
-              require('postcss-at-rules-variables')
-            ],
-            beforeEach: [
-              require('postcss-at-rules-variables')
-            ]
-          }
-    }))
-    .use(require('postcss-import')({
-      plugins: [
-        require("postcss-at-rules-variables")({ /* options */ }),
-        require('postcss-each')({
-          plugins: {
-            afterEach: [
-              require('postcss-at-rules-variables')
-            ],
-            beforeEach: [
-              require('postcss-at-rules-variables')
-            ]
-          }
+  sass.render({
+    file: 'module/init.scss',
+    outputStyle: 'expanded'
+  },function(error, result){
+    if (error) {
+      console.log(error.formatted);
+    }else{
+      if(typeof(dist.css) === 'string'){
+        fs.writeFile(dist.css, result.css.toString(),function(){
+          console.log(new Date().toLocaleTimeString() + ' ' + filename + ' 保存成功。ui.css 编译成功。');  
         })
-      ]
-    }))
-    // .use(require('postcss-for'))
-    .use(require('postcss-css-variables'))
-    // .use(require('postcss-calc'))
-    // .use(require('postcss-nth-list'))
-    // .use(require('postcss-conditionals'))
-    // .use(require('postcss-nested'))
-    .process(css, { from: source.css, to: dist.css })
-    .then(function(result) {
-      fs.writeFileSync(dist.css, result.css, 'utf8');
-      console.log(new Date().toLocaleTimeString() + ' ' + filename + ' 保存成功。ui.css 编译成功。')
-    });
+      }else if(Array.isArray(dist.css)){
+        var resultCss = result.css.toString();
+        dist.css.forEach(function(val){
+          fs.writeFile(val, resultCss,function(){
+            console.log(new Date().toLocaleTimeString() + ' ' + filename + ' 保存成功。'+ val + ' 编译成功。');  
+          })
+        })
+      }
+      
+    }
+  })
 }
 
 function buildJs(filename) {
@@ -95,8 +79,9 @@ function watch() {
   fs.readdir('module', (err, files) => {
     files.forEach(function(file) {
       fs.watch('module/' + file, function(err, filename) {
+           
         if (filename) {
-          if (filename.indexOf('.css') > -1) {
+          if (filename.indexOf('.scss') > -1) {
             buildCss(filename);
           } else if (filename.indexOf('.js') > -1) {
             buildJs(filename);

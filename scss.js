@@ -1,12 +1,10 @@
 const sass = require('node-sass');
+const fs = require('fs');
 
-sass.render({
-  file: 'test.scss',
-  outputStyle: 'expanded'
-},function(err, result){
-  if(err){
-    console.log(err.formatted);
-  }else{
-    console.log(result.css.toString())
-  }
-})
+module.exports  = function(){
+  var css = sass.renderSync({
+    file: 'module/init.scss',
+    outputStyle: 'expanded'
+  })
+  return css.css.toString();
+}

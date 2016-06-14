@@ -10,25 +10,25 @@
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
-  font-size: var(--font-size);
+  font-size: $btn-font-size;
 
   /*button colors*/
-  color: var(--color);
-  background-color: var(--theme);
+  color: $btn-color;
+  background-color: $btn-background-color;
 
   /*button shapes*/
-  min-width: var(--min-width);
-  padding: var(--padding);
-  height: var(--height);
-  line-height: var(--height);
-  border-radius: var(--border-radius);
+  min-width: $btn-min-width;
+  padding: $btn-padding;
+  height: $btn-height;
+  line-height: $btn-height;
+  border-radius: $btn-border-radius;
   
 }
 .button:hover{
-  background-color: var(--theme-light);
+  background-color: lighten($btn-background-color, 10%);
 }
 .button:active{
-  background-color: var(--theme-dark);
+  background-color: desaturate($btn-background-color, 10%);
 }
 
 /**
@@ -38,7 +38,7 @@
 * or the form attaribute distabled="distabled".
 */
 .button.disabled, .button.disabled:hover{
-  background-color:var(--disabled) !important;
-  border-color: var(--disabled)  !important;
+  background-color:$disabled !important;
+  border-color: $disabled  !important;
   cursor: not-allowed;
 }

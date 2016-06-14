@@ -4,11 +4,11 @@ h1.logo {
   font-size: 140px;
   text-transform: capitalize;
   font-variant: small-caps;
-  color: var(--theme)
+  color: $theme;
 }
 h1.logo small{
   font-size: 20px;
-  color: var(--grey-dark);
+  color: $grey-dark;
   font-family: sans-serif;
 }
 
@@ -41,15 +41,15 @@ section article {
 }
 .column p.col-num {
   text-align: center;
-  background-color: var(--grey);
+  background-color: $grey;
   height: 45px;
   line-height: 45px;
   margin: 10px 0;
-  color: var(--text)
+  color: $text;
 }
 
 .column:hover p.col-num {
-  background-color: var(--grey-dark)
+  background-color: $grey-dark;
 }
 /*Theme Color*/
 .demo-color {overflow: hidden;}
@@ -66,25 +66,31 @@ section article {
   height: 50px;
   border-radius: 20%;
   padding:0;
-  background-color: var(--theme);
+  background-color: $theme;
 }
 .color-light{
-  background-color: var(--theme-light);
+  background-color: $theme-light;
 }
 .color-dark{
-  background-color: var(--theme-dark);
+  background-color: $theme-dark;
 }
 
+$demo-colors: (blue $blue) (green $green) (orange $orange) (grey $grey) (text $text);
 
-@each $theme in (blue, green, orange, grey, text){
-  .color.$theme{
-    background-color: var(--$(theme));
-  }
-  .color.$(theme)-light{
-    background-color: var(--$(theme)-light);
-  }
-  .color.$(theme)-dark{
-    background-color: var(--$(theme)-dark);
+.color {
+  @each $demo-color in $demo-colors{
+    $demo-color-name: nth($demo-color, 1);
+    $demo-color-background-color: nth($demo-color, 2);
+
+    &.#{$demo-color-name} {
+      background-color: #{$demo-color-background-color};
+    }
+    &.#{$demo-color-name}-light{
+        background-color: lighten($demo-color-background-color, 10%);
+    }
+    &.#{$demo-color-name}-dark{
+      background-color: desaturate($demo-color-background-color, 10%);
+    }
   }
 }
 
