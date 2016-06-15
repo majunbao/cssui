@@ -1,38 +1,63 @@
 .text-bold {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .text-italic {
-  font-style: italic; }
+  font-style: italic;
+}
 
 .text-underline {
-  text-decoration: underline; }
+  text-decoration: underline;
+}
 
 .text-line-through {
-  text-decoration: line-through; }
+  text-decoration: line-through;
+}
 
 .align-left {
-  text-align: left; }
+  text-align: left;
+}
 
 .align-right {
-  text-align: right; }
+  text-align: right;
+}
 
 .align-center {
-  text-align: center; }
+  text-align: center;
+}
 
 .text-align-justify {
-  text-align: justify; }
+  text-align: justify;
+}
 
 .text-tiny {
-  font-size: 10px; }
+  font-size: 10px;
+}
 
 .text-small {
-  font-size: 12px; }
-
-.text-big {
-  font-size: 14px; }
+  font-size: 12px;
+}
 
 .text-large {
-  font-size: 18px; }
+  font-size: 16px;
+}
+
+.text-larger {
+  font-size: 18px;
+}
 
 .text-opacity {
-  opacity: 0.5; }
+  opacity: 0.5;
+}
+
+.text{
+  color: $text
+}
+
+.text-light{
+  color: $text-light;
+}
+
+.text-dark{
+  color: $text-dark;
+}

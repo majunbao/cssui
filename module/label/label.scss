@@ -1,0 +1,19 @@
+.label{
+  display: inline-block;
+  font-size: 12px;
+  color: #fff;
+  background-color: $theme;
+  padding:2px 7px;
+  border-radius: 20px;
+}
+
+$lable-colors: (blue $blue) (green $green) (orange $orange) (grey $grey);
+
+@each $label-color in $lable-colors{
+  .label.#{nth($label-color, 1)}{
+    background-color: #{nth($label-color, 2)};
+  }
+}
+
+.label-group .label{margin-right: 5px;}
+.label-group .label:last-child{margin-right: 0;}

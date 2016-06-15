@@ -3,7 +3,15 @@
 */
 
 /*
+* Button Namespace
+* 
+* 默认是 .button ，根据喜好也可设置为 .btn
+*/
+$btn-namespace: '.button' !default;
+
+/*
 * Button Defaults
+*
 * 根据其他项目改变这些设置。
 * 按钮的宽度没有直接用 width 属性设置，而是采用 min-width + padding 的方式，
 * 这样按钮有了最小宽度，文字过多时宽度也会自动扩展。
@@ -33,5 +41,7 @@ $btn-colors: (blue $blue) (green $green) (orange $orange) (grey $grey);
 /*
 * Button Sizes
 *
+* (name min-width padding height)
+* Button width = min-width + padding + padding
 */
- 
+$btn-sizes: (small 55px 5px 22px) (large 88px 10px 38px)

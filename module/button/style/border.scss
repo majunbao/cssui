@@ -1,0 +1,28 @@
+.button-border{
+  background: none;
+  line-height: $btn-height - 4;
+  border-width: 2px;
+  border: 2px solid $btn-background-color;
+  color: $btn-background-color;
+
+  &:hover {
+    color: $btn-color;
+  }
+}
+
+.button-border{
+  @each $btn-color in $btn-colors{
+  
+    $btn-name: nth($btn-color, 1);
+    $btn-background-color: nth($btn-color, 2);
+
+    &.#{$btn-name}{
+      &:hover{
+        background-color: lighten($btn-background-color, 10%);
+      }
+      &:active{
+        background-color: desaturate($btn-background-color, 10%);
+      }
+    }
+  }
+}

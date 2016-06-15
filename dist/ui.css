@@ -605,16 +605,28 @@ input, textarea, .button {
   font-size: 12px;
 }
 
-.text-big {
-  font-size: 14px;
+.text-large {
+  font-size: 16px;
 }
 
-.text-large {
+.text-larger {
   font-size: 18px;
 }
 
 .text-opacity {
   opacity: 0.5;
+}
+
+.text {
+  color: #767676;
+}
+
+.text-light {
+  color: #969696;
+}
+
+.text-dark {
+  color: #464646;
 }
 
 a {
@@ -634,7 +646,13 @@ a:focus {
 * Option Button
 */
 /*
+* Button Namespace
+* 
+* 默认是 .button ，根据喜好也可设置为 .btn
+*/
+/*
 * Button Defaults
+*
 * 根据其他项目改变这些设置。
 * 按钮的宽度没有直接用 width 属性设置，而是采用 min-width + padding 的方式，
 * 这样按钮有了最小宽度，文字过多时宽度也会自动扩展。
@@ -652,87 +670,12 @@ a:focus {
 /*
 * Button Sizes
 *
+* (name min-width padding height)
+* Button width = min-width + padding + padding
 */
-.button.blue {
-  background-color: #55cffb;
-}
-
-.button.blue:hover {
-  background-color: #87ddfc;
-}
-
-.button.blue:active {
-  background-color: #5ecbf2;
-}
-
-.button.green {
-  background-color: #34c276;
-}
-
-.button.green:hover {
-  background-color: #57d290;
-}
-
-.button.green:active {
-  background-color: #40b677;
-}
-
-.button.orange {
-  background-color: #f9b954;
-}
-
-.button.orange:hover {
-  background-color: #fbcd85;
-}
-
-.button.orange:active {
-  background-color: #f0b75d;
-}
-
-.button.grey {
-  background-color: #bababa;
-}
-
-.button.grey:hover {
-  background-color: #d4d4d4;
-}
-
-.button.grey:active {
-  background-color: #bababa;
-}
-
 /*尺寸*/
 /*smallest smaller small default large larger largest*/
 /* 大小*/
-.button.smaller {
-  min-width: 28px;
-  padding: 0 4px;
-  height: 20px;
-  line-height: 20px;
-}
-
-.button.small {
-  padding: 0 5px;
-  height: 22px;
-  line-height: 22px;
-  min-width: 55px;
-}
-
-.button.large {
-  min-width: 88px;
-  padding: 0 10px;
-  height: 38px;
-  line-height: 38px;
-}
-
-.button.larger {
-  min-width: 268px;
-  padding: 0 10px;
-  height: 38px;
-  line-height: 38px;
-  letter-spacing: 0.5em;
-}
-
 /*
 * Base Botton Style
 *
@@ -741,7 +684,7 @@ a:focus {
 .button {
   display: inline-block;
   cursor: pointer;
-  border: 0;
+  border: none;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -755,6 +698,12 @@ a:focus {
   height: 35px;
   line-height: 35px;
   border-radius: 20px;
+  /**
+  * Disabled State
+  *
+  * The disabled state used the class .disabled,
+  * or the form attaribute distabled="distabled".
+  */
 }
 
 .button:hover {
@@ -765,22 +714,102 @@ a:focus {
   background-color: #5ecbf2;
 }
 
-/**
-* Disabled State
-*
-* The disabled state used the class .disabled,
-* or the form attaribute distabled="distabled".
-*/
 .button.disabled, .button.disabled:hover {
   background-color: #dde2ef !important;
   border-color: #dde2ef !important;
   cursor: not-allowed;
 }
 
+.blue {
+  background-color: #55cffb;
+}
+
+.blue:hover {
+  background-color: #87ddfc;
+}
+
+.blue:active {
+  background-color: #5ecbf2;
+}
+
+.green {
+  background-color: #55cffb;
+}
+
+.green:hover {
+  background-color: #87ddfc;
+}
+
+.green:active {
+  background-color: #5ecbf2;
+}
+
+.orange {
+  background-color: #55cffb;
+}
+
+.orange:hover {
+  background-color: #87ddfc;
+}
+
+.orange:active {
+  background-color: #5ecbf2;
+}
+
+.grey {
+  background-color: #55cffb;
+}
+
+.grey:hover {
+  background-color: #87ddfc;
+}
+
+.grey:active {
+  background-color: #5ecbf2;
+}
+
 /*@import 'input/input';*/
 /*@import 'table/table';*/
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 /*@import 'tab/tab';*/
-/*@import 'label/label';*/
+.label {
+  display: inline-block;
+  font-size: 12px;
+  color: #fff;
+  background-color: #55cffb;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+
+.label.blue {
+  background-color: #55cffb;
+}
+
+.label.green {
+  background-color: #34c276;
+}
+
+.label.orange {
+  background-color: #f9b954;
+}
+
+.label.grey {
+  background-color: #bababa;
+}
+
+.label-group .label {
+  margin-right: 5px;
+}
+
+.label-group .label:last-child {
+  margin-right: 0;
+}
+
 /*@import 'tip/tip';*/
 /*@import 'notice/notice';*/
 /*@import 'page/page';*/
