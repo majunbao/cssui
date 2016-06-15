@@ -10,7 +10,7 @@
 $lable-colors: (blue $blue) (green $green) (orange $orange) (grey $grey);
 
 @each $label-color in $lable-colors{
-  .label.#{nth($label-color, 1)}{
+  .label.label-#{nth($label-color, 1)}{
     background-color: #{nth($label-color, 2)};
   }
 }

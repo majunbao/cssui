@@ -19,18 +19,21 @@ $btn-namespace: '.button' !default;
 * 按钮的高度 采用 height 和 line-height 的方式控制。
 * 
 */
-$btn-min-width: 70px;
-$btn-padding:0 10px;
-$btn-height: 35px;
-$btn-font-size: 14px;
-$btn-border-radius: 20px;
-$btn-color: #fff;
-$btn-background-color: $theme;
+$btn-width: 152px !default;
+$btn-padding: 10px !default;
+$btn-height: 42px !default;
+$btn-font-size: 14px !default;
+$btn-border-radius: 200px !default;
+$btn-color: #fff !default;
+$btn-background: $theme !default;
 
 /*
 * Button Colors
 */
-$btn-colors: (blue $blue) (green $green) (orange $orange) (grey $grey);
+$btn-colors:  (blue $blue)
+              (green $green)
+              (orange $orange)
+              (grey $grey) !default;
 
 
 /*
@@ -41,7 +44,10 @@ $btn-colors: (blue $blue) (green $green) (orange $orange) (grey $grey);
 /*
 * Button Sizes
 *
-* (name min-width padding height)
-* Button width = min-width + padding + padding
+* (name width height padding)
+* 
 */
-$btn-sizes: (small 55px 5px 22px) (large 88px 10px 38px)
+$btn-sizes: (smaller 28px 20px 4px)
+            (small 86px 28px 5px) 
+            (large 180px 50px 10px)
+            (larger 268px 38px 10px) !default;

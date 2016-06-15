@@ -79,13 +79,11 @@ function watch() {
   fs.readdir('module', (err, files) => {
     files.forEach(function(file) {
       fs.watch('module/' + file, function(err, filename) {
-           
         if (filename) {
           if (filename.indexOf('.scss') > -1) {
             buildCss(filename);
           } else if (filename.indexOf('.js') > -1) {
             buildJs(filename);
-
           }
         }
       })

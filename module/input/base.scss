@@ -2,12 +2,12 @@ input {
   margin: 0;
   outline: none;
   vertical-align: middle;
-  padding: 0 10px;
-  width: 278px;
+  padding: $input-padding;
+  width: $input-width;
   line-height: 1;
-  height: 43px;
-  border:2px solid var(--grey);
-  color: var(--text); 
+  height: $input-height;
+  border: $input-border;
+  color: $input-color;
 }
 input.button{width: auto;}
 

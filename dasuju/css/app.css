@@ -13,7 +13,10 @@ body{
   font-size: 14px;
   font-family: "微软雅黑","PingHei","Lucida Grande", "Lucida Sans Unicode", "Helvetica","Arial","Verdana","sans-serif";
 }
-
+.center-1280{
+  width: 1280px;
+  margin: 0 auto;
+}
 
 /*
 * Header
@@ -70,6 +73,9 @@ body{
 .home-news-list ul li{
   border-bottom: 1px dotted #909CA6;
   padding:20px 0;
+}
+.home-news-list ul li:last-child{
+  border-bottom: none;
 }
 
 /*

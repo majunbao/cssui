@@ -3,7 +3,7 @@
 *
 * The default values for the .botton class
 */
-#{$btn-namespace}{
+#{$btn-namespace} {
   display: inline-block;
   cursor: pointer;
   border: none;
@@ -11,49 +11,50 @@
   text-decoration: none;
   vertical-align: middle;
   font-size: $btn-font-size;
-
   /*button colors*/
   color: $btn-color;
-  background-color: $btn-background-color;
-
+  background: $btn-background;
   /*button shapes*/
-  min-width: $btn-min-width;
-  padding: $btn-padding;
+  min-width: $btn-width - $btn-padding * 2;
+  padding: 0 $btn-padding;
   height: $btn-height;
   line-height: $btn-height;
   border-radius: $btn-border-radius;
-
-  &:hover{
-    background-color: lighten($btn-background-color, 10%);
-  }
-  
-  &:active{
-    background-color: desaturate($btn-background-color, 10%);
-  }
-
-  /**
-  * Disabled State
-  *
-  * The disabled state used the class .disabled,
-  * or the form attaribute distabled="distabled".
-  */
-  &.disabled, &.disabled:hover{
-    background-color:$disabled !important;
-    border-color: $disabled  !important;
-    cursor: not-allowed;
-  }
-
-
-}
-@include btn-colors{
-  & {
-    background-color: $btn-background-color;
-  }
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.3s;
   &:hover {
-    background-color: lighten($btn-background-color, 10%);
+    background-color: lighten($btn-background, 10%);
   }
   &:active {
-    background-color: desaturate($btn-background-color, 10%);
+    background: desaturate($btn-background, 10%);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
   }
 }
+
+/**
+* Disabled State
+*
+* The disabled state used the class .disabled,
+* or the form attaribute distabled="distabled".
+*/
+#{$btn-namespace}-disabled,
+#{$btn-namespace}-disabled:hover {
+  background: $disabled !important;
+  border-color: $disabled !important;
+  color: #fff !important;
+  cursor: not-allowed;
+}
+
+/**
+* Button color
+*
+*/
+@include btn-colors;
+
+
+/**
+* Button size
+*
+*/
+@include btn-sizes;
 
