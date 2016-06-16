@@ -24,17 +24,20 @@ $btn-padding: 10px !default;
 $btn-height: 42px !default;
 $btn-font-size: 14px !default;
 $btn-border-radius: 200px !default;
-$btn-color: #fff !default;
-$btn-background: $theme !default;
+$btn-color: #666 !default;
+$btn-background: #EEE !default;
 
 /*
 * Button Colors
+*
+* (name, background, color)
+* 
 */
-$btn-colors:  (blue $blue)
-              (green $green)
-              (orange $orange)
-              (while #FFF)
-              (grey $grey) !default;
+$btn-colors:  (blue $blue #FFF)
+              (green $green #FFF)
+              (orange $orange #FFF)
+              (while #FFF black)
+              (grey $grey #FFF) !default;
 
 
 /*

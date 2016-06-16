@@ -9,18 +9,40 @@
 * 本项目常用工具，但不包括 .clearon-left, .clear ，
 * 它们已经包含在 UI tool 模块里面，请注意
 */
-* {transition: color 0.2s 0.1s;}
+
+* {
+  transition: color 0.2s 0.1s;
+}
+
 body {
   font-size: 14px;
   font-family: "微软雅黑", "PingHei", "Lucida Grande", "Lucida Sans Unicode", "Helvetica", "Arial", "Verdana", "sans-serif";
 }
-.icon{
+
+.icon {
   display: inline-block;
   width: 16px;
   height: 16px;
   background: url(../images/icons.png) no-repeat 0 0;
+  vertical-align: middle;
 }
-.cfff{color: #fff;}
+
+.icon-love {
+  background-position: -96px 0;
+}
+
+.icon-eye {
+  background-position: -80px 0;
+}
+
+.icon-share {
+  background-position: -64px 0;
+}
+
+.cfff {
+  color: #fff;
+}
+
 .center-1280 {
   width: 1280px;
   margin: 0 auto;
@@ -31,26 +53,30 @@ body {
   color: #464646;
   text-align: center;
 }
-.title-modify i{
+
+.title-modify i {
   display: block;
   width: 150px;
   height: 20px;
   background: url(../images/sprites.png) no-repeat 0 0;
   margin: 8px auto 0 auto;
 }
-.title-modify-white{
+
+.title-modify-white {
   color: #fff;
 }
-.title-modify-white i{
+
+.title-modify-white i {
   background-position: 0 -20px;
 }
 
 .modify-triangle {
   width: 55px;
   height: 27px;
-  margin:0 auto 60px auto;
+  margin: 0 auto 60px auto;
   background: url(../images/sprites.png) no-repeat 0 -40px;
 }
+
 .modify-background-circular {
   background: url(../images/modify-background-circular.png) no-repeat;
   width: 730px;
@@ -62,26 +88,92 @@ body {
   animation: modify-background-circular 120s linear infinite;
   animation-direction: alternate;
 }
+
 @keyframes modify-background-circular {
   0% {
     left: 0;
     top: 0;
     transform: rotate(0deg);
-
   }
-
   50% {
     left: 500px;
     top: 120px;
     transform: rotate(30deg);
   }
-
   100% {
     left: 180px;
     top: 40px;
     transform: rotate(0deg);
   }
 }
+
+.card {
+  width: 308px;
+  height: 335px;
+  background-color: #fff;
+  transition: transform 0.3s 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.06);
+  position: relative z-index: 1;
+}
+
+.card:hover .card-img {}
+
+.card-img {
+  width: 308px;
+  height: 184px;
+}
+
+.card-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #404040;
+  font-size: 16px;
+  display: block;
+  padding: 20px 25px 0 25px;
+}
+
+.card-user {
+  padding: 20px 25px 0 25px;
+}
+
+.card-user-head {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 15px;
+}
+
+.card-user-info {
+  line-height: 22px;
+}
+
+.card-social {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  border-top: 1px solid #E7E7E7;
+}
+
+.card-social .icon,
+.card-social .text {
+  vertical-align: middle;
+}
+
+.card-social .icon {
+  margin-right: 5px;
+}
+
+.card-social .text {
+  width: 55px;
+  display: inline-block;
+}
+
+
 /*
 * Header
 *
@@ -112,6 +204,8 @@ body {
 
 .menu li {
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   margin-right: 45px;
 }
 
@@ -127,10 +221,10 @@ body {
 .menu a.now {
   background-color: #28b3e5;
 }
-.menu a:hover{
+
+.menu a:hover {
   color: #c8f1ff;
 }
-
 
 
 /*
@@ -138,7 +232,8 @@ body {
 *
 * 首页新闻板块，左右接口，左边是 Banner，右边是新闻列表
 */
-.home-news{
+
+.home-news {
   padding-top: 70px;
   padding-bottom: 70px;
 }
@@ -149,11 +244,10 @@ body {
 
 /*新闻列表*/
 
-
 .home-news-list {}
 
-.home-news-list ul{
-}
+.home-news-list ul {}
+
 .home-news-list ul li {
   border-bottom: 1px dotted #909CA6;
   padding: 20px 0;
@@ -162,19 +256,23 @@ body {
 .home-news-list ul li:last-child {
   border-bottom: none;
 }
-.margin-top-larger{
+
+.margin-top-larger {
   margin-top: 60px;
 }
+
 
 /*
 * 课程推荐
 *
 */
+
 .home-courses {
   background-color: #72D0F6;
   height: 780px;
   position: relative;
 }
+
 .home-courses:after {
   content: '';
   display: block;
@@ -182,9 +280,10 @@ body {
   border-right: 120px solid transparent;
   position: absolute;
   z-index: 0;
-  top:0;
+  top: 0;
   left: 0;
 }
+
 .home-courses:before {
   content: '';
   display: block;
@@ -195,42 +294,52 @@ body {
   right: 0;
   bottom: 0;
 }
-.home-courses .center-1280{
-  position: relative;z-index: 1;
+
+.home-courses .center-1280 {
+  position: relative;
+  z-index: 1;
 }
+
 
 /*
 * 教师培训
 *
 */
+
 .home-teacher {
   padding-bottom: 75px;
 }
-.home-teacher-content{
+
+.home-teacher-content {
   width: 334px;
-  padding:35px;
+  padding: 35px;
   border: 1px solid #eee \9;
   box-shadow: 0 30px 30px #eee;
 }
+
 .home-teacher-content h3 {
   font-size: 20px;
   color: #464646;
   text-align: center;
 }
-.home-teacher-content h3 i{
+
+.home-teacher-content h3 i {
   display: block;
   width: 84px;
   height: 76px;
   background: url(../images/sprites.png) no-repeat -340px 0;
-  margin:0 auto 25px auto;
+  margin: 0 auto 25px auto;
 }
-.home-teacher-content ul{
+
+.home-teacher-content ul {
   padding-top: 55px;
 }
-.home-teacher-content ul li{
+
+.home-teacher-content ul li {
   padding-bottom: 30px;
 }
-.home-teacher-content ul li .text-large{
+
+.home-teacher-content ul li .text-large {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -238,48 +347,73 @@ body {
   display: block;
 }
 
-.home-teacher .home-teacher-training{
+.home-teacher .home-teacher-training {}
 
-}
-.home-teacher .home-teacher-resoure{
+.home-teacher .home-teacher-resoure {
   margin: 0 auto;
 }
-.home-teacher .home-teacher-resoure h3 i{
+
+.home-teacher .home-teacher-resoure h3 i {
   background-position: -250px 0
 }
-.home-teacher .home-teacher-live{
+
+.home-teacher .home-teacher-live {
   float: right;
 }
-.home-teacher .home-teacher-live h3 i{
+
+.home-teacher .home-teacher-live h3 i {
   background-position: -160px 0;
 }
+
 
 /*
 * 创客作品
 *
 */
-.home-create{
+
+.home-create {
   background-color: #F1F1F1;
 }
-.home-create-tabs{overflow: hidden;font-size: 16px;margin-top: 45px;}
-.home-create-tabs li{float: left;margin-right: 40px}
-.home-create-tabs li a{color: #464646}
+
+.home-create-tabs {
+  overflow: hidden;
+  font-size: 16px;
+  margin-top: 45px;
+}
+
+.home-create-tabs li {
+  float: left;
+  margin-right: 40px
+}
+
+.home-create-tabs li a {
+  color: #464646
+}
+
 .home-create-tabs li a:hover,
-.home-create-tabs li a.now{
+.home-create-tabs li a.now {
   color: #6CCDFF;
 }
-.home-create .card-img{
+
+.home-create .card-img {
   height: 170px;
 }
-.home-create .card-user li{
+
+.home-create .card-user {
+  overflow: hidden;
+  padding-bottom: 18px;
+}
+
+.home-create .card-user li {
   width: 120px;
   float: left;
 }
-.home-create .card-user li.he{
+
+.home-create .card-user li.he {
   width: 1px;
   height: 28px;
   background-color: #DFE2E5;
-  margin:8px 17px 0 0px;
+  margin: 8px 17px 0 0px;
 }
 
 .home-create .card-user-head {
@@ -287,50 +421,43 @@ body {
   height: 42px;
 }
 
+/*
+* 导师推荐
+*
+*/
+.home-tutor {
 
-.card {
-  width: 308px;
-  height: 335px;
-  background-color: #fff;
-  transition: transform 0.3s 0.2s ;
 }
-.card:hover {
-  transform: scale(1.06);
-  position: relative
-  z-index:1;
-}
-.card:hover .card-img{
-  
-}
-
-.card-img {
-  width: 308px;
-  height: 184px;
-}
-.card-title {
+.home-tutor-list {
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  color: #404040;
-  font-size: 16px;
-  display: block;
-  padding:20px 25px 0 25px;
-
+  margin-top: 55px;
 }
-.card-user {
-  padding: 20px 25px 0 25px;
-}
-.card-user-head {
-  width: 66px;
-  height: 66px;
-  border-radius: 50%;
+.home-tutor-list li{
+  width: 33.3%;
   float: left;
-  margin-right: 15px;
+  text-align: center;
+  margin-bottom: 50px;
 }
-.card-user-info {
-  line-height: 22px;
+.home-tutor-list li img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: block;
+  margin:0 auto;
+  transition: border-radius 0.3s;
 }
-
+.home-tutor-list li img:hover{
+  border-radius: 2%;
+}
+.home-tutor-list li span {
+  display: block;
+  text-align: center;
+  padding-top: 20px;
+}
+/*
+* 比赛动态
+*
+*/
 
 /*
 * Footer

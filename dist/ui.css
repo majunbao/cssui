@@ -662,6 +662,9 @@ a:focus {
 */
 /*
 * Button Colors
+*
+* (name, background, color)
+* 
 */
 /*
 * Button Shapes
@@ -675,7 +678,6 @@ a:focus {
 */
 /*尺寸*/
 /*smallest smaller small default large larger largest*/
-/* 大小*/
 /*
 * Base Botton Style
 *
@@ -690,8 +692,8 @@ a:focus {
   vertical-align: middle;
   font-size: 14px;
   /*button colors*/
-  color: #fff;
-  background: #55cffb;
+  color: #666;
+  background: #EEE;
   /*button shapes*/
   min-width: 132px;
   padding: 0 10px;
@@ -700,14 +702,15 @@ a:focus {
   border-radius: 200px;
   transition-property: background-color, color, border-color;
   transition-duration: 0.3s;
+  -webkit-user-select: none;
 }
 
 .button:hover {
-  background-color: #87ddfc;
+  background: #f6f6f6;
 }
 
 .button:active {
-  background: #5ecbf2;
+  background: #eeeeee;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -731,10 +734,12 @@ a:focus {
 */
 .button-blue {
   background-color: #55cffb;
+  color: #FFF;
 }
 
 .button-blue:hover {
   background-color: #87ddfc;
+  color: #FFF;
 }
 
 .button-blue:active {
@@ -744,10 +749,12 @@ a:focus {
 
 .button-green {
   background-color: #34c276;
+  color: #FFF;
 }
 
 .button-green:hover {
   background-color: #57d290;
+  color: #FFF;
 }
 
 .button-green:active {
@@ -757,10 +764,12 @@ a:focus {
 
 .button-orange {
   background-color: #f9b954;
+  color: #FFF;
 }
 
 .button-orange:hover {
   background-color: #fbcd85;
+  color: #FFF;
 }
 
 .button-orange:active {
@@ -770,10 +779,12 @@ a:focus {
 
 .button-while {
   background-color: #FFF;
+  color: black;
 }
 
 .button-while:hover {
   background-color: white;
+  color: black;
 }
 
 .button-while:active {
@@ -783,10 +794,12 @@ a:focus {
 
 .button-grey {
   background-color: #bababa;
+  color: #FFF;
 }
 
 .button-grey:hover {
   background-color: #d4d4d4;
+  color: #FFF;
 }
 
 .button-grey:active {
@@ -832,25 +845,29 @@ a:focus {
   height: 38px;
   min-width: 128px;
   border-width: 2px;
-  border: 2px solid #55cffb;
-  color: #55cffb;
+  border: 2px solid #EEE;
+  color: #666;
 }
 
 .button-border:hover {
-  background: #5ecbf2;
-  color: #fff;
-  background: rgba(135, 221, 252, 0.9);
-  color: rgba(255, 255, 255, 0.9);
+  background: #eeeeee;
+  color: #666;
+}
+
+.button-border:active {
+  background: #eeeeee;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: #cfcfcf;
 }
 
 .button-border.button-blue {
-  border: 2px solid #55cffb;
+  border-color: #55cffb;
   color: #55cffb;
 }
 
 .button-border.button-blue:hover {
   background: #5ecbf2;
-  color: blue #55cffb;
+  color: #FFF;
 }
 
 .button-border.button-blue:active {
@@ -860,13 +877,13 @@ a:focus {
 }
 
 .button-border.button-green {
-  border: 2px solid #34c276;
+  border-color: #34c276;
   color: #34c276;
 }
 
 .button-border.button-green:hover {
   background: #40b677;
-  color: green #34c276;
+  color: #FFF;
 }
 
 .button-border.button-green:active {
@@ -876,13 +893,13 @@ a:focus {
 }
 
 .button-border.button-orange {
-  border: 2px solid #f9b954;
+  border-color: #f9b954;
   color: #f9b954;
 }
 
 .button-border.button-orange:hover {
   background: #f0b75d;
-  color: orange #f9b954;
+  color: #FFF;
 }
 
 .button-border.button-orange:active {
@@ -892,13 +909,13 @@ a:focus {
 }
 
 .button-border.button-while {
-  border: 2px solid #FFF;
+  border-color: #FFF;
   color: #FFF;
 }
 
 .button-border.button-while:hover {
   background: white;
-  color: while #FFF;
+  color: black;
 }
 
 .button-border.button-while:active {
@@ -908,13 +925,13 @@ a:focus {
 }
 
 .button-border.button-grey {
-  border: 2px solid #bababa;
+  border-color: #bababa;
   color: #bababa;
 }
 
 .button-border.button-grey:hover {
   background: #bababa;
-  color: grey #bababa;
+  color: #FFF;
 }
 
 .button-border.button-grey:active {

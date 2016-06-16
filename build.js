@@ -15,7 +15,7 @@ const source = {
   js: 'module/init.js'
 }
 const dist = {
-  css: ['dist/ui.css','dasuju/css/ui.css'],
+  css: ['dist/ui.css','dajisu/css/ui.css'],
   js: 'dist/ui.js'
 }
 

@@ -2,13 +2,16 @@
   @each $btn-color in $btn-colors {
     $btn-name: nth($btn-color, 1);
     $btn-background: nth($btn-color, 2);
+    $btn-color: nth($btn-color, 3);
     $btn-name-namespace: $btn-namespace + '-' + $btn-name;
     &#{$btn-name-namespace} {
       & {
         background-color: $btn-background;
+        color: $btn-color;
       }
       &:hover{
         background-color: lighten($btn-background, 10%);
+        color: $btn-color;
       }
       &:active {
         background-color: desaturate($btn-background, 10%);
@@ -18,19 +21,11 @@
   }
 }
 
-// @each $btn-color in $btn-colors {
-//   $btn-name: nth($btn-color, 1) !default;
-//   $btn-background: nth($btn-color, 2) !default;
-//   $btn-color: nth($btn-color, 3) !default;
-// }
+
 
 /*尺寸*/
 
-
 /*smallest smaller small default large larger largest*/
-
-
-/* 大小*/
 
 @mixin btn-sizes {
   @each $btn-size in $btn-sizes {
