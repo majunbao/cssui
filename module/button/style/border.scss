@@ -7,7 +7,10 @@
   border: 2px solid $btn-background;
   color: $btn-background;
   &:hover {
+    background: desaturate($btn-background, 10%);
     color: $btn-color;
+    background: rgba(lighten($btn-background, 10%), .9);
+    color: rgba($btn-color, .9);
   }
 
   @each $btn-color in $btn-colors {
@@ -18,8 +21,9 @@
       border: 2px solid $btn-background;
       color: $btn-background;
       &:hover{
-        background: lighten($btn-background, 10%);
-        color: #fff;
+        background: desaturate($btn-background, 10%);
+        color: $btn-color;
+
       }
       &:active {
         background: desaturate($btn-background, 10%);

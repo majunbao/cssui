@@ -768,6 +768,19 @@ a:focus {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
+.button-while {
+  background-color: #FFF;
+}
+
+.button-while:hover {
+  background-color: white;
+}
+
+.button-while:active {
+  background-color: white;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
 .button-grey {
   background-color: #bababa;
 }
@@ -824,7 +837,10 @@ a:focus {
 }
 
 .button-border:hover {
+  background: #5ecbf2;
   color: #fff;
+  background: rgba(135, 221, 252, 0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .button-border.button-blue {
@@ -833,8 +849,8 @@ a:focus {
 }
 
 .button-border.button-blue:hover {
-  background: #87ddfc;
-  color: #fff;
+  background: #5ecbf2;
+  color: blue #55cffb;
 }
 
 .button-border.button-blue:active {
@@ -849,8 +865,8 @@ a:focus {
 }
 
 .button-border.button-green:hover {
-  background: #57d290;
-  color: #fff;
+  background: #40b677;
+  color: green #34c276;
 }
 
 .button-border.button-green:active {
@@ -865,8 +881,8 @@ a:focus {
 }
 
 .button-border.button-orange:hover {
-  background: #fbcd85;
-  color: #fff;
+  background: #f0b75d;
+  color: orange #f9b954;
 }
 
 .button-border.button-orange:active {
@@ -875,14 +891,30 @@ a:focus {
   border-color: #f7a119;
 }
 
+.button-border.button-while {
+  border: 2px solid #FFF;
+  color: #FFF;
+}
+
+.button-border.button-while:hover {
+  background: white;
+  color: while #FFF;
+}
+
+.button-border.button-while:active {
+  background: white;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: #e0e0e0;
+}
+
 .button-border.button-grey {
   border: 2px solid #bababa;
   color: #bababa;
 }
 
 .button-border.button-grey:hover {
-  background: #d4d4d4;
-  color: #fff;
+  background: #bababa;
+  color: grey #bababa;
 }
 
 .button-border.button-grey:active {
