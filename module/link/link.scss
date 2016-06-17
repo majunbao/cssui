@@ -4,6 +4,7 @@ a{
 a:hover{
   text-decoration: none;
   cursor: pointer;
+  color: $link;
 }
 a:focus {
   outline: none;

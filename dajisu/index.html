@@ -18,6 +18,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link rel="stylesheet" type="text/css" href="css/ui.css">
   <link rel="stylesheet" type="text/css" href="css/app.css">
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script src="js/ui.js"></script>
 </head>
 
 <body>
@@ -46,6 +48,24 @@
     </ul>
   </div>
   <div class="banner"></div>
+  <!--首页banner 图片轮播-->
+  <script src="js/superslide.2.1.js"></script>
+  <div class="fullSlide">
+    <div class="bd">
+      <ul>
+        <li data-src="images/banner-bg-1.jpg"><a><img src="images/banner-text-1.png"></a></li>
+        <li data-src="images/banner-bg-2.jpg"><a><img src="images/banner-text-1.png"></a></li>
+      </ul>
+      <div class="">
+        <span class="prev"></span>
+        <span class="next"></span>
+      </div>
+    </div>
+    <div class="hd">
+      <ul></ul>
+    </div>
+  </div>
+  <!--fullSlide end-->
   <div class="home-news column center-1280">
     <div class="col-2-1">1</div>
     <div class="col-2-1">
@@ -358,44 +378,168 @@
     </div>
   </div>
   <div class="column center-1280">
-    <div class="col-2-1 home-tutor">
-      <h2 class="title-modify">导师推荐<i></i></h2>
-      <p class="align-center text-light margin-top-5">教学视频，培训视频，视频直播等多资源共享教学平台</p>
-      <ul class="home-tutor-list">
-        <li>
-          <img src="images/aaron.jpg">
-          <span>Aaron</span>
-        </li>
-        <li>
-          <img src="images/abigail.jpg">
-          <span>Abigail</span>
-        </li>
-        <li>
-          <img src="images/jafferson.jpg">
-          <span>Jafferson</span>
-        </li>
-        <li>
-          <img src="images/abigail.jpg">
-          <span>Aaron</span>
-        </li>
-        <li>
-          <img src="images/jafferson.jpg">
-          <span>Abigail</span>
-        </li>
-        <li>
-          <img src="images/aaron.jpg">
-          <span>Jafferson</span>
-        </li>
-      </ul>
-      <div class="align-center">
-        <a class="button button-border button-blue">更多作品</a>
+    <div class="col-2-1">
+      <div class="home-tutor">
+        <h2 class="title-modify">导师推荐<i></i></h2>
+        <p class="align-center text-light margin-top-5">教学视频，培训视频，视频直播等多资源共享教学平台</p>
+        <ul class="home-tutor-list">
+          <li>
+            <a><img src="images/aaron.jpg"></a>
+            <a class="text-dark text-larger padding-top-20 block">Aaron</a>
+          </li>
+          <li>
+            <a><img src="images/abigail.jpg"></a>
+            <a class="text-dark text-larger padding-top-20 block">Aaron</a>
+          </li>
+          <li>
+            <a><img src="images/jafferson.jpg"></a>
+            <a class="text-dark text-larger padding-top-20 block">Jafferson</a>
+          </li>
+          <li>
+            <a><img src="images/abigail.jpg"></a>
+            <a class="text-dark text-larger padding-top-20 block">Aaron</a>
+          </li>
+          <li>
+            <a><img src="images/jafferson.jpg"></a>
+            <a class="text-dark text-larger padding-top-20 block">Abigail</a>
+          </li>
+          <li>
+            <a><img src="images/aaron.jpg"></a>
+            <a class="text-dark text-larger padding-top-20 block">Jafferson</a>
+          </li>
+        </ul>
+        <div class="align-center">
+          <a class="button button-border button-blue">更多作品</a>
+        </div>
       </div>
     </div>
-    <div class="col-2-1">
-      <h2 class="title-modify">比赛动态<i></i></h2>
-      <p class="align-center text-light margin-top-5">教学视频，培训视频，视频直播等多资源共享教学平台</p>
+    <div class="col-2-1 ">
+      <div class="home-match">
+        <h2 class="title-modify">比赛动态<i></i></h2>
+        <p class="align-center text-light margin-top-5">教学视频，培训视频，视频直播等多资源共享教学平台</p>
+        <ul class="home-match-list margin-top-larger">
+          <li>
+            <a><img src="images/match-img-1.jpg" class="on-left margin-right-20"></a>
+            <a class="text-dark text-larger">机器人基础理论</a>
+            <p class="text">机器人基础理论课程在线学习机器人基础理论课程在线学习教程</p>
+            <div>
+              <a class="button button-blue button-small on-right">我要报名</a>
+              <span class="text-light text-small">比赛时间：2016.05.03</span>
+            </div>
+          </li>
+          <li>
+            <a><img src="images/match-img-1.jpg" class="on-left margin-right-20"></a>
+            <a class="text-dark text-larger">机器人基础理论</a>
+            <p class="text">机器人基础理论课程在线学习机器人基础理论课程在线学习教程机器人基础理论课程在线学习机器人基础理论课程在线学习教程</p>
+            <div>
+              <a class="button button-blue button-small on-right">我要报名</a>
+              <span class="text-light text-small">比赛时间：2016.05.03</span>
+            </div>
+          </li>
+          <li class="last">
+            <a><img src="images/match-img-1.jpg" class="on-left margin-right-20"></a>
+            <a class="text-dark text-larger">机器人基础理论</a>
+            <p class="text">机器人基础理论课程在线学习机器人基础理论课程在线学习教程</p>
+            <div>
+              <a class="button button-blue button-small on-right">我要报名</a>
+              <span class="text-light text-small">比赛时间：2016.05.03</span>
+            </div>
+          </li>
+        </ul>
+        <div class="align-center margin-top-larger">
+          <a class="button button-border button-blue">更多作品</a>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="column">
+    <div class="col-2-1 home-forum">
+      <div class="home-forum-block">
+        <div class="home-forum-midify"></div>
+        <h2><a>创客论坛</a></h2>
+        <span>教育领域相关论坛</span>
+      </div>
+    </div>
+    <div class="col-2-1 home-test">
+      <div class="home-test-block">
+        <div class="home-test-midify"></div>
+        <h2><a>测试与评价</a></h2>
+        <span>教学视频，培训视频，视频直播</span>
+      </div>
+    </div>
+  </div>
+  <div class="friendship-link">
+    <ul class="center-1280">
+      <li>
+        <a><img src="images/friendship-link-1.jpg"></a>
+      </li>
+      <li>
+        <a><img src="images/friendship-link-2.jpg"></a>
+      </li>
+      <li>
+        <a><img src="images/friendship-link-3.jpg"></a>
+      </li>
+      <li>
+        <a><img src="images/friendship-link-4.jpg"></a>
+      </li>
+      <li>
+        <a><img src="images/friendship-link-5.jpg"></a>
+      </li>
+      <li>
+        <a><img src="images/friendship-link-3.jpg"></a>
+      </li>
+    </ul>
+  </div>
+  <div class="footer">
+    <div class="column center-1280">
+      <div class="col-2-1">
+        <div class="footer-card">
+          <h2><strong>K12</strong>科技教育平台</h2>
+          <ul>
+            <li>025-52902365</li>
+            <li>contact@stemcloud.cn </li>
+            <li>南京市鼓楼区湖南路1号凤凰广场B座</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-2-1">
+        <div class="footer-newmedia">
+          <img class="footer-wechat" src="images/footer-wechat.png">
+          <h2>科技教育云平台<span>微信公众号<br>请加入我们！</span></h2>
+        </div>
+      </div>
+    </div>
+    <div class="tool-bar align-center">Copyright ® 南京TEM云中心 苏ICP备15004928号-2</div>
+  </div>
+  <script>
+  $(function() {
+    $(".fullSlide").hover(function() {
+        $(this).find('.prev,.next').stop(true, true).fadeIn('slow');
+      },
+      function() {
+        $(this).find(".prev,.next").fadeOut('slow');
+      });
+    $(".fullSlide").slide({
+      titCell: ".hd ul",
+      mainCell: ".bd ul",
+      effect: "fold",
+      autoPlay: true,
+      autoPage: true,
+      trigger: "click",
+      startFun: function(i) {
+        var curLi = jQuery(".fullSlide .bd li").eq(i);
+        if (!!curLi.attr("data-src")) {
+          curLi.css({
+            'max-width': '100%',
+            "background-image": 'url(' + curLi.attr("data-src") +')',
+            'background-position': '50% 50%',
+            'background-repeat': 'no-repeat'
+          }).removeAttr("data-src").find('img').addClass('on');
+        }
+      }
+    });
+  })
+  </script>
 </body>
 
 </html>

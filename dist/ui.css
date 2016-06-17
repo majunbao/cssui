@@ -636,6 +636,7 @@ a {
 a:hover {
   text-decoration: none;
   cursor: pointer;
+  color: #4da9f5;
 }
 
 a:focus {

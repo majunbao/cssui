@@ -11,7 +11,7 @@
 */
 
 * {
-  transition: color 0.2s 0.1s;
+  transition: color 0.1s 0.1s;
 }
 
 body {
@@ -258,7 +258,7 @@ body {
 }
 
 .margin-top-larger {
-  margin-top: 60px;
+  margin-top: 60px !important;
 }
 
 
@@ -421,43 +421,178 @@ body {
   height: 42px;
 }
 
+
 /*
 * 导师推荐
 *
 */
-.home-tutor {
 
-}
+.home-tutor {width: 512px;}
+
 .home-tutor-list {
   overflow: hidden;
-  margin-top: 55px;
+  margin-top: 63px;
+  margin-left: -58px;
 }
-.home-tutor-list li{
-  width: 33.3%;
+
+.home-tutor-list li {
   float: left;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 56px;
+  margin-left: 58px;
 }
+
 .home-tutor-list li img {
-  width: 140px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   display: block;
-  margin:0 auto;
+  margin: 0 auto;
   transition: border-radius 0.3s;
 }
-.home-tutor-list li img:hover{
+
+.home-tutor-list li img:hover {
   border-radius: 2%;
 }
-.home-tutor-list li span {
-  display: block;
-  text-align: center;
-  padding-top: 20px;
-}
+
+
 /*
 * 比赛动态
 *
 */
+
+.home-match {width: 596px;float: right;}
+
+.home-match-list {
+  padding: 3px 25px;
+  width: 540px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 20px #EEE;
+  border: 1px solid transparent;
+  border-color: #eee /9;
+}
+
+.home-match-list li {
+  overflow: hidden;
+  border-top: 1px solid #E0E0E0;
+  padding: 20px 0;
+}
+.home-match-list li:first-child{
+  border-top: none;
+}
+
+.home-match-list li p {
+  height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 2px 0 12px 0;
+}
+.home-match-list li div{height: 28px;line-height: 28px;}
+
+.home-match-list li img {}
+
+
+/*
+* 创客论坛 and 创客论坛
+*
+*/
+.home-forum,
+.home-test {
+  height: 280px;
+  margin-top: 90px;
+}
+.home-forum-block,
+.home-test-block {
+  margin-top: 60px
+}
+.home-forum-midify,
+.home-test-midify {
+  margin-right: 50px;
+  float: left;
+  background-image: url(../images/sprites.png);
+  background-repeat: no-repeat;
+}
+.home-forum-block h2,
+.home-test-block h2{
+  font-size: 40px;
+  color:#fff;
+  padding: 40px 0 10px 40px;
+}
+.home-forum-block h2 a,
+.home-test-block h2 a{
+  color:#fff;
+}
+.home-forum-block h2 a:hover,
+.home-test-block h2 a:hover{
+}
+.home-forum-block span,
+.home-test-block span{
+  font-size: 13px;
+  color:#fff;
+}
+.home-forum {
+  background-color: #6BCDFF;
+}
+.home-test {
+  background-color: #55DDF2;
+}
+.home-forum-block{
+  float: right;
+  width: 640px;
+}
+.home-test-block{
+  float: left;
+  width: 640px;
+  margin-left: 70px;
+}
+.home-forum-midify {
+  
+  width: 249px;
+  height: 141px;
+  background-position: 0 -80px;
+}
+.home-test-midify {
+  width: 220px;
+  height: 150px;
+  background-position: -260px -80px;
+}
+
+/*
+* 友情链接
+*
+*/
+.friendship-link {
+  background-color: #F1F1F1;
+  overflow: hidden;
+  padding: 43px 0;
+}
+.friendship-link ul li {
+  float: left;
+  margin-left: 20px;
+}
+.friendship-link ul li:first-child{
+  margin-left: 0px;
+}
+.friendship-link li a{
+  display: block;
+  width: 196px;
+  height: 65px;
+  background-color: #fff;
+  border-radius: 6px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+.friendship-link li a img{
+  max-width: 176px;
+  max-height: 45px;
+  transition: transform .3s;
+}
+.friendship-link li a:hover img{
+  transform: scale(1.15);
+}
+
 
 /*
 * Footer
@@ -467,4 +602,86 @@ body {
 * 也写在此处
 */
 
-.footer {}
+.footer {
+  height: 260px;
+  background-color: #28343F;
+}
+.footer .column{
+  height: 220px;
+}
+.footer .tool-bar {
+  background-color: #141E29;
+  font-size: 16px;
+}
+.footer-card {
+  float: right;
+  margin-top: 66px;
+}
+.footer-card h2 {
+  font-size: 26px;
+  color: #FFF;
+  font-weight: bolder;
+  float: left;
+  text-align: center;
+  padding-right: 25px;
+}
+.footer-card h2 strong {
+  font-size: 48px;
+  color: #F4CE36;
+  display: block;
+}
+.footer-card ul {
+  color: #C7C7C7;
+  padding-left: 25px;
+  float: left;
+  border-left: 1px solid #BDE1F4;
+}
+.footer-card ul li{
+  padding:6px 0;
+}
+.footer-newmedia{
+  color: #fff;
+  margin-top: 66px;
+  margin-left: 155px;
+}
+.footer-newmedia .footer-wechat {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-right: 25px;
+}
+.footer-newmedia h2{
+  font-size: 22px;
+  font-weight: bolder;
+  padding-top: 5px;
+}
+.footer-newmedia h2 span{
+  padding-top: 6px;
+  font-size: 16px;
+  display: block;
+  line-height: 26px;
+}
+
+/*首页大图轮播展示*/
+.fullSlide{width:100%;position:relative;height:380px;background:#000;}
+.fullSlide .bd{margin:0 auto;position:relative;z-index:0;overflow:hidden;}
+.fullSlide .bd ul{width:100% !important;}
+.fullSlide .bd li{width:100% !important;height:380px;overflow:hidden;text-align:center;}
+.fullSlide .bd li a{display:block;height:380px;}
+.fullSlide .bd li a img{display:none;}
+.fullSlide .bd li a img.on{display: block;transition: transform 0.3s; transform: scale(2);}
+.fullSlide .hd{width:100%;position:absolute;z-index:1;bottom:0;left:0;height:30px;line-height:30px;}
+.fullSlide .hd ul{text-align:center;}
+.fullSlide .hd ul li{cursor:pointer;display:inline-block;*display:inline;zoom:1;width:42px;height:11px;margin:1px;overflow:hidden;background:#000;filter:alpha(opacity=50);opacity:0.5;line-height:999px;}
+.fullSlide .hd ul .on{background:#f00;}
+.arrow-box{
+  width:1024px;
+  height:46px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-left:-512px;
+  margin-top:-23px;
+}
+.fullSlide .prev,.fullSlide .next{display:block;position:absolute;z-index:1;top:50%;left:20%;margin-top:-30px;z-index:1;width:40px;height:60px;background:url(../../images/web/slider-arrow.png) -126px -137px #000 no-repeat;cursor:pointer;filter:alpha(opacity=50);opacity:0.5;display:none;}
+.fullSlide .next{left:auto;right:20%;background-position:-6px -137px;}

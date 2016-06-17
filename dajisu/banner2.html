@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/ui.css">
+  <style>
+  .banner {
+    height: 480px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .banner-item{
+    height: 100%;
+    position: relative;
+    transition: visibility .3s, opacity .3s;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .banner-item-img {
+    height: 480px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .banner-item-text {
+    position: relative;
+    z-index: 1;
+    width: 1280px;
+    margin: 0 auto;
+  }
+  
+  .banner-item-text span {
+    font-size: 16px;
+    color: #FFF;
+    background-color: #FFBE34;
+    padding: 7px;
+    margin-top: 100px;
+    display: inline-block;
+    transform: translateX(50px);
+  }
+  
+  .banner-item-text h2 {
+    font-size: 75px;
+    color: #323232;
+    padding-top: 20px;
+    line-height: 75px;
+    transform: translateX(50px);
+  }
+  
+  .banner-item-text h3 {
+    font-size: 16px;
+    color: #6B6B6B;
+    padding-top: 14px;
+    transform: translateX(-50px);
+  }
+  
+  .banner-item-text .button {
+    margin-top: 75px;
+  }
+
+  .banner-item.now{
+    opacity: 1;
+    visibility: visible;
+  }
+  .banner-item .banner-item-text span,
+  .banner-item .banner-item-text h2,
+  .banner-item .banner-item-text h3 {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s 1s;
+  }
+  .banner-item.now .banner-item-text span,
+  .banner-item.now .banner-item-text h2,
+  .banner-item.now .banner-item-text h3 {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .banner .ctrl {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+  }
+  .banner .ctrl .ctrl-i{
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-color: red;
+  }
+  .banner .ctrl .ctrl-i.now{
+    background-color: blue;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="banner">
+    <div class="banner-item now">
+      <div class="banner-item-img" style="background-image:url(images/banner-bg-1.jpg);"></div>
+      <div class="banner-item-text">
+        <span>K12 HOTLISTS</span>
+        <h2>科技教育云平台</h2>
+        <h3>教学课程，教学资源，教学培训，创客控件，交流竞赛等栏目，敬请关注</h3>
+        <a class="button button-blue">查看详情</a>
+      </div>
+    </div>
+    <div class="banner-item">
+      <div class="banner-item-img" style="background-image:url(images/banner-bg-2.jpg);"></div>
+      <div class="banner-item-text">
+        <span>K12 HOTLISTS</span>
+        <h2>科技教育云平台</h2>
+        <h3>教学课程，教学资源，教学培训，创客控件，交流竞赛等栏目，敬请关注</h3>
+        <a class="button button-blue">查看详情</a>
+      </div>
+    </div>
+    <div class="ctrl">
+      <a class="ctrl-i now"></a>
+      <a class="ctrl-i"></a>
+    </div>
+  </div>
+  <script>
+    // 获取所有的图片和控制器
+    var imgs = document.getElementsByClassName('banner-item-img');
+    var ctrls = document.getElementsByClassName('ctrl-i');
+  </script>
+</body>
+
+</html>
