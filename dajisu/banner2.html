@@ -14,10 +14,10 @@
   }
   .banner-item{
     height: 100%;
-    position: relative;
-    transition: visibility .3s, opacity .3s;
-    opacity: 0;
-    visibility: hidden;
+    position: absolute;
+    width: 100%;
+  }
+  .banner-item.now{
   }
   .banner-item-img {
     height: 480px;
@@ -28,6 +28,13 @@
     position: absolute;
     left: 0;
     top: 0;
+    transition: visibility 0.3s 0.2s, opacity 0.3s 0.2s;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .banner-item.now .banner-item-img{
+    opacity: 1;
+    visibility: visible;
   }
   
   .banner-item-text {
@@ -66,16 +73,13 @@
     margin-top: 75px;
   }
 
-  .banner-item.now{
-    opacity: 1;
-    visibility: visible;
-  }
+  
   .banner-item .banner-item-text span,
   .banner-item .banner-item-text h2,
   .banner-item .banner-item-text h3 {
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s 1s;
+    transition: all 0.4s .3s;
   }
   .banner-item.now .banner-item-text span,
   .banner-item.now .banner-item-text h2,
@@ -118,8 +122,8 @@
       <div class="banner-item-img" style="background-image:url(images/banner-bg-2.jpg);"></div>
       <div class="banner-item-text">
         <span>K12 HOTLISTS</span>
-        <h2>科技教育云平台</h2>
-        <h3>教学课程，教学资源，教学培训，创客控件，交流竞赛等栏目，敬请关注</h3>
+        <h2>标题文字</h2>
+        <h3>叙述文字叙述文字叙述文字叙述文字叙述文字</h3>
         <a class="button button-blue">查看详情</a>
       </div>
     </div>
@@ -129,9 +133,27 @@
     </div>
   </div>
   <script>
+    var banners = document.getElementsByClassName('banner-item');
     // 获取所有的图片和控制器
     var imgs = document.getElementsByClassName('banner-item-img');
     var ctrls = document.getElementsByClassName('ctrl-i');
+
+    for(var i=0; i<ctrls.length; i++){
+      ctrls[i].addEventListener('click', function(){
+        for(var j=0; j<banners.length; j++){
+          banners[j].className = banners[j].className.replace('now', '');
+          ctrls[j].className = ctrls[j].className.replace('now', '');
+          
+          if(ctrls[j] === this){
+            banners[j].className += ' now';
+            ctrls[j].className += ' now';
+          }
+        }
+
+        // this.className.indexOf('now')>-1 ? null :  this.className += ' now';
+      })
+    }
+
   </script>
 </body>
 
