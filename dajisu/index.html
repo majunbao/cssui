@@ -47,26 +47,45 @@
       <li><a>交流与竞赛</a></li>
     </ul>
   </div>
-  <div class="banner"></div>
-  <!--首页banner 图片轮播-->
-  <script src="js/superslide.2.1.js"></script>
-  <div class="fullSlide">
-    <div class="bd">
-      <ul>
-        <li data-src="images/banner-bg-1.jpg"><a><img src="images/banner-text-1.png"></a></li>
-        <li data-src="images/banner-bg-2.jpg"><a><img src="images/banner-text-1.png"></a></li>
-      </ul>
-      <div class="">
-        <span class="prev"></span>
-        <span class="next"></span>
+  <div class="banner">
+    <div class="banner-item now">
+      <div class="banner-item-img" style="background-image:url(images/banner-bg-1.jpg);"></div>
+      <div class="banner-item-text">
+        <span>K12 HOTLISTS</span>
+        <h2>科技教育云平台</h2>
+        <h3>教学课程，教学资源，教学培训，创客控件，交流竞赛等栏目，敬请关注</h3>
+        <a class="button button-blue">查看详情</a>
       </div>
     </div>
-    <div class="hd">
-      <ul></ul>
+    <div class="banner-item">
+      <div class="banner-item-img" style="background-image:url(images/banner-bg-2.jpg);"></div>
+      <div class="banner-item-text">
+        <span>K12 HOTLISTS</span>
+        <h2>标题文字</h2>
+        <h3>叙述文字叙述文字叙述文字叙述文字叙述文字</h3>
+        <a class="button button-blue">查看详情</a>
+      </div>
+    </div>
+    <div class="banner-item">
+      <div class="banner-item-img" style="background-image:url(images/banner-bg-1.jpg);"></div>
+      <div class="banner-item-text">
+        <span>K12 HOTLISTS</span>
+        <h2>标题文字</h2>
+        <h3>叙述文字叙述文字叙述文字叙述文字叙述文字</h3>
+        <a class="button button-blue">查看详情</a>
+      </div>
+    </div>
+    <div class="ctrl">
+      <a class="ctrl-i now"></a>
+      <a class="ctrl-i"></a>
+      <a class="ctrl-i"></a>
+    </div>
+    <div class="navs">
+      <a class="navs-prev"></a>
+      <a class="navs-next"></a>
     </div>
   </div>
-  <!--fullSlide end-->
-  <div class="home-news column center-1280">
+    <div class="home-news column center-1280">
     <div class="col-2-1">1</div>
     <div class="col-2-1">
       <div class="home-news-list">
@@ -531,7 +550,7 @@
         if (!!curLi.attr("data-src")) {
           curLi.css({
             'max-width': '100%',
-            "background-image": 'url(' + curLi.attr("data-src") +')',
+            "background-image": 'url(' + curLi.attr("data-src") + ')',
             'background-position': '50% 50%',
             'background-repeat': 'no-repeat'
           }).removeAttr("data-src").find('img').addClass('on');

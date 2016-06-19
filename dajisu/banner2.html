@@ -12,13 +12,15 @@
     overflow: hidden;
     position: relative;
   }
-  .banner-item{
+  
+  .banner-item {
     height: 100%;
     position: absolute;
     width: 100%;
   }
-  .banner-item.now{
-  }
+  
+  .banner-item.now {}
+  
   .banner-item-img {
     height: 480px;
     width: 100%;
@@ -32,7 +34,8 @@
     opacity: 0;
     visibility: hidden;
   }
-  .banner-item.now .banner-item-img{
+  
+  .banner-item.now .banner-item-img {
     opacity: 1;
     visibility: visible;
   }
@@ -72,7 +75,6 @@
   .banner-item-text .button {
     margin-top: 75px;
   }
-
   
   .banner-item .banner-item-text span,
   .banner-item .banner-item-text h2,
@@ -81,6 +83,7 @@
     visibility: hidden;
     transition: all 0.4s .3s;
   }
+  
   .banner-item.now .banner-item-text span,
   .banner-item.now .banner-item-text h2,
   .banner-item.now .banner-item-text h3 {
@@ -88,21 +91,40 @@
     visibility: visible;
     transform: translateX(0);
   }
-
+  
   .banner .ctrl {
     text-align: center;
     position: absolute;
     bottom: 10px;
     width: 100%;
   }
-  .banner .ctrl .ctrl-i{
+  
+  .banner .ctrl .ctrl-i {
     display: inline-block;
     width: 60px;
     height: 30px;
     background-color: red;
   }
-  .banner .ctrl .ctrl-i.now{
+  
+  .banner .ctrl .ctrl-i.now {
     background-color: blue;
+  }
+  
+  .banner .navs .navs-prev,
+  .banner .navs .navs-next {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 50%;
+    width: 100px;
+    height: 50px;
+    margin-top: -25px;
+    background-color: red;
+  }
+  
+  .banner .navs .navs-next {
+    right: 0;
+    left: auto;
   }
   </style>
 </head>
@@ -127,33 +149,122 @@
         <a class="button button-blue">查看详情</a>
       </div>
     </div>
+    <div class="banner-item">
+      <div class="banner-item-img" style="background-image:url(images/banner-bg-1.jpg);"></div>
+      <div class="banner-item-text">
+        <span>K12 HOTLISTS</span>
+        <h2>标题文字</h2>
+        <h3>叙述文字叙述文字叙述文字叙述文字叙述文字</h3>
+        <a class="button button-blue">查看详情</a>
+      </div>
+    </div>
     <div class="ctrl">
       <a class="ctrl-i now"></a>
       <a class="ctrl-i"></a>
+      <a class="ctrl-i"></a>
+    </div>
+    <div class="navs">
+      <a class="navs-prev"></a>
+      <a class="navs-next"></a>
+    </div>
+  </div>
+  <div class="banner">
+    <div class="banner-item now">
+      <div class="banner-item-img" style="background-image:url(images/banner-bg-1.jpg);"></div>
+      <div class="banner-item-text">
+        <span>K12 HOTLISTS</span>
+        <h2>科技教育云平台</h2>
+        <h3>教学课程，教学资源，教学培训，创客控件，交流竞赛等栏目，敬请关注</h3>
+        <a class="button button-blue">查看详情</a>
+      </div>
+    </div>
+    <div class="banner-item">
+      <div class="banner-item-img" style="background-image:url(images/banner-bg-2.jpg);"></div>
+      <div class="banner-item-text">
+        <span>K12 HOTLISTS</span>
+        <h2>标题文字</h2>
+        <h3>叙述文字叙述文字叙述文字叙述文字叙述文字</h3>
+        <a class="button button-blue">查看详情</a>
+      </div>
+    </div>
+    <div class="banner-item">
+      <div class="banner-item-img" style="background-image:url(images/banner-bg-1.jpg);"></div>
+      <div class="banner-item-text">
+        <span>K12 HOTLISTS</span>
+        <h2>标题文字</h2>
+        <h3>叙述文字叙述文字叙述文字叙述文字叙述文字</h3>
+        <a class="button button-blue">查看详情</a>
+      </div>
+    </div>
+    <div class="ctrl">
+      <a class="ctrl-i now"></a>
+      <a class="ctrl-i"></a>
+      <a class="ctrl-i"></a>
+    </div>
+    <div class="navs">
+      <a class="navs-prev"></a>
+      <a class="navs-next"></a>
     </div>
   </div>
   <script>
-    var banners = document.getElementsByClassName('banner-item');
-    // 获取所有的图片和控制器
-    var imgs = document.getElementsByClassName('banner-item-img');
-    var ctrls = document.getElementsByClassName('ctrl-i');
+  // 获取所有的图片和控制器
+  var banners = document.getElementsByClassName('banner');
+  for (var d = 0; d < banners.length; d++) {
+    (function(a) {
+      var items = banners[a].getElementsByClassName('banner-item');
+      var imgs = banners[a].getElementsByClassName('banner-item-img');
+      var ctrls = banners[a].getElementsByClassName('ctrl-i');
+      var navsPrev = banners[a].getElementsByClassName('navs-prev');
+      var navsNext = banners[a].getElementsByClassName('navs-next');
 
-    for(var i=0; i<ctrls.length; i++){
-      ctrls[i].addEventListener('click', function(){
-        for(var j=0; j<banners.length; j++){
-          banners[j].className = banners[j].className.replace('now', '');
+      for (var i = 0; i < ctrls.length; i++) {
+        (function(j) {
+          ctrls[j].addEventListener('click', function() {
+            _switchBannerOfIndex(j);
+          })
+        })(i)
+      }
+
+      navsPrev[0].addEventListener('click', function() {
+        prevBanner()
+      })
+      navsNext[0].addEventListener('click', function() {
+        nextBanner()
+      })
+
+      function _switchBannerOfIndex(index) {
+        var bLength = items.length;
+        index = index % bLength;
+        if (index < 0) {
+          index = bLength - 1;
+        }
+        for (var j = 0; j < bLength; j++) {
+          items[j].className = items[j].className.replace('now', '');
           ctrls[j].className = ctrls[j].className.replace('now', '');
-          
-          if(ctrls[j] === this){
-            banners[j].className += ' now';
-            ctrls[j].className += ' now';
+        }
+        items[index].className += ' now';
+        ctrls[index].className += ' now';
+      }
+
+      function _switchBanner(num) {
+        var i = 0;
+        for (var x = 0; x < items.length; x++) {
+          if (items[x].className.indexOf('now') > -1) {
+            i = x;
           }
         }
+        _switchBannerOfIndex(i + num)
+      }
 
-        // this.className.indexOf('now')>-1 ? null :  this.className += ' now';
-      })
-    }
+      function nextBanner() {
+        _switchBanner(1)
+      }
 
+      function prevBanner() {
+        _switchBanner(-1)
+      }
+    })(d)
+  }
   </script>
 </body>
 
