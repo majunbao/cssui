@@ -1112,13 +1112,13 @@ ul, li {
   width: 28px;
   height: 56px;
   margin-top: -28px;
-  background: #41C5F3 url(../images/sprites.png) no-repeat -467px 6px;
+  background: #41C5F3 url(../images/sprites.png) no-repeat -423px 18px;
 }
 
 .banner .navs .navs-next {
   right: 0;
   left: auto;
-  background-position: -496px 6px;
+  background-position: -421px -22px;
 }
 
 .banner-small {

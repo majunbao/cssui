@@ -1,8 +1,10 @@
 $(function() {
   // 获取所有的图片和控制器
   var banners = document.getElementsByClassName('banner');
+  var intervals = [];
   for (var d = 0; d < banners.length; d++) {
     (function(a) {
+      var nowBanner = banners[a];
       var items = banners[a].getElementsByClassName('banner-item');
       var imgs = banners[a].getElementsByClassName('banner-item-img');
       var ctrls = banners[a].getElementsByClassName('ctrl-i');
@@ -17,12 +19,19 @@ $(function() {
         })(i)
       }
 
+      
+
       navsPrev[0].addEventListener('click', function() {
         prevBanner()
       })
       navsNext[0].addEventListener('click', function() {
         nextBanner()
       })
+
+
+      intervals.push(setInterval(function(){
+        nextBanner()
+      },3500))
 
       function _switchBannerOfIndex(index) {
         var bLength = items.length;
@@ -56,11 +65,8 @@ $(function() {
         _switchBanner(-1)
       }
 
-      setInterval(function(){
-        nextBanner()
-      },3500)
+      
     })(d)
   }
-
 })
 
