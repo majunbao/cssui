@@ -26,12 +26,12 @@
   <div class="tool-bar">
     <div class="center-1280">
       <span class="on-right">
-        <a>收藏</a>
+        <a class="margin-right-20">收藏</a>
         <a>登录</a> |
         <a>注册</a>
       </span>
-      <span>contact@stemcloud.cn</span>
-      <span>025-52902365</span>
+      <i class="icon icon-email"></i><span class="padding-right-30">contact@stemcloud.cn</span>
+      <i class="icon icon-phone margin-left-25"></i><span>025-52902365</span>
     </div>
   </div>
   <div class="logo-bar center-1280">
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="banner-item">
-      <div class="banner-item-img" style="background-image:url(images/banner-bg-2.jpg);"></div>
+      <div class="banner-item-img" style="background-image:url(images/banner-bg-1.jpg);"></div>
       <div class="banner-item-text">
         <span>K12 HOTLISTS</span>
         <h2>标题文字</h2>
@@ -85,8 +85,41 @@
       <a class="navs-next"></a>
     </div>
   </div>
-    <div class="home-news column center-1280">
-    <div class="col-2-1">1</div>
+  <div class="home-news column center-1280">
+    <div class="col-2-1">
+      <div class="banner banner-small">
+        <div class="banner-item now">
+          <div class="banner-item-img" style="background-image:url(images/news-banner-1.jpg);"></div>
+          <div class="banner-item-text">
+            <h2>科技教育云平台</h2>
+            <h3>教学课程，教学资源，教学培训，创客控件，交流竞赛等栏目，敬请关注</h3>
+          </div>
+        </div>
+        <div class="banner-item">
+          <div class="banner-item-img" style="background-image:url(images/news-banner-1.jpg);"></div>
+          <div class="banner-item-text">
+            <h2>标题文字</h2>
+            <h3>叙述文字叙述文字叙述文字叙述文字叙述文字</h3>
+          </div>
+        </div>
+        <div class="banner-item">
+          <div class="banner-item-img" style="background-image:url(images/news-banner-1.jpg);"></div>
+          <div class="banner-item-text">
+            <h2>标题文字</h2>
+            <h3>叙述文字叙述文字叙述文字叙述文字叙述文字</h3>
+          </div>
+        </div>
+        <div class="ctrl">
+          <a class="ctrl-i now"></a>
+          <a class="ctrl-i"></a>
+          <a class="ctrl-i"></a>
+        </div>
+        <div class="navs">
+          <a class="navs-prev"></a>
+          <a class="navs-next"></a>
+        </div>
+      </div>
+    </div>
     <div class="col-2-1">
       <div class="home-news-list">
         <h2 class="title-modify">新闻资讯<i></i></h2>
@@ -261,7 +294,7 @@
     <div class="modify-triangle"></div>
     <div class="modify-background-circular"></div>
     <div class="modify-background-circular"></div>
-    <h2 class="title-modify">课程推荐<i></i></h2>
+    <h2 class="title-modify">创客作品<i></i></h2>
     <p class="align-center text-light margin-top-5">教学视频，培训视频，视频直播等多资源共享教学平台</p>
     <ul class="home-create-tabs center-1280">
       <li><a class="now">STEM</a></li>
@@ -428,7 +461,7 @@
           </li>
         </ul>
         <div class="align-center">
-          <a class="button button-border button-blue">更多作品</a>
+          <a class="button button-border button-blue">更多导师</a>
         </div>
       </div>
     </div>
@@ -466,7 +499,7 @@
           </li>
         </ul>
         <div class="align-center margin-top-larger">
-          <a class="button button-border button-blue">更多作品</a>
+          <a class="button button-border button-blue">更多比赛</a>
         </div>
       </div>
     </div>
@@ -530,35 +563,6 @@
     </div>
     <div class="tool-bar align-center">Copyright ® 南京TEM云中心 苏ICP备15004928号-2</div>
   </div>
-  <script>
-  $(function() {
-    $(".fullSlide").hover(function() {
-        $(this).find('.prev,.next').stop(true, true).fadeIn('slow');
-      },
-      function() {
-        $(this).find(".prev,.next").fadeOut('slow');
-      });
-    $(".fullSlide").slide({
-      titCell: ".hd ul",
-      mainCell: ".bd ul",
-      effect: "fold",
-      autoPlay: true,
-      autoPage: true,
-      trigger: "click",
-      startFun: function(i) {
-        var curLi = jQuery(".fullSlide .bd li").eq(i);
-        if (!!curLi.attr("data-src")) {
-          curLi.css({
-            'max-width': '100%',
-            "background-image": 'url(' + curLi.attr("data-src") + ')',
-            'background-position': '50% 50%',
-            'background-repeat': 'no-repeat'
-          }).removeAttr("data-src").find('img').addClass('on');
-        }
-      }
-    });
-  })
-  </script>
 </body>
 
 </html>

@@ -25,6 +25,7 @@ body {
   height: 16px;
   background: url(../images/icons.png) no-repeat 0 0;
   vertical-align: middle;
+  margin-right: 5px;
 }
 
 .icon-love {
@@ -37,6 +38,14 @@ body {
 
 .icon-share {
   background-position: -64px 0;
+}
+
+.icon-email {
+  background-position: 0 0;
+}
+
+.icon-phone {
+  background-position: -18px 0;
 }
 
 .cfff {
@@ -165,7 +174,6 @@ body {
 }
 
 .card-social .icon {
-  margin-right: 5px;
 }
 
 .card-social .text {
@@ -188,6 +196,12 @@ body {
   background-color: #293440;
   color: #9e9e9e;
   line-height: 40px;
+}
+.tool-bar a{
+  color: #9e9e9e;
+}
+.tool-bar a:hover{
+  color: #55cffb;
 }
 
 .logo-bar {
@@ -244,7 +258,10 @@ body {
 
 /*新闻列表*/
 
-.home-news-list {}
+.home-news-list {
+  width: 546px;
+  float: right;
+}
 
 .home-news-list ul {}
 
@@ -387,7 +404,7 @@ body {
 }
 
 .home-create-tabs li a {
-  color: #464646
+  color: #767676
 }
 
 .home-create-tabs li a:hover,
@@ -427,7 +444,7 @@ body {
 *
 */
 
-.home-tutor {width: 512px;}
+.home-tutor {width: 512px; margin-top: 75px;}
 
 .home-tutor-list {
   overflow: hidden;
@@ -461,7 +478,7 @@ body {
 *
 */
 
-.home-match {width: 596px;float: right;}
+.home-match {width: 596px;float: right;margin-top: 75px;}
 
 .home-match-list {
   padding: 3px 25px;

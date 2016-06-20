@@ -1045,7 +1045,7 @@ ul, li {
   font-size: 75px;
   color: #323232;
   padding-top: 20px;
-  line-height: 75px;
+  line-height: 100%;
   transform: translateX(50px);
 }
 
@@ -1060,9 +1060,9 @@ ul, li {
   margin-top: 75px;
 }
 
-.banner-item .banner-item-text span,
-.banner-item .banner-item-text h2,
-.banner-item .banner-item-text h3 {
+.banner-item-text span,
+.banner-item-text h2,
+.banner-item-text h3 {
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s .3s;
@@ -1081,17 +1081,26 @@ ul, li {
   position: absolute;
   bottom: 10px;
   width: 100%;
+  z-index: 1;
 }
 
 .banner .ctrl .ctrl-i {
   display: inline-block;
-  width: 60px;
-  height: 30px;
-  background-color: red;
+  width: 30px;
+  height: 10px;
+  background-color: #E6E6E6;
 }
 
 .banner .ctrl .ctrl-i.now {
-  background-color: blue;
+  background-color: #41C5F3;
+}
+
+.banner .navs {
+  display: none;
+}
+
+.banner:hover .navs {
+  display: block;
 }
 
 .banner .navs .navs-prev,
@@ -1100,15 +1109,73 @@ ul, li {
   z-index: 1;
   left: 0;
   top: 50%;
-  width: 100px;
-  height: 50px;
-  margin-top: -25px;
-  background-color: red;
+  width: 28px;
+  height: 56px;
+  margin-top: -28px;
+  background: #41C5F3 url(../images/sprites.png) no-repeat -467px 6px;
 }
 
 .banner .navs .navs-next {
   right: 0;
   left: auto;
+  background-position: -496px 6px;
+}
+
+.banner-small {
+  width: 640px;
+  height: 468px;
+  box-shadow: 0px 0px 20px #EEE;
+  border: 1px solid transparent;
+  border-color: #eee /9;
+}
+
+.banner-small .banner-item-img {
+  height: 350px;
+}
+
+.banner-small .banner-item-text {
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  left: 25px;
+}
+
+.banner-small .banner-item-text h2 {
+  font-size: 20px;
+}
+
+.banner-small .banner-item-text h3 {
+  font-size: 14px;
+}
+
+.banner.banner-small .ctrl {
+  width: auto;
+  right: 25px;
+  bottom: 70px;
+}
+
+.banner.banner-small .ctrl .ctrl-i {
+  width: 10px;
+  height: 10px;
+}
+
+.banner-small .navs {
+  display: block;
+}
+
+.banner-small .navs .navs-prev,
+.banner-small .navs .navs-next {
+  width: 23px;
+  height: 40px;
+  margin-top: -60px;
+  background: url(../images/sprites.png) no-repeat -467px 0px;
+  left: 15px;
+}
+
+.banner-small .navs .navs-next {
+  background-position: -496px 0px;
+  left: auto;
+  right: 15px;
 }
 
 /*@import 'checkboxradio/checkboxradio';*/

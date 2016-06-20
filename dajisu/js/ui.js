@@ -55,7 +55,12 @@ $(function() {
       function prevBanner() {
         _switchBanner(-1)
       }
+
+      setInterval(function(){
+        nextBanner()
+      },3500)
     })(d)
   }
+
 })
 
