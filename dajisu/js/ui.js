@@ -19,8 +19,6 @@ $(function() {
         })(i)
       }
 
-      
-
       navsPrev[0].addEventListener('click', function() {
         prevBanner()
       })
@@ -28,10 +26,9 @@ $(function() {
         nextBanner()
       })
 
-
-      intervals.push(setInterval(function(){
-        nextBanner()
-      },3500))
+      // intervals.push(setInterval(function(){
+      //   nextBanner()
+      // },3500))
 
       function _switchBannerOfIndex(index) {
         var bLength = items.length;
@@ -70,3 +67,38 @@ $(function() {
   }
 })
 
+
+
+// document.addEventListener('DOMContentLoaded',function(){
+//   var bannerAnimation = document.getElementById('banner-animation');
+//   var winW = document.body.clientWidth;
+//   var winH = document.body.clientHeight;
+  
+//   var img = document.createElement('img');
+//   img.src = bannerAnimation.style.backgroundImage.replace('url("','').replace('")','');
+//   img.className = 'banner-item-img';
+//   img.id = 'banner-animation';
+
+//   bannerAnimation.parentNode.insertBefore(img, bannerAnimation)
+//   bannerAnimation.parentNode.removeChild(bannerAnimation);
+  
+//   img.addEventListener('load', function(){
+//     var imgW = img.width;
+//     var imgH = img.height;
+
+//     console.log(winW+':'+winH);
+//     console.log(imgW+':'+imgH);
+//     console.log(winH/imgH );
+
+//     var scale = (winW/imgW)>(winH/imgH)?(winW/imgW):(winH/imgH);
+//     // img.style.transform = 'matrix('+ scale +', 0, 0, '+ scale +', 0, 0)'
+//     // img.style.transform = 'scaleY('+ winH/imgH +')'
+//     img.style.opacity = '1';
+
+//   })
+// })
+  
+$(function(){
+  $(window).on('scroll',function(){
+  })
+})

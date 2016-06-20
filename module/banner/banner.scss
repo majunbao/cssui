@@ -9,9 +9,14 @@
   height: 100%;
   position: absolute;
   width: 100%;
+  z-index: 0;
+  visibility: hidden;
 }
 
-.banner-item.now {}
+.banner-item.now {
+  z-index: 1;
+  visibility: visible;
+}
 
 .banner-item-img {
   height: 480px;
@@ -22,7 +27,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  transition: visibility 0.3s 0.2s, opacity 0.3s 0.2s;
+  transition: visibility 0.8s, opacity 0.8s;
   opacity: 0;
   visibility: hidden;
 }
@@ -39,6 +44,25 @@
   margin: 0 auto;
 }
 
+.banner-item-text-inner {
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 1s 0.8s;
+
+}
+.banner-item.now .banner-item-text-inner{
+  animation: banner-item-text 1.8s;
+  animation-fill-mode: forwards;
+}
+@keyframes banner-item-text {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 1280px;
+  }
+}
+
 .banner-item-text span {
   font-size: 16px;
   color: #FFF;
@@ -46,7 +70,6 @@
   padding: 7px;
   margin-top: 100px;
   display: inline-block;
-  transform: translateX(50px);
 }
 
 .banner-item-text h2 {
@@ -54,34 +77,16 @@
   color: #323232;
   padding-top: 20px;
   line-height: 100%;
-  transform: translateX(50px);
 }
 
 .banner-item-text h3 {
   font-size: 16px;
   color: #6B6B6B;
   padding-top: 14px;
-  transform: translateX(-50px);
 }
 
 .banner-item-text .button {
   margin-top: 75px;
-}
-
-.banner-item-text span,
-.banner-item-text h2,
-.banner-item-text h3 {
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s .3s;
-}
-
-.banner-item.now .banner-item-text span,
-.banner-item.now .banner-item-text h2,
-.banner-item.now .banner-item-text h3 {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
 }
 
 .banner .ctrl {
@@ -132,7 +137,7 @@
 .banner-small {
   width: 640px;
   height: 468px;
-  box-shadow: 0px 0px 20px #EEE;
+  box-shadow: 0 20px 60px 0 rgba(158, 177, 189, 0.5);
   border: 1px solid transparent;
   border-color: #eee /9;
 }
@@ -146,6 +151,18 @@
   position: absolute;
   bottom: 30px;
   left: 25px;
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s;
+
+}
+.banner-small .banner-item.now .banner-item-text {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+.banner-item.now .banner-item-text {
 }
 
 .banner-small .banner-item-text h2 {

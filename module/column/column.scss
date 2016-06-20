@@ -11,12 +11,12 @@ $column-blank: 0;
 
 .column:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0;  min-height:0; visibility:hidden; *zoom:1;}
 
-.column > [class*=col-]{
+.column [class*=col-]{
   margin-left: $column-blank;
   float: left;
 }
 
-.column > [class*=col-]:first-child
+.column [class*=col-]:first-child
 {
   margin-left: 0;
 }
