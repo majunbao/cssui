@@ -1089,12 +1089,18 @@ ul, li {
   background-color: #41C5F3;
 }
 
-.banner .navs {
-  display: none;
+.banner .navs-prev,
+.banner .navs-next {
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s .5s;
 }
 
-.banner:hover .navs {
-  display: block;
+.banner:hover .navs-prev,
+.banner:hover .navs-next {
+  transition: all .5s;
+  visibility: visible;
+  opacity: 1;
 }
 
 .banner .navs .navs-prev,
@@ -1119,11 +1125,11 @@ ul, li {
   width: 640px;
   height: 468px;
   box-shadow: 0 20px 60px 0 rgba(158, 177, 189, 0.5);
-  border: 1px solid transparent;
+  transition: all .6s;
 }
 
 .ie .banner-small {
-  border-color: #E3E3E3;
+  border: 1px solid #E3E3E3;
 }
 
 .banner-small .banner-item-img {

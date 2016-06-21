@@ -1,4 +1,11 @@
 $(function() {
+  var supportAnimation = false;
+  // 支持 animation 吗
+  if ('animation' in document.body.style) {
+    $('body').addClass('animation');
+    supportAnimation = true;
+  }
+
   $.fn.extend({
     banner: function() {
       var banners = $(this);
@@ -21,16 +28,16 @@ $(function() {
           autoIndex($start);
 
           $imgs.css('opacity', 0);
-          $texts.css({'opacity':0});
-          $textsInner.css({'width':0});
+          $texts.css({ 'opacity': 0 });
+          $textsInner.css({ 'width': 0 });
 
-          $imgs.eq($start).animate({ 'opacity': 1 }, 1000)
-          $texts.eq($start).animate({'opacity':1},1000)
-          $textsInner.eq($start).delay($animateDelay).animate({'width':'100%'},1000);
+          $imgs.eq($start).animate({ 'opacity': 1 }, 1500)
+          $texts.eq($start).animate({ 'opacity': 1 }, 1500)
+          $textsInner.eq($start).delay($animateDelay).animate({ 'width': '100%' }, 1500);
 
           $items.eq($start).addClass('now')
           $ctrls.eq($start).addClass('now');
-          
+
         }
 
         function autoIndex(index) {
@@ -48,29 +55,29 @@ $(function() {
           $items.eq($index[0]).addClass('now');
 
           $imgs.eq($index[1]).stop().animate({
-            opacity:0
-          },$animateTime,function(){
+            opacity: 0
+          }, $animateTime, function() {
             $items.eq($index[1]).removeClass('now')
           });
 
           $imgs.eq($index[0]).stop().animate({
-            opacity:1
-          },$animateTime);
+            opacity: 1
+          }, $animateTime);
 
-          $texts.eq($index[1]).stop().css({'opacity':0})
+          $texts.eq($index[1]).stop().css({ 'opacity': 0 })
           $texts.eq($index[0]).addClass('now').stop().animate({
             opacity: 1
-          },$animateTime);
+          }, $animateTime);
 
-          $texts.eq($index[1]).stop().css({'opacity':0})
+          $texts.eq($index[1]).stop().css({ 'opacity': 0 })
           $texts.eq($index[0]).addClass('now').stop().animate({
             opacity: 1
-          },$animateTime);
+          }, $animateTime);
 
-          $textsInner.eq($index[1]).stop().css({'width':0})
+          $textsInner.eq($index[1]).stop().css({ 'width': 0 })
           $textsInner.eq($index[0]).addClass('now').stop().delay($animateDelay).animate({
             width: '100%'
-          },$animateTime);
+          }, $animateTime);
 
           $ctrls.eq($index[1]).removeClass('now');
           $ctrls.eq($index[0]).addClass('now');
@@ -97,6 +104,46 @@ $(function() {
       })
     }
   });
+
+  if (supportAnimation) {
+    var Y = '20';
+    var start = new Date();
+    var end;
+    var scrollTop = $(window).scrollTop();
+    var screenW = $(window).width()
+    var screenH = $(window).height()
+    var homeCourseY = $('.home-courses').first().offset().top;
+
+
+    $(window).on('scroll', function(evnet) {
+      end = new Date();
+
+      if (end - start > 800) {
+        start = end;
+        scrollTop = $(window).scrollTop();
+
+        if ($(window).scrollTop() - scrollTop > 0) {
+          Y = Y - 0 + 10;
+        } else {
+          Y = Y - 0 - 10;
+        }
+        if (Y > 40) {
+          Y = 20
+        }
+
+
+        $('.banner-small').css({
+          transform: 'translateY(' + Y + 'px)'
+        })
+
+
+      }
+
+
+    })
+
+  }
+
 
   $('.banner').banner();
 })
