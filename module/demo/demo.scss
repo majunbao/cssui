@@ -14,7 +14,7 @@ h1.logo small{
 
 section {
   font-family: verdana, "microsoft yahei";
-  width: 1000px;
+  width: 1280px;
   margin: 0 auto 50px auto;
   overflow: hidden;
 }
@@ -46,6 +46,7 @@ section article {
   line-height: 45px;
   margin: 10px 0;
   color: $text;
+  float: none;
 }
 
 .column:hover p.col-num {

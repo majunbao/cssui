@@ -1,104 +1,102 @@
 $(function() {
-  // 获取所有的图片和控制器
-  var banners = document.getElementsByClassName('banner');
-  var intervals = [];
-  for (var d = 0; d < banners.length; d++) {
-    (function(a) {
-      var nowBanner = banners[a];
-      var items = banners[a].getElementsByClassName('banner-item');
-      var imgs = banners[a].getElementsByClassName('banner-item-img');
-      var ctrls = banners[a].getElementsByClassName('ctrl-i');
-      var navsPrev = banners[a].getElementsByClassName('navs-prev');
-      var navsNext = banners[a].getElementsByClassName('navs-next');
+  $.fn.extend({
+    banner: function() {
+      var banners = $(this);
+      banners.each(function() {
+        var $banner = $(this);
+        var $items = $banner.find('.banner-item');
+        var $length = $items.length;
+        var $imgs = $banner.find('.banner-item-img');
+        var $texts = $banner.find('.banner-item-text');
+        var $textsInner = $texts.find('.banner-item-text-inner');
+        var $ctrls = $banner.find('.ctrl-i');
+        var $navsPrev = $banner.find('.navs-prev');
+        var $navsNext = $banner.find('.navs-next');
+        var $index = new Array($length);
+        var $start = 0;
+        var $animateTime = 1000;
+        var $animateDelay = 600;
 
-      for (var i = 0; i < ctrls.length; i++) {
-        (function(j) {
-          ctrls[j].addEventListener('click', function() {
-            _switchBannerOfIndex(j);
-          })
-        })(i)
-      }
+        function init() {
+          autoIndex($start);
 
-      navsPrev[0].addEventListener('click', function() {
-        prevBanner()
-      })
-      navsNext[0].addEventListener('click', function() {
-        nextBanner()
-      })
+          $imgs.css('opacity', 0);
+          $texts.css({'opacity':0});
+          $textsInner.css({'width':0});
 
-      // intervals.push(setInterval(function(){
-      //   nextBanner()
-      // },3500))
+          $imgs.eq($start).animate({ 'opacity': 1 }, 1000)
+          $texts.eq($start).animate({'opacity':1},1000)
+          $textsInner.eq($start).delay($animateDelay).animate({'width':'100%'},1000);
 
-      function _switchBannerOfIndex(index) {
-        var bLength = items.length;
-        index = index % bLength;
-        if (index < 0) {
-          index = bLength - 1;
+          $items.eq($start).addClass('now')
+          $ctrls.eq($start).addClass('now');
+          
         }
-        for (var j = 0; j < bLength; j++) {
-          items[j].className = items[j].className.replace('now', '');
-          ctrls[j].className = ctrls[j].className.replace('now', '');
-        }
-        items[index].className += ' now';
-        ctrls[index].className += ' now';
-      }
 
-      function _switchBanner(num) {
-        var i = 0;
-        for (var x = 0; x < items.length; x++) {
-          if (items[x].className.indexOf('now') > -1) {
-            i = x;
+        function autoIndex(index) {
+          index = index % $length
+
+          if (index < 0) {
+            index = $length + index;
           }
+          $index.pop()
+          $index.unshift(index);
+          $start = index;
         }
-        _switchBannerOfIndex(i + num)
-      }
 
-      function nextBanner() {
-        _switchBanner(1)
-      }
+        function switchBannerOfIndex() {
+          $items.eq($index[0]).addClass('now');
 
-      function prevBanner() {
-        _switchBanner(-1)
-      }
+          $imgs.eq($index[1]).stop().animate({
+            opacity:0
+          },$animateTime,function(){
+            $items.eq($index[1]).removeClass('now')
+          });
 
-      
-    })(d)
-  }
-})
+          $imgs.eq($index[0]).stop().animate({
+            opacity:1
+          },$animateTime);
+
+          $texts.eq($index[1]).stop().css({'opacity':0})
+          $texts.eq($index[0]).addClass('now').stop().animate({
+            opacity: 1
+          },$animateTime);
+
+          $texts.eq($index[1]).stop().css({'opacity':0})
+          $texts.eq($index[0]).addClass('now').stop().animate({
+            opacity: 1
+          },$animateTime);
+
+          $textsInner.eq($index[1]).stop().css({'width':0})
+          $textsInner.eq($index[0]).addClass('now').stop().delay($animateDelay).animate({
+            width: '100%'
+          },$animateTime);
+
+          $ctrls.eq($index[1]).removeClass('now');
+          $ctrls.eq($index[0]).addClass('now');
+
+        }
 
 
 
-// document.addEventListener('DOMContentLoaded',function(){
-//   var bannerAnimation = document.getElementById('banner-animation');
-//   var winW = document.body.clientWidth;
-//   var winH = document.body.clientHeight;
-  
-//   var img = document.createElement('img');
-//   img.src = bannerAnimation.style.backgroundImage.replace('url("','').replace('")','');
-//   img.className = 'banner-item-img';
-//   img.id = 'banner-animation';
+        $ctrls.on('click', function() {
+          autoIndex($(this).index())
+          switchBannerOfIndex();
+        })
+        $navsPrev.on('click', function() {
+          autoIndex(--$start)
+          switchBannerOfIndex();
+        })
 
-//   bannerAnimation.parentNode.insertBefore(img, bannerAnimation)
-//   bannerAnimation.parentNode.removeChild(bannerAnimation);
-  
-//   img.addEventListener('load', function(){
-//     var imgW = img.width;
-//     var imgH = img.height;
+        $navsNext.on('click', function() {
+          autoIndex(++$start)
+          switchBannerOfIndex();
+        })
 
-//     console.log(winW+':'+winH);
-//     console.log(imgW+':'+imgH);
-//     console.log(winH/imgH );
+        init();
+      })
+    }
+  });
 
-//     var scale = (winW/imgW)>(winH/imgH)?(winW/imgW):(winH/imgH);
-//     // img.style.transform = 'matrix('+ scale +', 0, 0, '+ scale +', 0, 0)'
-//     // img.style.transform = 'scaleY('+ winH/imgH +')'
-//     img.style.opacity = '1';
-
-//   })
-// })
-  
-$(function(){
-  $(window).on('scroll',function(){
-  })
+  $('.banner').banner();
 })

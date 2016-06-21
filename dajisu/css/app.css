@@ -445,12 +445,14 @@ body {
 *
 */
 
-.home-tutor {width: 512px; margin-top: 75px;}
+.home-tutor {width: 512px; margin-top: 75px;position: relative;}
 
 .home-tutor-list {
   margin-top: 63px;
-  margin-left: -28px;
+  position: absolute;
+  left: -28px;
 }
+
 
 .home-tutor-list li {
   float: left;
@@ -478,12 +480,11 @@ body {
   height: 130px;
   border-radius: 50%;
   display: block;
-  margin: 0 auto;
   transition: transform 0.3s;
 }
 
-.home-tutor-list li img:hover {
-  /*border-radius: 2%;*/
+.home-tutor-button {
+  margin-top: 517px;
 }
 
 
@@ -500,7 +501,9 @@ body {
   margin: 0 auto;
   box-shadow: 0 20px 60px 0 rgba(158, 177, 189, 0.5);
   border: 1px solid transparent;
-  border-color: #eee /9;
+}
+.ie .home-match-list {
+  border-color: #E3E3E3;
 }
 
 .home-match-list li {

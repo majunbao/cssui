@@ -630,13 +630,13 @@ input, textarea, .button {
 }
 
 a {
-  color: #4da9f5;
+  color: #5ecbf2;
 }
 
 a:hover {
   text-decoration: none;
   cursor: pointer;
-  color: #4da9f5;
+  color: #5ecbf2;
 }
 
 a:focus {
@@ -1021,9 +1021,6 @@ ul, li {
   position: absolute;
   left: 0;
   top: 0;
-  transition: visibility 0.8s, opacity 0.8s;
-  opacity: 0;
-  visibility: hidden;
 }
 
 .banner-item.now .banner-item-img {
@@ -1041,21 +1038,6 @@ ul, li {
 .banner-item-text-inner {
   overflow: hidden;
   white-space: nowrap;
-  transition: width 1s 0.8s;
-}
-
-.banner-item.now .banner-item-text-inner {
-  animation: banner-item-text 1.8s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes banner-item-text {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 1280px;
-  }
 }
 
 .banner-item-text span {
@@ -1090,12 +1072,16 @@ ul, li {
   bottom: 10px;
   width: 100%;
   z-index: 1;
+  font-size: 0;
 }
 
 .banner .ctrl .ctrl-i {
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   width: 30px;
   height: 10px;
+  margin: 0 3px;
   background-color: #E6E6E6;
 }
 
@@ -1134,7 +1120,10 @@ ul, li {
   height: 468px;
   box-shadow: 0 20px 60px 0 rgba(158, 177, 189, 0.5);
   border: 1px solid transparent;
-  border-color: #eee /9;
+}
+
+.ie .banner-small {
+  border-color: #E3E3E3;
 }
 
 .banner-small .banner-item-img {
@@ -1146,14 +1135,9 @@ ul, li {
   position: absolute;
   bottom: 30px;
   left: 25px;
-  transform: translateY(100%);
-  opacity: 0;
-  visibility: hidden;
-  transition: all .5s;
 }
 
 .banner-small .banner-item.now .banner-item-text {
-  transform: translateY(0);
   opacity: 1;
   visibility: visible;
 }
@@ -1216,7 +1200,7 @@ h1.logo small {
 
 section {
   font-family: verdana, "microsoft yahei";
-  width: 1000px;
+  width: 1280px;
   margin: 0 auto 50px auto;
   overflow: hidden;
 }
@@ -1249,6 +1233,7 @@ section article {
   line-height: 45px;
   margin: 10px 0;
   color: #767676;
+  float: none;
 }
 
 .column:hover p.col-num {
