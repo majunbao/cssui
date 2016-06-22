@@ -113,28 +113,33 @@ $(function() {
     var screenW = $(window).width()
     var screenH = $(window).height()
     var homeCourseY = $('.home-courses').first().offset().top;
+    var openAnimation = '.banner-small, .home-match-list';
 
+    $(openAnimation).css('transition', 'all 0.6s');
 
     $(window).on('scroll', function(evnet) {
       end = new Date();
 
-      if (end - start > 800) {
+      if (end - start > 500) {
         start = end;
-        scrollTop = $(window).scrollTop();
 
         if ($(window).scrollTop() - scrollTop > 0) {
           Y = Y - 0 + 10;
         } else {
           Y = Y - 0 - 10;
         }
-        if (Y > 40) {
-          Y = 20
+        if (Math.abs(Y) >= 40) {
+          Y = 0
         }
 
 
-        $('.banner-small').css({
-          transform: 'translateY(' + Y + 'px)'
+        $(openAnimation).each(function() {
+          $(this).css({
+            transform: 'translateY(' + Y + 'px)'
+          })
         })
+
+        scrollTop = $(window).scrollTop();
 
 
       }
