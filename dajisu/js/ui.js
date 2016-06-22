@@ -132,7 +132,6 @@ $(function() {
           Y = 0
         }
 
-
         $(openAnimation).each(function() {
           $(this).css({
             transform: 'translateY(' + Y + 'px)'
@@ -141,9 +140,7 @@ $(function() {
 
         scrollTop = $(window).scrollTop();
 
-
       }
-
 
     })
 

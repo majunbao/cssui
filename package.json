@@ -17,6 +17,8 @@
   },
   "homepage": "https://majunbao.github.io/uicss/",
   "devDependencies": {
-    "node-sass": "^3.7.0"
+    "clean-css": "^3.4.18",
+    "node-sass": "^3.7.0",
+    "uglify-js": "^2.6.3"
   }
 }
