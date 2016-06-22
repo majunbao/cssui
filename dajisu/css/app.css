@@ -775,7 +775,6 @@ body {
 .animation .title-modify.have-animation + .title-modify-info {
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-100%);
 }
 .animation .title-modify.have-animation.now-animation + .title-modify-info{
   animation: down 0.6s 0.3s;
@@ -814,7 +813,7 @@ body {
 
 @keyframes down{
   0% {
-    transform: translateY(-100px);
+    transform: translateY(-30px);
     opacity: 0;
     visibility: hidden;
   }
