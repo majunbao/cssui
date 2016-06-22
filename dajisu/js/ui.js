@@ -102,14 +102,62 @@ $(function() {
 
         init();
       })
+    },
+    scrollHook: function(callback) {
+      var hooks = $(this);
+      var timeStart = new Date();
+      var timeEnd;
+      var timeInterval = 200;
+      var scrollStart = $(window).scrollTop();
+      var scrollEnd = $(window).scrollTop();
+      var screenW = $(window).width();
+      var screenH = $(window).height();
+      var animateDelayPX = 100;
+
+      $(document).on('ready scroll', function() {
+        timeEnd = new Date();
+        if (event.type == 'DOMContentLoaded') {
+          timeEnd = timeStart.getTime() + timeInterval;
+
+          hooks.each(function() {
+            if (!$(this).hasClass('each-animation')) {
+              $(this).addClass('have-animation');
+            }
+          })
+        }
+
+        if (timeEnd - timeStart >= timeInterval) {
+          // 滚动事件执行
+          timeStart = timeEnd;
+          scrollEnd = $(window).scrollTop();
+
+          hooks.each(function() {
+            if (scrollEnd > $(this).offset().top - screenH + animateDelayPX) {
+              if ($(this).hasClass('each-animation')) {
+                $(this).addClass('now-each-animation')
+              } else {
+                $(this).addClass('have-animation now-animation')
+              }
+
+            }
+            callback && callback($(this))
+          });
+        }
+      })
+
+
     }
   });
 
-  if (supportAnimation) {
-    var Y = '20';
+  $('.title-modify, .each-animation, .home-match').scrollHook()
+
+
+  if (!supportAnimation) {
+    var Y = '10';
     var start = new Date();
     var end;
     var scrollTop = $(window).scrollTop();
+    var scrollTopEnd = $(window).scrollTop();
     var screenW = $(window).width()
     var screenH = $(window).height()
     var homeCourseY = $('.home-courses').first().offset().top;
@@ -120,13 +168,14 @@ $(function() {
     $(window).on('scroll', function(evnet) {
       end = new Date();
 
-      if (end - start > 500) {
+      if (end - start > 200) {
         start = end;
+        scrollTopEnd = $(window).scrollTop();
 
-        if ($(window).scrollTop() - scrollTop > 0) {
-          Y = Y - 0 + 10;
+        if (scrollTopEnd - scrollTop > 0) {
+          Y = Y - 0 + 5;
         } else {
-          Y = Y - 0 - 10;
+          Y = Y - 0 - 5;
         }
         if (Math.abs(Y) >= 40) {
           Y = 0
@@ -138,7 +187,14 @@ $(function() {
           })
         })
 
-        scrollTop = $(window).scrollTop();
+        scrollTop = scrollTopEnd;
+
+        if (scrollTopEnd > $('.home-courses').offset().top - screenH + 200) {
+          $('.home-courses').addClass('now')
+        }
+        if (scrollTopEnd > $('.home-courses').find('.margin-top-larger').offset().top - screenH + 200) {
+          $('.home-courses').find('.margin-top-larger').addClass('now')
+        }
 
       }
 

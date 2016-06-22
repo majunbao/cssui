@@ -754,3 +754,86 @@ body {
   display: block;
   line-height: 26px;
 }
+
+/*
+* 动画
+*
+* 不同的浏览器对于动画的理解不同，所以这里的动画需要考虑各个浏览器的区别
+*
+* .animation 会在支持动画的浏览器中添加到 body 标签上，所有动画的属性
+* 都必须以 animaion class 开头。
+*/
+.animation .have-animation {
+  opacity: 0;
+  visibility: hidden;
+}
+.animation .have-animation.now-animation{
+  animation: down 0.6s;
+  animation-fill-mode: forwards;
+}
+
+.animation .title-modify.have-animation + .title-modify-info {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+}
+.animation .title-modify.have-animation.now-animation + .title-modify-info{
+  animation: down 0.6s 0.3s;
+  animation-fill-mode: forwards;
+}
+.animation .each-animation > *{
+  opacity: 0;
+  visibility: hidden;
+}
+.animation .now-each-animation.each-animation > * {
+  animation: up 0.6s;
+  animation-fill-mode: forwards;
+}
+.animation .now-each-animation.each-animation > *:nth-child(1){
+  animation-delay: 0s;
+}
+.animation .now-each-animation.each-animation > *:nth-child(2){
+  animation-delay: 0.1s;
+}
+.animation .now-each-animation.each-animation > *:nth-child(3){
+  animation-delay: 0.2s;
+}
+.animation .now-each-animation.each-animation > *:nth-child(4){
+  animation-delay: 0.3s;
+}
+.animation .now-each-animation.each-animation > *:nth-child(5){
+  animation-delay: 0.4s;
+}
+.animation .now-each-animation.each-animation > *:nth-child(6){
+  animation-delay: 0.5s;
+}
+.animation .now-each-animation.each-animation.now-animation > * {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes down{
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes up{
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
