@@ -1,11 +1,7 @@
 "use strict";
 
 const fs = require('fs');
-const postcss = require('postcss');
-// const rollup = require('rollup');
-const includePaths = require('rollup-plugin-includePaths')
 const http = require('http');
-// const eslint = require('rollup-plugin-eslint');
 const sass = require('node-sass');
 
 // css文件

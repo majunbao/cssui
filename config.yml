@@ -1,0 +1,35 @@
+path: modules
+
+theme: 大技术平台
+
+out:
+  - dajisu/init.css
+  - dajisu/test.js
+  - dajisu/test-min.js
+
+modules:
+  - reset
+  - tool
+  - margin
+  - column
+  # - text
+  # - link
+  # - button
+  # - input
+  # - table
+  # - list
+  # - tab
+  # - label
+  # - tip
+  # - notice
+  # - page
+  # - popup
+  # - progress
+  # - calendar
+  # - form
+  # - textarea
+  # - step
+  # - banner
+  # - checkboxradio
+  # - banner
+  # - demo

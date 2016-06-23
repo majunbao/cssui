@@ -768,7 +768,7 @@ body {
   visibility: hidden;
 }
 .animation .have-animation.now-animation{
-  animation: down 0.6s;
+  animation: downhold 0.6s;
   animation-fill-mode: forwards;
 }
 
@@ -777,7 +777,7 @@ body {
   visibility: hidden;
 }
 .animation .title-modify.have-animation.now-animation + .title-modify-info{
-  animation: down 0.6s 0.3s;
+  animation: downhold 0.6s 0.3s;
   animation-fill-mode: forwards;
 }
 .animation .each-animation > *{
@@ -810,10 +810,14 @@ body {
   opacity: 0;
   visibility: hidden;
 }
+.animation .have-animation.now-animation.home-match{
+  animation: down 0.6s;
+  animation-fill-mode:forwards;
+}
 
 @keyframes down{
   0% {
-    transform: translateY(-30px);
+    transform: translateY(-100px);
     opacity: 0;
     visibility: hidden;
   }
@@ -827,6 +831,18 @@ body {
 @keyframes up{
   0% {
     transform: translateY(100px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes downhold{
+  0% {
+    transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
   }

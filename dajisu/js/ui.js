@@ -107,7 +107,7 @@ $(function() {
       var hooks = $(this);
       var timeStart = new Date();
       var timeEnd;
-      var timeInterval = 200;
+      var timeInterval = 10;
       var scrollStart = $(window).scrollTop();
       var scrollEnd = $(window).scrollTop();
       var screenW = $(window).width();
@@ -144,64 +144,10 @@ $(function() {
           });
         }
       })
-
-
     }
   });
 
   $('.title-modify, .each-animation, .home-match').scrollHook()
-
-
-  if (!supportAnimation) {
-    var Y = '10';
-    var start = new Date();
-    var end;
-    var scrollTop = $(window).scrollTop();
-    var scrollTopEnd = $(window).scrollTop();
-    var screenW = $(window).width()
-    var screenH = $(window).height()
-    var homeCourseY = $('.home-courses').first().offset().top;
-    var openAnimation = '.banner-small, .home-match-list';
-
-    $(openAnimation).css('transition', 'all 0.6s');
-
-    $(window).on('scroll', function(evnet) {
-      end = new Date();
-
-      if (end - start > 200) {
-        start = end;
-        scrollTopEnd = $(window).scrollTop();
-
-        if (scrollTopEnd - scrollTop > 0) {
-          Y = Y - 0 + 5;
-        } else {
-          Y = Y - 0 - 5;
-        }
-        if (Math.abs(Y) >= 40) {
-          Y = 0
-        }
-
-        $(openAnimation).each(function() {
-          $(this).css({
-            transform: 'translateY(' + Y + 'px)'
-          })
-        })
-
-        scrollTop = scrollTopEnd;
-
-        if (scrollTopEnd > $('.home-courses').offset().top - screenH + 200) {
-          $('.home-courses').addClass('now')
-        }
-        if (scrollTopEnd > $('.home-courses').find('.margin-top-larger').offset().top - screenH + 200) {
-          $('.home-courses').find('.margin-top-larger').addClass('now')
-        }
-
-      }
-
-    })
-
-  }
-
 
   $('.banner').banner();
 })
