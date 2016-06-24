@@ -1,20 +1,27 @@
+# 模块跟目录
 path: modules
 
+# 配置主题
 theme: 大技术平台
 
+# 输出文件
+# .min.js 代表输出压缩后的js文件
 out:
-  - dajisu/init.css
-  - dajisu/test.js
-  - dajisu/test-min.js
+  - dajisu/init2.css
+  - dajisu/init2.min.css
+  - dajisu/init23.2min.css
+  - dajisu2/test.js
+  - dajisu/test.min.js
 
+# 模块列表
 modules:
   - reset
   - tool
   - margin
   - column
-  # - text
-  # - link
-  # - button
+  - text
+  - link
+  - button
   # - input
   # - table
   # - list
