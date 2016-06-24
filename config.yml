@@ -7,11 +7,7 @@ theme: 大技术平台
 # 输出文件
 # .min.js 代表输出压缩后的js文件
 out:
-  - dajisu/init2.css
-  - dajisu/init2.min.css
-  - dajisu/init23.2min.css
-  - dajisu2/test.js
-  - dajisu/test.min.js
+  - dist/ui.css
 
 # 模块列表
 modules:
@@ -22,14 +18,14 @@ modules:
   - text
   - link
   - button
-  # - input
-  # - table
-  # - list
+  - input
+  - table
+  - list
   # - tab
   # - label
   # - tip
   # - notice
-  # - page
+  - page
   # - popup
   # - progress
   # - calendar
@@ -39,4 +35,4 @@ modules:
   # - banner
   # - checkboxradio
   # - banner
-  # - demo
+  - demo
