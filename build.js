@@ -4,15 +4,13 @@ const sass = require('node-sass');
 const yaml = require('js-yaml');
 const package = require('./package.json')
 const colors = require('colors');
-var cleancss = require('clean-css');
+const cleancss = require('clean-css');
+const rollup = require('rollup');
+const uglifyjs = require('uglify-js');
 
 let config;
 
-try {
-  config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
-} catch (e) {
-  console.log(e);
-}
+
 
 let theme;
 let root;
@@ -33,7 +31,10 @@ let scriptMin;
 let dirs = [];
 let files = [];
 
-function column(data, colsnum=4) {
+let modulesStyles = [];
+let modulesScripts = [];
+
+function column(data, colsnum = 4) {
   let result = [];
   let cols = colsnum; //列
   let rows = Math.ceil(data.length / cols); //行
@@ -96,14 +97,6 @@ function column(data, colsnum=4) {
   return result;
 }
 
-let init = () => {
-  theme = config.theme;
-  root = config.path;
-  modules = config.modules || [];
-  outs = config.out || [];
-}
-init()
-
 // 迭代模块目录 => dirs; => files;
 let paths = (dir = root) => {
   let _paths = fs.readdirSync(dir);
@@ -117,7 +110,26 @@ let paths = (dir = root) => {
     }
   };
 }
-paths();
+
+let init = () => {
+  try {
+    config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
+  } catch (e) {
+    console.log(e);
+  }
+  theme = config.theme;
+  root = config.path;
+  modules = config.modules || [];
+  outs = config.out || [];
+  paths();
+  modulesStyles = modules.filter(function(val) {
+    return files.includes(`${root}/${val}/${val}${styleExtname}`);
+  });
+  modulesScripts = modules.filter(function(val) {
+    return files.includes(`${root}/${val}/${val}${scriptExtname}`);
+  });
+}
+init()
 
 // 解析out
 let targes = (filter, targesArray = outs) => {
@@ -156,9 +168,9 @@ let css = (event = '', filename = '') => {
       return;
     }
     // 处理模块
-    if (Array.isArray(modules)) {
-      for (let module of modules) {
-        _styleSource += `@import '${module}/${module}';\n`
+    if (Array.isArray(modulesStyles)) {
+      for (let modulesStyle of modulesStyles) {
+        _styleSource += `@import '${modulesStyle}/${modulesStyle}';\n`
       }
     } else {
       console.error('失败：CSS 模块没有设置');
@@ -174,7 +186,7 @@ let css = (event = '', filename = '') => {
       _styleCompile = sass.renderSync({
         data: styleSource,
         outputStyle: 'expanded',
-        includePaths: ['./modules/']
+        includePaths: [`${root}`]
       }).css.toString();
     } catch (err) {
       console.log(Error(err))
@@ -232,7 +244,10 @@ let css = (event = '', filename = '') => {
     // 打印日志
     if (event && filename) {
       console.log(" ▣".green, `${filename} ${event}`, new Date().toLocaleTimeString());
-      for (let out of outs) {
+      for (let out of targes('.css')) {
+        console.log(" ✓".green, out.grey)
+      };
+      for (let out of targes('.min.css')) {
         console.log(" ✓".green, out.grey)
       };
       console.log(" ");
@@ -240,16 +255,131 @@ let css = (event = '', filename = '') => {
   })()
 }
 
-let watch = () => {
-  for (let dir of dirs) {
+let js = (event = '', filename = '') => {
+  scriptSource = (() => {
+    let _scriptSource = '';
+    // 处理模块
+    if (Array.isArray(modulesScripts)) {
+      for (let modulesScript of modulesScripts) {
+        _scriptSource += `import ${modulesScript} from '${root}/${modulesScript}/${modulesScript}';\n`
+      }
+    } else {
+      console.error('失败：CSS 模块没有设置');
+      return;
+    }
+    return _scriptSource;
+  })();
+
+  scriptCompile = (() => {
+    // 编译scss
+    let _scriptCompile;
     try {
-      fs.watch(path.join(dir), function(event, filename) {
-        css(event, filename);
+      rollup.rollup({
+        entry: 'scriptSource',
+        plugins: [
+          require('rollup-plugin-memory')({
+            contents: scriptSource
+          }),
+          require('rollup-plugin-includePaths')({}),
+          require('rollup-plugin-eslint')({
+            parserOptions: {
+              sourceType: 'module'
+            }
+          })
+        ]
+      }).then(function(bundle) {
+        _scriptCompile = bundle.generate({
+          format: 'iife',
+          moduleName: 'ui'
+        });
+      }).then(function(a) {
+        scriptCompile = _scriptCompile.code;
+        scriptMin()
+      }).then(function() {
+        scriptOut()
+      }).then(function() {
+        scriptLog()
       })
     } catch (err) {
       console.log(Error(err))
     }
 
+  })();
+
+  scriptMin = () => {
+    let _scriptMin;
+    try {
+      _scriptMin = uglifyjs.minify(scriptCompile, {
+        fromString: true
+      })
+
+    } catch (err) {
+      console.log(Error(err))
+    }
+    scriptMin = _scriptMin.code;
+  };
+
+  scriptOut = () => {
+    // 写入文件
+    let _scriptCompileTarges = targes('.js');
+    let _scriptMinTarges = targes('.min.js');
+
+    if (Array.isArray(_scriptCompileTarges)) {
+      for (let _scriptCompileTarge of _scriptCompileTarges) {
+        try {
+          fs.writeFileSync(_scriptCompileTarge, scriptCompile, 'utf8');
+        } catch (err) {
+          console.log(Error(err))
+        }
+      }
+    } else {
+      console.error('失败：JS 输出目录没有设置，请配置 out');
+      return;
+    }
+
+    if (Array.isArray(_scriptMinTarges)) {
+      for (let _scriptMinPath of _scriptMinTarges) {
+        try {
+          fs.writeFileSync(_scriptMinPath, scriptMin, 'utf8');
+        } catch (err) {
+          console.log(Error(err))
+        }
+      }
+    } else {
+      console.error('失败：JS 输出目录没有设置，请配置 out');
+      return;
+    }
+  }
+
+  scriptLog = () => {
+    // 打印日志
+    if (event && filename) {
+      console.log(" ▣".green, `${filename} ${event}`, new Date().toLocaleTimeString());
+      for (let out of targes('.js')) {
+        console.log(" ✓".green, out.grey)
+      };
+      for (let out of targes('.min.js')) {
+        console.log(" ✓".green, out.grey)
+      };
+      console.log(" ");
+    }
+  }
+}
+
+let watch = () => {
+  for (let dir of dirs) {
+    try {
+      fs.watch(path.join(dir), function(event, filename) {
+        let _extname = path.extname(filename);
+        if(_extname === styleExtname){
+          css(event, filename);
+        }else if(_extname === scriptExtname){
+          js(event, filename)
+        }
+      })
+    } catch (err) {
+      console.log(Error(err))
+    }
   }
 }
 
@@ -266,7 +396,7 @@ let log = () => {
   for (let module of column(modules)) {
 
     logs += module.map(function(val) {
-      if(val) {
+      if (val) {
         return " ✓".green + ' ' + val.grey;
       }
     }).join('');
@@ -275,12 +405,12 @@ let log = () => {
   };
   logs += '\n';
   logs += ` ▣ OUTS` + '\n'
-  for (let out of column(outs,3)) {
+  for (let out of column(outs, 3)) {
     logs += out.map(function(val) {
-      if(val){
-        return " ✓".green + ' ' + val.grey;  
+      if (val) {
+        return " ✓".green + ' ' + val.grey;
       }
-      
+
     }).join('');
 
     logs += '\n'
@@ -291,14 +421,14 @@ let log = () => {
 
 log()
 css()
+js()
 watch()
 
 
 // 配置变化时 重新配置上下文
 fs.watch('config.yml', (evnet, filename) => {
-  config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
-
   init()
   log()
   css()
+  js()
 })

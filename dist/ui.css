@@ -1111,59 +1111,6 @@ table.noborder th, table.noborder td {
   border: 2px solid #f4f5f9;
 }
 
-.tab {
-  position: relative;
-}
-
-.tab ul.tab-header {
-  height: 38px;
-}
-
-.tab ul.tab-header li {
-  float: left;
-  height: 100%;
-}
-
-.tab ul.tab-header li a {
-  display: inline-block;
-  background-color: #55cffb;
-  text-align: center;
-  padding: 0 10px;
-  min-width: 80px;
-  text-decoration: none;
-  color: #fff;
-  height: 100%;
-  line-height: 38px;
-  border-left: 1px solid #66c7ea;
-}
-
-.tab ul.tab-header li.now a {
-  color: #000;
-  font-weight: bold;
-  background-color: #f4f5f9;
-}
-
-.tab div.tab-content {
-  display: none;
-}
-
-.tab div.tab-content.now {
-  display: block;
-  padding: 15px 10px;
-  background-color: #f4f5f9;
-}
-
-/*兼容*/
-.ie6 .tab div.now,
-.ie7 .tab div.now {
-  /*这个不用display:block;是为了兼容IE67浏览器*/
-  display: inline-block;
-}
-
-.ie6 .tab ul.tab-header li a {
-  width: expression(this.scrollWidth>100?'auto':'79px');
-}
-
 .label {
   display: inline-block;
   font-size: 12px;
