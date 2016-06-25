@@ -718,8 +718,6 @@ a:focus {
 /**
 * Disabled State
 *
-* The disabled state used the class .disabled,
-* or the form attaribute distabled="distabled".
 */
 .button-disabled,
 .button-disabled:hover {
@@ -941,90 +939,50 @@ a:focus {
   border-color: #9b9b9b;
 }
 
-/*@import 'base';
-@import 'style/size';
-@import 'style/dajisu';
-@import 'ie6';*/
 /*
-* Option Button
+* Option Input
 */
 /*
-* Button Namespace
+* Input Namespace
 * 
-* 默认是 .button ，根据喜好也可设置为 .btn
+* 默认是 input ，根据喜好也可设置为 .input or input[type=text]
 */
 /*
-* Button Defaults
+* Input Defaults
 *
 * 根据其他项目改变这些设置。
-* 按钮的宽度没有直接用 width 属性设置，而是采用 min-width + padding 的方式，
-* 这样按钮有了最小宽度，文字过多时宽度也会自动扩展。
 *
-* 按钮的高度 采用 height 和 line-height 的方式控制。
 * 
 */
 /*
-* Button Colors
+* Input Colors
 *
-* (name, background, color)
+* (name, border-color, color)
 * 
 */
 /*
-* Button Shapes
+* Input Sizes
 *
+* ()
 */
-/*
-* Button Sizes
-*
-* (name width height padding)
-* 
-*/
-/*尺寸*/
-/*smallest smaller small default large larger largest*/
-/*
-* Base Botton Style
-*
-* The default values for the .botton class
-*/
-.button {
-  display: inline-block;
-  cursor: pointer;
-  border: none;
-  text-align: center;
-  text-decoration: none;
+.input {
+  margin: 0;
+  outline: none;
   vertical-align: middle;
-  font-size: 14px;
-  /*button colors*/
-  color: #666;
-  background: #EEE;
-  /*button shapes*/
-  min-width: 132px;
   padding: 0 10px;
-  height: 42px;
-  line-height: 42px;
-  border-radius: 200px;
-  transition-property: background-color, color, border-color;
-  transition-duration: 0.3s;
-  -webkit-user-select: none;
-}
-
-.button:hover {
-  background: #f6f6f6;
-}
-
-.button:active {
-  background: #eeeeee;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  width: 278px;
+  line-height: 1;
+  height: 43px;
+  border: 2px solid #bababa;
+  color: #767676;
 }
 
 /**
 * Disabled State
 *
-* The disabled state used the class .disabled,
-* or the form attaribute distabled="distabled".
 */
-.button-disabled,
-.button-disabled:hover {
+.input-disabled,
+.input-disabled:hover {
   background: #dde2ef !important;
   border-color: #dde2ef !important;
   color: #fff !important;
@@ -1032,128 +990,77 @@ a:focus {
 }
 
 /**
-* Button color
+* Input color
 *
 */
-.button-blue {
-  background-color: #55cffb;
-  color: #FFF;
+.input-blue {
+  border-color: #55cffb;
+  color: #55cffb;
 }
 
-.button-blue:hover {
-  background-color: #87ddfc;
-  color: #FFF;
+.input-blue:hover {
+  border-color: #87ddfc;
+  color: #55cffb;
 }
 
-.button-blue:active {
-  background-color: #5ecbf2;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+.input-blue:active {
+  border-color: #5ecbf2;
 }
 
-.button-green {
-  background-color: #34c276;
-  color: #FFF;
+.input-green {
+  border-color: #34c276;
+  color: #34c276;
 }
 
-.button-green:hover {
-  background-color: #57d290;
-  color: #FFF;
+.input-green:hover {
+  border-color: #57d290;
+  color: #34c276;
 }
 
-.button-green:active {
-  background-color: #40b677;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+.input-green:active {
+  border-color: #40b677;
 }
 
-.button-orange {
-  background-color: #f9b954;
-  color: #FFF;
+.input-orange {
+  border-color: #f9b954;
+  color: #f9b954;
 }
 
-.button-orange:hover {
-  background-color: #fbcd85;
-  color: #FFF;
+.input-orange:hover {
+  border-color: #fbcd85;
+  color: #f9b954;
 }
 
-.button-orange:active {
-  background-color: #f0b75d;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+.input-orange:active {
+  border-color: #f0b75d;
 }
 
-.button-while {
-  background-color: #FFF;
-  color: black;
+.input-grey {
+  border-color: #bababa;
+  color: #bababa;
 }
 
-.button-while:hover {
-  background-color: white;
-  color: black;
+.input-grey:hover {
+  border-color: #d4d4d4;
+  color: #bababa;
 }
 
-.button-while:active {
-  background-color: white;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.button-grey {
-  background-color: #bababa;
-  color: #FFF;
-}
-
-.button-grey:hover {
-  background-color: #d4d4d4;
-  color: #FFF;
-}
-
-.button-grey:active {
-  background-color: #bababa;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-/**
-* Button size
-*
-*/
-.button-smaller {
-  min-width: 20px;
-  padding: 0 4px;
-  height: 20px;
-  line-height: 20px;
-}
-
-.button-small {
-  min-width: 76px;
-  padding: 0 5px;
-  height: 28px;
-  line-height: 28px;
-}
-
-.button-large {
-  min-width: 160px;
-  padding: 0 10px;
-  height: 50px;
-  line-height: 50px;
-}
-
-.button-larger {
-  min-width: 248px;
-  padding: 0 10px;
-  height: 38px;
-  line-height: 38px;
+.input-grey:active {
+  border-color: #bababa;
 }
 
 table {
   width: 100%;
-  color: var(--text);
+  color: #576077;
   font-size: 14px;
 }
 
 table {
-  border: 2px solid var(--grey-light);
+  border: 2px solid #f4f5f9;
 }
 
 table tr th:first-child {
-  border-top-left-radius: var(--radius);
+  border-top-left-radius: 4px;
 }
 
 table th, table td {
@@ -1162,16 +1069,16 @@ table th, table td {
 }
 
 table tr th:last-child {
-  border-top-right-radius: var(--radius);
+  border-top-right-radius: 4px;
 }
 
 table th {
-  color: var(--dark-light);
-  background-color: var(--grey-light);
+  color: #515163;
+  background-color: #f4f5f9;
 }
 
 table td {
-  border: 2px solid var(--grey-light);
+  border: 2px solid #f4f5f9;
 }
 
 table.dark {
@@ -1179,8 +1086,8 @@ table.dark {
 }
 
 table.dark th {
-  background-color: var(--dark);
-  color: var(--grey-dark);
+  background-color: #3f3f4d;
+  color: #c0c7da;
 }
 
 table.dark td {
@@ -1188,7 +1095,7 @@ table.dark td {
 }
 
 table.dark tbody tr:nth-child(even) {
-  background-color: var(--grey-light);
+  background-color: #f4f5f9;
 }
 
 table.noborder th, table.noborder td {
@@ -1201,64 +1108,99 @@ table.noborder th, table.noborder td {
 }
 
 .ie table.dark td {
-  border: 2px solid var(--grey-light);
+  border: 2px solid #f4f5f9;
 }
 
-ul, li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.tab {
+  position: relative;
 }
 
-.page {
-  font-size: 0;
+.tab ul.tab-header {
+  height: 38px;
 }
 
-.page a {
-  border: 2px solid var(--#808080);
-  color: var(--text);
-  padding: 10px 16px;
-  text-align: center;
-  text-decoration: none;
-  margin-right: -2px;
-  font-size: 14px;
+.tab ul.tab-header li {
+  float: left;
+  height: 100%;
+}
+
+.tab ul.tab-header li a {
   display: inline-block;
-  line-height: 1.5;
-  vertical-align: middle;
-  /*ie678 解决汉子和数字上下不对齐*/
+  background-color: #55cffb;
+  text-align: center;
+  padding: 0 10px;
+  min-width: 80px;
+  text-decoration: none;
+  color: #fff;
+  height: 100%;
+  line-height: 38px;
+  border-left: 1px solid #66c7ea;
 }
 
-.page a:first-child {
-  border-top-left-radius: var(--radius);
-  border-bottom-left-radius: var(--radius);
+.tab ul.tab-header li.now a {
+  color: #000;
+  font-weight: bold;
+  background-color: #f4f5f9;
 }
 
-.page a:last-child {
-  border-top-right-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
+.tab div.tab-content {
+  display: none;
 }
 
-.page a.now, .page a:hover {
-  background-color: var(--#808080);
-}
-
-.page a.disabled {
-  color: #999999;
-}
-
-.page.page-right {
-  text-align: right;
-}
-
-.page.page-right a {
-  margin-right: 0;
-  margin-left: -2px;
+.tab div.tab-content.now {
+  display: block;
+  padding: 15px 10px;
+  background-color: #f4f5f9;
 }
 
 /*兼容*/
-.ie6 .page a.disabled {
-  background-color: transparent !important;
-  color: #999;
+.ie6 .tab div.now,
+.ie7 .tab div.now {
+  /*这个不用display:block;是为了兼容IE67浏览器*/
+  display: inline-block;
+}
+
+.ie6 .tab ul.tab-header li a {
+  width: expression(this.scrollWidth>100?'auto':'79px');
+}
+
+.label {
+  display: inline-block;
+  font-size: 12px;
+  color: #fff;
+  background-color: #55cffb;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/*
+*
+* Lable Colors
+*
+* (name background)
+*/
+.label-blue {
+  background: #55cffb;
+}
+
+.label-green {
+  background: #34c276;
+}
+
+.label-orange {
+  background: #f9b954;
+}
+
+.label-grey {
+  background: #bababa;
+}
+
+.label-group .label {
+  margin-right: 5px;
+}
+
+.label-group .label:last-child {
+  margin-right: 0;
 }
 
 h1.logo {
@@ -1272,13 +1214,13 @@ h1.logo {
 
 h1.logo small {
   font-size: 20px;
-  color: #a4a4a4;
+  color: #bababa;
   font-family: sans-serif;
 }
 
 section {
   font-family: verdana, "microsoft yahei";
-  width: 1280px;
+  width: 1000px;
   margin: 0 auto 50px auto;
   overflow: hidden;
 }
@@ -1315,7 +1257,7 @@ section article {
 }
 
 .column:hover p.col-num {
-  background-color: #a4a4a4;
+  background-color: #bababa;
 }
 
 /*Theme Color*/
@@ -1342,11 +1284,11 @@ section article {
 }
 
 .color-light {
-  background-color: #88dfff;
+  background-color: #87ddfc;
 }
 
 .color-dark {
-  background-color: #28b3e5;
+  background-color: #5ecbf2;
 }
 
 .color.blue {

@@ -3,8 +3,8 @@
     $btn-name: nth($btn-color, 1);
     $btn-background: nth($btn-color, 2);
     $btn-color: nth($btn-color, 3);
-    $btn-name-namespace: $btn-namespace + '-' + $btn-name;
-    &#{$btn-name-namespace} {
+    $btn-color-namespace: $btn-namespace + '-' + $btn-name;
+    &#{$btn-color-namespace} {
       & {
         background-color: $btn-background;
         color: $btn-color;
@@ -21,8 +21,6 @@
   }
 }
 
-
-
 /*尺寸*/
 
 /*smallest smaller small default large larger largest*/
@@ -33,9 +31,9 @@
     $btn-width: nth($btn-size, 2) - nth($btn-size, 4)*2;
     $btn-padding: nth($btn-size, 4);
     $btn-height: nth($btn-size, 3);
-    $btn-name-namespace: $btn-namespace + '-' + $btn-name;
+    $btn-color-namespace: $btn-namespace + '-' + $btn-name;
 
-    &#{$btn-name-namespace} {
+    &#{$btn-color-namespace} {
       min-width: $btn-width;
       padding:0 $btn-padding;
       height: $btn-height;

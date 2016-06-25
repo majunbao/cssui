@@ -1,12 +1,10 @@
-.tab{
-  --height: 38px;
-}
+$tab-header-height: 38px;
 
 .tab {
   position: relative;
 }
 .tab ul.tab-header{
-  height: var(--height);
+  height: $tab-header-height;
 }
 .tab ul.tab-header li{
   float: left;
@@ -14,15 +12,15 @@
 }
 .tab ul.tab-header li a {
   display: inline-block;
-  background-color: var(--theme);
+  background-color: $theme;
   text-align: center;
   padding: 0 10px;
   min-width: 80px;
   text-decoration: none;
   color: #fff;
   height: 100%;
-  line-height: var(--height);
-  border-left: 1px solid color(var(--theme) b(20%));
+  line-height: $tab-header-height;
+  border-left: 1px solid desaturate($theme, 20%);
 }
 .tab  ul.tab-header li.now a{
   color: #000;

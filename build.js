@@ -1,9 +1,9 @@
-const yaml = require('js-yaml');
 const fs = require('fs');
 const path = require('path');
 const sass = require('node-sass');
-const colors = require('colors');
+const yaml = require('js-yaml');
 const package = require('./package.json')
+const colors = require('colors');
 var cleancss = require('clean-css');
 
 let config;
@@ -14,14 +14,11 @@ try {
   console.log(e);
 }
 
-fs.watchFile('config.yml', (curr, prev) => {
-  config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
-})
+let theme;
+let root;
+let modules;
+let outs;
 
-let theme = config.theme;
-let root = config.path;
-let modules = config.modules;
-let outs = config.out;
 
 let styleExtname = '.scss';
 let styleSource;
@@ -33,43 +30,127 @@ let scriptSource;
 let scriptCompile;
 let scriptMin;
 
-// 获取 js 或 css 路径
-let paths = (filter, pathsArray = outs) => {
-  if (Array.isArray(pathsArray)) {
-    let _paths;
+let dirs = [];
+let files = [];
+
+function column(data, colsnum=4) {
+  let result = [];
+  let cols = colsnum; //列
+  let rows = Math.ceil(data.length / cols); //行
+  let padding = '    ';
+
+  let getCols = (() => {
+    let _result = [];
+    for (let i = 0; i < cols; i++) {
+      _result[i] = []
+      for (let x = 0; x < rows; x++) {
+        _result[i][x] = data[i + cols * x];
+      }
+    }
+    return _result;
+  })()
+
+
+  for (let _row of getCols) {
+    let cellWidth = 0;
+    let cellAfter = [];
+
+    _row.forEach(function(cell) {
+      if (cell) {
+        cellWidth = cell.length > cellWidth ? cell.length : cellWidth
+      }
+
+    })
+
+    cellAfter = _row.map(function(val) {
+
+      let white = '';
+      if (val) {
+        for (let i = 0; i < cellWidth - val.length; i++) {
+          white += ' ';
+        }
+        return val + white + padding;
+      } else {
+
+      }
+
+    })
+
+    result.push(cellAfter);
+  }
+
+
+  {
+    let _result = []
+
+    for (let i = 0; i < rows; i++) {
+      _result[i] = [];
+      for (let x = 0; x < result.length; x++) {
+        _result[i][x] = result[x][i]
+      }
+    }
+
+    result = _result;
+  }
+
+  return result;
+}
+
+let init = () => {
+  theme = config.theme;
+  root = config.path;
+  modules = config.modules || [];
+  outs = config.out || [];
+}
+init()
+
+// 迭代模块目录 => dirs; => files;
+let paths = (dir = root) => {
+  let _paths = fs.readdirSync(dir);
+  for (let _path of _paths) {
+    let stats = fs.statSync(path.join(dir, _path));
+    if (stats.isDirectory()) {
+      paths(path.join(dir, _path))
+      dirs.push(path.join(dir, _path))
+    } else if (stats.isFile) {
+      files.push(path.join(dir, _path))
+    }
+  };
+}
+paths();
+
+// 解析out
+let targes = (filter, targesArray = outs) => {
+  if (Array.isArray(targesArray)) {
+    let _targes;
     switch (filter) {
       case '.min.css':
       case '.min.js':
-        _paths = outs.filter(function(val) {
+        _targes = outs.filter(function(val) {
           return val.substr(-filter.length, filter.length) === filter
         })
         break;
       case '.css':
       case '.js':
-        _paths = outs.filter(function(val) {
+        _targes = outs.filter(function(val) {
           return val.substr(-filter.length, filter.length) === filter
         });
-        _paths = _paths.filter(function(val) {
+        _targes = _targes.filter(function(val) {
           return val.substr(-`.min${filter}`.length, `.min${filter}`.length) !== `.min${filter}`
         });
         break;
     }
-    return _paths;
+    return _targes;
 
   }
 }
 
 let css = (event = '', filename = '') => {
-
   styleSource = (() => {
-    let _styleSource;
+    let _styleSource = '';
     // 载入主题
     if (theme) {
-      try {
-        _styleSource = fs.readFileSync(path.join(root, 'theme', theme + styleExtname), 'utf8');
-      } catch (err) {
-        console.log(Error(err))
-      }
+      _styleSource += `@import 'theme/${theme}';\n`
     } else {
       console.error('失败：CSS 主题没有设置');
       return;
@@ -77,12 +158,7 @@ let css = (event = '', filename = '') => {
     // 处理模块
     if (Array.isArray(modules)) {
       for (let module of modules) {
-        let modulePath = path.join(root, module, module + styleExtname);
-        try {
-          _styleSource += '\n' + fs.readFileSync(modulePath, 'utf8');
-        } catch (err) {
-          console.log(Error(err))
-        }
+        _styleSource += `@import '${module}/${module}';\n`
       }
     } else {
       console.error('失败：CSS 模块没有设置');
@@ -98,9 +174,7 @@ let css = (event = '', filename = '') => {
       _styleCompile = sass.renderSync({
         data: styleSource,
         outputStyle: 'expanded',
-        includePaths: modules.map(function(val) {
-          return path.join(root, val)
-        })
+        includePaths: ['./modules/']
       }).css.toString();
     } catch (err) {
       console.log(Error(err))
@@ -124,13 +198,13 @@ let css = (event = '', filename = '') => {
 
   (() => {
     // 写入文件
-    let _styleCompilePaths = paths('.css');
-    let _styleMinPaths = paths('.min.css');
+    let _styleCompileTarges = targes('.css');
+    let _styleMinTarges = targes('.min.css');
 
-    if (Array.isArray(_styleCompilePaths)) {
-      for (let _styleCompilePath of _styleCompilePaths) {
+    if (Array.isArray(_styleCompileTarges)) {
+      for (let _styleCompileTarge of _styleCompileTarges) {
         try {
-          fs.writeFileSync(_styleCompilePath, styleCompile, 'utf8');
+          fs.writeFileSync(_styleCompileTarge, styleCompile, 'utf8');
         } catch (err) {
           console.log(Error(err))
         }
@@ -140,8 +214,8 @@ let css = (event = '', filename = '') => {
       return;
     }
 
-    if (Array.isArray(_styleMinPaths)) {
-      for (let _styleMinPath of _styleMinPaths) {
+    if (Array.isArray(_styleMinTarges)) {
+      for (let _styleMinPath of _styleMinTarges) {
         try {
           fs.writeFileSync(_styleMinPath, styleMin, 'utf8');
         } catch (err) {
@@ -157,19 +231,22 @@ let css = (event = '', filename = '') => {
   (() => {
     // 打印日志
     if (event && filename) {
-      console.log(" ✓".green, `${filename} `.grey, event.grey, new Date().toLocaleTimeString().grey)
+      console.log(" ▣".green, `${filename} ${event}`, new Date().toLocaleTimeString());
+      for (let out of outs) {
+        console.log(" ✓".green, out.grey)
+      };
+      console.log(" ");
     }
   })()
-
 }
 
 let watch = () => {
-  for (let module of modules) {
+  for (let dir of dirs) {
     try {
-      fs.watch(path.join(root, module), function(event, filename) {
+      fs.watch(path.join(dir), function(event, filename) {
         css(event, filename);
       })
-    }catch(err){
+    } catch (err) {
       console.log(Error(err))
     }
 
@@ -177,22 +254,36 @@ let watch = () => {
 }
 
 let log = () => {
-  process.stdout.write("\u001B[2J\u001B[0;0f")
-  console.log("========================================================================")
-  console.log(` UICSS v${package.version}`, "- 简单 (但是强壮) 的前端 UiKit".grey)
-  console.log(" https://github.com/majunbao/uicss".grey)
-  console.log("========================================================================")
-  console.log(" ");
-  console.log(` ▣ MODULES`.toUpperCase())
-  for (let module of modules) {
-    console.log(" ✓".green, module.replace(module.charAt(0), module.charAt(0).toUpperCase()).grey)
+  process.stdout.write("\u001B[2J\u001B[0;0f");
+  let logs = '';
+  logs += "========================================================================" + '\n'
+  logs += ` UICSS v${package.version}` + "- 简单 (但是强壮) 的前端 UiKit".grey + '\n'
+  logs += " https://github.com/majunbao/uicss".grey + '\n'
+  logs += "========================================================================" + '\n'
+  logs += " " + '\n'
+  logs += ` ▣ MODULES`.toUpperCase() + '\n'
+
+  for (let module of column(modules)) {
+
+    logs += module.map(function(val) {
+      return " ✓".green + ' ' + val.grey;
+    }).join('');
+
+    logs += '\n'
   };
-  console.log(' ');
-  console.log(` ▣ OUTS`)
-  for (let out of outs) {
-    console.log(" ✓".green, out.grey)
+  logs += '\n';
+  logs += ` ▣ OUTS` + '\n'
+  for (let out of column(outs,3)) {
+    logs += out.map(function(val) {
+      if(val){
+        return " ✓".green + ' ' + val.grey;  
+      }
+      
+    }).join('');
+
+    logs += '\n'
   };
-  console.log(' ')
+  console.log(logs)
 }
 
 
@@ -205,11 +296,7 @@ watch()
 fs.watch('config.yml', (evnet, filename) => {
   config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
 
-  theme = config.theme;
-  root = config.path;
-  modules = config.modules;
-  outs = config.out;
-
+  init()
   log()
   css()
 })

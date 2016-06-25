@@ -1,19 +1,35 @@
-.label{
+$label-namespace: '.label';
+#{$label-namespace} {
   display: inline-block;
   font-size: 12px;
   color: #fff;
   background-color: $theme;
-  padding:2px 7px;
-  border-radius: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-$lable-colors: (blue $blue) (green $green) (orange $orange) (grey $grey);
 
-@each $label-color in $lable-colors{
-  .label.label-#{nth($label-color, 1)}{
-    background-color: #{nth($label-color, 2)};
+/*
+*
+* Lable Colors
+*
+* (name background)
+*/
+
+$lable-colors: (blue $blue) (green $green) (orange $orange) (grey $grey);
+@each $label-color in $lable-colors {
+  $label-name: nth($label-color, 1);
+  $label-background: nth($label-color, 2);
+  #{$label-namespace}-#{$label-name} {
+    background: $label-background;
   }
 }
 
-.label-group .label{margin-right: 5px;}
-.label-group .label:last-child{margin-right: 0;}
+#{$label-namespace}-group {
+  #{$label-namespace} {
+    margin-right: 5px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

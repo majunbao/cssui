@@ -8,13 +8,13 @@ h1.logo {
 }
 h1.logo small{
   font-size: 20px;
-  color: $grey-dark;
+  color: desaturate($grey, 10%);
   font-family: sans-serif;
 }
 
 section {
   font-family: verdana, "microsoft yahei";
-  width: 1280px;
+  width: 1000px;
   margin: 0 auto 50px auto;
   overflow: hidden;
 }
@@ -50,7 +50,7 @@ section article {
 }
 
 .column:hover p.col-num {
-  background-color: $grey-dark;
+  background-color: desaturate($grey, 10%);
 }
 /*Theme Color*/
 .demo-color {overflow: hidden;}
@@ -70,10 +70,10 @@ section article {
   background-color: $theme;
 }
 .color-light{
-  background-color: $theme-light;
+  background-color: lighten($theme, 10%);
 }
 .color-dark{
-  background-color: $theme-dark;
+  background-color: desaturate($theme, 10%);
 }
 
 $demo-colors: (blue $blue) (green $green) (orange $orange) (grey $grey) (text $text);

@@ -1,4 +1,4 @@
-input {
+#{$input-namespace} {
   margin: 0;
   outline: none;
   vertical-align: middle;
@@ -9,31 +9,35 @@ input {
   border: $input-border;
   color: $input-color;
 }
-input.button{width: auto;}
 
-input[type=text]:focus, input[type=password]:focus {
-  outline: none;
+input[type=text]:hover,
+input[type=password]:hover {
+  
 }
 
-input[disabled]:hover {
+input[type=text]:focus,
+input[type=password]:active {
+  
+}
+
+
+/**
+* Disabled State
+*
+*/
+
+#{$input-namespace}-disabled,
+#{$input-namespace}-disabled:hover {
+  background: $disabled !important;
+  border-color: $disabled !important;
+  color: #fff !important;
   cursor: not-allowed;
 }
 
-input[type=text]:hover, input[type=password]:hover {
-  border-color: var(--theme-light);
-}
 
-input[type=text]:focus, input[type=password]:active {
-  border-color: var(--theme-dark);
-}
+/**
+* Input color
+*
+*/
 
-input[disabled] {
-  background-color: var(--grey-light);
-  border: 2px solid var(--grey);
-  color: var(--grey-dark);
-}
-
-input[disabled]:hover,input[disabled]:focus {
-  border-color: var(--grey);
-  cursor: not-allowed;
-}
+@include input-colors;

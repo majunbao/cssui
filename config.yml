@@ -20,12 +20,12 @@ modules:
   - button
   - input
   - table
-  - list
-  # - tab
-  # - label
+  # - list
+  - tab
+  - label
   # - tip
   # - notice
-  - page
+  # - page
   # - popup
   # - progress
   # - calendar
