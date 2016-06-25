@@ -23,11 +23,11 @@ modules:
   # - list
   - tab
   - label
-  # - tip
+  - tip
   # - notice
   # - page
   # - popup
-  # - progress
+  - progress
   # - calendar
   # - form
   # - textarea

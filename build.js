@@ -266,7 +266,9 @@ let log = () => {
   for (let module of column(modules)) {
 
     logs += module.map(function(val) {
-      return " ✓".green + ' ' + val.grey;
+      if(val) {
+        return " ✓".green + ' ' + val.grey;
+      }
     }).join('');
 
     logs += '\n'
