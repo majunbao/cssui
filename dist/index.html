@@ -17,6 +17,7 @@
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link rel="stylesheet" type="text/css" href="ui.css">
+  <script src="jquery-1.12.4.min.js"></script>
   <script src="ui.js"></script>
 </head>
 
@@ -483,23 +484,23 @@
         <!-- <i class="icon close"></i> -->
         <h1>恭喜你</h1>
         <p>你获得了一个小面包,请好好享用。</p>
-        <div class="margin-top-20">
-          <a class="button disabled">不要</a>
-          <a class="button orange">真酷</a>
+        <div class="margin-top-20 align-right">
+          <a class="button button-disabled">不要</a>
+          <a class="button button-orange">真酷</a>
         </div>
       </div>
       <br>
-      <div class="notice green">
+      <div class="notice notice-green">
         <!-- <i class="icon close"></i> -->
         <p>你获得了一个小面包,请好好享用。</p>
       </div>
       <br>
-      <div class="notice orange">
+      <div class="notice notice-orange">
         <!-- <i class="icon close"></i> -->
         <p>你获得了一个小面包,请好好享用。</p>
       </div>
       <br>
-      <div class="notice error">
+      <div class="notice notice-grey">
         <!-- <i class="icon close"></i> -->
         <h1>欧码噶</h1>
         <p>这是最后一块小面包了，吃完就没了。</p>
@@ -510,18 +511,18 @@
     <h2 class="demo-h2">popup</h2>
     <div class="column">
       <article class="col-2-1">
-        <div class="notice popup">
+        <div class="notice popup margin-right-10">
           <!-- <i class="icon close"></i> -->
           <h1>恭喜你</h1>
           <p>你获得了一个小面包,请好好享用。</p>
           <div class="margin-top-20 align-right">
-            <a class="button disabled">不要</a>
-            <a class="button orange">真酷</a>
+            <a class="button button-disabled button-small">不要</a>
+            <a class="button button-orange button-small">真酷</a>
           </div>
         </div>
       </article>
       <article class="col-2-1">
-        <div class="notice popup green">
+        <div class="notice popup green margin-left-10">
           <!-- <i class="icon close"></i> -->
           <h1>恭喜你</h1>
           <p>你获得了一个小面包,请好好享用。</p>
@@ -596,20 +597,20 @@
       <form action="javascript:;">
         <fieldset>
           <label class="long">公司名称：</label>
-          <input type="text" placeholder="请填写内容">
+          <input type="text" class="input" placeholder="请填写内容">
         </fieldset>
         <fieldset>
           <label class="long">职位头衔：</label>
-          <input type="text" placeholder="请填写内容">
+          <input type="text" class="input" placeholder="请填写内容">
         </fieldset>
         <fieldset>
           <label class="long">在职时间：</label>
-          <input type="text" placeholder="开始时间">
-          <input type="text" placeholder="结束时间">
+          <input type="text" class="input" placeholder="开始时间">
+          <input type="text" class="input" placeholder="结束时间">
         </fieldset>
         <fieldset>
           <label class="long">老师简介：</label>
-          <input type="text" placeholder="请填写内容">
+          <input type="text" class="input" placeholder="请填写内容">
         </fieldset>
         <fieldset>
           <label class="long">备注：</label>
@@ -629,9 +630,7 @@
       <textarea></textarea>
     </article>
     <article>
-      <textarea class="green"></textarea>
-      <!-- <textarea class="orange"></textarea> -->
-      <!-- <textarea class="error"></textarea> -->
+      <textarea class="textarea-green"></textarea>
       <textarea disabled>禁用</textarea>
     </article>
   </section>

@@ -1,263 +1,98 @@
-/**
- * [ xTaber 切换 ]
- * @param  {[type]} $ [description]
- * @return {[type]}   [description]
- */
-(function($){
-    $.fn.extend({
-        xTaber: function(opt){
-            var def = $.extend({
-                /* @tab 触发事件标签 [true|false|obj]
-                 * true 自动生成带数字的标签
-                 * false 不显示tab
-                 * obj 自定义tab
-                 */
-                tab: true, //默认为自动生成
-                content:$('#fhtaberWrap'),
-                prev: null, //上一个按钮
-                next: null, //下一个按钮
-                /* @style 滚动的样式 [opacity|left|top|none]
-                 * opacity 淡出淡入
-                 * left 向左
-                 * top 向上
-                 * none 无效果
-                 */
-                style: 'opacity', //默认为opacity
-                activeClass: 'current', //当前样式
-                delay: 100, //操作延时
-                speed: 300, //移动速度
-                timeout: 3000, //间歇时间
-                auto: false, //是否自动滚动
-                setup: 1,//每次滚动多少个
-                defaultShow: 1, //默认显示第n个
-                mouseEvent: 'mouseover', //鼠标事件
-                tabedCallback: null //切换后的回调函数
-            }, opt);
+$.fn.extend({
+  banner: function() {
+    var banners = $(this);
+    banners.each(function() {
+      var $banner = $(this);
+      var $items = $banner.find('.banner-item');
+      var $length = $items.length;
+      var $imgs = $banner.find('.banner-item-img');
+      var $texts = $banner.find('.banner-item-text');
+      var $textsInner = $texts.find('.banner-item-text-inner');
+      var $ctrls = $banner.find('.ctrl-i');
+      var $navsPrev = $banner.find('.navs-prev');
+      var $navsNext = $banner.find('.navs-next');
+      var $index = new Array($length);
+      var $start = 0;
+      var $animateTime = 1000;
+      var $animateDelay = 600;
 
-            if(typeof def.setup != Number && def.setup < 1) def.setup = 1;
-            // 内部通用变量
-            var self = def.content,
-                content = self.find('[rel="fhtaberItems"]'),
-                subItem = content.find('.fhtaber-item'),
-                itemLength = subItem.length,
-                subItemHeight = 
-                    parseInt(subItem.height())+
-                    parseInt(subItem.css('marginTop'))+
-                    parseInt(subItem.css('marginBottom'))+
-                    parseInt(subItem.css('paddingTop'))+
-                    parseInt(subItem.css('paddingBottom')),
-                subItemWidth = 
-                    parseInt(subItem.width())+
-                    parseInt(subItem.css('marginLeft'))+
-                    parseInt(subItem.css('marginRight'))+
-                    parseInt(subItem.css('paddingLeft'))+
-                    parseInt(subItem.css('paddingRight')),
-                scrollHeight = subItemHeight * def.setup,
-                scrollWidth = subItemWidth * def.setup,
-                screenNum,
-                current = 0,
-                autoTimer,
-                itemTimer,
-                tabItem = null;
+      function init() {
+        autoIndex($start);
 
-            //滚动屏数                
-            if(def.setup == 1){
-                screenNum = itemLength;
-            }
-            else{
-                var inAll = (itemLength % def.setup),
-                    num = parseInt(itemLength / def.setup);
-                screenNum = (inAll > 0) ? (num+1) : num;
-            }                
+        $imgs.css('opacity', 0);
+        $texts.css({ 'opacity': 0 });
+        $textsInner.css({ 'width': 0 });
 
-            var init = function(){
-                // 自动生成tab
-                if(def.tab && typeof def.tab != 'object'){
-                    var tabHTML = '<ol rel="fhtaberTabs" class="fhtaber-tabs">';
-                    for(var i=1; i<=screenNum; i++){
-                        tabHTML += '<li rel="fhtaberTabItem">'+i+'</li>';
-                    }
-                    tabHTML += '</ol>';
-                    self.append(tabHTML);
-                    def.tab = self.find('[rel="fhtaberTabs"]');
-                }
-                else if(typeof def.tab == 'object'){
-                    def.tab = self.find('[rel="fhtaberTabs"]');
-                }
-                else{
-                    def.tab = null;
-                }
+        $imgs.eq($start).animate({ 'opacity': 1 }, 1500)
+        $texts.eq($start).animate({ 'opacity': 1 }, 1500)
+        $textsInner.eq($start).delay($animateDelay).animate({ 'width': '100%' }, 1500);
 
-                if(def.tab != null){
-                    tabItem = def.tab.find('[rel="fhtaberTabItem"]');
-                }
+        $items.eq($start).addClass('now')
+        $ctrls.eq($start).addClass('now');
 
-                if(typeof def.next == 'boolean' && def.next){
-                    def.next = $('<span rel="fhtaberNext">next</span>');
-                    def.next.appendTo(self);
-                }
-                if(typeof def.prev == 'boolean' && def.prev){
-                    def.prev = $('<span rel="fhtaberPrev">prev</span>');
-                    def.prev.appendTo(self);
-                }
+      }
 
-                switch(def.style){
-                    case 'left':
-                        setParent('left');
-                        break;
-                    case 'top':
-                        setParent('top');
-                        break;
-                }
+      function autoIndex(index) {
+        index = index % $length
 
-                goTo(def.defaultShow - 1);
-                
-                bindEvent();
-                if(def.auto){
-                    auto();
-                }
-
-            }
-            //设置父级的样式
-            var setParent = function(type){
-                var wrapHeight,wrapWidht,contentWidth,contentHeight;
-                if(type == 'top'){
-                    contentHeight = subItemHeight * itemLength;
-                    contentWidth = subItemWidth;
-                }
-                else if(type == 'left'){
-                    contentHeight = subItemHeight;
-                    contentWidth = subItemWidth * itemLength;
-                }
-                //alert(typeof(subItemWidth));
-                content.css({
-                    left: 0,
-                    top: 0,
-                    position: 'absolute',
-                    width: contentWidth,
-                    height: contentHeight
-                });
-            }
-
-            var goTo = function(index){
-                clearInterval(autoTimer);
-                clearTimeout(itemTimer);
-                current = index;
-                switch(def.style){
-                    case 'top':
-                        content.stop().animate({'top': -(index * scrollHeight)}, def.speed);
-                        break;
-                    case 'left':
-                        content.stop().animate({'left': -(index * scrollWidth)}, def.speed);
-                        break;
-                    case 'opacity':
-                        subItem.eq(index).fadeIn().siblings().hide();
-                        break;
-                    default:
-                        subItem.eq(index).show().siblings().hide();
-                        break;
-                }
-                if(def.tab != null){
-                   tabItem.eq(index).addClass(def.activeClass).siblings().removeClass(def.activeClass);
-                }
-                if(def.auto){
-                    auto()
-                };
-                if(def.tabedCallback){
-                    tabedCallback();
-                }
-            }
-
-            var auto = function(){
-                if(def.auto){
-                    clearInterval(autoTimer);
-                    autoTimer = setInterval(function(){
-                        if(current + 1 >= screenNum){
-                                goTo(0);
-                        }else{
-                            goTo(current + 1);
-                        }
-                    }, def.timeout);
-                }
-            }
-            //绑定事件
-            var bindEvent = function(){
-                if(def.tab != null){
-                    tabItem.each(function(){
-                        var el = $(this);
-                        el.bind(def.mouseEvent, function(){
-                            clearInterval(autoTimer);
-                            clearTimeout(itemTimer);
-                            itemTimer = setTimeout(function(){
-                                goTo(el.index());
-                            }, def.delay);
-                        });
-                        
-                        el.bind('mouseleave', function(){
-                            clearTimeout(itemTimer);
-                            auto();
-                        });
-                    });
-                }
-
-                if(def.next){
-                    def.next.click(function(){
-                        var currentNum = (current + 1 >= screenNum) ? 0 : current + 1;
-                        goTo(currentNum);  
-                    });
-                }
-                
-                if(def.prev){
-                    def.prev.click(function(){
-                        var currentNum = (current - 1 < 0) ? screenNum - 1 : current - 1;
-                        goTo(currentNum);
-                    });
-                }
-                
-            }
-            init();           
+        if (index < 0) {
+          index = $length + index;
         }
-    });
-})(jQuery);
+        $index.pop()
+        $index.unshift(index);
+        $start = index;
+      }
 
-var isNeeded = function(selectors){
-    var selectors = (typeof selectors == 'string') ? [selectors] : selectors,
-        isNeeded;
-    for(var i=0;i<selectors.length;i++){
-        var selector = selectors[i];
-        if( $(selector).length > 0 ) { 
-            isNeeded = true; 
-            break; 
-        }
-    };
-    return isNeeded ;
-};
+      function switchBannerOfIndex() {
+        $items.eq($index[0]).addClass('now');
 
-
-
-$(function(){
-    /* 首页焦点图 */
-    if(isNeeded('#fh_idx_focus')){
-        var obj = $('#fh_idx_focus');
-        $.fn.xTaber({
-            content: obj,
-            tab: obj,
-            auto: true,
-            style: 'left',
-            prev: obj.find('.btn-prev'),
-            next: obj.find('.btn-next')
+        $imgs.eq($index[1]).stop().animate({
+          opacity: 0
+        }, $animateTime, function() {
+          $items.eq($index[1]).removeClass('now')
         });
-    }
-	 /* 首页焦点图 */
-    if(isNeeded('#fh_idx_focus1')){
-        var obj = $('#fh_idx_focus1');
-        $.fn.xTaber({
-            content: obj,
-            tab: obj,
-            auto: true,
-            style: 'opacity',
-            prev: obj.find('.btn-prev'),
-            next: obj.find('.btn-next')
-        });
-    }
-});
+
+        $imgs.eq($index[0]).stop().animate({
+          opacity: 1
+        }, $animateTime);
+
+        $texts.eq($index[1]).stop().css({ 'opacity': 0 })
+        $texts.eq($index[0]).addClass('now').stop().animate({
+          opacity: 1
+        }, $animateTime);
+
+        $texts.eq($index[1]).stop().css({ 'opacity': 0 })
+        $texts.eq($index[0]).addClass('now').stop().animate({
+          opacity: 1
+        }, $animateTime);
+
+        $textsInner.eq($index[1]).stop().css({ 'width': 0 })
+        $textsInner.eq($index[0]).addClass('now').stop().delay($animateDelay).animate({
+          width: '100%'
+        }, $animateTime);
+
+        $ctrls.eq($index[1]).removeClass('now');
+        $ctrls.eq($index[0]).addClass('now');
+
+      }
+
+
+
+      $ctrls.on('click', function() {
+        autoIndex($(this).index())
+        switchBannerOfIndex();
+      })
+      $navsPrev.on('click', function() {
+        autoIndex(--$start)
+        switchBannerOfIndex();
+      })
+
+      $navsNext.on('click', function() {
+        autoIndex(++$start)
+        switchBannerOfIndex();
+      })
+
+      init();
+    })
+  }
+})

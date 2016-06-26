@@ -8,6 +8,9 @@ theme: 大技术平台
 # .min.js 代表输出压缩后的js文件
 out:
   - dist/ui.css
+  - dist/ui.js
+  - dajisu/css/ui.css
+  - dajisu/js/ui.js
 
 # 模块列表
 modules:
@@ -24,15 +27,16 @@ modules:
   - tab
   - label
   - tip
-  # - notice
-  # - page
+  - notice
+  - page
   # - popup
   - progress
-  # - calendar
-  # - form
-  # - textarea
+  - calendar
+  - form
+  - textarea
   # - step
-  # - banner
+  - banner
+  - scrollhook
   # - checkboxradio
   # - banner
   - demo

@@ -1,0 +1,70 @@
+/*
+* Config
+*/
+$textarea-namespace: 'textarea' !default;
+
+$textarea-width: 468px !default;
+$textarea-height: 88px  !default;
+$textarea-padding: 10px !default;
+$textarea-border-color: $grey !default;
+
+$textarea-colors: (blue $blue)
+                  (green $green)
+                  (orange $orange)
+                  !default;
+
+/*
+* Mixin
+*/
+@mixin textarea-colors{
+  @each $textarea-color in $textarea-colors {
+    $textarea-name: nth($textarea-color, 1);
+    $textarea-border-color: nth($textarea-color, 2);
+    $textarea-color-namespace: '.' + $textarea-name + '-' + $textarea-name;
+  }
+}
+
+/*
+* Base
+*/
+
+#{$textarea-namespace} {
+  margin: 0;
+  border: 0;
+  outline: none;
+  overflow: auto;
+  border: 2px solid $textarea-border-color;
+  padding: $textarea-padding;
+  width: $textarea-width;
+  min-height: $textarea-height;
+}
+#{$textarea-namespace}:hover {
+  border-color: lighten($textarea-border-color, 10%);
+}
+
+#{$textarea-namespace}:focus,#{$textarea-namespace}:active{
+  border-color: desaturate($textarea-border-color, 10%);;
+}
+
+#{$textarea-namespace}[disabled],
+.#{$textarea-namespace}-disabled {
+  background-color: $disabled;
+  border: 2px solid $disabled;
+  color: #fff;
+}
+
+#{$textarea-namespace}[disabled]:hover,
+#{$textarea-namespace}[disabled]:focus
+.#{$textarea-namespace}-disabled:hover,
+.#{$textarea-namespace}-disabled:focus {
+  cursor: not-allowed;
+}
+
+@include textarea-colors;
+
+
+/*兼容*/
+.ie6 textarea{
+  height: 88px;
+  background-color: transparent;
+}

@@ -10,8 +10,6 @@ const uglifyjs = require('uglify-js');
 
 let config;
 
-
-
 let theme;
 let root;
 let modules;
@@ -158,7 +156,7 @@ let targes = (filter, targesArray = outs) => {
 }
 
 let css = (event = '', filename = '') => {
-  styleSource = (() => {
+  styleSource = () => {
     let _styleSource = '';
     // 载入主题
     if (theme) {
@@ -176,10 +174,11 @@ let css = (event = '', filename = '') => {
       console.error('失败：CSS 模块没有设置');
       return;
     }
-    return _styleSource;
-  })();
+    styleSource = _styleSource;
+  }
 
-  styleCompile = (() => {
+
+  styleCompile = () => {
     // 编译scss
     let _styleCompile;
     try {
@@ -191,10 +190,10 @@ let css = (event = '', filename = '') => {
     } catch (err) {
       console.log(Error(err))
     }
-    return _styleCompile;
-  })();
+    styleCompile = _styleCompile;
+  }
 
-  styleMin = (() => {
+  styleMin = () => {
     let _styleMin;
     try {
       _styleMin = new cleancss({
@@ -205,8 +204,12 @@ let css = (event = '', filename = '') => {
     } catch (err) {
       console.log(Error(err))
     }
-    return _styleMin;
-  })();
+    styleMin = _styleMin;
+  }
+
+  styleSource();
+  styleCompile();
+  styleMin();
 
   (() => {
     // 写入文件
@@ -372,8 +375,10 @@ let watch = () => {
       fs.watch(path.join(dir), function(event, filename) {
         let _extname = path.extname(filename);
         if(_extname === styleExtname){
+          init();
           css(event, filename);
         }else if(_extname === scriptExtname){
+          init();
           js(event, filename)
         }
       })

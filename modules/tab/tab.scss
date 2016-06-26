@@ -1,16 +1,23 @@
+/*
+* Tab Config
+*/
+
+$tab-namespace: '.tab' !default;
+
 $tab-header-height: 38px;
 
-.tab {
+
+#{$tab-namespace} {
   position: relative;
 }
-.tab ul.tab-header{
+#{$tab-namespace} ul#{$tab-namespace}-header{
   height: $tab-header-height;
 }
-.tab ul.tab-header li{
+#{$tab-namespace} ul#{$tab-namespace}-header li{
   float: left;
   height: 100%;
 }
-.tab ul.tab-header li a {
+#{$tab-namespace} ul#{$tab-namespace}-header li a {
   display: inline-block;
   background-color: $theme;
   text-align: center;
@@ -22,27 +29,27 @@ $tab-header-height: 38px;
   line-height: $tab-header-height;
   border-left: 1px solid desaturate($theme, 20%);
 }
-.tab  ul.tab-header li.now a{
+#{$tab-namespace} ul#{$tab-namespace}-header li.now a{
   color: #000;
   font-weight: bold;
   background-color: #f4f5f9;
 }
-.tab div.tab-content{
+#{$tab-namespace} div#{$tab-namespace}-content{
   display: none;
 }
-.tab div.tab-content.now{
+#{$tab-namespace} div#{$tab-namespace}-content.now{
   display: block;
   padding: 15px 10px;
   background-color: #f4f5f9;
 }
 
 /*兼容*/
-.ie6 .tab div.now,
-.ie7 .tab div.now{
+.ie6 #{$tab-namespace} div.now,
+.ie7 #{$tab-namespace} div.now{
   /*这个不用display:block;是为了兼容IE67浏览器*/
   display: inline-block;
 }
-.ie6 .tab ul.tab-header li a{
+.ie6 #{$tab-namespace} ul#{$tab-namespace}-header li a{
   width: expression(this.scrollWidth>100?'auto':'79px');
 }
 

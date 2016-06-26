@@ -1,9 +1,10 @@
 .page {
   font-size: 0;
+  -webkit-user-select:none;
 }
 .page a {
-  border: 2px solid var(--grey);
-  color: var(--text);
+  border: 2px solid $grey;
+  color: $text;
   padding:10px 16px;
   text-align: center;
   text-decoration: none;
@@ -22,7 +23,7 @@
   border-bottom-right-radius: var(--radius);
 }
 .page a.now,.page a:hover {
-  background-color: var(--grey);
+  background-color: $grey;
 }
 .page a.disabled {
   color: #999999;
