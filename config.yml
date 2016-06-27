@@ -31,12 +31,11 @@ modules:
   - page
   # - popup
   - progress
-  - calendar
+  # - calendar
   - form
   - textarea
   # - step
   - banner
   - scrollhook
   # - checkboxradio
-  # - banner
   - demo

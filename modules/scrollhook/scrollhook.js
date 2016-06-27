@@ -10,9 +10,10 @@ $.fn.extend({
     var screenH = $(window).height();
     var animateDelayPX = 100;
 
-    $(document).on('ready scroll', function() {
+    $(document).on('ready scroll', function(event) {
+
       timeEnd = new Date();
-      if (event.type == 'DOMContentLoaded') {
+      if (event.type == 'ready') {
         timeEnd = timeStart.getTime() + timeInterval;
 
         hooks.each(function() {

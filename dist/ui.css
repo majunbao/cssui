@@ -1650,7 +1650,12 @@ textarea[disabled]:focus
 .banner-small {
   width: 640px;
   height: 468px;
-  box-shadow: 0 20px 60px 0 rgba(158, 177, 189, 0.5);
+  box-shadow: 0 20px 44px 0 #eee;
+  transition: box-shadow 0.3s;
+}
+
+.banner-small:hover {
+  box-shadow: 0 30px 60px 0 #eee;
 }
 
 .ie .banner-small {

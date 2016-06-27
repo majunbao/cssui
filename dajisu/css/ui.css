@@ -176,8 +176,7 @@ input, textarea, .button {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
+       border-radius: 0;
 }
 
 .clear:after {
@@ -700,9 +699,17 @@ a:focus {
   padding: 0 10px;
   height: 42px;
   line-height: 42px;
-  border-radius: 200px;
+  -webkit-border-radius: 200px;
+          -moz-border-radius: 200px;
+       border-radius: 200px;
+  -webkit-transition-property: background-color, color, border-color;
+  -o-transition-property: background-color, color, border-color;
+  -moz-transition-property: background-color, color, border-color;
   transition-property: background-color, color, border-color;
-  transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+       -o-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+       transition-duration: 0.3s;
   -webkit-user-select: none;
 }
 
@@ -1060,7 +1067,9 @@ table {
 }
 
 table tr th:first-child {
-  border-top-left-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+          -moz-border-radius-topleft: 4px;
+       border-top-left-radius: 4px;
 }
 
 table th, table td {
@@ -1069,7 +1078,9 @@ table th, table td {
 }
 
 table tr th:last-child {
-  border-top-right-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+          -moz-border-radius-topright: 4px;
+       border-top-right-radius: 4px;
 }
 
 table th {
@@ -1173,7 +1184,9 @@ table.noborder th, table.noborder td {
   color: #fff;
   background-color: #55cffb;
   padding: 5px 10px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+       border-radius: 5px;
 }
 
 /*
@@ -1217,7 +1230,9 @@ tip .tip-inner {
   background-color: #464646;
   color: #ededed;
   padding: 8px 22px;
-  border-radius: 6px;
+  -webkit-border-radius: 6px;
+          -moz-border-radius: 6px;
+       border-radius: 6px;
   line-height: 1.5;
 }
 
@@ -1377,13 +1392,21 @@ tip.small {
 }
 
 .page a:first-child {
-  border-top-left-radius: var(--radius);
-  border-bottom-left-radius: var(--radius);
+  -webkit-border-top-left-radius: var(--radius);
+          -moz-border-radius-topleft: var(--radius);
+       border-top-left-radius: var(--radius);
+  -webkit-border-bottom-left-radius: var(--radius);
+          -moz-border-radius-bottomleft: var(--radius);
+       border-bottom-left-radius: var(--radius);
 }
 
 .page a:last-child {
-  border-top-right-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
+  -webkit-border-top-right-radius: var(--radius);
+          -moz-border-radius-topright: var(--radius);
+       border-top-right-radius: var(--radius);
+  -webkit-border-bottom-right-radius: var(--radius);
+          -moz-border-radius-bottomright: var(--radius);
+       border-bottom-right-radius: var(--radius);
 }
 
 .page a.now, .page a:hover {
@@ -1418,15 +1441,51 @@ tip.small {
 
 .progress-bar {
   background-color: var(--theme);
+  background-image: -webkit-repeating-linear-gradient(135deg, var(--theme), var(--theme) 10px, var(--theme-hover) 10px, var(--theme-hover) 20px);
+  background-image: -o-repeating-linear-gradient(135deg, var(--theme), var(--theme) 10px, var(--theme-hover) 10px, var(--theme-hover) 20px);
+  background-image: -moz-repeating-linear-gradient(135deg, var(--theme), var(--theme) 10px, var(--theme-hover) 10px, var(--theme-hover) 20px);
   background-image: repeating-linear-gradient(-45deg, var(--theme), var(--theme) 10px, var(--theme-hover) 10px, var(--theme-hover) 20px);
   color: var(--grey-light);
   text-align: center;
-  animation: barAnimation 12s linear infinite;
+  -webkit-animation: barAnimation 12s linear infinite;
+       -o-animation: barAnimation 12s linear infinite;
+          -moz-animation: barAnimation 12s linear infinite;
+       animation: barAnimation 12s linear infinite;
 }
 
 .progress.success .progress-bar {
   background-color: var(--success);
+  background-image: -webkit-repeating-linear-gradient(135deg, var(--success), var(--success) 10px, var(--success-hover) 10px, var(--success-hover) 20px);
+  background-image: -o-repeating-linear-gradient(135deg, var(--success), var(--success) 10px, var(--success-hover) 10px, var(--success-hover) 20px);
+  background-image: -moz-repeating-linear-gradient(135deg, var(--success), var(--success) 10px, var(--success-hover) 10px, var(--success-hover) 20px);
   background-image: repeating-linear-gradient(-45deg, var(--success), var(--success) 10px, var(--success-hover) 10px, var(--success-hover) 20px);
+}
+
+@-webkit-keyframes barAnimation {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 600px 0%;
+  }
+}
+
+@-o-keyframes barAnimation {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 600px 0%;
+  }
+}
+
+@-moz-keyframes barAnimation {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 600px 0%;
+  }
 }
 
 @keyframes barAnimation {
@@ -1444,7 +1503,9 @@ tip.small {
 }
 
 .progress.radius {
-  border-radius: 20px;
+  -webkit-border-radius: 20px;
+          -moz-border-radius: 20px;
+       border-radius: 20px;
   overflow: hidden;
 }
 
@@ -1543,7 +1604,9 @@ textarea[disabled]:focus
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto 100%;
+  -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+       background-size: auto 100%;
   position: absolute;
   left: 0;
   top: 0;
@@ -1576,7 +1639,7 @@ textarea[disabled]:focus
 }
 
 .banner-item-text h2 {
-  font-size: 75px;
+  font-size: 70px;
   color: #323232;
   padding-top: 20px;
   line-height: 100%;
@@ -1619,11 +1682,17 @@ textarea[disabled]:focus
 .banner .navs-next {
   visibility: hidden;
   opacity: 0;
+  -webkit-transition: all .5s .5s;
+  -o-transition: all .5s .5s;
+  -moz-transition: all .5s .5s;
   transition: all .5s .5s;
 }
 
 .banner:hover .navs-prev,
 .banner:hover .navs-next {
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  -moz-transition: all .5s;
   transition: all .5s;
   visibility: visible;
   opacity: 1;
@@ -1650,7 +1719,22 @@ textarea[disabled]:focus
 .banner-small {
   width: 640px;
   height: 468px;
-  box-shadow: 0 20px 60px 0 rgba(158, 177, 189, 0.5);
+  -webkit-box-shadow: 0 20px 44px 0 #eee;
+          -moz-box-shadow: 0 20px 44px 0 #eee;
+       box-shadow: 0 20px 44px 0 #eee;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  -o-transition: box-shadow 0.3s;
+  -moz-transition: box-shadow 0.3s, -moz-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s, -moz-box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
+}
+
+.banner-small:hover {
+  -webkit-box-shadow: 0 30px 60px 0 #eee;
+          -moz-box-shadow: 0 30px 60px 0 #eee;
+       box-shadow: 0 30px 60px 0 #eee;
 }
 
 .ie .banner-small {
@@ -1786,7 +1870,9 @@ section article {
   display: block;
   width: 50px;
   height: 50px;
-  border-radius: 20%;
+  -webkit-border-radius: 20%;
+          -moz-border-radius: 20%;
+       border-radius: 20%;
   padding: 0;
   background-color: #55cffb;
 }
