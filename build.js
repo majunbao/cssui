@@ -121,10 +121,10 @@ let init = () => {
   outs = config.out || [];
   paths();
   modulesStyles = modules.filter(function(val) {
-    return files.includes(`${root}/${val}/${val}${styleExtname}`);
+    return files.includes(path.join(root, val, val+styleExtname));
   });
   modulesScripts = modules.filter(function(val) {
-    return files.includes(`${root}/${val}/${val}${scriptExtname}`);
+    return files.includes(path.join(root, val, val+scriptExtname));
   });
 }
 init()
