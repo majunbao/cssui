@@ -1,0 +1,104 @@
+h1.logo {
+  width: 1000px;
+  margin: 60px auto;
+  font-size: 140px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  color: $theme;
+}
+h1.logo small{
+  font-size: 20px;
+  color: desaturate($grey, 10%);
+  font-family: sans-serif;
+}
+
+section {
+  font-family: verdana, "microsoft yahei";
+  width: 1000px;
+  margin: 0 auto 50px auto;
+  overflow: hidden;
+}
+
+section h2.demo-h2 {
+  font-size: 30px;
+  color: #666;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  font-weight: normal;
+  text-transform: capitalize;
+  font-variant: small-caps;
+}
+
+section article {
+  margin-bottom: 15px;
+}
+/*demo*/
+
+.module {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
+.column p.col-num {
+  text-align: center;
+  background-color: $grey;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px 0;
+  color: $text;
+  float: none;
+}
+
+.column:hover p.col-num {
+  background-color: desaturate($grey, 10%);
+}
+/*Theme Color*/
+.demo-color {overflow: hidden;}
+.demo-color li{
+  float:left;
+  width: 22%;
+}
+.demo-color li .color{
+  margin-bottom:15px;
+}
+.color{
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  padding:0;
+  background-color: $theme;
+}
+.color-light{
+  background-color: lighten($theme, 10%);
+}
+.color-dark{
+  background-color: desaturate($theme, 10%);
+}
+
+$demo-colors: (blue $blue) (green $green) (orange $orange) (grey $grey) (text $text);
+
+.color {
+  @each $demo-color in $demo-colors{
+    $demo-color-name: nth($demo-color, 1);
+    $demo-color-background-color: nth($demo-color, 2);
+
+    &.#{$demo-color-name} {
+      background-color: #{$demo-color-background-color};
+    }
+    &.#{$demo-color-name}-light{
+        background-color: lighten($demo-color-background-color, 10%);
+    }
+    &.#{$demo-color-name}-dark{
+      background-color: desaturate($demo-color-background-color, 10%);
+    }
+  }
+}
+
+.demo-tip {position: relative;width: 1000px;height: 50px;}
+.demo-tip .tip-top{margin-left: 0%;}
+.demo-tip .tip-right{margin-left: 20%;}
+.demo-tip .tip-bottom{margin-left: 40%;}
+.demo-tip .tip-left{margin-left: 60%;}
+
+.demo-calendar{position: relative;height: 300px}

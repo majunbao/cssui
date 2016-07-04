@@ -1,0 +1,51 @@
+/*
+* Config
+* 
+*/
+$notice-namespace: '.notice' !default;
+
+$notice-background: $theme !default;
+$notice-padding: 20px;
+$notice-color: #fff !default;
+
+// (name background) 
+$notice-colors: (bule $blue)
+                (green $green)
+                (orange $orange)
+                (grey $grey)
+                !default;
+
+/*
+*
+* Mixin
+*/
+@mixin notice-color {
+  @each $notice-color in $notice-colors {
+    $notice-name: nth($notice-color, 1);
+    $notice-background: nth($notice-color, 2);
+    $notice-color-namespace: $notice-namespace + '-' + $notice-name;
+
+    #{$notice-color-namespace} {
+      background: $notice-background;
+    }
+  }
+};
+
+
+/*
+*
+* Base
+*/
+#{$notice-namespace} {
+  padding: $notice-padding;
+  color: $notice-color;
+  background-color: $notice-background;
+}
+
+#{$notice-namespace} h1 {
+  font-size: 16px;
+  font-weight: bolder;
+  margin: 0 0 10px 0;
+}
+
+@include notice-color;

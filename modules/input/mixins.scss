@@ -1,0 +1,21 @@
+@mixin input-colors {
+  @each $input-color in $input-colors {
+    $input-name: nth($input-color, 1);
+    $input-border-color: nth($input-color, 2);
+    $input-color: nth($input-color, 3);
+    $input-color-namespace: $input-namespace + '-' + $input-name;
+    &#{$input-color-namespace} {
+      & {
+        border-color: $input-border-color;
+        color: $input-color;
+      }
+      &:hover {
+        border-color: lighten($input-border-color, 10%);
+        color: $input-color;
+      }
+      &:active {
+        border-color: desaturate($input-border-color, 10%)
+      }
+    }
+  }
+}

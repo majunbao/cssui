@@ -1,0 +1,57 @@
+/*
+* Option Button
+*/
+
+/*
+* Button Namespace
+* 
+* 默认是 .button ，根据喜好也可设置为 .btn
+*/
+$btn-namespace: '.button' !default;
+
+/*
+* Button Defaults
+*
+* 根据其他项目改变这些设置。
+* 按钮的宽度没有直接用 width 属性设置，而是采用 min-width + padding 的方式，
+* 这样按钮有了最小宽度，文字过多时宽度也会自动扩展。
+*
+* 按钮的高度 采用 height 和 line-height 的方式控制。
+* 
+*/
+$btn-width: 152px !default;
+$btn-padding: 10px !default;
+$btn-height: 42px !default;
+$btn-font-size: 14px !default;
+$btn-border-radius: 200px !default;
+$btn-color: #666 !default;
+$btn-background: #EEE !default;
+
+/*
+* Button Colors
+*
+* (name, background, color)
+* 
+*/
+$btn-colors:  (blue $blue #FFF)
+              (green $green #FFF)
+              (orange $orange #FFF)
+              (while #FFF black)
+              (grey $grey #FFF) !default;
+
+
+/*
+* Button Shapes
+*
+*/
+
+/*
+* Button Sizes
+*
+* (name width height padding)
+* 
+*/
+$btn-sizes: (smaller 28px 20px 4px)
+            (small 86px 28px 5px) 
+            (large 180px 50px 10px)
+            (larger 268px 38px 10px) !default;

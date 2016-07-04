@@ -1,0 +1,43 @@
+# 模块跟目录
+path: modules
+
+# 配置主题
+theme: 大技术平台
+
+# 输出文件
+# .min.js 代表输出压缩后的js文件
+out:
+  - dist/ui.css
+  - dist/ui.js
+  - dajisu/css/ui.css
+  - dajisu/js/ui.js
+  - tushu/css/ui.css
+  - tushu/js/ui.js
+
+# 模块列表
+modules:
+  - reset
+  - tool
+  - margin
+  - column
+  - text
+  - link
+  - button
+  - input
+  - table
+  - list
+  - tab
+  - label
+  - tip
+  - notice
+  - page
+  # - popup
+  - progress
+  # - calendar
+  - form
+  - textarea
+  # - step
+  - banner
+  - scrollhook
+  # - checkboxradio
+  - demo

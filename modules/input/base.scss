@@ -1,0 +1,43 @@
+#{$input-namespace} {
+  margin: 0;
+  outline: none;
+  vertical-align: middle;
+  padding: $input-padding;
+  width: $input-width;
+  line-height: 1;
+  height: $input-height;
+  border: $input-border;
+  color: $input-color;
+}
+
+input[type=text]:hover,
+input[type=password]:hover {
+  
+}
+
+input[type=text]:focus,
+input[type=password]:active {
+  
+}
+
+
+/**
+* Disabled State
+*
+*/
+
+#{$input-namespace}-disabled,
+#{$input-namespace}-disabled:hover {
+  background: $disabled !important;
+  border-color: $disabled !important;
+  color: #fff !important;
+  cursor: not-allowed;
+}
+
+
+/**
+* Input color
+*
+*/
+
+@include input-colors;

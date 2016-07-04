@@ -1,0 +1,11 @@
+$marginBlack: margin, margin-top, margin-right, margin-bottom, margin-left, padding, padding-top, padding-right, padding-bottom, padding-left;
+
+@each $block in $marginBlack {
+  @for $i from 0 through 30 {
+    @if($i % 5 == 0){
+      .#{$block}-#{$i} {
+        #{$block}: #{$i}px !important;
+      }
+    }
+  }
+}

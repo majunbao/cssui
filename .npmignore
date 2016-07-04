@@ -2,8 +2,5 @@ node_modules
 .DS_Store
 .svn
 简介资源
-module
 .gitignore
 .npmignore
-build.js
-server.js

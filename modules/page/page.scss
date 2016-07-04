@@ -1,0 +1,43 @@
+.page {
+  font-size: 0;
+  -webkit-user-select:none;
+}
+.page a {
+  border: 2px solid $grey;
+  color: $text;
+  padding:10px 16px;
+  text-align: center;
+  text-decoration: none;
+  margin-right: -2px;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 1.5;
+  vertical-align: middle; /*ie678 解决汉子和数字上下不对齐*/
+}
+.page a:first-child {
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+}
+.page a:last-child {
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+.page a.now,.page a:hover {
+  background-color: $grey;
+}
+.page a.disabled {
+  color: #999999;
+}
+.page.page-right{
+  text-align: right;
+}
+.page.page-right a {
+  margin-right: 0;
+  margin-left: -2px;
+}
+
+/*兼容*/
+.ie6 .page a.disabled{
+  background-color: transparent !important;
+  color: #999;
+}

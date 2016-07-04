@@ -1,0 +1,70 @@
+tip{
+  display: block;
+  position: absolute;
+  z-index: 1000;
+  max-width: 220px;
+}
+tip .tip-inner{
+  background-color: desaturate($dark, 10%);
+  color: lighten($grey, 20%);
+  padding:8px 22px;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+tip .tip-arrow{
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border:5px dashed desaturate($dark, 10%);
+}
+tip.tip-top .tip-arrow, tip.tip-bottom .tip-arrow{
+  left: 50%;
+  margin-left: -5px;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+
+tip.tip-left .tip-arrow, tip.tip-right .tip-arrow{
+  top: 50%;
+  margin-top: -5px;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+tip.tip-left .tip-arrow{
+  right:0;
+  border-right: none;
+  border-left-style: solid; /*IE678*/
+}
+tip.tip-right .tip-arrow{
+  left: 0;
+  border-left: none;
+  border-right-style: solid; /*IE678*/
+}
+tip.tip-top .tip-arrow{
+  bottom:0;
+  border-bottom: none;
+  border-top-style: solid; /*IE678*/
+}
+tip.tip-bottom .tip-arrow{
+  top: 0;
+  border-top: none;
+  border-bottom-style: solid; /*IE678*/
+}
+
+.tip-top{padding-bottom: 5px;}
+.tip-right{padding-left: 5px;}
+.tip-bottom{padding-top: 5px;}
+.tip-left{padding-right: 5px;}
+
+
+tip.small .tip-inner{font-size: 12px;padding:5px 15px;}
+
+
+/*兼容*/
+.ie6 .tip-top{padding-bottom: 5px;}
+.ie6 .tip-right{padding-left: 5px;}
+.ie6 .tip-bottom{padding-top: 5px;}
+.ie6 .tip-left{padding-right: 5px;}
+.ie6 tip{width: expression(this.scrollWidth > 220 ? "222px" : "auto");}
+tip.small{width: auto !important}

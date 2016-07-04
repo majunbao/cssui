@@ -1,0 +1,40 @@
+/*
+* Option Input
+*/
+
+/*
+* Input Namespace
+* 
+* 默认是 input ，根据喜好也可设置为 .input or input[type=text]
+*/
+$input-namespace: '.input' !default;
+
+/*
+* Input Defaults
+*
+* 根据其他项目改变这些设置。
+*
+* 
+*/
+$input-padding: 0 10px !default;
+$input-width: 278px !default;
+$input-height: 43px !default;
+$input-border:2px solid $grey !default;
+$input-color: $text !default;
+
+/*
+* Input Colors
+*
+* (name, border-color, color)
+* 
+*/
+$input-colors:  (blue $blue $blue)
+                (green $green $green)
+                (orange $orange $orange)
+                (grey $grey $grey) !default;
+
+/*
+* Input Sizes
+*
+* ()
+*/
