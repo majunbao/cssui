@@ -9,10 +9,6 @@ theme: 大技术平台
 out:
   - dist/ui.css
   - dist/ui.js
-  - dajisu/css/ui.css
-  - dajisu/js/ui.js
-  - tushu/css/ui.css
-  - tushu/js/ui.js
 
 # 模块列表
 modules:
