@@ -11,6 +11,8 @@ out:
   - dist/ui.js
   - dajisu/css/ui.css
   - dajisu/js/ui.js
+  - tushu/css/ui.css
+  - tushu/js/ui.js
 
 # 模块列表
 modules:
@@ -23,7 +25,7 @@ modules:
   - button
   - input
   - table
-  # - list
+  - list
   - tab
   - label
   - tip

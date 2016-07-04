@@ -15,7 +15,6 @@ let root;
 let modules;
 let outs;
 
-
 let styleExtname = '.scss';
 let styleSource;
 let styleCompile;

@@ -1111,6 +1111,12 @@ table.noborder th, table.noborder td {
   border: 2px solid #f4f5f9;
 }
 
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 /*
 * Tab Config
 */
