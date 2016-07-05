@@ -1,11 +1,26 @@
-$marginBlack: margin, margin-top, margin-right, margin-bottom, margin-left, padding, padding-top, padding-right, padding-bottom, padding-left;
+// config
+$blacks:
+'.margin'
+'.margin-top'
+'.margin-right'
+'.margin-bottom'
+'.margin-left'
+'.padding'
+'.padding-top'
+'.padding-right'
+'.padding-bottom'
+'.padding-left' !default;
 
-@each $block in $marginBlack {
-  @for $i from 0 through 30 {
-    @if($i % 5 == 0){
-      .#{$block}-#{$i} {
-        #{$block}: #{$i}px !important;
-      }
+$black-values: (5 10 15 20 25 30) !default;
+
+// mixin
+@each $block in $blacks {
+  #{$block}{
+    #{$block}: 0 !important;
+  }
+  @each $black-value in $black-values {
+    #{$block}-#{$black-value}{
+      #{$block}: #{$black-value}px !important;
     }
   }
 }

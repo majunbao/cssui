@@ -1,9 +1,13 @@
-/* ======  column  ====== */
+// config
+$column : (2 1)
+          (3 2 1)
+          (4 3 2 1)
+          (5 4 3 2 1)
+          !default;
+$column-width: 100% !default;
+$column-blank: 0 !default;
 
-$column :(2 1)(3 2 1)(4 3 2 1)(5 4 3 2 1);
-$column-width: 100%;
-$column-blank: 0;
-
+// base
 .column{
   width: $column-width;
   margin:0 auto;
@@ -22,6 +26,7 @@ $column-blank: 0;
 }
 
 
+// mixin
 @each $x,$y in $column{
   @for $i from 1 through $y{
     .column .col-#{$x}-#{$i}{
