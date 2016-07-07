@@ -7,8 +7,8 @@ theme: 大技术平台
 # 输出文件
 # .min.js 代表输出压缩后的js文件
 out:
-  - dist/ui.css
-  - dist/ui.js
+  - dist/resources/ui.css
+  - dist/resources/ui.js
 
 # 模块列表
 modules:

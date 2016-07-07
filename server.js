@@ -11,7 +11,7 @@ const mineType = {
   'ico' : 'image/x-icon'
 }
 
-const serverdir = 'dist';
+const serverdir = process.argv[2] || 'dist';
 
 const server = http.createServer((req, res) => {
   let someHead = req.headers.accept;

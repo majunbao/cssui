@@ -32,6 +32,8 @@ let watchs = [];
 let modulesStyles = [];
 let modulesScripts = [];
 
+let browserDist = 'dist/resources/modules.js';
+
 function column(data, colsnum = 4) {
   let result = [];
   let cols = colsnum; //列
@@ -251,7 +253,7 @@ let css = (event = '', filename = '') => {
       return;
     }
 
-    
+
 
   })();
 
@@ -265,7 +267,7 @@ let css = (event = '', filename = '') => {
       for (let out of targes('.min.css')) {
         console.log(" ✓".green, out.grey)
       };
-      
+
       console.log(" ");
     }
   })()
@@ -382,6 +384,42 @@ let js = (event = '', filename = '') => {
   }
 }
 
+let readFilter = function(dir, filter, callback) {
+  fs.stat(dir, function(err, stats) {
+    if (!err) {
+      if (stats.isFile()) {
+        if (path.extname(dir) === filter)
+          callback(dir)
+      } else if (stats.isDirectory()) {
+        fs.readdir(dir, function(err, files) {
+          if (!err) {
+            for (let file of files) {
+              readFilter(path.join(dir, file), filter, callback);
+            }
+          } else {
+            console.log(Error(err))
+          }
+        })
+      }
+    } else {
+      console.log(Error(err))
+    }
+
+  })
+};
+
+let browser = () => {
+  let resultJs = 'var sass = new Sass();sass.options({style: Sass.style.expanded});\n'
+               + 'sass.writeFile("modules/init.scss", ' + JSON.stringify(styleSource) + ')\n';
+  readFilter(root, '.scss', function(file) {
+    fs.writeFileSync(browserDist, resultJs);
+    fs.readFile(file, function(err, data) {
+      let result = 'sass.writeFile("' + file + '", ' + JSON.stringify(data.toString()) + ');';
+      fs.appendFile(browserDist, result + '\n')
+    })
+  })
+}
+
 let watch = (directory = dirs) => {
   for (let dir of directory) {
     try {
@@ -440,6 +478,7 @@ let log = () => {
 log()
 css()
 js()
+browser();
 watch()
 
 

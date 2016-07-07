@@ -1,25 +1,25 @@
 // config
 $blacks:
-'.margin'
-'.margin-top'
-'.margin-right'
-'.margin-bottom'
-'.margin-left'
-'.padding'
-'.padding-top'
-'.padding-right'
-'.padding-bottom'
-'.padding-left' !default;
+'margin'
+'margin-top'
+'margin-right'
+'margin-bottom'
+'margin-left'
+'padding'
+'padding-top'
+'padding-right'
+'padding-bottom'
+'padding-left' !default;
 
 $black-values: (5 10 15 20 25 30) !default;
 
 // mixin
 @each $block in $blacks {
-  #{$block}{
+  .#{$block}{
     #{$block}: 0 !important;
   }
   @each $black-value in $black-values {
-    #{$block}-#{$black-value}{
+    .#{$block}-#{$black-value}{
       #{$block}: #{$black-value}px !important;
     }
   }
