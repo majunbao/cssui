@@ -27,6 +27,7 @@ let scriptMin;
 
 let dirs = [];
 let files = [];
+let watchs = [];
 
 let modulesStyles = [];
 let modulesScripts = [];
@@ -94,14 +95,17 @@ function column(data, colsnum = 4) {
   return result;
 }
 
-// 迭代模块目录 => dirs; => files;
-let paths = (dir = root) => {
+// 迭代模块目录 生成文件列表 供 fs.watch使用
+let paths = (dir = root, result = dirs) => {
   let _paths = fs.readdirSync(dir);
+
   for (let _path of _paths) {
+
     let stats = fs.statSync(path.join(dir, _path));
+
     if (stats.isDirectory()) {
       paths(path.join(dir, _path))
-      dirs.push(path.join(dir, _path))
+      result.push(path.join(dir, _path))
     } else if (stats.isFile) {
       files.push(path.join(dir, _path))
     }
@@ -120,10 +124,10 @@ let init = () => {
   outs = config.out || [];
   paths();
   modulesStyles = modules.filter(function(val) {
-    return files.includes(path.join(root, val, val+styleExtname));
+    return files.includes(path.join(root, val, val + styleExtname));
   });
   modulesScripts = modules.filter(function(val) {
-    return files.includes(path.join(root, val, val+scriptExtname));
+    return files.includes(path.join(root, val, val + scriptExtname));
   });
 }
 init()
@@ -148,11 +152,17 @@ let targes = (filter, targesArray = outs) => {
           return val.substr(-`.min${filter}`.length, `.min${filter}`.length) !== `.min${filter}`
         });
         break;
+      case '.scss':
+        _targes = outs.filter(function(val) {
+          return val.substr(-filter.length, filter.length) === filter
+        })
+        break;
     }
     return _targes;
 
   }
 }
+
 
 let css = (event = '', filename = '') => {
   styleSource = () => {
@@ -240,6 +250,9 @@ let css = (event = '', filename = '') => {
       console.error('失败：CSS 输出目录没有设置，请配置 out');
       return;
     }
+
+    
+
   })();
 
   (() => {
@@ -252,6 +265,7 @@ let css = (event = '', filename = '') => {
       for (let out of targes('.min.css')) {
         console.log(" ✓".green, out.grey)
       };
+      
       console.log(" ");
     }
   })()
@@ -368,15 +382,15 @@ let js = (event = '', filename = '') => {
   }
 }
 
-let watch = () => {
-  for (let dir of dirs) {
+let watch = (directory = dirs) => {
+  for (let dir of directory) {
     try {
       fs.watch(path.join(dir), function(event, filename) {
         let _extname = path.extname(filename);
-        if(_extname === styleExtname){
+        if (_extname === styleExtname) {
           init();
           css(event, filename);
-        }else if(_extname === scriptExtname){
+        } else if (_extname === scriptExtname) {
           init();
           js(event, filename)
         }
@@ -430,9 +444,21 @@ watch()
 
 
 // 配置变化时 重新配置上下文
-fs.watch('config.yml', (evnet, filename) => {
+fs.watchFile('config.yml', { interval: 500 }, (evnet, filename) => {
+  let prevwatchs = modules;
   init()
   log()
   css()
   js()
+
+  for (let module of modules) {
+    if (!prevwatchs.includes(module)) {
+      let addModule = [];
+      console.log(path.join(root, module))
+      paths(path.join(root, module), addModule);
+      console.log(addModule)
+      watch(addModule);
+    }
+  };
+
 })

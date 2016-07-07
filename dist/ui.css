@@ -630,6 +630,7 @@ input, textarea, .button {
 
 a {
   color: #5ecbf2;
+  text-decoration: none;
 }
 
 a:hover {
