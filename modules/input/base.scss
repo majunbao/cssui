@@ -8,6 +8,8 @@
   height: $input-height;
   border: $input-border;
   color: $input-color;
+  font-size: $input-font-size;
+  background: $input-background;
 }
 
 input[type=text]:hover,
@@ -25,7 +27,7 @@ input[type=password]:active {
 * Disabled State
 *
 */
-
+#{$input-namespace}[disabled],
 #{$input-namespace}-disabled,
 #{$input-namespace}-disabled:hover {
   background: $disabled !important;

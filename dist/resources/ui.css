@@ -974,12 +974,15 @@ a:focus {
   height: 43px;
   border: 2px solid #bababa;
   color: #767676;
+  font-size: inherit;
+  background: transparent;
 }
 
 /**
 * Disabled State
 *
 */
+.input[disabled],
 .input-disabled,
 .input-disabled:hover {
   background: #dde2ef !important;

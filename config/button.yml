@@ -1,0 +1,27 @@
+button:
+  # Button Defaults
+  width:         152px
+  height:        42px
+  padding:       10px
+  font-size:     14px
+  radius:        200px
+  color:         '#666'
+  background:    '#eee'
+
+  # Button Colors
+  # - name, background, color
+  colors:
+    values:
+      name background color
+    options:
+      - blue $blue '#fff'
+      - green $green '#fff'
+   
+
+  # Button Sizes
+  # - name width height padding
+  sizes:
+    - smaller 28px 20px 4px
+    - small 86px 28px 5px
+    - large 180px 50px 10px
+    - larger 268px 38px 10px

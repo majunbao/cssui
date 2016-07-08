@@ -19,12 +19,17 @@
   <link rel="stylesheet" id="uicss" type="text/css" href="resources/ui.css">
   <script src="library/jquery-1.12.4.min.js"></script>
   <script src="resources/ui.js"></script>
+
   <script src="library/sass.js"></script>
   <script src="resources/modules.js"></script>
   <script src="resources/browser.js"></script>
+
+  <link rel="stylesheet" href="resources/namespace-setting.css">
+  <script src="resources/namespace-setting.js"></script>
 </head>
 
 <body>
+
   <h1 class="logo">ui kit <small>0.70.0</small></h1>
   <section class="demo-color">
     <div class="column">
@@ -599,28 +604,28 @@
     <article>
       <form action="javascript:;">
         <fieldset>
-          <label class="long">公司名称：</label>
+          <label>公司名称：</label>
           <input type="text" class="input" placeholder="请填写内容">
         </fieldset>
         <fieldset>
-          <label class="long">职位头衔：</label>
+          <label>职位头衔：</label>
           <input type="text" class="input" placeholder="请填写内容">
         </fieldset>
         <fieldset>
-          <label class="long">在职时间：</label>
+          <label>在职时间：</label>
           <input type="text" class="input" placeholder="开始时间">
           <input type="text" class="input" placeholder="结束时间">
         </fieldset>
         <fieldset>
-          <label class="long">老师简介：</label>
+          <label>老师简介：</label>
           <input type="text" class="input" placeholder="请填写内容">
         </fieldset>
         <fieldset>
-          <label class="long">备注：</label>
+          <label>备注：</label>
           <textarea name="name" rows="" placeholder="请输入文字"></textarea>
         </fieldset>
         <fieldset>
-          <label class="long"></label>
+          <label></label>
           <input type="submit" value="提交" class="button green large">
           <input type="reset" value="重置" class="button grey large">
         </fieldset>
@@ -677,6 +682,63 @@
     <span class="text-small">text-small</span>
     <span class="text-big">text-big</span>
     <span class="text-large">text-large</span>
+  </section>
+  <section class="namespace-setting">
+    <div class="namespace-setting-width"></div>
+    <article>
+      <h2 class="module-title">Form</h2>
+      <form action="javascript:;">
+        <label class="anchor">aases:</label>
+        <fieldset>
+          <label>padding: </label>
+          <input type="text" class="input" placeholder="0 20px" value="0 20px">
+        </fieldset>
+        <fieldset>
+          <label>width:</label>
+          <input type="text" class="input" placeholder="请填写内容" value="20px">
+        </fieldset>
+        <fieldset>
+          <label>height:</label>
+          <input type="text" class="input" placeholder="开始时间" value="30px">
+        </fieldset>
+      </form>
+      <form action="#">
+        <label class="anchor">Colors:</label>
+        <table>
+          <thead>
+            <tr>
+              <th>name</th>
+              <th>color</th>
+              <th>background</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="text" class="input">
+              </td>
+              <td>
+                <input type="text" class="input">
+              </td>
+              <td>
+                <input type="text" class="input">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" class="input">
+              </td>
+              <td>
+                <input type="text" class="input">
+              </td>
+              <td>
+                <input type="text" class="input">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </article>
   </section>
   <section style=padding-bottom:300px;></section>
 </body>
