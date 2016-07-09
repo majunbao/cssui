@@ -1,5 +1,5 @@
-button:
-  # Button Defaults
+# Button Bases
+bases:
   width:         152px
   height:        42px
   padding:       10px
@@ -8,20 +8,25 @@ button:
   color:         '#666'
   background:    '#eee'
 
-  # Button Colors
-  # - name, background, color
-  colors:
-    values:
-      name background color
-    options:
-      - blue $blue '#fff'
-      - green $green '#fff'
-   
+# Button Colors
+colors:
+  values:
+    name background color
+  options:
+    - blue $blue '#fff'
+    - green $green '#fff'
 
-  # Button Sizes
-  # - name width height padding
-  sizes:
+# Button Sizes
+sizes:
+  values:
+    name width height padding
+  options:
     - smaller 28px 20px 4px
     - small 86px 28px 5px
     - large 180px 50px 10px
     - larger 268px 38px 10px
+
+black:
+  - margin
+  - margin-top
+  - margin-bottom
