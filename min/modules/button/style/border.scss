@@ -1,0 +1,38 @@
+#{$btn-namespace}-border {
+  background: none;
+  line-height: $btn-height - 4;
+  height: $btn-height - 4;
+  min-width: $btn-width - $btn-padding * 2 - 4;
+  border-width: 2px;
+  border: 2px solid $btn-background;
+  color: $btn-color;
+  &:hover{
+    background: desaturate($btn-background, 10%);
+    color: $btn-color;
+  }
+  &:active {
+    background: desaturate($btn-background, 10%);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+    border-color: darken($btn-background, 12%);
+  }
+
+  @each $btn-color in $btn-colors {
+    $btn-name: nth($btn-color, 1);
+    $btn-background: nth($btn-color, 2);
+    $btn-color: nth($btn-color, 3);
+    $btn-name-namespace: $btn-namespace + '-' + $btn-name;
+    &#{$btn-name-namespace} {
+      border-color: $btn-background;
+      color: $btn-background;
+      &:hover{
+        background: desaturate($btn-background, 10%);
+        color: $btn-color;
+      }
+      &:active {
+        background: desaturate($btn-background, 10%);
+        text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+        border-color: darken($btn-background, 12%);
+      }
+    }
+  }
+}

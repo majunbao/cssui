@@ -1,0 +1,43 @@
+@mixin btn-colors {
+  @each $btn-color in $btn-colors {
+    $btn-name: nth($btn-color, 1);
+    $btn-background: nth($btn-color, 2);
+    $btn-color: nth($btn-color, 3);
+    $btn-color-namespace: $btn-namespace + '-' + $btn-name;
+    &#{$btn-color-namespace} {
+      & {
+        background-color: $btn-background;
+        color: $btn-color;
+      }
+      &:hover{
+        background-color: lighten($btn-background, 10%);
+        color: $btn-color;
+      }
+      &:active {
+        background-color: desaturate($btn-background, 10%);
+        text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+      }
+    }
+  }
+}
+
+/*尺寸*/
+
+/*smallest smaller small default large larger largest*/
+
+@mixin btn-sizes {
+  @each $btn-size in $btn-sizes {
+    $btn-name: nth($btn-size, 1);
+    $btn-width: nth($btn-size, 2) - nth($btn-size, 4)*2;
+    $btn-padding: nth($btn-size, 4);
+    $btn-height: nth($btn-size, 3);
+    $btn-color-namespace: $btn-namespace + '-' + $btn-name;
+
+    &#{$btn-color-namespace} {
+      min-width: $btn-width;
+      padding:0 $btn-padding;
+      height: $btn-height;
+      line-height: $btn-height;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+/*
+* Base Botton Style
+*
+* The default values for the .botton class
+*/
+#{$btn-namespace} {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: $btn-font-size;
+  /*button colors*/
+  color: $btn-color;
+  background: $btn-background;
+  /*button shapes*/
+  min-width: $btn-width - $btn-padding * 2;
+  padding: 0 $btn-padding;
+  height: $btn-height;
+  line-height: $btn-height;
+  border-radius: $btn-border-radius;
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.3s;
+  -webkit-user-select: none;
+  &:hover {
+    background: lighten($btn-background, 3%);
+  }
+  &:active {
+    background: desaturate($btn-background, 10%);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+  }
+}
+
+/**
+* Disabled State
+*
+*/
+#{$btn-namespace}-disabled,
+#{$btn-namespace}-disabled:hover {
+  background: $disabled !important;
+  border-color: $disabled !important;
+  color: #fff !important;
+  cursor: not-allowed;
+}
+
+/**
+* Button color
+*
+*/
+@include btn-colors;
+
+
+/**
+* Button size
+*
+*/
+@include btn-sizes;
+

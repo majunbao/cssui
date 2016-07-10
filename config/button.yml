@@ -27,6 +27,6 @@ sizes:
     - larger 268px 38px 10px
 
 black:
-  - margin
-  - margin-top
-  - margin-bottom
+  margin
+  margin-top
+  margin-bottom
