@@ -16,7 +16,6 @@ let readObject = (objects) => {
   }
   return (`<form>${content}</form>`)
 }
-
 let render = () => {
   console.log(readObject(config.bases))
 }
